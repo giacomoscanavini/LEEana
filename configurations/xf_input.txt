@@ -1,0 +1,9 @@
+#file	#type			#filename	#start	#end	#cut		#det_POT	#merge	#Data_POT
+1	intrinsic_nue		run1				<400					1
+1	intrinsic_nue		run1				>=400					2
+1	intrinsic_nue_lowE	run1				none					1
+1	intrinsic_nue		run2		
+1	intrinsic_nue		run3		
+2	nu_overlay		run1		
+2 	nu_overlay		run2		
+2	nu_overlay		run3		
