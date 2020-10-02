@@ -1,4 +1,3 @@
-#file										#cut
 ./processed_files/checkout_run1_intrinsic_nue_LowE_POT6.1E23.root		LowEintnueCC
 ./processed_files/checkout_run3_intrinsic_nue_LowE_POT6.0E23.root		LowEintnueCC
 ./processed_files/checkout_run1_intrinsic_nue_POT1.2E23.root			LowEintnueCC		
@@ -15,5 +14,5 @@
 ./processed_files/checkout_run3_extbnb_F_G1_POT1.9E20.root			all
 ./processed_files/checkout_run1_dirt_POT2.4E20.root				all
 ./processed_files/checkout_run3_dirt_POT1.8E20.root				all
-
-
+end										end
+#file										#cut
