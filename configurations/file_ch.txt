@@ -14,5 +14,6 @@
 ./processed_files/checkout_run3_extbnb_F_G1_POT1.9E20.root			all
 ./processed_files/checkout_run1_dirt_POT2.4E20.root				all
 ./processed_files/checkout_run3_dirt_POT1.8E20.root				all
+./processed_checkout_rootfiles/run1_data_bnb.root				all
 end										end
 #file										#cut

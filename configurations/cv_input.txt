@@ -10,6 +10,6 @@
 3	EXTBNB			3		./processed_files/checkout_run3_extbnb_F_G1_POT1.9E20.root			./hist_rootfiles/checkout_run3_extbnb_F_G1_POT1.9E20.root			9.5e19		10
 4	DIRT			1		./processed_files/checkout_run1_dirt_POT2.4E20.root				./hist_rootfiles/checkout_run1_dirt_POT2.4E20.root				0		11
 4	DIRT			3		./processed_files/checkout_run3_dirt_POT1.8E20.root				./hist_rootfiles/checkout_run3_dirt_POT1.8E20.root				0		12
-0	BNB			1		./processed_checkout_rootfiles/run1_data_bnb.root				./hist_rootfiles/run1_data_bnb.root						4.5e19		13
+5	BNB			1		./processed_checkout_rootfiles/run1_data_bnb.root				./hist_rootfiles/run1_data_bnb.root						4.5e19		13
 -1	end			-1		end										end										-1		-1
 #file	#type			#period		#filename									#outfile_name									#ext_pot	#file_no
