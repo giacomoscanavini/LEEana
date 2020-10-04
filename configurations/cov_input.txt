@@ -1,10 +1,10 @@
-nueCC_FC_bnb				kine_reco_Enu	25	0	2500	0	0		0	0		0		0		5	unity
-nueCC_PC_bnb				kine_reco_Enu	25	0	2500	0	0		0	0		0		0		5	unity
-numuCC_nopi0_nonueCC_FC_bnb		kine_reco_Enu	25	0	2500	0	0		0	0		0		0		5	unity
-numuCC_nopi0_nonueCC_PC_bnb		kine_reco_Enu	25	0	2500	0	0		0	0		0		0		5	unity
-CCpi0_nonueCC_FC_bnb			pi0_energy	20	100	2100	0	0		0	0		0		0		5	unity
-CCpi0_nonueCC_PC_bnb			pi0_energy	20	100	2100	0	0		0	0		0		0		5	unity
-NCpi0_nonueCC_bnb			pi0_energy	20	100	2100	0	0		0	0		0		0		5	unity
+nueCC_FC_bnb				kine_reco_Enu	25	0	2500	1	0		0	0		0		0		5	unity
+nueCC_PC_bnb				kine_reco_Enu	25	0	2500	2	0		0	0		0		0		5	unity
+numuCC_nopi0_nonueCC_FC_bnb		kine_reco_Enu	25	0	2500	3	0		0	0		0		0		5	unity
+numuCC_nopi0_nonueCC_PC_bnb		kine_reco_Enu	25	0	2500	4	0		0	0		0		0		5	unity
+CCpi0_nonueCC_FC_bnb			pi0_energy	20	100	2100	5	0		0	0		0		0		5	unity
+CCpi0_nonueCC_PC_bnb			pi0_energy	20	100	2100	6	0		0	0		0		0		5	unity
+NCpi0_nonueCC_bnb			pi0_energy	20	100	2100	7	0		0	0		0		0		5	unity
 LEE_FC_nueoverlay			kine_reco_Enu	25	0	2500	1	1		1	0		1		8		1	lee_cv_spline
 LEE_PC_nueoverlay			kine_reco_Enu	25	0	2500	2	1		1	0		2		9		1	lee_cv_spline
 nueCC_FC_nueoverlay			kine_reco_Enu	25	0	2500	1	1		1	0		1		1		1	cv_spline
