@@ -63,8 +63,13 @@ void plot_check_numuCCFC(){
 
     T_eval->Project("h40","kine_reco_Enu","weight_cv*weight_spline*(numu_cc_flag>=0 &&match_isFC==1  && numu_score>0.9 && nue_score<=7 && !(kine_pio_flag==1 && kine_pio_vtx_dis < 9  && kine_pio_energy_1 > 40 && kine_pio_energy_2 > 25 && kine_pio_dis_1 < 110 && kine_pio_dis_2 < 120 && kine_pio_angle > 0 && kine_pio_angle < 174  && kine_pio_mass > 22 && kine_pio_mass < 300))");
     T_eval->Project("h41","kine_reco_Enu","weight_cv*weight_cv*weight_spline*weight_spline*(numu_cc_flag>=0 &&match_isFC==1 && numu_score>0.9 && nue_score<= 7 && !(kine_pio_flag==1 && kine_pio_vtx_dis < 9  && kine_pio_energy_1 > 40 && kine_pio_energy_2 > 25 && kine_pio_dis_1 < 110 && kine_pio_dis_2 < 120 && kine_pio_angle > 0 && kine_pio_angle < 174  && kine_pio_mass > 22 && kine_pio_mass < 300))");
+
     h40->Scale(pot_data/(pot_5));
     h41->Scale(pow(pot_data/(pot_5),2));
+
+    // for (Int_t i=0;i!=h40->GetNbinsX();i++){
+    //   std::cout << i << " " << pow(h40->GetBinContent(i+1)*0.5,2) << std::endl;
+    // }
   }
 
   {
