@@ -11,6 +11,10 @@ void plot_check_nueCCFC_Det(){
 
   TH1F *h20 = new TH1F("h20","h20",25,0,2500);
   TH1F *h21 = new TH1F("h21","h21",25,0,2500);
+
+  TH1F *h30 = new TH1F("h30","h30",25,0,2500);
+  TH1F *h31 = new TH1F("h31","h31",25,0,2500);
+
   
   TH1F *h40 = new TH1F("h40","h40",25,0,2500);
   TH1F *h41 = new TH1F("h41","h41",25,0,2500);
@@ -18,12 +22,23 @@ void plot_check_nueCCFC_Det(){
   TH1F *h50 = new TH1F("h50","h50",25,0,2500);
   TH1F *h51 = new TH1F("h51","h51",25,0,2500);
 
+  TH1F *h60 = new TH1F("h60","h60",25,0,2500);
+  TH1F *h61 = new TH1F("h61","h61",25,0,2500);
+
+
+
   {
     TTree *T_eval = (TTree*)file1->Get("wcpselection/T_eval_cv");
     TTree *T_BDTvars = (TTree*)file1->Get("wcpselection/T_BDTvars_cv");
     TTree *T_KINEvars = (TTree*)file1->Get("wcpselection/T_KINEvars_cv");
     T_eval->AddFriend(T_BDTvars);
     T_eval->AddFriend(T_KINEvars);
+
+    TTree *T_eval_det = (TTree*)file1->Get("wcpselection/T_eval_det");
+    TTree *T_BDTvars_det = (TTree*)file1->Get("wcpselection/T_BDTvars_det");
+    TTree *T_KINEvars_det = (TTree*)file1->Get("wcpselection/T_KINEvars_det");
+    T_eval_det->AddFriend(T_BDTvars_det);
+    T_eval_det->AddFriend(T_KINEvars_det);
 
     //    std::cout << T_eval_cv->GetEntries() << " " << T_BDTvars_cv->GetEntries() << " " << T_KINEvars_cv->GetEntries() << std::endl;
 
@@ -42,6 +57,12 @@ void plot_check_nueCCFC_Det(){
     T_eval->Project("h21","T_KINEvars_cv.kine_reco_Enu","weight_cv*weight_cv*weight_spline*weight_spline*(1+0*weight_lee)*(1+0*weight_lee)*(T_BDTvars_cv.numu_cc_flag>=0 && T_BDTvars_cv.nue_score>7 &&match_isFC==1 && !(truth_nuEnergy <=400 &&truth_vtxX > -1 && truth_vtxX <= 254.3 &&  truth_vtxY >-115.0 && truth_vtxY<=117.0 && truth_vtxZ > 0.6 && truth_vtxZ <=1036.4))");
     h20->Scale(pot_data/(pot_1));
     h21->Scale(pow(pot_data/(pot_1),2));
+
+    T_eval_det->Project("h30","T_KINEvars_det.kine_reco_Enu","weight_cv*weight_spline*(T_BDTvars_det.numu_cc_flag>=0 && T_BDTvars_det.nue_score>7 && match_isFC==1 && (truth_nuEnergy <=400 &&truth_vtxX > -1 && truth_vtxX <= 254.3 &&  truth_vtxY >-115.0 && truth_vtxY<=117.0 && truth_vtxZ > 0.6 && truth_vtxZ <=1036.4))");
+    T_eval_det->Project("h31","T_KINEvars_det.kine_reco_Enu","weight_cv*weight_spline*(1+0*weight_lee)*(T_BDTvars_det.numu_cc_flag>=0 && T_BDTvars_det.nue_score>7 &&match_isFC==1 && !(truth_nuEnergy <=400 &&truth_vtxX > -1 && truth_vtxX <= 254.3 &&  truth_vtxY >-115.0 && truth_vtxY<=117.0 && truth_vtxZ > 0.6 && truth_vtxZ <=1036.4))");
+    h30->Scale(pot_data/(pot_1));
+    h31->Scale(pot_data/(pot_1));
+    
   }
 
  
@@ -53,6 +74,12 @@ void plot_check_nueCCFC_Det(){
     T_eval->AddFriend(T_BDTvars);
     T_eval->AddFriend(T_KINEvars);
 
+    TTree *T_eval_det = (TTree*)file3->Get("wcpselection/T_eval_det");
+    TTree *T_BDTvars_det = (TTree*)file3->Get("wcpselection/T_BDTvars_det");
+    TTree *T_KINEvars_det = (TTree*)file3->Get("wcpselection/T_KINEvars_det");
+    T_eval_det->AddFriend(T_BDTvars_det);
+    T_eval_det->AddFriend(T_KINEvars_det);
+
     T_eval->Project("h40","T_KINEvars_cv.kine_reco_Enu","weight_cv*weight_spline*(numu_cc_flag>=0 && nue_score>7 &&match_isFC==1 && (truth_nuEnergy <=400 ) && !(truth_isCC==1 && abs(truth_nuPdg)==12 && truth_vtxX > -1 && truth_vtxX <= 254.3 &&  truth_vtxY >-115.0 && truth_vtxY<=117.0 && truth_vtxZ > 0.6 && truth_vtxZ <=1036.4))");
     T_eval->Project("h41","T_KINEvars_cv.kine_reco_Enu","weight_cv*weight_cv*weight_spline*weight_spline*(numu_cc_flag>=0 && nue_score>7 &&match_isFC==1 && (truth_nuEnergy <=400 )&& !(truth_isCC==1 && abs(truth_nuPdg)==12 && truth_vtxX > -1 && truth_vtxX <= 254.3 &&  truth_vtxY >-115.0 && truth_vtxY<=117.0 && truth_vtxZ > 0.6 && truth_vtxZ <=1036.4))");
     h40->Scale(pot_data/(pot_3));
@@ -62,6 +89,12 @@ void plot_check_nueCCFC_Det(){
     T_eval->Project("h51","T_KINEvars_cv.kine_reco_Enu","weight_cv*weight_cv*weight_spline*weight_spline*(numu_cc_flag>=0 && nue_score>7 &&match_isFC==1 && !(truth_nuEnergy <=400 )&& !(truth_isCC==1 && abs(truth_nuPdg)==12 && truth_vtxX > -1 && truth_vtxX <= 254.3 &&  truth_vtxY >-115.0 && truth_vtxY<=117.0 && truth_vtxZ > 0.6 && truth_vtxZ <=1036.4))");
     h50->Scale(pot_data/(pot_3));
     h51->Scale(pow(pot_data/(pot_3),2));
+
+
+     T_eval_det->Project("h60","T_KINEvars_det.kine_reco_Enu","weight_cv*weight_spline*(numu_cc_flag>=0 && nue_score>7 &&match_isFC==1 && (truth_nuEnergy <=400 ) && !(truth_isCC==1 && abs(truth_nuPdg)==12 && truth_vtxX > -1 && truth_vtxX <= 254.3 &&  truth_vtxY >-115.0 && truth_vtxY<=117.0 && truth_vtxZ > 0.6 && truth_vtxZ <=1036.4))");
+     T_eval_det->Project("h61","T_KINEvars_det.kine_reco_Enu","weight_cv*weight_spline*(numu_cc_flag>=0 && nue_score>7 &&match_isFC==1 && !(truth_nuEnergy <=400 )&& !(truth_isCC==1 && abs(truth_nuPdg)==12 && truth_vtxX > -1 && truth_vtxX <= 254.3 &&  truth_vtxY >-115.0 && truth_vtxY<=117.0 && truth_vtxZ > 0.6 && truth_vtxZ <=1036.4))");
+     h60->Scale(pot_data/pot_3);
+     h61->Scale(pot_data/pot_3);
   }
 
   
@@ -81,11 +114,16 @@ void plot_check_nueCCFC_Det(){
   //  h10->Add(h30);  h11->Add(h31);
   h10->Add(h40);  h11->Add(h41);
   h10->Add(h50);  h11->Add(h51);
-  //h10->Add(h60);  h11->Add(h61);
+
+  h30->Add(h31);
+  h30->Add(h60);
+  h30->Add(h61);
   //h10->Add(h70);  h11->Add(h71);
   //h10->Add(h80);  h11->Add(h81);
 
   h10->Draw();
+  h30->Draw("same");
+  h30->SetLineColor(2);
 
   for (Int_t i=0;i!=h10->GetNbinsX()+1;i++){
     std::cout << i << " " << h10->GetBinContent(i+1) << " " << sqrt(h11->GetBinContent(i+1)) << std::endl;
