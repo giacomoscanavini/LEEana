@@ -1,5 +1,44 @@
-void plot_check_numuCCFC_Det(){
-  TFile *file3 = new TFile("./hist_rootfiles/DetVar/WCP_checkout_prodgenie_bnb_nu_overlay_WCP_DetVar_LYDown_run3b.root"); Double_t pot_3 = 8.8408e+19;
+void plot_check_numuCCFC_Det(int flag=1){
+  TFile *file3;
+
+  if (flag==1){
+    file3 = new TFile("./hist_rootfiles/DetVar/WCP_checkout_prodgenie_bnb_nu_overlay_WCP_DetVar_LYDown_run3b.root");
+    std::cout << "LYDown" << std::endl;
+  }else if (flag==2){
+    file3 = new TFile("./hist_rootfiles/DetVar/WCP_checkout_prodgenie_bnb_nu_overlay_WCP_DetVar_LYRayleigh_run3b.root");
+    std::cout << "LYRayleigh" << std::endl;
+  }else if (flag==3){
+    file3 = new TFile("./hist_rootfiles/DetVar/WCP_checkout_prodgenie_bnb_nu_overlay_WCP_DetVar_Recomb2_run3b.root");
+    std::cout << "Recomb2" << std::endl;
+  }else if (flag==4){
+    file3 = new TFile("./hist_rootfiles/DetVar/WCP_checkout_prodgenie_bnb_nu_overlay_WCP_DetVar_SCE_run3b.root");
+    std::cout << "SCE" << std::endl;
+  }else if (flag==5){
+    file3 = new TFile("./hist_rootfiles/DetVar/WCP_checkout_prodgenie_bnb_nu_overlay_WCP_DetVar_WireModdEdX_run3b.root");
+    std::cout << "WireModdEdX" << std::endl;
+  }else if (flag==6){
+    file3 = new TFile("./hist_rootfiles/DetVar/WCP_checkout_prodgenie_bnb_nu_overlay_WCP_DetVar_WireModThetaXZ_run3b.root");
+    std::cout << "WireModThetaXZ" << std::endl;
+  }else if (flag==7){
+    file3 = new TFile("./hist_rootfiles/DetVar/WCP_checkout_prodgenie_bnb_nu_overlay_WCP_DetVar_WireModThetaYZ_run3b.root");
+    std::cout << "WireModThetaYZ" << std::endl;
+  }else if (flag==8){
+    file3 = new TFile("./hist_rootfiles/DetVar/WCP_checkout_prodgenie_bnb_nu_overlay_WCP_DetVar_WireModX_run3b.root");
+    std::cout << "WireModX" << std::endl;
+  }else if (flag==9){
+    file3 = new TFile("./hist_rootfiles/DetVar/WCP_checkout_prodgenie_bnb_nu_overlay_WCP_DetVar_WireModYZ_run3b.root");
+    std::cout << "WireModYZ" << std::endl;
+  }
+
+  Double_t pot_3 = 0;//8.8408e+19;
+  TTree *T_pot3 = (TTree*)file3->Get("wcpselection/T_pot_cv");
+  Double_t pot_tor875;
+  T_pot3->SetBranchAddress("pot_tor875",&pot_tor875);
+  for (Int_t i=0;i!=T_pot3->GetEntries();i++){
+    T_pot3->GetEntry(i);
+    pot_3 += pot_tor875;
+  }
+  std::cout << pot_3 << std::endl;
   
   Double_t pot_data = 5.0e19;
 
@@ -63,7 +102,7 @@ void plot_check_numuCCFC_Det(){
   h30->Draw("same");
 
   for (Int_t i=0;i!=h10->GetNbinsX()+1;i++){
-    std::cout << i << " " << h10->GetBinContent(i+1) << " " << sqrt(h11->GetBinContent(i+1)) << std::endl;
+    //    std::cout << i << " " << h10->GetBinContent(i+1) << " " << sqrt(h11->GetBinContent(i+1)) << std::endl;
   }
   
 }
