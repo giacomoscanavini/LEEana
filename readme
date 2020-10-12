@@ -1,0 +1,43 @@
+Detailed steps for analysis:
+
+###### preparation ###### 
+
+1. ./convert_bdt.pl
+   Calculate the new BDT scores
+   Remove events used in the training ...
+   output is stored in ./checkout_rootfiles_correct_bdt
+
+
+##### CV files ##### 
+
+For data, need to run the pot tool to get POTs
+./bin/pot_counting #bnb_file                   --> get the POT for BNB ...
+./bin/pot_counting #bnb_file  #extbnb_file -m2 --> get the POT for EXTBNB ...
+change ext_POT in ./configuration/cv_input.txt
+
+2. ./convert_cv.pl
+   For CV rootfiles, elimate duplicated events
+   Also remove failed run/subrun, if the failed percentage is larger than 20% (default)
+   output is stored  ./processed_checkout_rootfiles
+
+3 ./convert_histo.pl
+  For CV rootfiles, store the histograms in ./hist_rootfiles ...
+
+4. ./bin/merge_hist -r1  (form CV comparison with standard error propogation)
+   cv file is stored in merge.root ....
+
+5. ./run_mc_stat.pl (for MC statistics)
+    output are stored inside mc_stat/
+
+###### detector systematic uncertainties ######
+
+6. ./merge_det.pl
+    Merge the detector files into one ...
+    output are stored inside ./hist_rootfiles/DetVar/
+
+7. ./run_det_sys.pl
+    Running the detector systematics with bootstrapping
+    output are stored inside ./hist_rootfiles/DetVar/
+
+##### Xs and Flux uncertainties ######
+
