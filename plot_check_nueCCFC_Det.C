@@ -181,7 +181,7 @@ void plot_check_nueCCFC_Det(Int_t flag=1){
   h30->SetLineColor(2);
 
   for (Int_t i=0;i!=h10->GetNbinsX()+1;i++){
-    //    std::cout << i << " " << h10->GetBinContent(i+1) << " " << sqrt(h11->GetBinContent(i+1)) << std::endl;
+    //std::cout << i << " " << h10->GetBinContent(i+1) << " " << sqrt(h11->GetBinContent(i+1)) << std::endl;
   }
 
   
