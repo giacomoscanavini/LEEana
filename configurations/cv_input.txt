@@ -6,10 +6,10 @@
 2	nu_overlay		3		./processed_checkout_rootfiles/checkout_run3_bnb_nu_POT1.22E21.root				./hist_rootfiles/checkout_run3_bnb_nu_POT1.22E21.root				0		6	0
 2	nu_overlay		1		./processed_checkout_rootfiles/checkout_run1_bnb_nu_LowE_POT1.6E21.root				./hist_rootfiles/checkout_run1_bnb_nu_LowE_POT1.6E21.root			0		7	0
 2	nu_overlay		3		./processed_checkout_rootfiles/checkout_run3_bnb_nu_LowE_POT1.5E21.root				./hist_rootfiles/checkout_run3_bnb_nu_LowE_POT1.5E21.root			0		8	0
-3	EXTBNB			1		./processed_checkout_rootfiles/checkout_run1_extbnb_C1_gt10_wcp_v00_14_00_POT1.2E20.root	./hist_rootfiles/checkout_run1_extbnb_C1_gt10_wcp_v00_14_00_POT1.2E20.root	6e19		9	0	
+3	EXTBNB			1		./processed_checkout_rootfiles/checkout_run1_extbnb_C1_gt10_wcp_v00_14_00_POT1.2E20.root	./hist_rootfiles/checkout_run1_extbnb_C1_gt10_wcp_v00_14_00_POT1.2E20.root	5.74996e+19		9	0	
 3	EXTBNB			3		./processed_checkout_rootfiles/checkout_run3_extbnb_F_G1_POT1.9E20.root				./hist_rootfiles/checkout_run3_extbnb_F_G1_POT1.9E20.root			9.5e19		10	0
 4	DIRT			1		./processed_checkout_rootfiles/checkout_run1_dirt_POT2.4E20.root				./hist_rootfiles/checkout_run1_dirt_POT2.4E20.root				0		11	0
 4	DIRT			3		./processed_checkout_rootfiles/checkout_run3_dirt_POT1.8E20.root				./hist_rootfiles/checkout_run3_dirt_POT1.8E20.root				0		12	0
-5	BNB			1		./processed_checkout_rootfiles/run1_data_bnb.root						./hist_rootfiles/run1_data_bnb.root						4.5e19		13	0
+5	BNB			1		./processed_checkout_rootfiles/run1_data_bnb.root						./hist_rootfiles/run1_data_bnb.root						4.47375e+19		13	0
 -1	end			-1		end												end										-1		-1	-1
 #file	#type			#period		#filename											#outfile_name									#ext_pot	#file_no  #norm

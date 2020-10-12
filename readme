@@ -10,7 +10,7 @@ Detailed steps for analysis:
 
 ##### CV files ##### 
 
-For data, need to run the pot tool to get POTs
+For data, need to run the pot tool to get POTs  (w.o. cuts for now ...)
 ./bin/pot_counting #bnb_file                   --> get the POT for BNB ...
 ./bin/pot_counting #bnb_file  #extbnb_file -m2 --> get the POT for EXTBNB ...
 change ext_POT in ./configuration/cv_input.txt
