@@ -1,3 +1,5 @@
+checkout_weights/			prodgenie_bnb_intrinsic_nue_overlay_WCP_DetVar_CV_run3b-chkout.root			./checkout_rootfiles_correct_bdt/XsFlux/	./processed_checkout_rootfiles/XsFlux/		1	0
+end					end											end						end						-1	-1
 original_files/				checkout_run1_bnb_nu_LowE_POT1.6E21.root						./checkout_rootfiles_correct_bdt/		processed_checkout_files/		2	prodgenie_bnb_nu_overlay_LowE_run1		
 original_files/				checkout_run1_bnb_nu_POT1.2E21.root							./checkout_rootfiles_correct_bdt/		processed_checkout_files/		2	prodgenie_bnb_nu_overlay_run1
 original_files/				checkout_run1_dirt_POT2.4E20.root							./checkout_rootfiles_correct_bdt/		processed_checkout_files/		0	0
@@ -15,7 +17,6 @@ original_files/				checkout_run3_bnb_nu_det_cv_2step.root							./checkout_rootf
 original_files/				checkout_run3_bnb_nu_det_cv_2step_1.root						./checkout_rootfiles_correct_bdt/		processed_checkout_files/		0	0
 original_files/				checkout_run3_bnb_nu_det_WireModThetaYZ_1step.root					./checkout_rootfiles_correct_bdt/		processed_checkout_files/		0	0
 original_files/				checkout_run3_bnb_nu_det_WireModThetaYZ_2step.root					./checkout_rootfiles_correct_bdt/		processed_checkout_files/		0	0
-end					end											end						end						-1	-1
 checkout_weights/			prodgenie_bnb_intrinsic_nue_overlay_run1-chkout.root					./checkout_rootfiles_correct_bdt/XsFlux/	./processed_checkout_rootfiles/XsFlux/		1	0
 checkout_rootfile/v001404/		run1_nu_overlay.root									./checkout_rootfiles_correct_bdt/		./processed_checkout_rootfiles/			2	prodgenie_bnb_nu_overlay_run1
 checkout_rootfile/v001404/		run1_data_bnb.root									./checkout_rootfiles_correct_bdt/		./processed_checkout_rootfiles/			0	0
