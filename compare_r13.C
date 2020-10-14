@@ -16,8 +16,8 @@ void compare_r13(){
     T_eval->AddFriend(T_BDTvars,"T_BDTvars");
     T_eval->AddFriend(T_KINEvars,"T_KINEvars");
 
-    //    T_eval->Project("h10","match_energy","T_BDTvars.numu_cc_flag>=0");
-    T_eval->Project("h10","T_KINEvars.kine_reco_Enu","T_BDTvars.numu_cc_flag>=0");
+    T_eval->Project("h10","match_energy","T_BDTvars.numu_cc_flag>=0");
+    //T_eval->Project("h10","T_KINEvars.kine_reco_Enu","T_BDTvars.numu_cc_flag>=0");
     for (Int_t i=0;i!=h10->GetNbinsX();i++){
       g1->SetPoint(i, h10->GetBinCenter(i+1), h10->GetBinContent(i+1) * 5e19/pot_1);
       g1->SetPointError(i, 0, sqrt(h10->GetBinContent(i+1)) * 5e19/pot_1);
@@ -31,8 +31,8 @@ void compare_r13(){
     TTree *T_KINEvars = (TTree*)file3->Get("wcpselection/T_KINEvars");
     T_eval->AddFriend(T_BDTvars,"T_BDTvars");
     T_eval->AddFriend(T_KINEvars,"T_KINEvars");
-    //    T_eval->Project("h20","match_energy","T_BDTvars.numu_cc_flag>=0");
-    T_eval->Project("h20","T_KINEvars.kine_reco_Enu","T_BDTvars.numu_cc_flag>=0");
+    T_eval->Project("h20","match_energy","T_BDTvars.numu_cc_flag>=0");
+    //T_eval->Project("h20","T_KINEvars.kine_reco_Enu","T_BDTvars.numu_cc_flag>=0");
     for (Int_t i=0;i!=h20->GetNbinsX();i++){
       g2->SetPoint(i, h20->GetBinCenter(i+1), h20->GetBinContent(i+1) * 5e19/pot_3);
       g2->SetPointError(i, 0, sqrt(h20->GetBinContent(i+1)) * 5e19/pot_3);
