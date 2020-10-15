@@ -55,7 +55,7 @@ void plot_check_numuCCFC_xf(int run =1){
   }
   std::cout << pot_3 << std::endl;
 
-  double pot_data = 5e19;
+  double pot_data = 6e19;
 
   TH1F *h10 = new TH1F("h10","h10",25,0,2500);
   TH1F *h11 = new TH1F("h11","h11",25,0,2500);
@@ -114,7 +114,7 @@ void plot_check_numuCCFC_xf(int run =1){
     }
   }
 
-  (*cov) *= 1./1000.;
+  (*cov) *= 1./10.;
 
   h11->SetLineColor(2);
   h11->Draw("same");
@@ -132,12 +132,16 @@ void plot_check_numuCCFC_xf(int run =1){
   
   c1->cd(1);
   cov->Draw("COLZ");
-
+  //cov->SetName("this one");
   c1->cd(2);
   cov1->Draw("COLZ");
-
+  //cov1->SetName("program");
   c1->cd(3);
   h10->Draw();
+
+  TH1F *h50 = (TH1F*)file2->Get("pred_covch_3");
+  h50->Draw("same");
+  h50->SetLineColor(2);
   
   for (Int_t i=0;i!=26;i++){
     std::cout << (*cov)(i,i) << " " << (*cov1)(i,i) << std::endl;
