@@ -102,7 +102,7 @@ void plot_check_numuCCFC_Det(int flag=1){
   h30->Draw("same");
 
   for (Int_t i=0;i!=h10->GetNbinsX()+1;i++){
-    //    std::cout << i << " " << h10->GetBinContent(i+1) << " " << sqrt(h11->GetBinContent(i+1)) << std::endl;
+    std::cout << i << " " << h10->GetBinContent(i+1) << " " << sqrt(h11->GetBinContent(i+1)) << " " << h30->GetBinContent(i+1) - h10->GetBinContent(i+1) << std::endl;
   }
   
 }

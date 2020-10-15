@@ -135,21 +135,21 @@ void plot_check_nueCCFC_Det(Int_t flag=1){
     T_eval_det->AddFriend(T_BDTvars_det);
     T_eval_det->AddFriend(T_KINEvars_det);
 
-    T_eval->Project("h40","T_KINEvars_cv.kine_reco_Enu","weight_cv*weight_spline*(numu_cc_flag>=0 && nue_score>7 &&match_isFC==1 && (truth_nuEnergy <=400 ) && !(truth_isCC==1 && abs(truth_nuPdg)==12 && truth_vtxX > -1 && truth_vtxX <= 254.3 &&  truth_vtxY >-115.0 && truth_vtxY<=117.0 && truth_vtxZ > 0.6 && truth_vtxZ <=1036.4))");
-    T_eval->Project("h41","T_KINEvars_cv.kine_reco_Enu","weight_cv*weight_cv*weight_spline*weight_spline*(numu_cc_flag>=0 && nue_score>7 &&match_isFC==1 && (truth_nuEnergy <=400 )&& !(truth_isCC==1 && abs(truth_nuPdg)==12 && truth_vtxX > -1 && truth_vtxX <= 254.3 &&  truth_vtxY >-115.0 && truth_vtxY<=117.0 && truth_vtxZ > 0.6 && truth_vtxZ <=1036.4))");
-    h40->Scale(pot_data/(pot_3));
-    h41->Scale(pow(pot_data/(pot_3),2));
+    // T_eval->Project("h40","T_KINEvars_cv.kine_reco_Enu","weight_cv*weight_spline*(numu_cc_flag>=0 && nue_score>7 &&match_isFC==1 && (truth_nuEnergy <=400 ) && !(truth_isCC==1 && abs(truth_nuPdg)==12 && truth_vtxX > -1 && truth_vtxX <= 254.3 &&  truth_vtxY >-115.0 && truth_vtxY<=117.0 && truth_vtxZ > 0.6 && truth_vtxZ <=1036.4))");
+    // T_eval->Project("h41","T_KINEvars_cv.kine_reco_Enu","weight_cv*weight_cv*weight_spline*weight_spline*(numu_cc_flag>=0 && nue_score>7 &&match_isFC==1 && (truth_nuEnergy <=400 )&& !(truth_isCC==1 && abs(truth_nuPdg)==12 && truth_vtxX > -1 && truth_vtxX <= 254.3 &&  truth_vtxY >-115.0 && truth_vtxY<=117.0 && truth_vtxZ > 0.6 && truth_vtxZ <=1036.4))");
+    // h40->Scale(pot_data/(pot_3));
+    // h41->Scale(pow(pot_data/(pot_3),2));
 
-    T_eval->Project("h50","T_KINEvars_cv.kine_reco_Enu","weight_cv*weight_spline*(numu_cc_flag>=0 && nue_score>7 &&match_isFC==1 && !(truth_nuEnergy <=400 )&& !(truth_isCC==1 && abs(truth_nuPdg)==12 && truth_vtxX > -1 && truth_vtxX <= 254.3 &&  truth_vtxY >-115.0 && truth_vtxY<=117.0 && truth_vtxZ > 0.6 && truth_vtxZ <=1036.4))");
-    T_eval->Project("h51","T_KINEvars_cv.kine_reco_Enu","weight_cv*weight_cv*weight_spline*weight_spline*(numu_cc_flag>=0 && nue_score>7 &&match_isFC==1 && !(truth_nuEnergy <=400 )&& !(truth_isCC==1 && abs(truth_nuPdg)==12 && truth_vtxX > -1 && truth_vtxX <= 254.3 &&  truth_vtxY >-115.0 && truth_vtxY<=117.0 && truth_vtxZ > 0.6 && truth_vtxZ <=1036.4))");
-    h50->Scale(pot_data/(pot_3));
-    h51->Scale(pow(pot_data/(pot_3),2));
+    // T_eval->Project("h50","T_KINEvars_cv.kine_reco_Enu","weight_cv*weight_spline*(numu_cc_flag>=0 && nue_score>7 &&match_isFC==1 && !(truth_nuEnergy <=400 )&& !(truth_isCC==1 && abs(truth_nuPdg)==12 && truth_vtxX > -1 && truth_vtxX <= 254.3 &&  truth_vtxY >-115.0 && truth_vtxY<=117.0 && truth_vtxZ > 0.6 && truth_vtxZ <=1036.4))");
+    // T_eval->Project("h51","T_KINEvars_cv.kine_reco_Enu","weight_cv*weight_cv*weight_spline*weight_spline*(numu_cc_flag>=0 && nue_score>7 &&match_isFC==1 && !(truth_nuEnergy <=400 )&& !(truth_isCC==1 && abs(truth_nuPdg)==12 && truth_vtxX > -1 && truth_vtxX <= 254.3 &&  truth_vtxY >-115.0 && truth_vtxY<=117.0 && truth_vtxZ > 0.6 && truth_vtxZ <=1036.4))");
+    // h50->Scale(pot_data/(pot_3));
+    // h51->Scale(pow(pot_data/(pot_3),2));
 
 
-     T_eval_det->Project("h60","T_KINEvars_det.kine_reco_Enu","weight_cv*weight_spline*(numu_cc_flag>=0 && nue_score>7 &&match_isFC==1 && (truth_nuEnergy <=400 ) && !(truth_isCC==1 && abs(truth_nuPdg)==12 && truth_vtxX > -1 && truth_vtxX <= 254.3 &&  truth_vtxY >-115.0 && truth_vtxY<=117.0 && truth_vtxZ > 0.6 && truth_vtxZ <=1036.4))");
-     T_eval_det->Project("h61","T_KINEvars_det.kine_reco_Enu","weight_cv*weight_spline*(numu_cc_flag>=0 && nue_score>7 &&match_isFC==1 && !(truth_nuEnergy <=400 )&& !(truth_isCC==1 && abs(truth_nuPdg)==12 && truth_vtxX > -1 && truth_vtxX <= 254.3 &&  truth_vtxY >-115.0 && truth_vtxY<=117.0 && truth_vtxZ > 0.6 && truth_vtxZ <=1036.4))");
-     h60->Scale(pot_data/pot_3);
-     h61->Scale(pot_data/pot_3);
+    //  T_eval_det->Project("h60","T_KINEvars_det.kine_reco_Enu","weight_cv*weight_spline*(numu_cc_flag>=0 && nue_score>7 &&match_isFC==1 && (truth_nuEnergy <=400 ) && !(truth_isCC==1 && abs(truth_nuPdg)==12 && truth_vtxX > -1 && truth_vtxX <= 254.3 &&  truth_vtxY >-115.0 && truth_vtxY<=117.0 && truth_vtxZ > 0.6 && truth_vtxZ <=1036.4))");
+    //  T_eval_det->Project("h61","T_KINEvars_det.kine_reco_Enu","weight_cv*weight_spline*(numu_cc_flag>=0 && nue_score>7 &&match_isFC==1 && !(truth_nuEnergy <=400 )&& !(truth_isCC==1 && abs(truth_nuPdg)==12 && truth_vtxX > -1 && truth_vtxX <= 254.3 &&  truth_vtxY >-115.0 && truth_vtxY<=117.0 && truth_vtxZ > 0.6 && truth_vtxZ <=1036.4))");
+    //  h60->Scale(pot_data/pot_3);
+    //  h61->Scale(pot_data/pot_3);
   }
 
   
@@ -181,7 +181,7 @@ void plot_check_nueCCFC_Det(Int_t flag=1){
   h30->SetLineColor(2);
 
   for (Int_t i=0;i!=h10->GetNbinsX()+1;i++){
-    //std::cout << i << " " << h10->GetBinContent(i+1) << " " << sqrt(h11->GetBinContent(i+1)) << std::endl;
+    std::cout << i << " " << h10->GetBinContent(i+1) << " " << sqrt(h11->GetBinContent(i+1)) << std::endl;
   }
 
   
