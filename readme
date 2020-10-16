@@ -41,3 +41,10 @@ change ext_POT in ./configuration/cv_input.txt
 
 ##### Xs and Flux uncertainties ######
 
+8 ./merge_xf.pl
+  Merge the xs and flux files into one
+  output are stored inside ./processed_checkout_rootfiles/*/
+
+9. ./run_xf_sys.pl
+  Running the xs and flux systematics with reweighting
+  output are stored inside ./hist_rootfiles/XsFlux/
