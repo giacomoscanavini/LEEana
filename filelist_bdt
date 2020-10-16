@@ -1,6 +1,8 @@
+/home/wgu/data0/1016_checkout/		checkout_data_extbnb_run1.root								./checkout_rootfiles_correct_bdt/		./processed_checkout_rootfiles/			1	0
+/home/wgu/data0/1016_checkout/		checkout_nu2020_fakedata_set5.root							./checkout_rootfiles_correct_bdt/		./processed_checkout_rootfiles/			0	0
+end					end											end						end						-1	-1
 checkout_rootfile/			checkout_data_bnb_run1_5e19.root							./checkout_rootfiles_correct_bdt/		./processed_checkout_rootfiles/			0	0
 checkout_rootfile/			checkout_data_bnb_run3_1e19.root							./checkout_rootfiles_correct_bdt/		./processed_checkout_rootfiles/			0	0
-checkout_rootfile/			checkout_data_extbnb_run1.root								./checkout_rootfiles_correct_bdt/		./processed_checkout_rootfiles/			1	0
 checkout_rootfile/			checkout_data_extbnb_run3.root								./checkout_rootfiles_correct_bdt/		./processed_checkout_rootfiles/			1	0
 checkout_rootfile/			checkout_prodgenie_bnb_intrinsic_nue_overlay_LowE_run1.root				./checkout_rootfiles_correct_bdt/		./processed_checkout_rootfiles/			1	0
 checkout_rootfile/			checkout_prodgenie_bnb_intrinsic_nue_overlay_LowE_run3.root				./checkout_rootfiles_correct_bdt/		./processed_checkout_rootfiles/			1	0
