@@ -1,4 +1,4 @@
-void plot_check_gof(){
+void plot_check_gof(int lee){
   TFile *file1 = new TFile("merge_all.root");
   TMatrixD *cov_mat_add = (TMatrixD*)file1->Get("cov_mat_add");
   TMatrixD *mat_collapse_save = (TMatrixD*)file1->Get("mat_collapse");
@@ -15,12 +15,13 @@ void plot_check_gof(){
 
   TMatrixD *mat_collapse = new TMatrixD(26*4+11*3+26*2+26*4+11*3,26*4+33);
   *mat_collapse = *mat_collapse_save;
-  
-  for (Int_t i=0;i!=52;i++){
-     //     std::cout << (*mat_collapse)(26*4+11*3+i,i) << std::endl;
-     (*mat_collapse)(26*4+11*3+i,i) = 0;
+
+  if (lee == 0){ // observe LEE
+    for (Int_t i=0;i!=52;i++){
+      //     std::cout << (*mat_collapse)(26*4+11*3+i,i) << std::endl;
+      (*mat_collapse)(26*4+11*3+i,i) = 0;
+    }
   }
-    
   
   TMatrixD *mat_collapse_T = new TMatrixD(mat_collapse->GetNcols(),mat_collapse->GetNrows());
   mat_collapse_T->Transpose(*mat_collapse);
@@ -73,27 +74,27 @@ void plot_check_gof(){
 
   TMatrixD *cov_mat_det = new TMatrixD(cov_mat_add->GetNrows(), cov_mat_add->GetNcols());
   //Det variation ...
-  // TString name[9]={"hist_rootfiles/DetVar/no_random/cov_LYDown.root",  //0
-  // 		   "hist_rootfiles/DetVar/no_random/cov_LYRayleigh.root", // 1
-  // 		   "hist_rootfiles/DetVar/no_random/cov_Recomb2.root", // 2
-  // 		   "hist_rootfiles/DetVar/no_random/cov_SCE.root", // 3
-  // 		   "hist_rootfiles/DetVar/no_random/cov_WMdEdx.root", // 4   not useful
-  // 		   "hist_rootfiles/DetVar/no_random/cov_WMThetaXZ.root", // 5
-  // 		   "hist_rootfiles/DetVar/no_random/cov_WMThetaYZ.root", // 6
-  // 		   "hist_rootfiles/DetVar/no_random/cov_WMX.root",  //7 
-  // 		   "hist_rootfiles/DetVar/no_random/cov_WMYZ.root"  //8
-  // };
-  
-  TString name[9]={"hist_rootfiles/DetVar/cov_LYDown.root",  //0
-  		   "hist_rootfiles/DetVar/cov_LYRayleigh.root", // 1
-  		   "hist_rootfiles/DetVar/cov_Recomb2.root", // 2
-  		   "hist_rootfiles/DetVar/cov_SCE.root", // 3
-  		   "hist_rootfiles/DetVar/cov_WMdEdx.root", // 4   not useful
-  		   "hist_rootfiles/DetVar/cov_WMThetaXZ.root", // 5
-  		   "hist_rootfiles/DetVar/cov_WMThetaYZ.root", // 6
-  		   "hist_rootfiles/DetVar/cov_WMX.root",  //7 
-  		   "hist_rootfiles/DetVar/cov_WMYZ.root"  //8
+  TString name[9]={"hist_rootfiles/DetVar/no_random/cov_LYDown.root",  //0
+  		   "hist_rootfiles/DetVar/no_random/cov_LYRayleigh.root", // 1
+  		   "hist_rootfiles/DetVar/no_random/cov_Recomb2.root", // 2
+  		   "hist_rootfiles/DetVar/no_random/cov_SCE.root", // 3
+  		   "hist_rootfiles/DetVar/no_random/cov_WMdEdx.root", // 4   not useful
+  		   "hist_rootfiles/DetVar/no_random/cov_WMThetaXZ.root", // 5
+  		   "hist_rootfiles/DetVar/no_random/cov_WMThetaYZ.root", // 6
+  		   "hist_rootfiles/DetVar/no_random/cov_WMX.root",  //7 
+  		   "hist_rootfiles/DetVar/no_random/cov_WMYZ.root"  //8
   };
+  
+  // TString name[9]={"hist_rootfiles/DetVar/cov_LYDown.root",  //0
+  // 		   "hist_rootfiles/DetVar/cov_LYRayleigh.root", // 1
+  // 		   "hist_rootfiles/DetVar/cov_Recomb2.root", // 2
+  // 		   "hist_rootfiles/DetVar/cov_SCE.root", // 3
+  // 		   "hist_rootfiles/DetVar/cov_WMdEdx.root", // 4   not useful
+  // 		   "hist_rootfiles/DetVar/cov_WMThetaXZ.root", // 5
+  // 		   "hist_rootfiles/DetVar/cov_WMThetaYZ.root", // 6
+  // 		   "hist_rootfiles/DetVar/cov_WMX.root",  //7 
+  // 		   "hist_rootfiles/DetVar/cov_WMYZ.root"  //8
+  // };
   
   for (Int_t i=0;i!=9;i++){
     if(i==4) continue;
@@ -154,8 +155,8 @@ void plot_check_gof(){
       if (pred_obs_vec(i,0)>=0.461 || data_vec(i,0)==0){
 	cov_mat_tot(i,i) += pred_obs_vec(i,0); // add stat term ...
       }else{
-	//	cov_mat_tot(i,i) += pow(pred_obs_vec(i,0) - data_vec(i,0),2)/(2.*(pred_obs_vec(i,0) - data_vec(i,0) + data_vec(i,0) * log(data_vec(i,0)/pred_obs_vec(i,0))));
-	cov_mat_tot(i,i) += pred_obs_vec(i,0); // add stat term ...
+	cov_mat_tot(i,i) += pow(pred_obs_vec(i,0) - data_vec(i,0),2)/(2.*(pred_obs_vec(i,0) - data_vec(i,0) + data_vec(i,0) * log(data_vec(i,0)/pred_obs_vec(i,0))));
+	//cov_mat_tot(i,i) += pred_obs_vec(i,0); // add stat term ...
       }
     }
 
@@ -167,8 +168,8 @@ void plot_check_gof(){
   
   {
     // goodness of numu CC FC, pick a single channel ...
-    int offset = 26 + 26 + 26 + 26;
-    int nbin = 11;
+    int offset = 26 + 26;
+    int nbin = 52;
     
     TMatrixD transform(cov_mat_tot.GetNrows(),nbin);
     for (Int_t i = 0; i!= nbin;i++){
@@ -264,8 +265,8 @@ void plot_check_gof(){
     TMatrixD diff_vec_T(1,52+33);
 
     // numuCC ...
-    int nbin = 11;
-    int offset = 52+11+11;
+    int nbin = 11*3;
+    int offset = 52;
 
     for (Int_t i=0;i!=cov_after.GetNrows();i++){
       cov_after(i,i) += vec_after(i,0) - vec_pred_cont2(i,0);
@@ -365,6 +366,9 @@ void plot_check_gof(){
     for (Int_t i=0;i!=52;i++){
       diff_vec(i,0) = vec_data_cont2(i,0) - vec_after(i,0);
       diff_vec_T(0,i) = vec_data_cont2(i,0) - vec_after(i,0);
+
+      // original ...
+      cov_after(i,i) += vec_after(i,0) - vec_pred_cont2(i,0);
     }
     TMatrixD cov_after_inv = cov_after;
     cov_after_inv.Invert();
@@ -460,8 +464,8 @@ void plot_check_gof(){
   }
 
   double data_pot = 5.0549670e+19 ;
+  
   {
-    
     // 5.0549670e+19  Asimov sensitivity ...
     TMatrixD *mat_collapse_lee = new TMatrixD(26*4+11*3+26*2+26*4+11*3,26*4+33);
     *mat_collapse_lee = *mat_collapse_save;
@@ -489,101 +493,105 @@ void plot_check_gof(){
 
     TMatrixD diff_T(1,diff.GetNrows());
     diff_T.Transpose(diff);
-
-    {
-      // no LEE
-      TMatrixD cov_mat_tot = (*mat_collapse_nolee_T) * (*cov_mat_tot_before) * (*mat_collapse_nolee);
-      cov_mat_tot += (*cov_mat_mcstat); // mc statistical uncertainties ...
-      
-      // add statistical uncertainties with CNP ...
-      for (Int_t i=0;i!=cov_mat_tot.GetNcols();i++){
-	if ( pred_obs_lee_vec(i,0) && pred_obs_nolee_vec(i,0) ==0){
+    
+    
+    if (lee == 0) // observe LEE
+      {
+	// no LEE
+	TMatrixD cov_mat_tot = (*mat_collapse_nolee_T) * (*cov_mat_tot_before) * (*mat_collapse_nolee);
+	cov_mat_tot += (*cov_mat_mcstat); // mc statistical uncertainties ...
+	
+	// add statistical uncertainties with CNP ...
+	for (Int_t i=0;i!=cov_mat_tot.GetNcols();i++){
+	  if ( pred_obs_lee_vec(i,0) && pred_obs_nolee_vec(i,0) ==0){
 	  for (Int_t j=0;j!=cov_mat_tot.GetNrows();j++){
 	    cov_mat_tot(j,i) = 0;
 	    cov_mat_tot(i,j) = 0;
 	  }
 	  cov_mat_tot(i,i) = 1e9; // very large uncertainties ...
 	  std::cout << "Bin: " << i << " not good" << std::endl;
-	}else{
-	  if (pred_obs_lee_vec(i,0) !=0)
-	    cov_mat_tot(i,i) += 3./(1./pred_obs_lee_vec(i,0) + 2./pred_obs_nolee_vec(i,0));
-	  else
-	    cov_mat_tot(i,i) += pred_obs_nolee_vec(i,0)/2.;
-	}
-      }
-
-      TMatrixD cov_mat_tot_inv = cov_mat_tot;
-      cov_mat_tot_inv.Invert();
-      TMatrixD chi2 = diff_T * cov_mat_tot_inv * diff;
-
-      std::cout << "Sensitivity to exclude SM at current POT: " << chi2(0,0) << std::endl;
-    }
-
-    {
-      // LEE
-      TMatrixD cov_mat_tot = (*mat_collapse_lee_T) * (*cov_mat_tot_before) * (*mat_collapse_lee);
-      cov_mat_tot += (*cov_mat_mcstat); // mc statistical uncertainties ... suppress by 50%
-      
-      // add statistical uncertainties with CNP ...
-      for (Int_t i=0;i!=cov_mat_tot.GetNcols();i++){
-	if ( pred_obs_lee_vec(i,0) && pred_obs_nolee_vec(i,0) ==0){
-	  for (Int_t j=0;j!=cov_mat_tot.GetNrows();j++){
-	    cov_mat_tot(j,i) = 0;
-	    cov_mat_tot(i,j) = 0;
+	  }else{
+	    if (pred_obs_lee_vec(i,0) !=0)
+	      cov_mat_tot(i,i) += 3./(1./pred_obs_lee_vec(i,0) + 2./pred_obs_nolee_vec(i,0));
+	    else
+	      cov_mat_tot(i,i) += pred_obs_nolee_vec(i,0)/2.;
 	  }
-	  cov_mat_tot(i,i) = 1e9; // very large uncertainties ...
-	  std::cout << "Bin: " << i << " not good" << std::endl;
-	}else{
-	  if (pred_obs_lee_vec(i,0) !=0)
-	    cov_mat_tot(i,i) += 3./(2./pred_obs_lee_vec(i,0) + 1./pred_obs_nolee_vec(i,0));
-	  else
-	    cov_mat_tot(i,i) += pred_obs_lee_vec(i,0)/2.;
 	}
+	
+	TMatrixD cov_mat_tot_inv = cov_mat_tot;
+	cov_mat_tot_inv.Invert();
+	TMatrixD chi2 = diff_T * cov_mat_tot_inv * diff;
+	
+	std::cout << "Sensitivity to exclude SM at current POT: " << chi2(0,0) << std::endl;
+      }
+    
+    if (lee == 1) // observe no LEE
+      {
+	// LEE
+	TMatrixD cov_mat_tot = (*mat_collapse_lee_T) * (*cov_mat_tot_before) * (*mat_collapse_lee);
+	cov_mat_tot += (*cov_mat_mcstat); // mc statistical uncertainties ... suppress by 50%
+	
+	// add statistical uncertainties with CNP ...
+	for (Int_t i=0;i!=cov_mat_tot.GetNcols();i++){
+	  if ( pred_obs_lee_vec(i,0) && pred_obs_nolee_vec(i,0) ==0){
+	    for (Int_t j=0;j!=cov_mat_tot.GetNrows();j++){
+	      cov_mat_tot(j,i) = 0;
+	      cov_mat_tot(i,j) = 0;
+	    }
+	    cov_mat_tot(i,i) = 1e9; // very large uncertainties ...
+	    std::cout << "Bin: " << i << " not good" << std::endl;
+	  }else{
+	    if (pred_obs_lee_vec(i,0) !=0)
+	      cov_mat_tot(i,i) += 3./(2./pred_obs_lee_vec(i,0) + 1./pred_obs_nolee_vec(i,0));
+	    else
+	      cov_mat_tot(i,i) += pred_obs_lee_vec(i,0)/2.;
+	  }
+	}
+	
+	TMatrixD cov_mat_tot_inv = cov_mat_tot;
+	cov_mat_tot_inv.Invert();
+	TMatrixD chi2 = diff_T * cov_mat_tot_inv * diff;
+	
+	std::cout << "Sensitivity to exclude LEE at current POT: " << chi2(0,0) << std::endl;
+	
+      }
+    
+    if (lee == 0) // observe LEE
+      {
+	// no LEE
+	TMatrixD cov_mat_tot = (*mat_collapse_nolee_T) * (*cov_mat_tot_before) * (*mat_collapse_nolee);
+	cov_mat_tot += (*cov_mat_mcstat)*0.25; // mc statistical uncertainties ... suppress by 50%
+	
+	cov_mat_tot *= pow(6.95e20/data_pot,2);
+	
+	// add statistical uncertainties with CNP ...
+	for (Int_t i=0;i!=cov_mat_tot.GetNcols();i++){
+	  if ( pred_obs_lee_vec(i,0) && pred_obs_nolee_vec(i,0) ==0){
+	    for (Int_t j=0;j!=cov_mat_tot.GetNrows();j++){
+	      cov_mat_tot(j,i) = 0;
+	      cov_mat_tot(i,j) = 0;
+	    }
+	    cov_mat_tot(i,i) = 1e9; // very large uncertainties ...
+	    std::cout << "Bin: " << i << " not good" << std::endl;
+	  }else{
+	    if (pred_obs_lee_vec(i,0) !=0)
+	      cov_mat_tot(i,i) += 3./(1./(pred_obs_lee_vec(i,0)*6.95e20/data_pot) + 2./(pred_obs_nolee_vec(i,0)*6.95e20/data_pot));
+	    else
+	      cov_mat_tot(i,i) += pred_obs_nolee_vec(i,0)*6.95e20/data_pot/2.;
+	  }
+	}
+	
+	diff *= 6.95e20/data_pot;
+	diff_T *= 6.95e20/data_pot;
+	
+	TMatrixD cov_mat_tot_inv = cov_mat_tot;
+	cov_mat_tot_inv.Invert();
+	TMatrixD chi2 = diff_T * cov_mat_tot_inv * diff;
+	
+	std::cout << "Sensitivity to exclude SM at 6.95e20: " << chi2(0,0) << std::endl;
       }
 
-      TMatrixD cov_mat_tot_inv = cov_mat_tot;
-      cov_mat_tot_inv.Invert();
-      TMatrixD chi2 = diff_T * cov_mat_tot_inv * diff;
-
-      std::cout << "Sensitivity to exclude LEE at current POT: " << chi2(0,0) << std::endl;
-      
-    }
-
-
-    {
-       // no LEE
-      TMatrixD cov_mat_tot = (*mat_collapse_nolee_T) * (*cov_mat_tot_before) * (*mat_collapse_nolee);
-      cov_mat_tot += (*cov_mat_mcstat)*0.25; // mc statistical uncertainties ... suppress by 50%
-
-      cov_mat_tot *= pow(6.95e20/data_pot,2);
-      
-      // add statistical uncertainties with CNP ...
-      for (Int_t i=0;i!=cov_mat_tot.GetNcols();i++){
-    	if ( pred_obs_lee_vec(i,0) && pred_obs_nolee_vec(i,0) ==0){
-    	  for (Int_t j=0;j!=cov_mat_tot.GetNrows();j++){
-    	    cov_mat_tot(j,i) = 0;
-    	    cov_mat_tot(i,j) = 0;
-    	  }
-    	  cov_mat_tot(i,i) = 1e9; // very large uncertainties ...
-    	  std::cout << "Bin: " << i << " not good" << std::endl;
-    	}else{
-    	  if (pred_obs_lee_vec(i,0) !=0)
-    	    cov_mat_tot(i,i) += 3./(1./(pred_obs_lee_vec(i,0)*6.95e20/data_pot) + 2./(pred_obs_nolee_vec(i,0)*6.95e20/data_pot));
-    	  else
-    	    cov_mat_tot(i,i) += pred_obs_nolee_vec(i,0)*6.95e20/data_pot/2.;
-    	}
-      }
-
-      diff *= 6.95e20/data_pot;
-      diff_T *= 6.95e20/data_pot;
-      
-      TMatrixD cov_mat_tot_inv = cov_mat_tot;
-      cov_mat_tot_inv.Invert();
-      TMatrixD chi2 = diff_T * cov_mat_tot_inv * diff;
-
-      std::cout << "Sensitivity to exclude SM at 6.95e20: " << chi2(0,0) << std::endl;
-    }
-
+    if (lee == 1) // observe no LEE
     {
       // LEE
       TMatrixD cov_mat_tot = (*mat_collapse_lee_T) * (*cov_mat_tot_before) * (*mat_collapse_lee);
@@ -611,8 +619,8 @@ void plot_check_gof(){
       TMatrixD cov_mat_tot_inv = cov_mat_tot;
       cov_mat_tot_inv.Invert();
 
-      // diff *= 6.95e20/data_pot;
-      // diff_T *= 6.95e20/data_pot;
+      diff *= 6.95e20/data_pot;
+      diff_T *= 6.95e20/data_pot;
 
       TMatrixD chi2 = diff_T * cov_mat_tot_inv * diff;
 
