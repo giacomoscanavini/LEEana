@@ -153,8 +153,8 @@ void plot_check_gof(){
       if (pred_obs_vec(i,0)>=0.461 || data_vec(i,0)==0){
 	cov_mat_tot(i,i) += pred_obs_vec(i,0); // add stat term ...
       }else{
-	//cov_mat_tot(i,i) += pow(pred_obs_vec(i,0) - data_vec(i,0),2)/(2.*(pred_obs_vec(i,0) - data_vec(i,0) + data_vec(i,0) * log(data_vec(i,0)/pred_obs_vec(i,0))));
-	cov_mat_tot(i,i) += pred_obs_vec(i,0); // add stat term ...
+	cov_mat_tot(i,i) += pow(pred_obs_vec(i,0) - data_vec(i,0),2)/(2.*(pred_obs_vec(i,0) - data_vec(i,0) + data_vec(i,0) * log(data_vec(i,0)/pred_obs_vec(i,0))));
+	//cov_mat_tot(i,i) += pred_obs_vec(i,0); // add stat term ...
       }
     }
 
@@ -426,9 +426,10 @@ void plot_check_gof(){
     TMatrixD diff_vec(8,1);
     TMatrixD diff_vec_T(1,8);
     for (Int_t i=0;i!=8;i++){
+      // vec_data_cont2(i,0) = 0;
       diff_vec(i,0) = vec_data_cont2(i,0) - vec_after(i,0);
       diff_vec_T(0,i) = vec_data_cont2(i,0) - vec_after(i,0);
-      //      std::cout << diff_vec(i,0) << std::endl;
+      //std::cout << diff_vec(i,0) << " " << vec_data_cont2(i,0) << " " <<  vec_after(i,0) << std::endl;
     }
     TMatrixD cov_after_inv = cov_after;
     cov_after_inv.Invert();
