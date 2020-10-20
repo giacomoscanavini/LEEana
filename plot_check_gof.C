@@ -1,5 +1,6 @@
 void plot_check_gof(int lee){
-  TFile *file1 = new TFile("merge_all.root");
+  //TFile *file1 = new TFile("merge_all.root");
+  TFile *file1 = new TFile("merge_all_new_weights.root");
   TMatrixD *cov_mat_add = (TMatrixD*)file1->Get("cov_mat_add");
   TMatrixD *mat_collapse_save = (TMatrixD*)file1->Get("mat_collapse");
   TH1F **pred = new TH1F*[16];
@@ -26,6 +27,15 @@ void plot_check_gof(int lee){
   TMatrixD *mat_collapse_T = new TMatrixD(mat_collapse->GetNcols(),mat_collapse->GetNrows());
   mat_collapse_T->Transpose(*mat_collapse);
 
+
+  double fac_mc_stat = 0.1;
+  bool flag_xf = true;
+  bool flag_det = true;
+  bool flag_add = true;
+  bool flag_mcstat = true;
+
+  int det_choice = 2; //1 for current, 2 for 10stat, 3 for no random
+  int xf_choice = 1; // 1 for new weights, 2 for old weights
   
   // std::cout << mat_collapse->GetNrows() << " " << mat_collapse->GetNcols() << std::endl;
   // std::cout << mat_collapse_T->GetNrows() << " " << mat_collapse_T->GetNcols() << std::endl;
@@ -60,43 +70,45 @@ void plot_check_gof(int lee){
 
   // load MC stat covariance matrix ... (at observed space ... )
   TMatrixD *cov_mat_mcstat = new TMatrixD(pred_obs_vec.GetNrows(),pred_obs_vec.GetNrows());
-  ifstream infile("mc_stat/0.log");
-  double temp,err2;
-  infile >> temp >> temp;
 
-  for (Int_t i=0;i!=pred_obs_vec.GetNrows();i++){
-    infile >> temp >> temp >> temp >> err2 >> temp;
-    (*cov_mat_mcstat)(i,i) = err2;
+  if (lee == 0){
+    ifstream infile("mc_stat/0.log");
+    double temp,err2;
+    infile >> temp >> temp;
+    
+    for (Int_t i=0;i!=pred_obs_vec.GetNrows();i++){
+      infile >> temp >> temp >> temp >> err2 >> temp;
+      (*cov_mat_mcstat)(i,i) = err2;
+    }
+  }else{
+    ifstream infile("mc_stat/33.log");
+    double temp,err2;
+    infile >> temp >> temp;
+    
+    for (Int_t i=0;i!=pred_obs_vec.GetNrows();i++){
+      infile >> temp >> temp >> temp >> err2 >> temp;
+      (*cov_mat_mcstat)(i,i) = err2;
+    }
   }
 
   cov_mat_mcstat->Draw("COLZ");
   
 
   TMatrixD *cov_mat_det = new TMatrixD(cov_mat_add->GetNrows(), cov_mat_add->GetNcols());
+
   //Det variation ...
-  // TString name[9]={"hist_rootfiles/DetVar/no_random/cov_LYDown.root",  //0
-  // 		   "hist_rootfiles/DetVar/no_random/cov_LYRayleigh.root", // 1
-  // 		   "hist_rootfiles/DetVar/no_random/cov_Recomb2.root", // 2
-  // 		   "hist_rootfiles/DetVar/no_random/cov_SCE.root", // 3
-  // 		   "hist_rootfiles/DetVar/no_random/cov_WMdEdx.root", // 4   not useful
-  // 		   "hist_rootfiles/DetVar/no_random/cov_WMThetaXZ.root", // 5
-  // 		   "hist_rootfiles/DetVar/no_random/cov_WMThetaYZ.root", // 6
-  // 		   "hist_rootfiles/DetVar/no_random/cov_WMX.root",  //7 
-  // 		   "hist_rootfiles/DetVar/no_random/cov_WMYZ.root"  //8
-  // };
-  
-  TString name[9]={"hist_rootfiles/DetVar/cov_LYDown.root",  //0
-  		   "hist_rootfiles/DetVar/cov_LYRayleigh.root", // 1
-  		   "hist_rootfiles/DetVar/cov_Recomb2.root", // 2
-  		   "hist_rootfiles/DetVar/cov_SCE.root", // 3
-  		   "hist_rootfiles/DetVar/cov_WMdEdx.root", // 4   not useful
-  		   "hist_rootfiles/DetVar/cov_WMThetaXZ.root", // 5
-  		   "hist_rootfiles/DetVar/cov_WMThetaYZ.root", // 6
-  		   "hist_rootfiles/DetVar/cov_WMX.root",  //7 
-  		   "hist_rootfiles/DetVar/cov_WMYZ.root"  //8
-  };
-  
-  for (Int_t i=0;i!=9;i++){
+  if(det_choice ==1){
+    TString name[9]={"hist_rootfiles/DetVar/both/cov_LYDown.root",  //0
+		     "hist_rootfiles/DetVar/both/cov_LYRayleigh.root", // 1
+		     "hist_rootfiles/DetVar/both/cov_Recomb2.root", // 2
+		     "hist_rootfiles/DetVar/both/cov_SCE.root", // 3
+		     "hist_rootfiles/DetVar/both/cov_WMdEdx.root", // 4   not useful
+		     "hist_rootfiles/DetVar/both/cov_WMThetaXZ.root", // 5
+		     "hist_rootfiles/DetVar/both/cov_WMThetaYZ.root", // 6
+		     "hist_rootfiles/DetVar/both/cov_WMX.root",  //7 
+		     "hist_rootfiles/DetVar/both/cov_WMYZ.root"  //8
+    };
+      for (Int_t i=0;i!=9;i++){
     if(i==4) continue;
     TFile file1(name[i]);
     TMatrixD *frac_cov_det_mat = (TMatrixD*)file1.Get(Form("frac_cov_det_mat_%d",i+1));
@@ -108,30 +120,95 @@ void plot_check_gof(int lee){
     (*cov_mat_det) += (*frac_cov_det_mat);
   }
 
+  }else if (det_choice == 2){
+     TString name[9]={"hist_rootfiles/DetVar/10stat/cov_LYDown.root",  //0
+  		   "hist_rootfiles/DetVar/10stat/cov_LYRayleigh.root", // 1
+  		   "hist_rootfiles/DetVar/10stat/cov_Recomb2.root", // 2
+  		   "hist_rootfiles/DetVar/10stat/cov_SCE.root", // 3
+  		   "hist_rootfiles/DetVar/10stat/cov_WMdEdx.root", // 4   not useful
+  		   "hist_rootfiles/DetVar/10stat/cov_WMThetaXZ.root", // 5
+  		   "hist_rootfiles/DetVar/10stat/cov_WMThetaYZ.root", // 6
+  		   "hist_rootfiles/DetVar/10stat/cov_WMX.root",  //7 
+  		   "hist_rootfiles/DetVar/10stat/cov_WMYZ.root"  //8
+     };
+       for (Int_t i=0;i!=9;i++){
+    if(i==4) continue;
+    TFile file1(name[i]);
+    TMatrixD *frac_cov_det_mat = (TMatrixD*)file1.Get(Form("frac_cov_det_mat_%d",i+1));
+    for (Int_t j=0;j!=frac_cov_det_mat->GetNrows();j++){
+      for (Int_t k=0;k!=frac_cov_det_mat->GetNcols();k++){
+	(*frac_cov_det_mat)(j,k) *= (*pred_vec)(j,0) * (*pred_vec)(k,0);
+      }
+    }
+    (*cov_mat_det) += (*frac_cov_det_mat);
+  }
+
+  }else if (det_choice ==3){
+    TString name[9]={"hist_rootfiles/DetVar/no_random/cov_LYDown.root",  //0
+		     "hist_rootfiles/DetVar/no_random/cov_LYRayleigh.root", // 1
+		     "hist_rootfiles/DetVar/no_random/cov_Recomb2.root", // 2
+		     "hist_rootfiles/DetVar/no_random/cov_SCE.root", // 3
+		     "hist_rootfiles/DetVar/no_random/cov_WMdEdx.root", // 4   not useful
+		     "hist_rootfiles/DetVar/no_random/cov_WMThetaXZ.root", // 5
+		     "hist_rootfiles/DetVar/no_random/cov_WMThetaYZ.root", // 6
+		     "hist_rootfiles/DetVar/no_random/cov_WMX.root",  //7 
+		     "hist_rootfiles/DetVar/no_random/cov_WMYZ.root"  //8
+    };
+      for (Int_t i=0;i!=9;i++){
+    if(i==4) continue;
+    TFile file1(name[i]);
+    TMatrixD *frac_cov_det_mat = (TMatrixD*)file1.Get(Form("frac_cov_det_mat_%d",i+1));
+    for (Int_t j=0;j!=frac_cov_det_mat->GetNrows();j++){
+      for (Int_t k=0;k!=frac_cov_det_mat->GetNcols();k++){
+	(*frac_cov_det_mat)(j,k) *= (*pred_vec)(j,0) * (*pred_vec)(k,0);
+      }
+    }
+    (*cov_mat_det) += (*frac_cov_det_mat);
+  }
+
+  }
+  
+ 
+
   cov_mat_det->Draw("COLZ");
 
   TMatrixD *cov_mat_xf = new TMatrixD(cov_mat_add->GetNrows(), cov_mat_add->GetNcols());
-  // Xs and Flux covariance matrix ...
-  for (Int_t i=0;i!=14;i++){
-    TFile file1(Form("hist_rootfiles/XsFlux/cov_%d.root",i+1));
-    TMatrixD *frac_cov_xf_mat = (TMatrixD*)file1.Get(Form("frac_cov_xf_mat_%d",i+1));
-    for (Int_t j=0;j!=frac_cov_xf_mat->GetNrows();j++){
-      for (Int_t k=0;k!=frac_cov_xf_mat->GetNcols();k++){
-	(*frac_cov_xf_mat)(j,k) *= (*pred_vec)(j,0) * (*pred_vec)(k,0);
-      }
-    }
-    (*cov_mat_xf) += (*frac_cov_xf_mat);
-  }
 
+  if (xf_choice==1){
+    // Xs and Flux covariance matrix ...
+    for (Int_t i=0;i!=17;i++){
+      TFile file1(Form("hist_rootfiles/XsFlux/cov_%d.root",i+1));
+      TMatrixD *frac_cov_xf_mat = (TMatrixD*)file1.Get(Form("frac_cov_xf_mat_%d",i+1));
+      for (Int_t j=0;j!=frac_cov_xf_mat->GetNrows();j++){
+	for (Int_t k=0;k!=frac_cov_xf_mat->GetNcols();k++){
+	  (*frac_cov_xf_mat)(j,k) *= (*pred_vec)(j,0) * (*pred_vec)(k,0);
+	}
+      }
+      (*cov_mat_xf) += (*frac_cov_xf_mat);
+    }
+  }else{
+    for (Int_t i=0;i!=14;i++){
+      TFile file1(Form("hist_rootfiles/XsFlux/old_weights/cov_%d.root",i+1));
+      TMatrixD *frac_cov_xf_mat = (TMatrixD*)file1.Get(Form("frac_cov_xf_mat_%d",i+1));
+      for (Int_t j=0;j!=frac_cov_xf_mat->GetNrows();j++){
+	for (Int_t k=0;k!=frac_cov_xf_mat->GetNcols();k++){
+	  (*frac_cov_xf_mat)(j,k) *= (*pred_vec)(j,0) * (*pred_vec)(k,0);
+	}
+      }
+      (*cov_mat_xf) += (*frac_cov_xf_mat);
+    }
+  }
+    
   cov_mat_xf->Draw("COLZ");
 
   TMatrixD *cov_mat_tot_before = new TMatrixD(cov_mat_add->GetNrows(), cov_mat_add->GetNcols());
-  (*cov_mat_tot_before) += (*cov_mat_xf);
-  (*cov_mat_tot_before) += (*cov_mat_det);
-  (*cov_mat_tot_before) += (*cov_mat_add); // additional covariance matrix ...
+  
+  if (flag_xf) (*cov_mat_tot_before) += (*cov_mat_xf);
+  if (flag_det) (*cov_mat_tot_before) += (*cov_mat_det);
+  if (flag_add) (*cov_mat_tot_before) += (*cov_mat_add); // additional covariance matrix ...
 
   TMatrixD cov_mat_tot = (*mat_collapse_T) * (*cov_mat_tot_before) * (*mat_collapse);
-  cov_mat_tot += (*cov_mat_mcstat); // mc statistical uncertainties ...
+  if (flag_mcstat) cov_mat_tot += (*cov_mat_mcstat); // mc statistical uncertainties ...
   
   cov_mat_tot.Draw("COLZ");
 
@@ -437,7 +514,8 @@ void plot_check_gof(int lee){
 
       // original ...
       cov_after(i,i) += vec_after(i,0) - vec_pred_cont2(i,0);
-      //      std::cout << diff_vec(i,0) << " " << vec_data_cont2(i,0) << " " <<  vec_after(i,0) << std::endl;
+
+      //std::cout << diff_vec(i,0) << " " << vec_data_cont2(i,0) << " " <<  vec_after(i,0) << std::endl;
     }
     TMatrixD cov_after_inv = cov_after;
     cov_after_inv.Invert();
@@ -531,7 +609,7 @@ void plot_check_gof(int lee){
       {
 	// LEE
 	TMatrixD cov_mat_tot = (*mat_collapse_lee_T) * (*cov_mat_tot_before) * (*mat_collapse_lee);
-	//	cov_mat_tot += (*cov_mat_mcstat); // mc statistical uncertainties ... suppress by 50%
+	cov_mat_tot += (*cov_mat_mcstat); // mc statistical uncertainties ... suppress by 50%
 	
 	// add statistical uncertainties with CNP ...
 	for (Int_t i=0;i!=cov_mat_tot.GetNcols();i++){
@@ -562,7 +640,7 @@ void plot_check_gof(int lee){
       {
 	// no LEE
 	TMatrixD cov_mat_tot = (*mat_collapse_nolee_T) * (*cov_mat_tot_before) * (*mat_collapse_nolee);
-	cov_mat_tot += (*cov_mat_mcstat); // mc statistical uncertainties ... suppress by 50%
+	cov_mat_tot += (*cov_mat_mcstat)*fac_mc_stat; // mc statistical uncertainties ... suppress by 50%
 	
 	cov_mat_tot *= pow(6.95e20/data_pot,2);
 	
@@ -597,7 +675,7 @@ void plot_check_gof(int lee){
     {
       // LEE
       TMatrixD cov_mat_tot = (*mat_collapse_lee_T) * (*cov_mat_tot_before) * (*mat_collapse_lee);
-      cov_mat_tot += (*cov_mat_mcstat)*0.25; // mc statistical uncertainties ...
+      cov_mat_tot += (*cov_mat_mcstat)*fac_mc_stat; // mc statistical uncertainties ...
 
       cov_mat_tot *= pow(6.95e20/data_pot,2);
       
