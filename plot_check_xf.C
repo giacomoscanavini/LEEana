@@ -1,12 +1,12 @@
 void plot_check_xf(){
-  TFile **file = new TFile*[14];
-  for (Int_t i=0;i!=14;i++){
+  TFile **file = new TFile*[17];
+  for (Int_t i=0;i!=17;i++){
     file[i] = new TFile(Form("hist_rootfiles/XsFlux/cov_%d.root",i+1));
   }
 
-  TH1F **h1 = new TH1F*[14];
-  TH1F **h2 = new TH1F*[14];
-  for (Int_t i=0;i!=14;i++){
+  TH1F **h1 = new TH1F*[17];
+  TH1F **h2 = new TH1F*[17];
+  for (Int_t i=0;i!=17;i++){
     h1[i] = (TH1F*)file[i]->Get("pred_covch_4");
     h2[i] = (TH1F*)file[i]->Get("pred_covch_1");
   }
@@ -31,8 +31,8 @@ void plot_check_xf(){
   }
   
   c1->cd(3);
-  TGraph **g1 = new TGraph*[14];
-  TMatrixD** frac_mat = new TMatrixD*[14];
+  TGraph **g1 = new TGraph*[17];
+  TMatrixD** frac_mat = new TMatrixD*[17];
 
   frac_mat[0] = (TMatrixD*)file[0]->Get(Form("frac_cov_xf_mat_%d",1));
   const int nbin = frac_mat[0]->GetNcols();
@@ -41,7 +41,7 @@ void plot_check_xf(){
     rel_err2[i] = 0;
   }
   
-  for(Int_t i=0;i!=14;i++){
+  for(Int_t i=0;i!=17;i++){
     frac_mat[i] = (TMatrixD*)file[i]->Get(Form("frac_cov_xf_mat_%d",i+1));
     g1[i] = new TGraph();
     for (Int_t j=0;j!=frac_mat[i]->GetNcols();j++){
@@ -55,7 +55,7 @@ void plot_check_xf(){
   g1[0]->SetLineColor(1);
   g1[0]->SetMarkerColor(1);
   g1[0]->SetMarkerStyle(20);
-   for (Int_t i=1;i!=14;i++){
+   for (Int_t i=1;i!=17;i++){
      g1[i]->Draw("*same");
      g1[i]->SetLineColor(i+1);
      g1[i]->SetMarkerColor(i+1);
@@ -78,7 +78,10 @@ void plot_check_xf(){
    le1->AddEntry(g1[10],"pionqexsec_FluxUnisim","pl");
    le1->AddEntry(g1[11],"piontotxsec_FluxUnisim","pl");
    le1->AddEntry(g1[12],"piplus_PrimaryHadronSWCentralSplineVariation","pl");
-   le1->AddEntry(g1[13],"All_UBGenie","pl");
+   le1->AddEntry(g1[13],"reinteractions_piminus_Geant4","pl");
+   le1->AddEntry(g1[14],"reinteractions_piplus_Geant4","pl");
+   le1->AddEntry(g1[15],"reinteractions_proton_Geant4","pl");
+   le1->AddEntry(g1[16],"All_UBGenie","pl");
    le1->Draw();
 
    c1->cd(5);

@@ -74,27 +74,27 @@ void plot_check_gof(int lee){
 
   TMatrixD *cov_mat_det = new TMatrixD(cov_mat_add->GetNrows(), cov_mat_add->GetNcols());
   //Det variation ...
-  TString name[9]={"hist_rootfiles/DetVar/no_random/cov_LYDown.root",  //0
-  		   "hist_rootfiles/DetVar/no_random/cov_LYRayleigh.root", // 1
-  		   "hist_rootfiles/DetVar/no_random/cov_Recomb2.root", // 2
-  		   "hist_rootfiles/DetVar/no_random/cov_SCE.root", // 3
-  		   "hist_rootfiles/DetVar/no_random/cov_WMdEdx.root", // 4   not useful
-  		   "hist_rootfiles/DetVar/no_random/cov_WMThetaXZ.root", // 5
-  		   "hist_rootfiles/DetVar/no_random/cov_WMThetaYZ.root", // 6
-  		   "hist_rootfiles/DetVar/no_random/cov_WMX.root",  //7 
-  		   "hist_rootfiles/DetVar/no_random/cov_WMYZ.root"  //8
-  };
-  
-  // TString name[9]={"hist_rootfiles/DetVar/cov_LYDown.root",  //0
-  // 		   "hist_rootfiles/DetVar/cov_LYRayleigh.root", // 1
-  // 		   "hist_rootfiles/DetVar/cov_Recomb2.root", // 2
-  // 		   "hist_rootfiles/DetVar/cov_SCE.root", // 3
-  // 		   "hist_rootfiles/DetVar/cov_WMdEdx.root", // 4   not useful
-  // 		   "hist_rootfiles/DetVar/cov_WMThetaXZ.root", // 5
-  // 		   "hist_rootfiles/DetVar/cov_WMThetaYZ.root", // 6
-  // 		   "hist_rootfiles/DetVar/cov_WMX.root",  //7 
-  // 		   "hist_rootfiles/DetVar/cov_WMYZ.root"  //8
+  // TString name[9]={"hist_rootfiles/DetVar/no_random/cov_LYDown.root",  //0
+  // 		   "hist_rootfiles/DetVar/no_random/cov_LYRayleigh.root", // 1
+  // 		   "hist_rootfiles/DetVar/no_random/cov_Recomb2.root", // 2
+  // 		   "hist_rootfiles/DetVar/no_random/cov_SCE.root", // 3
+  // 		   "hist_rootfiles/DetVar/no_random/cov_WMdEdx.root", // 4   not useful
+  // 		   "hist_rootfiles/DetVar/no_random/cov_WMThetaXZ.root", // 5
+  // 		   "hist_rootfiles/DetVar/no_random/cov_WMThetaYZ.root", // 6
+  // 		   "hist_rootfiles/DetVar/no_random/cov_WMX.root",  //7 
+  // 		   "hist_rootfiles/DetVar/no_random/cov_WMYZ.root"  //8
   // };
+  
+  TString name[9]={"hist_rootfiles/DetVar/cov_LYDown.root",  //0
+  		   "hist_rootfiles/DetVar/cov_LYRayleigh.root", // 1
+  		   "hist_rootfiles/DetVar/cov_Recomb2.root", // 2
+  		   "hist_rootfiles/DetVar/cov_SCE.root", // 3
+  		   "hist_rootfiles/DetVar/cov_WMdEdx.root", // 4   not useful
+  		   "hist_rootfiles/DetVar/cov_WMThetaXZ.root", // 5
+  		   "hist_rootfiles/DetVar/cov_WMThetaYZ.root", // 6
+  		   "hist_rootfiles/DetVar/cov_WMX.root",  //7 
+  		   "hist_rootfiles/DetVar/cov_WMYZ.root"  //8
+  };
   
   for (Int_t i=0;i!=9;i++){
     if(i==4) continue;
@@ -504,13 +504,15 @@ void plot_check_gof(int lee){
 	// add statistical uncertainties with CNP ...
 	for (Int_t i=0;i!=cov_mat_tot.GetNcols();i++){
 	  if ( pred_obs_lee_vec(i,0) && pred_obs_nolee_vec(i,0) ==0){
-	  for (Int_t j=0;j!=cov_mat_tot.GetNrows();j++){
-	    cov_mat_tot(j,i) = 0;
-	    cov_mat_tot(i,j) = 0;
-	  }
-	  cov_mat_tot(i,i) = 1e9; // very large uncertainties ...
+	    for (Int_t j=0;j!=cov_mat_tot.GetNrows();j++){
+	      cov_mat_tot(j,i) = 0;
+	      cov_mat_tot(i,j) = 0;
+	    }
+	    cov_mat_tot(i,i) = 1e9; // very large uncertainties ...
+	    
 	  std::cout << "Bin: " << i << " not good" << std::endl;
 	  }else{
+	    
 	    if (pred_obs_lee_vec(i,0) !=0)
 	      cov_mat_tot(i,i) += 3./(1./pred_obs_lee_vec(i,0) + 2./pred_obs_nolee_vec(i,0));
 	    else
@@ -529,7 +531,7 @@ void plot_check_gof(int lee){
       {
 	// LEE
 	TMatrixD cov_mat_tot = (*mat_collapse_lee_T) * (*cov_mat_tot_before) * (*mat_collapse_lee);
-	cov_mat_tot += (*cov_mat_mcstat); // mc statistical uncertainties ... suppress by 50%
+	//	cov_mat_tot += (*cov_mat_mcstat); // mc statistical uncertainties ... suppress by 50%
 	
 	// add statistical uncertainties with CNP ...
 	for (Int_t i=0;i!=cov_mat_tot.GetNcols();i++){
@@ -560,7 +562,7 @@ void plot_check_gof(int lee){
       {
 	// no LEE
 	TMatrixD cov_mat_tot = (*mat_collapse_nolee_T) * (*cov_mat_tot_before) * (*mat_collapse_nolee);
-	cov_mat_tot += (*cov_mat_mcstat)*0.25; // mc statistical uncertainties ... suppress by 50%
+	cov_mat_tot += (*cov_mat_mcstat); // mc statistical uncertainties ... suppress by 50%
 	
 	cov_mat_tot *= pow(6.95e20/data_pot,2);
 	
