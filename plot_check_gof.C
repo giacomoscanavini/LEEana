@@ -28,13 +28,13 @@ void plot_check_gof(int lee){
   mat_collapse_T->Transpose(*mat_collapse);
 
 
-  double fac_mc_stat = 0.1;
+  double fac_mc_stat = 1;
   bool flag_xf = true;
   bool flag_det = true;
   bool flag_add = true;
   bool flag_mcstat = true;
 
-  int det_choice = 2; //1 for current, 2 for 10stat, 3 for no random
+  int det_choice = 1; //1 for current, 2 for 10stat, 3 for no random
   int xf_choice = 1; // 1 for new weights, 2 for old weights
   
   // std::cout << mat_collapse->GetNrows() << " " << mat_collapse->GetNcols() << std::endl;
