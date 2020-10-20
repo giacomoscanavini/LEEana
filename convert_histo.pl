@@ -5,6 +5,10 @@ my $num = 0;
 while(<infile>){
     @temp = split(/\s+/,$_);
 
+    if ($temp[0] == -1) {
+	last;
+    }
+    
     if ($temp[0] !=-1 && $temp[0] != "\#file"){
 	print "$temp[3]\n";
 	if ($num %12 == 11){
