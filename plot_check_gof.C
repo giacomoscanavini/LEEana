@@ -205,7 +205,12 @@ void plot_check_gof(int lee){
   
   if (flag_xf) (*cov_mat_tot_before) += (*cov_mat_xf);
   if (flag_det) (*cov_mat_tot_before) += (*cov_mat_det);
-  if (flag_add) (*cov_mat_tot_before) += (*cov_mat_add); // additional covariance matrix ...
+  if (flag_add) {
+    (*cov_mat_tot_before) += (*cov_mat_add); // additional covariance matrix ...
+    // for (Int_t i=0;i!=cov_mat_add->GetNcols();i++){
+    //   std::cout << i << " " << (*cov_mat_add)(i,i) << std::endl;
+    // }
+  }
 
   TMatrixD cov_mat_tot = (*mat_collapse_T) * (*cov_mat_tot_before) * (*mat_collapse);
   if (flag_mcstat) cov_mat_tot += (*cov_mat_mcstat); // mc statistical uncertainties ...
@@ -245,8 +250,8 @@ void plot_check_gof(int lee){
   
   {
     // goodness of numu CC FC, pick a single channel ...
-    int offset = 26 + 26;
-    int nbin = 52;
+    int offset = 0;
+    int nbin = 52+52+33;
     
     TMatrixD transform(cov_mat_tot.GetNrows(),nbin);
     for (Int_t i = 0; i!= nbin;i++){
@@ -527,7 +532,7 @@ void plot_check_gof(int lee){
     TMatrixD transform(8,1);
     TMatrixD transform_T(1,8);
     for (Int_t i=0;i!=8;i++){
-      //      if (i>=6) continue;
+      // if (i>=6) continue;
       transform(i,0) = 1;
       transform_T(0,i) = 1;
     }
@@ -567,8 +572,14 @@ void plot_check_gof(int lee){
     TMatrixD pred_obs_lee_vec = (*mat_collapse_lee_T) * (*pred_vec);
     TMatrixD pred_obs_nolee_vec = (*mat_collapse_nolee_T) * (*pred_vec);
 
+    //pred_obs_lee_vec = data_vec;
+    //    pred_obs_nolee_vec = data_vec;
+    
     TMatrixD diff = pred_obs_lee_vec  - pred_obs_nolee_vec;
 
+    // hack ...
+    
+    
     TMatrixD diff_T(1,diff.GetNrows());
     diff_T.Transpose(diff);
     
@@ -581,7 +592,7 @@ void plot_check_gof(int lee){
 	
 	// add statistical uncertainties with CNP ...
 	for (Int_t i=0;i!=cov_mat_tot.GetNcols();i++){
-	  if ( pred_obs_lee_vec(i,0) && pred_obs_nolee_vec(i,0) ==0){
+	  if ( pred_obs_lee_vec(i,0)==0 && pred_obs_nolee_vec(i,0) ==0){
 	    for (Int_t j=0;j!=cov_mat_tot.GetNrows();j++){
 	      cov_mat_tot(j,i) = 0;
 	      cov_mat_tot(i,j) = 0;
@@ -613,7 +624,7 @@ void plot_check_gof(int lee){
 	
 	// add statistical uncertainties with CNP ...
 	for (Int_t i=0;i!=cov_mat_tot.GetNcols();i++){
-	  if ( pred_obs_lee_vec(i,0) && pred_obs_nolee_vec(i,0) ==0){
+	  if ( pred_obs_lee_vec(i,0)==0 && pred_obs_nolee_vec(i,0) ==0){
 	    for (Int_t j=0;j!=cov_mat_tot.GetNrows();j++){
 	      cov_mat_tot(j,i) = 0;
 	      cov_mat_tot(i,j) = 0;
@@ -621,7 +632,7 @@ void plot_check_gof(int lee){
 	    cov_mat_tot(i,i) = 1e9; // very large uncertainties ...
 	    std::cout << "Bin: " << i << " not good" << std::endl;
 	  }else{
-	    if (pred_obs_lee_vec(i,0) !=0)
+	    if (pred_obs_nolee_vec(i,0) !=0)
 	      cov_mat_tot(i,i) += 3./(2./pred_obs_lee_vec(i,0) + 1./pred_obs_nolee_vec(i,0));
 	    else
 	      cov_mat_tot(i,i) += pred_obs_lee_vec(i,0)/2.;
@@ -646,7 +657,7 @@ void plot_check_gof(int lee){
 	
 	// add statistical uncertainties with CNP ...
 	for (Int_t i=0;i!=cov_mat_tot.GetNcols();i++){
-	  if ( pred_obs_lee_vec(i,0) && pred_obs_nolee_vec(i,0) ==0){
+	  if ( pred_obs_lee_vec(i,0)==0 && pred_obs_nolee_vec(i,0) ==0){
 	    for (Int_t j=0;j!=cov_mat_tot.GetNrows();j++){
 	      cov_mat_tot(j,i) = 0;
 	      cov_mat_tot(i,j) = 0;
@@ -681,7 +692,7 @@ void plot_check_gof(int lee){
       
       // add statistical uncertainties with CNP ...
       for (Int_t i=0;i!=cov_mat_tot.GetNcols();i++){
-	if ( pred_obs_lee_vec(i,0) && pred_obs_nolee_vec(i,0) ==0){
+	if ( pred_obs_lee_vec(i,0) ==0&& pred_obs_nolee_vec(i,0) ==0){
 	  for (Int_t j=0;j!=cov_mat_tot.GetNrows();j++){
 	    cov_mat_tot(j,i) = 0;
 	    cov_mat_tot(i,j) = 0;
@@ -689,7 +700,7 @@ void plot_check_gof(int lee){
 	  cov_mat_tot(i,i) = 1e9; // very large uncertainties ...
 	  std::cout << "Bin: " << i << " not good" << std::endl;
 	}else{
-	  if (pred_obs_lee_vec(i,0) !=0)
+	  if (pred_obs_nolee_vec(i,0) !=0)
 	    cov_mat_tot(i,i) += 3./(2./(pred_obs_lee_vec(i,0)*6.95e20/data_pot) + 1./(pred_obs_nolee_vec(i,0)*6.95e20/data_pot));
 	  else
 	    cov_mat_tot(i,i) += pred_obs_lee_vec(i,0)/2.*6.95e20/data_pot;
