@@ -16,7 +16,5 @@
 2	nu_overlay		8		./hist_rootfiles/DetVar/WCP_checkout_prodgenie_bnb_nu_overlay_WCP_DetVar_WireModX_run3b.root		    	./hist_rootfiles/DetVar/cov_WMX.root		0		16	5e19	3
 1	intrinsic_nue		9		./hist_rootfiles/DetVar/WCP_checkout_prodgenie_bnb_intrinsic_nue_overlay_WCP_DetVar_WireModYZ_run3b.root	./hist_rootfiles/DetVar/cov_WMYZ.root		0		17	5e19	3
 2	nu_overlay		9		./hist_rootfiles/DetVar/WCP_checkout_prodgenie_bnb_nu_overlay_WCP_DetVar_WireModYZ_run3b.root		    	./hist_rootfiles/DetVar/cov_WMYZ.root		0		18	5e19	3
-1	intrinsic_nue		10		./hist_rootfiles/DetVar/WCP_checkout_prodgenie_bnb_intrinsic_nue_overlay_WCP_DetVar_LYAttenuation_run3b.root	./hist_rootfiles/DetVar/cov_LYatt.root		0		19	5e19	3
-2	nu_overlay		10		./hist_rootfiles/DetVar/WCP_checkout_prodgenie_bnb_nu_overlay_WCP_DetVar_LYAttenuation_run3b.root		./hist_rootfiles/DetVar/cov_LYatt.root		0		20	5e19	3
 -1	end			-1		end														end						-1		-1	-1	-1
 #file	#type			#period		#filename													#outfile_name					#ext_pot	#file_no  #norm	#norm_period
