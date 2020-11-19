@@ -1,4 +1,4 @@
-void test(){
+void test_fake7(){
 //========= Macro generated from object: /
 //========= by ROOT version6.16/00
    
@@ -202,9 +202,11 @@ void test(){
    
    grae->Draw("A*");
 
-   TF1 *f1 = new TF1("f1","1.0+[0]*sin([1]*x)",0,2500);
-   f1->SetParameter(0,0.5);
+   TF1 *f1 = new TF1("f1","1.0+[0]*sin([1]*x+[2])",0,2500);
+   //TF1 *f1 = new TF1("f1","[0]",0,2500);
+   f1->SetParameter(0,1);
    f1->SetParameter(1,0.02);
+   f1->SetParameter(2,0);
    //   f1->SetParameter(2,3000);
    //   f1->Draw("Lsame");
    grae->Fit(f1,"","+",250,2450);
