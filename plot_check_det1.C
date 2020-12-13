@@ -26,14 +26,15 @@ void plot_check_det1(){
   }
 
   
-  g1[0]->Draw("AL*");
-  g1[0]->SetMarkerColor(1);
-  g1[0]->SetMarkerStyle(20);
-  g1[0]->GetYaxis()->SetRangeUser(-1,1);
-  g1[0]->GetXaxis()->SetTitle("E_{#nu}^{reco} (x100 MeV)");
-  g1[0]->GetYaxis()->SetTitle("Rel. Change");
+  g1[3]->Draw("AL*");
+  g1[3]->SetMarkerColor(1);
+  g1[3]->SetMarkerStyle(20);
+  g1[3]->GetYaxis()->SetRangeUser(-1,1);
+  g1[3]->GetXaxis()->SetTitle("E_{#nu}^{reco} (x100 MeV)");
+  g1[3]->GetYaxis()->SetTitle("Rel. Change");
   for (Int_t i=1;i!=10;i++){
     if (i==4) continue;
+    if (i!=3) continue;
     g1[i]->Draw("*Lsame");
     if (i!=9){
       g1[i]->SetLineColor(i+1);
