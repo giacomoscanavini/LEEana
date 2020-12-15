@@ -31,8 +31,10 @@ void convert_wiener(){
   TH1D *hmeas = new TH1D("hmeas","hmeas",nbin_meas,0.5, nbin_meas+0.5);
   TH1D *hpred = new TH1D("hpred","hpred",nbin_meas,0.5, nbin_meas+0.5);
   for (Int_t i=0;i!=hdata_obsch_1->GetNbinsX()+1;i++){
-    hmeas->SetBinContent(i+1,hdata_obsch_1->GetBinContent(i+1)-histo_3->GetBinContent(i+1) - histo_5->GetBinContent(i+1) );
-    hmeas->SetBinContent(i+1 + hdata_obsch_1->GetNbinsX() + 1 , hdata_obsch_2->GetBinContent(i+1)-histo_4->GetBinContent(i+1) - histo_6->GetBinContent(i+1) );
+    hmeas->SetBinContent(i+1,hdata_obsch_1->GetBinContent(i+1) - histo_3->GetBinContent(i+1) - histo_5->GetBinContent(i+1) );
+    hmeas->SetBinContent(i+1 + hdata_obsch_1->GetNbinsX() + 1 , hdata_obsch_2->GetBinContent(i+1) - histo_4->GetBinContent(i+1) - histo_6->GetBinContent(i+1) );
+
+    //std::cout << hmc_obsch_2->GetBinContent(i+1) -  histo_4->GetBinContent(i+1) - histo_6->GetBinContent(i+1) << " " << histo_2->GetBinContent(i+1) << std::endl;
 
     hpred->SetBinContent(i+1, hmc_obsch_1->GetBinContent(i+1) );
     hpred->SetBinContent(i+1 + hdata_obsch_1->GetNbinsX() + 1 , hmc_obsch_2->GetBinContent(i+1) );
@@ -239,22 +241,88 @@ void convert_wiener(){
 	      << std::endl;
   }
   
-  TFile *file = new TFile("wiener.root","RECREATE");
-  htrue_signal->SetDirectory(file);
-  hmeas->SetDirectory(file);
-  hR->SetDirectory(file);
-  hcov_stat->SetDirectory(file);
-  hcov_mcstat->SetDirectory(file);
-  hcov_add->SetDirectory(file);
-  hcov_det->SetDirectory(file);
-  hcov_flux->SetDirectory(file);
-  hcov_xs->SetDirectory(file);
-  hcov_tot->SetDirectory(file);
-  file->Write();
-  file->Close();
+ 
+
+
+  // stack plots ...
+  
+  TH1F *h10 = new TH1F("h10","h10",52,0.5,52.5); // stat
+  TH1F *h20 = new TH1F("h20","h10",52,0.5,52.5); // mcstat
+  TH1F *h30 = new TH1F("h30","h10",52,0.5,52.5); // add
+  TH1F *h40 = new TH1F("h40","h10",52,0.5,52.5); // det
+  TH1F *h50 = new TH1F("h50","h10",52,0.5,52.5); // flux
+  TH1F *h60 = new TH1F("h60","h10",52,0.5,52.5); // xs
+  TH1F *h70 = new TH1F("h70","h10",52,0.5,52.5); // total
+  
+  for (Int_t i=0;i!=nbin_meas;i++){
+    // std::cout << i << " " << sqrt(hcov_tot->GetBinContent(i+1,i+1))/hpred->GetBinContent(i+1) << " "
+    // 	      << sqrt(hcov_stat->GetBinContent(i+1,i+1))/hpred->GetBinContent(i+1) << " "
+    // 	      << sqrt(hcov_mcstat->GetBinContent(i+1,i+1))/hpred->GetBinContent(i+1) << " "
+    // 	      << sqrt(hcov_add->GetBinContent(i+1,i+1))/hpred->GetBinContent(i+1) << " "
+    // 	      << sqrt(hcov_flux->GetBinContent(i+1,i+1))/hpred->GetBinContent(i+1) << " "
+    // 	      << sqrt(hcov_det->GetBinContent(i+1,i+1))/hpred->GetBinContent(i+1) << " "
+    // 	      << sqrt(hcov_xs->GetBinContent(i+1,i+1))/hpred->GetBinContent(i+1) << " "
+    // 	      << std::endl;
+    h10->SetBinContent(i+1,sqrt(hcov_stat->GetBinContent(i+1,i+1))/hpred->GetBinContent(i+1));
+    h20->SetBinContent(i+1,sqrt(hcov_mcstat->GetBinContent(i+1,i+1))/hpred->GetBinContent(i+1));
+    h30->SetBinContent(i+1,sqrt(hcov_add->GetBinContent(i+1,i+1))/hpred->GetBinContent(i+1));
+    h40->SetBinContent(i+1,sqrt(hcov_flux->GetBinContent(i+1,i+1))/hpred->GetBinContent(i+1));
+    h50->SetBinContent(i+1,sqrt(hcov_det->GetBinContent(i+1,i+1))/hpred->GetBinContent(i+1));
+    h60->SetBinContent(i+1,sqrt(hcov_xs->GetBinContent(i+1,i+1))/hpred->GetBinContent(i+1));
+    h70->SetBinContent(i+1,sqrt(hcov_tot->GetBinContent(i+1,i+1))/hpred->GetBinContent(i+1));
+  }
+
+  h70->Draw();
+  h70->SetLineColor(1);
+  h70->SetLineWidth(2);
+  
+  h10->Draw("same");  //stat
+  h10->SetLineColor(9);
+  h20->Draw("same");  // mcstat
+  h20->SetLineColor(8);
+  h30->Draw("same"); //dirt
+  h30->SetLineColor(3);
+  h40->Draw("same"); //flux
+  h40->SetLineColor(2);
+  h50->Draw("same"); //det
+  h50->SetLineColor(6);
+  
+  h60->Draw("same"); // xs
+  h60->SetLineColor(4);
+  h10->SetLineWidth(2);
+  h20->SetLineWidth(2);
+  h30->SetLineWidth(2);
+  h40->SetLineWidth(2);
+  h50->SetLineWidth(2);
+  h60->SetLineWidth(2);
+
+  h70->GetYaxis()->SetRangeUser(0,2.5);
+
+  TLegend *le1 = new TLegend(0.6,0.6,0.89,0.89);
+  le1->AddEntry(h70,"Total","l");
+  le1->AddEntry(h10,"Stat.","l");
+  le1->AddEntry(h20,"MC stat.","l");
+  le1->AddEntry(h30,"Dirt","l");
+  le1->AddEntry(h40,"Flux","l");
+  le1->AddEntry(h50,"Det.","l");
+  le1->AddEntry(h60,"Xs","l");
+  le1->Draw();
+  
+  
   
 
-
-    
+ TFile *file = new TFile("wiener.root","RECREATE");
+ htrue_signal->SetDirectory(file);
+ hmeas->SetDirectory(file);
+ hR->SetDirectory(file);
+ hcov_stat->SetDirectory(file);
+ hcov_mcstat->SetDirectory(file);
+ hcov_add->SetDirectory(file);
+ hcov_det->SetDirectory(file);
+ hcov_flux->SetDirectory(file);
+ hcov_xs->SetDirectory(file);
+ hcov_tot->SetDirectory(file);
+ file->Write();
+ file->Close();
   
 }
