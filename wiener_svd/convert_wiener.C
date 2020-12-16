@@ -227,7 +227,7 @@ void convert_wiener(){
   hcov_tot->Add(hcov_mcstat);
   hcov_tot->Add(hcov_add);
   hcov_tot->Add(hcov_flux);
-  //hcov_tot->Add(hcov_det);
+  hcov_tot->Add(hcov_det);
   hcov_tot->Add(hcov_xs);
   
   for (Int_t i=0;i!=nbin_meas;i++){
