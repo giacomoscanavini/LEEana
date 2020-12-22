@@ -204,6 +204,7 @@ void convert_wiener(){
   TH2D *hcov_xs = new TH2D("hcov_xs","hcov_xs",nbin_meas,0.5,nbin_meas+0.5,nbin_meas,0.5,nbin_meas+0.5);
   {
     TFile tmp_file("./XsFlux/cov_xs.root");
+    //TFile tmp_file("./XsFlux/cov_17.root");
     TMatrixD *frac_xs = (TMatrixD*)tmp_file.Get("frac_cov_xf_mat_17");
     
     for (Int_t i=0;i!=nold;i++){
