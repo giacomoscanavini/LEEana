@@ -4,6 +4,9 @@
 #central histogram preparation ...
 system("./convert_histo.pl");
 
+#data statistical uncertainties
+system("./bin/stat_pred_cov_matrix -r0 &");
+
 #Det sys
 system("./run_det_sys.pl");
 
