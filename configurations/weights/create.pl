@@ -10,7 +10,7 @@ while(<infile>){
     while(<infile1>){
 	my $type = $_;
 	chomp($type);
-	print "./processed_checkout_rootfiles/checkout_$dir\.root   /data0/wgu/1019_checkout_eventweight_sep24/$dir\/$type\.root       ./processed_checkout_rootfiles/$dir\/$type\.root  $type\n";
+	print "./processed_checkout_rootfiles/checkout_$dir\.root   /data0/xqian/MicroBooNE/numi/$dir\/$type\.root       ./processed_checkout_rootfiles/$dir\/$type\.root  $type\n";
     }
     close(infile1);
 }

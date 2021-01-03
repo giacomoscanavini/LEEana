@@ -274,6 +274,8 @@ void convert_wiener(){
   }
 
   h70->Draw();
+  h70->SetXTitle("Bin no");
+  h70->SetTitle("Relative Uncertainties");
   h70->SetLineColor(1);
   h70->SetLineWidth(2);
   
