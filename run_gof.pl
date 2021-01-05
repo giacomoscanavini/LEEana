@@ -13,7 +13,7 @@ system("./run_det_sys.pl");
 #data statistical uncertainties
 system("./bin/stat_cov_matrix -r0 &");
 
-#Flux sys, GEANT4 1-->16
+#Flux sys, GEANT4 1-->17
 system("./run_xf_sys.pl");
 
 # MC stat ... 
