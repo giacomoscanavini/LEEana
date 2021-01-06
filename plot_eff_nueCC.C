@@ -38,7 +38,7 @@ void plot_eff_nueCC(){
   g1->GetYaxis()->SetRangeUser(0,1);
 
   g1->GetXaxis()->SetTitle("E^{#nu}_{true} (MeV)");
-  g1->SetTitle("Efficiency");
+  g1->SetTitle("BNB #nu_{e}CC Efficiency");
   TLegend *le1 = new TLegend(0.6,0.6,0.89,0.89);
   le1->AddEntry(g1,"FC","lp");
   le1->AddEntry(g2,"FC+PC","lp");
