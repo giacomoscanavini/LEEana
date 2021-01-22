@@ -1,0 +1,46 @@
+void plot_kdar(){
+  TFile *file = new TFile("processed_checkout_rootfiles/checkout_data_numi_run1_morestat.root");
+  TTree *T_eval = (TTree*)file->Get("wcpselection/T_eval");
+  TTree *T_BDTvars = (TTree*)file->Get("wcpselection/T_BDTvars");
+  TTree *T_KINEvars = (TTree*)file->Get("wcpselection/T_KINEvars");
+  T_eval->AddFriend(T_BDTvars,"T_BDTvars");
+  T_eval->AddFriend(T_KINEvars,"T_KINEvars");
+
+ 
+
+  TFile *file1 = new TFile("processed_checkout_rootfiles/checkout_prodgenie_numi_overlay_run1.root");
+  TTree *T_eval1 = (TTree*)file1->Get("wcpselection/T_eval");
+  TTree *T_BDTvars1 = (TTree*)file1->Get("wcpselection/T_BDTvars");
+  TTree *T_KINEvars1 = (TTree*)file1->Get("wcpselection/T_KINEvars");
+  T_eval1->AddFriend(T_BDTvars1,"T_BDTvars");
+  T_eval1->AddFriend(T_KINEvars1,"T_KINEvars");
+
+  TCanvas *c1 = new TCanvas("c1","c1",1200,600);
+  c1->Divide(2,1);
+
+  c1->cd(1);
+  TH1F *h1 = new TH1F("h1","h1",50,150,300);
+  T_eval->Project("h1","T_KINEvars.kine_reco_Enu","T_BDTvars.numu_score>0&&match_isFC==1");
+  h1->Draw();
+  h1->SetXTitle("E^{rec}_{#nu} (MeV)");
+  h1->SetTitle("KDAR #nu (3 MeV per bin)");
+  
+  c1->cd(2);
+  TH1F *h2 = new TH1F("h2","h2",50,150,300);
+  TH1F *h3 = new TH1F("h3","h3",50,150,300);
+  // T_eval1->Project("h2","truth_nuEnergy"," weight_cv*weight_spline*(1>0)");
+  // T_eval1->Project("h3","truth_nuEnergy"," weight_cv*weight_spline*(T_BDTvars.numu_score >0 &&match_isFC==1)");
+  T_eval1->Project("h2","T_KINEvars.kine_reco_Enu"," weight_cv*weight_spline*(1>0)");
+  T_eval1->Project("h3","T_KINEvars.kine_reco_Enu"," weight_cv*weight_spline*(T_BDTvars.numu_score >0 &&match_isFC==1)");
+  h2->Draw();
+  h3->Draw("same");
+  h3->SetLineColor(2);
+  h2->GetYaxis()->SetRangeUser(-20,600);
+  //h2->SetTitle("Truth #nu energy (MeV)");
+  h2->SetTitle("Reco #nu energy (MeV)");
+
+  TLegend *le1 = new TLegend(0.6,0.6,0.89,0.89);
+  le1->AddEntry(h2,"all");
+  le1->AddEntry(h3,"Selected");
+  le1->Draw();
+}
