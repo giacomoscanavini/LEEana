@@ -3,8 +3,10 @@ void plot_kdar(){
   TTree *T_eval = (TTree*)file->Get("wcpselection/T_eval");
   TTree *T_BDTvars = (TTree*)file->Get("wcpselection/T_BDTvars");
   TTree *T_KINEvars = (TTree*)file->Get("wcpselection/T_KINEvars");
+  TTree *T_PFeval = (TTree*)file->Get("wcpselection/T_PFeval");
   T_eval->AddFriend(T_BDTvars,"T_BDTvars");
   T_eval->AddFriend(T_KINEvars,"T_KINEvars");
+  T_eval->AddFriend(T_PFeval,"T_PFeval");
 
  
 
@@ -15,17 +17,17 @@ void plot_kdar(){
   T_eval1->AddFriend(T_BDTvars1,"T_BDTvars");
   T_eval1->AddFriend(T_KINEvars1,"T_KINEvars");
 
-  TCanvas *c1 = new TCanvas("c1","c1",1200,600);
-  c1->Divide(2,1);
+  // TCanvas *c1 = new TCanvas("c1","c1",1200,600);
+  // c1->Divide(2,1);
 
-  c1->cd(1);
+  // c1->cd(1);
   TH1F *h1 = new TH1F("h1","h1",50,150,300);
-  T_eval->Project("h1","T_KINEvars.kine_reco_Enu","T_BDTvars.numu_score>0&&match_isFC==1");
+  T_eval->Project("h1","T_KINEvars.kine_reco_Enu","T_BDTvars.numu_score>0.0&&match_isFC==1");
   h1->Draw();
   h1->SetXTitle("E^{rec}_{#nu} (MeV)");
   h1->SetTitle("KDAR #nu (3 MeV per bin)");
   
-  c1->cd(2);
+  // c1->cd(2);
   TH1F *h2 = new TH1F("h2","h2",50,150,300);
   TH1F *h3 = new TH1F("h3","h3",50,150,300);
   // T_eval1->Project("h2","truth_nuEnergy"," weight_cv*weight_spline*(1>0)");
@@ -43,4 +45,6 @@ void plot_kdar(){
   le1->AddEntry(h2,"all");
   le1->AddEntry(h3,"Selected");
   le1->Draw();
+
+  T_eval->Draw("reco_muonMomentum[1]:reco_muonMomentum[2]","T_BDTvars.numu_score >0.0 &&match_isFC==1 && T_KINEvars.kine_reco_Enu>224 && T_KINEvars.kine_reco_Enu<232 && reco_muonMomentum[3]>0.","*");
 }
