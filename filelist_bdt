@@ -1,3 +1,5 @@
+numi/					checkout_data_numi_run1_full.root							./checkout_rootfiles_correct_bdt/		./processed_checkout_rootfiles/		0	0
+end					end											end						end						-1	-1
 /data0/xqian/MicroBooNE/test_filter_files/	checkout_data_bnb_run1_5e19_numuCC.root		./checkout_rootfiles_correct_bdt/		./processed_checkout_rootfiles/		0	0
 /data0/xqian/MicroBooNE/test_filter_files/	checkout_data_bnb_run1_5e19_eLEE_far.root	./checkout_rootfiles_correct_bdt/		./processed_checkout_rootfiles/		0	0
 /data0/xqian/MicroBooNE/test_filter_files/	checkout_data_bnb_run1_5e19_eLEE_near.root	./checkout_rootfiles_correct_bdt/		./processed_checkout_rootfiles/		0	0
