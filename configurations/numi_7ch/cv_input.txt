@@ -5,3 +5,4 @@
 -1	end			-1		end												end										-1		-1	-1	-1
 #file	#type			#period		#filename											#outfile_name									#ext_pot	#file_no  #norm		#norm_period
 5	BNB			1		./processed_checkout_rootfiles/checkout_data_numi_run1_morestat.root				./hist_rootfiles/run1_data_bnb.root						1.874e20	3	0	1
+5	BNB			1		./processed_checkout_rootfiles/checkout_data_numi_run1_full_RHC.root				./hist_rootfiles/run1_data_bnb.root						5.711e+19	3	0	1
