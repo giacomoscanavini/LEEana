@@ -1,5 +1,7 @@
 far_sideband_files/			checkout_data_bnb_run3_far_sideband_2021_02_03.root					./checkout_rootfiles_correct_bdt/		./processed_checkout_rootfiles/		0	0
 far_sideband_files/			checkout_data_bnb_run1_far_sideband_2021_02_03.root					./checkout_rootfiles_correct_bdt/		./processed_checkout_rootfiles/		0	0
+/home/wgu/data0/1016_checkout/		checkout_data_extbnb_run1.root								./checkout_rootfiles_correct_bdt/		./processed_checkout_rootfiles/		1	0
+checkout_rootfile/			checkout_data_extbnb_run3.root								./checkout_rootfiles_correct_bdt/		./processed_checkout_rootfiles/		1	0
 end					end											end						end					-1	-1
 numi/					checkout_data_numi_run1_full_FHC.root							./checkout_rootfiles_correct_bdt/		./processed_checkout_rootfiles/		0	0
 numi/					checkout_data_numi_run1_full_RHC.root							./checkout_rootfiles_correct_bdt/		./processed_checkout_rootfiles/		0	0
