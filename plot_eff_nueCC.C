@@ -97,9 +97,9 @@ void plot_eff_nueCC(){
   le1->Draw();
   
 
-  h10->Draw();
-  h30->Scale(h10->GetSum()/h30->GetSum());
-  h30->SetLineColor(2);
-  h30->Draw("same");
+  // h10->Draw();
+  // h30->Scale(h10->GetSum()/h30->GetSum());
+  // h30->SetLineColor(2);
+  // h30->Draw("same");
   
 }
