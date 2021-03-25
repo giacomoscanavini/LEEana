@@ -12,7 +12,7 @@ while(<infile>){
     }
     
     if ($num % 12 == 11){
-	system("./bin/merge_xf $filename");
+	system("./bin/merge_xf $filename ");
     }else{
 	system("./bin/merge_xf $filename &");
     }
