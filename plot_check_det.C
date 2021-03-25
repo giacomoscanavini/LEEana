@@ -9,11 +9,12 @@ void plot_check_det(){
   file[7] = new TFile("hist_rootfiles/DetVar/cov_WMX.root");  //8
   file[3] = new TFile("hist_rootfiles/DetVar/cov_SCE.root");  //4
   file[8] = new TFile("hist_rootfiles/DetVar/cov_WMYZ.root");  //9
-  file[4] = new TFile("hist_rootfiles/DetVar/cov_WMdEdx.root"); //5
+  //  file[4] = new TFile("hist_rootfiles/DetVar/cov_WMdEdx.root"); //5
 
   TH1F **h1 = new TH1F*[9];
   TH1F **h2 = new TH1F*[9];
   for (Int_t i=0;i!=9;i++){
+    if (i==4) continue;
     h1[i] = (TH1F*)file[i]->Get("pred_covch_4");
     h2[i] = (TH1F*)file[i]->Get("pred_covch_1");
   }
@@ -25,6 +26,7 @@ void plot_check_det(){
   h1[0]->Draw("");  h1[0]->SetLineColor(1);
     
   for (Int_t i=1;i!=9;i++){
+    if (i==4) continue;
     h1[i]->SetLineColor(i+1);
     h1[i]->Draw("histsame");
   }
@@ -33,6 +35,7 @@ void plot_check_det(){
   h2[0]->Draw("");  h2[0]->SetLineColor(1);
     
   for (Int_t i=1;i!=9;i++){
+    if (i==4) continue;
     h2[i]->SetLineColor(i+1);
     h2[i]->Draw("histsame");
   }
@@ -49,6 +52,7 @@ void plot_check_det(){
   }
   
   for(Int_t i=0;i!=9;i++){
+    if (i==4) continue;
     frac_mat[i] = (TMatrixD*)file[i]->Get(Form("frac_cov_det_mat_%d",i+1));
     g1[i] = new TGraph();
     for (Int_t j=0;j!=frac_mat[i]->GetNcols();j++){
@@ -64,6 +68,7 @@ void plot_check_det(){
   g1[0]->SetMarkerColor(1);
   g1[0]->SetMarkerStyle(20);
    for (Int_t i=1;i!=9;i++){
+     if (i==4) continue;
      g1[i]->Draw("*same");
      g1[i]->SetLineColor(i+1);
      g1[i]->SetMarkerColor(i+1);
@@ -76,7 +81,7 @@ void plot_check_det(){
    le1->AddEntry(g1[1],"LYRayleigh","pl");
    le1->AddEntry(g1[2],"Recomb2","pl");
    le1->AddEntry(g1[3],"SCE","pl");
-   le1->AddEntry(g1[4],"WMdEdx","pl");
+   //le1->AddEntry(g1[4],"WMdEdx","pl");
    le1->AddEntry(g1[5],"WMThetaXZ","pl");
    le1->AddEntry(g1[6],"WMThetaYZ","pl");
    le1->AddEntry(g1[7],"WMX","pl");
