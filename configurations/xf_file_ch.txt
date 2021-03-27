@@ -151,4 +151,4 @@
 ./processed_checkout_rootfiles/prodgenie_dirt_overlay_run1_all/UBGenieFluxSmallUni.root all
 ./processed_checkout_rootfiles/prodgenie_dirt_overlay_run2_all/UBGenieFluxSmallUni.root all
 ./processed_checkout_rootfiles/prodgenie_dirt_overlay_run3_all/UBGenieFluxSmallUni.root all
-End End
+end all
