@@ -42,14 +42,11 @@ double calc_GoF(TMatrixD matrix_pred, TMatrixD matrix_data, TMatrixD cov){
 }
 
 // main function
-void plot_xs_tot(int opt=2){
+void plot_xs_tot_perE(int opt=2){
 
-  auto c1 = new TCanvas("c1","c1",800,600);
+  auto c1 = new TCanvas("c1","c1",700,600);
 
   // unfolded result
-  // auto uBxsec = TFile::Open("output_C1_N0_uBxsec.root");
-  // auto uBxsec = TFile::Open("output_C1_N0d5_uBxsec.root");
-  // auto uBxsec = TFile::Open("output_C2_N0d5_uBxsec.root");
   auto uBxsec = TFile::Open("output.root");
   auto unfold = (TH1D*)uBxsec->Get("unf");
   auto absError = (TH1D*)uBxsec->Get("absError");
@@ -72,12 +69,13 @@ void plot_xs_tot(int opt=2){
   // unfold1->Draw("E");
 
   // set assymetric error bar in x-axis
-  auto flux = TFile::Open("../flux_info/gh_averaged_numu_flux.root");
+  auto flux = TFile::Open("..//flux_info/gh_averaged_numu_flux.root");
   auto gh_flux = (TGraph*)flux->Get("gh_averaged_numu_flux");
   // data points
   std::vector<double> x_v, y_v;
   std::vector<double> exl_v, exh_v;
   std::vector<double> eyl_v, eyh_v;
+  cout << "weighted bin center: " << endl;
   for (int i=0; i<nbins; i++){
     double low = unfold1->GetBinLowEdge(i+1);
     double width = unfold1->GetBinWidth(i+1);
@@ -85,18 +83,20 @@ void plot_xs_tot(int opt=2){
     double ey = unfold1->GetBinError(i+1);
     double x = get_mean_x(gh_flux, low, low+width);
 
+    cout << ey << ", "; 
+
     x_v.push_back(x); 
-    y_v.push_back(y); 
+    y_v.push_back(y/x/40.0*100.0); 
     exl_v.push_back(x-low); 
     exh_v.push_back(low+width-x); 
-    eyl_v.push_back(ey); 
-    eyh_v.push_back(ey); 
+    eyl_v.push_back(ey/x/40.0*100.0); 
+    eyh_v.push_back(ey/x/40.0*100.0); 
   }
-
+  cout << endl;
 
   // 0. xsec model
-  TFile *file1 = new TFile("..//genie/xsec_graphs_v2_tune1.root");
-  TFile *file2 = new TFile("..//genie/xsec_graphs_v3_10a_02_11a.root");
+  TFile *file1 = new TFile("../genie/xsec_graphs_v2_tune1.root");
+  TFile *file2 = new TFile("../genie/xsec_graphs_v3_10a_02_11a.root");
   double mc_weight[10] = {1.21993, 1.19518, 1.19197, 1.17844, 1.16532, 1.15571, 1.15111, 1.13284, 1.11594, 1.0744};
   // double mc_weight[10] = {1.5178, 1.26847, 1.21674, 1.18273, 1.15804, 1.14223, 1.13518, 1.11799, 1.10339, 1.0671}; // no spline
  
@@ -211,12 +211,15 @@ void plot_xs_tot(int opt=2){
     // TVectorD Ac_v1 =  v1;
     // TVectorD Ac_v2 =  v2;
     // TVectorD Ac_v3 =  v3;
+    cout << "MC truth: " << endl;
     for (int i=0; i<nbins; i++) {
-      y1[i] = Ac_v1(i);
-      y2[i] = Ac_v2(i);
+      y1[i] = Ac_v1(i) / x1[i] /40.0*100.0;
+      y2[i] = Ac_v2(i) / x1[i] /40.0*100.0;
       x3.push_back(x1[i]);
-      y3.push_back(Ac_v3(i));
+      y3.push_back(Ac_v3(i) / x1[i]/40.0*100.0);
+      cout << Ac_v3(i)  << ", ";
     }
+    cout << endl;
     
     // without Ac smearing
     // for (int i=0; i<nbins; i++) {
@@ -245,10 +248,10 @@ void plot_xs_tot(int opt=2){
     g1_flux_weighted_smeared->SetTitle("");
     g1_flux_weighted_smeared->GetXaxis()->SetTitle("E_{#nu} [GeV]");
     // g1_flux_weighted_smeared->GetYaxis()->SetTitle("10^{-36} cm^{2} / Ar");
-    g1_flux_weighted_smeared->GetYaxis()->SetTitle("#sigma_{CC} (#times 10^{-36} cm^{2} / Ar)");
+    g1_flux_weighted_smeared->GetYaxis()->SetTitle("<#sigma_{CC}>/<E_{#nu}> (10^{-38} cm^{2}/GeV/nucleon)");
     g1_flux_weighted_smeared->GetXaxis()->SetRangeUser(0,4);
     g1_flux_weighted_smeared->GetXaxis()->SetLimits(0,4);
-    g1_flux_weighted_smeared->GetYaxis()->SetRangeUser(0,1);
+    g1_flux_weighted_smeared->GetYaxis()->SetRangeUser(0,1.6);
     g1_flux_weighted_smeared->Draw("APL");
 
     g2_flux_weighted_smeared->Draw("PLsame");
@@ -293,21 +296,39 @@ void plot_xs_tot(int opt=2){
       // in the case that Ac smearing is not added,
       // use Ac-I diagnal term as additional uncer.
       if (i==j) {
-        double add = ( Ac_add1(i) * Ac_add1(i) + Ac_add2(i) * Ac_add2(i) +Ac_add3(i) * Ac_add3(i) + Ac_add4(i) * Ac_add4(i) ) * 0.25;
+        double add = ( Ac_add1(i) * Ac_add1(i) + Ac_add2(i) * Ac_add2(i) +Ac_add3(i) * Ac_add3(i) + Ac_add4(i) * Ac_add4(i) )/4.;
         // unfcov(i,i) += add;
 
         // cout << "unfold1 # " << i+1 << " error: " << unfold1->GetBinError(i+1) << " add: " << add << endl;
         // unfold1->SetBinError(i+1, sqrt( unfcov(i,i) ) );
         // unfold1->SetBinError(i+1, 0);
       //   cout << "cov diagonal # " << i << " " <<  sqrt(cov->GetBinContent(i+1, i+1)) << " bias: " << Ac_add(i) << endl;
+        cout << "sqrt(unfcov(i,i)= " << sqrt(unfcov(i,i)) << " unfErr= " << absError->GetBinContent(i+1) << endl;
       }
     }
   }
 
 
+  // MCC8 0.693 +/- 0.165 E-38cm2 per nucleon, flux avg 0.8 GeV (0.2 - 2GeV)
+  double x_mcc8[] = {0.8};
+  double y_mcc8[] = {0.693 / 0.8};
+  double ex1_mcc8[] = {0.8 - 0.2};
+  double ex2_mcc8[] = {2.0 - 0.8};
+  double ey_mcc8[] = {0.165 / 0.8};
+
+  auto gh_mcc8 = new TGraphAsymmErrors(1, x_mcc8, y_mcc8, ex1_mcc8, ex2_mcc8, ey_mcc8, ey_mcc8);
+  gh_mcc8->SetLineColor(2);
+  gh_mcc8->SetLineWidth(2);
+  gh_mcc8->SetMarkerColor(2);
+  gh_mcc8->SetMarkerStyle(20);
+  // gh_mcc8->Draw("Psame");
+  //
+
+
   for(int i=0; i<nbins; i++) {
-    eyl_v[i] = sqrt(unfcov(i,i));
-    eyh_v[i] = sqrt(unfcov(i,i));
+    // cout << eyl_v[i] << " " << sqrt(unfcov(i,i))/x_v.at(i) /40.0*100.0 << endl;
+    eyl_v[i] = sqrt(unfcov(i,i))/x_v.at(i) /40.0*100.0;
+    eyh_v[i] = sqrt(unfcov(i,i))/x_v.at(i) /40.0*100.0;
   }
   auto gr = new TGraphAsymmErrors(x_v.size(),x_v.data(),y_v.data(),exl_v.data(),exh_v.data(),eyl_v.data(),eyh_v.data());
   gr->GetXaxis()->SetTitle("E_{#nu} [GeV]");
@@ -327,12 +348,18 @@ void plot_xs_tot(int opt=2){
   double chi2_m2 = calc_GoF(matrix_pred2, matrix_data, unfcov);
   double chi2_m3 = calc_GoF(matrix_pred3, matrix_data, unfcov);
 
+
   auto lg = new TLegend(0.11,0.7,0.5,0.89);
   lg->SetBorderSize(0);
-  lg->AddEntry(gr, "Data","lpe")->SetTextColor(4);
-  lg->AddEntry(g1_flux_weighted_smeared, Form("GENIE v2, #chi^{2}/dof=%.1f/%d",chi2_m1,nbins),"lp");
-  lg->AddEntry(g2_flux_weighted_smeared, Form("GENIE v3, #chi^{2}/dof=%.1f/%d",chi2_m2,nbins),"lp");
-  lg->AddEntry(g3_flux_weighted_smeared, Form("#muB Tuned, #chi^{2}/dof=%.1f/%d",chi2_m3,nbins), "l");
+  lg->SetNColumns(2);
+  // lg->AddEntry(g1_flux_weighted_smeared, Form("GENIE v2, #chi^{2}/dof=%.1f/%d",chi2_m1,nbins),"lp");
+  // lg->AddEntry(g2_flux_weighted_smeared, Form("GENIE v3, #chi^{2}/dof=%.1f/%d",chi2_m2,nbins),"lp");
+  // lg->AddEntry(g3_flux_weighted_smeared, Form("#muB Tuned, #chi^{2}/dof=%.1f/%d",chi2_m3,nbins), "l");
+  lg->AddEntry(g1_flux_weighted_smeared, "GENIE v2","lp");
+  lg->AddEntry(g2_flux_weighted_smeared, "GENIE v3","lp");
+  lg->AddEntry(g3_flux_weighted_smeared, "#muB Tuned", "l");
+  // lg->AddEntry(gh_mcc8, "Data (MCC8 result)", "lpe");
+  lg->AddEntry(gr, "Data (this study)","lpe")->SetTextColor(4);
   lg->Draw();
 
   // // plot correlation 
@@ -387,9 +414,5 @@ void plot_xs_tot(int opt=2){
   // gratio->SetTitle("");
   // gratio->Draw("AP");
 
-  auto ofile = TFile::Open("data.root","recreate");
-  gr->SetName("xsec_total");
-  gr->Write();
-  ofile->Close();
 }
 
