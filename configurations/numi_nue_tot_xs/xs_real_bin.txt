@@ -1,10 +1,10 @@
-1	7		numuCC.inside.Enu.le.540.gt.200		52609.6	0.022		0.011	
-2	7		numuCC.inside.Enu.le.705.gt.540		6252.49	0.022		0.011
-3	7		numuCC.inside.Enu.le.920.gt.705		5276.01	0.022		0.011
-4	7		numuCC.inside.Enu.le.1200.gt.920	4891.62	0.022		0.011
-5	7		numuCC.inside.Enu.le.1570.gt.1200	5627.16	0.022		0.011
-6	7		numuCC.inside.Enu.le.2050.gt.1570	4250.58	0.022		0.011
-7	7		numuCC.inside.Enu.le.4000.gt.2050	3330.81	0.022		0.011
+1	11		nueCC.inside.Enu.le.540.gt.200		804.994	0.022		0.011	
+2	11		nueCC.inside.Enu.le.705.gt.540		342.845	0.022		0.011
+3	11		nueCC.inside.Enu.le.920.gt.705		390.799	0.022		0.011
+4	11		nueCC.inside.Enu.le.1200.gt.920		371.263	0.022		0.011
+5	11		nueCC.inside.Enu.le.1570.gt.1200	273.366	0.022		0.011
+6	11		nueCC.inside.Enu.le.2050.gt.1570	150.279	0.022		0.011
+7	11		nueCC.inside.Enu.le.4000.gt.2050	123.372	0.022		0.011
 -1	-1		End					-1	-1		-1
 #bin	#cut_file  	#cut					#const	#pot_err	#target_err
 1	4		numuCC.inside.Enu.le.540.gt.200		11909.4	0.02		0.01	
