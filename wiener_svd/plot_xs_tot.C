@@ -44,12 +44,11 @@ double calc_GoF(TMatrixD matrix_pred, TMatrixD matrix_data, TMatrixD cov){
 // main function
 void plot_xs_tot(int opt=2){
 
+  std::vector<double> rt_data2ubmc, err_rt_data2ubmc;  // ratio data-to-uBTune
+
   auto c1 = new TCanvas("c1","c1",800,600);
 
   // unfolded result
-  // auto uBxsec = TFile::Open("output_C1_N0_uBxsec.root");
-  // auto uBxsec = TFile::Open("output_C1_N0d5_uBxsec.root");
-  // auto uBxsec = TFile::Open("output_C2_N0d5_uBxsec.root");
   auto uBxsec = TFile::Open("output.root");
   auto unfold = (TH1D*)uBxsec->Get("unf");
   auto absError = (TH1D*)uBxsec->Get("absError");
@@ -59,6 +58,9 @@ void plot_xs_tot(int opt=2){
   // double xbins1[] = {0,0.5,0.6,0.7,0.8,0.9,1,1.1,1.2,1.5,2.1,5.0}; // GeV
   int nbins = 10;
   double xbins1[] = {0.2, 0.540, 0.705, 0.805, 0.920, 1.050, 1.200, 1.375, 1.570, 2.050, 4.000}; // GeV
+  int nbins = 7;
+  double xbins1[] = {0.2, 0.54, 0.705, 0.920, 1.2, 1.57, 2.05, 4.0}; // GeV
+
   TH1D* unfold1 = new TH1D("unfold_real","",nbins, xbins1);
   TVectorD unfold1_vd(nbins);
   unfold1->GetXaxis()->SetTitle("E_{#nu} [GeV]");
@@ -74,6 +76,8 @@ void plot_xs_tot(int opt=2){
   // set assymetric error bar in x-axis
   auto flux = TFile::Open("../flux_info/gh_averaged_numu_flux.root");
   auto gh_flux = (TGraph*)flux->Get("gh_averaged_numu_flux");
+  // auto flux = TFile::Open("../flux_info/numi_flux_graphs.root");
+  // auto gh_flux = (TGraph*)flux->Get("numu");
   // data points
   std::vector<double> x_v, y_v;
   std::vector<double> exl_v, exh_v;
@@ -236,9 +240,9 @@ void plot_xs_tot(int opt=2){
     auto g2_flux_weighted_smeared = new TGraph(nbins, x2, y2); // v3
     auto g3_flux_weighted_smeared = new TGraph(nbins, x3.data(), y3.data()); // MC truth
    
-    cout << "ratio: " << endl;
-    for (int i=0; i<10; i++) {
-      cout << x3.at(i) << " " << y3.at(i)*1.0 /  y2[i] << endl;
+    for (int i=0; i<nbins; i++) {
+      rt_data2ubmc.push_back( y_v.at(i)/ y3.at(i));
+      err_rt_data2ubmc.push_back( eyl_v.at(i)/ y3.at(i));
     }
  
     cout << "weighted smeared" << endl;
@@ -335,61 +339,74 @@ void plot_xs_tot(int opt=2){
   lg->AddEntry(g3_flux_weighted_smeared, Form("#muB Tuned, #chi^{2}/dof=%.1f/%d",chi2_m3,nbins), "l");
   lg->Draw();
 
-  // // plot correlation 
-  // auto c2 = new TCanvas("c2","c2",800,600);
-  // c2->cd();
-  // auto rho = (TH2D*)cov->Clone("rho"); // correlation coefficient
-  // rho->SetTitle("Correlation Coefficient");
-  // for (int i=0; i<rho->GetNbinsX(); i++) {
-  //   for (int j=0; j<rho->GetNbinsY(); j++) {
-  //     rho->SetBinContent(i+1, j+1, rho->GetBinContent(i+1,j+1)/ std::sqrt(cov->GetBinContent(i+1,i+1) * cov->GetBinContent(j+1,j+1)));
-  //   }
-  // }
-  // rho->Draw("colz");
 
-  // // sigma / E plot
-  // auto c3 = new TCanvas("c3","c3",800,600);
-  // c3->cd();
+  // ratio to ubTune Model
+  auto c3 = new TCanvas("c3","c3",800,600);
+  c3->cd();
+  vector<double> xv2;
+  for(int i=0; i<nbins; i++) {
+    xv2.push_back(x_v.at(i) *1000.0);
+    exl_v.at(i) *= 1000.0;
+    exh_v.at(i) *= 1000.0;
+  }
 
-  // auto gratio = new TGraphAsymmErrors();
-  // // auto gratio_2 = new TGraphAsymmErrors();
-  // for(int i=0; i<x_v.size(); i++){
-  //   double sigma_over_E = y_v.at(i) / x_v.at(i) / 40.0 * 100.0;
-  //   cout << x_v.at(i) << " " << sigma_over_E << endl;
-  //   gratio->SetPoint(i, x_v.at(i), y_v.at(i) / x_v.at(i) / 40.0 * (1e-36/1e-38)); // Ar40
-  //   gratio->SetPointEXhigh(i, exh_v.at(i));
-  //   gratio->SetPointEXlow(i, exl_v.at(i));
-  //   double e_add = smear->GetBinContent(i+1, i+1) - 1; // additional uncertainty from (Ac-I)
-    
-  //   gratio->SetPointEYhigh(i, eyh_v.at(i)/y_v.at(i));
-  //   gratio->SetPointEYlow(i, eyl_v.at(i)/y_v.at(i));
-  // }
-
-  // gratio->SetPoint(x_v.size(), 350, 0);// dummy point to expand the visible region for overlay
-
-  // // additional uncertainty from (Ac-I)
-  
-  // // auto smear = (TH2D*)uBxsec->Get("smear"); // Ac from unfolding
-  // // int nrows = smear->GetNbinsX();
-  // // int ncols = smear->GetNbinsY();
+  auto gh_rt_data2ubmc = new TGraphAsymmErrors(nbins, xv2.data(), rt_data2ubmc.data(), exl_v.data(),exh_v.data(), err_rt_data2ubmc.data(), err_rt_data2ubmc.data());
 
 
-  // gratio->GetXaxis()->SetTitle("E_{#nu} [GeV]");
-  // gratio->GetYaxis()->SetTitle("#sigma_{CC}/E_{#nu} (10^{-38} cm^{2} / GeV)");
-  // gratio->SetMarkerColor(2);
-  // gratio->SetMarkerStyle(21);
-  // gratio->SetMarkerSize(1.5);
-  // gratio->SetLineWidth(2);
-  // gratio->SetLineColor(2);
-  // gratio->SetMaximum(1.6);
-  // gratio->SetMinimum(0);
-  // gratio->GetXaxis()->SetLimits(0,100);
-  // gratio->SetTitle("");
-  // gratio->Draw("AP");
+  gh_rt_data2ubmc->SetTitle("");
+  gh_rt_data2ubmc->GetXaxis()->SetTitle("E_{#nu} (MeV)");
+  gh_rt_data2ubmc->GetYaxis()->SetTitle("Ratio to #muB Tuned model");
+  gh_rt_data2ubmc->SetLineColor(4);
+  gh_rt_data2ubmc->SetLineWidth(4);
+  gh_rt_data2ubmc->SetMarkerColor(4);
+  gh_rt_data2ubmc->SetMarkerStyle(20);
+  gh_rt_data2ubmc->SetMarkerSize(2);
+  gh_rt_data2ubmc->Draw("AP");
 
-  auto ofile = TFile::Open("data.root","recreate");
-  gr->SetName("xsec_total");
-  gr->Write();
+
+  // FC reco
+  auto hdata_obsch_1 = (TH1F*)fmerge->Get("hdata_obsch_1");
+  auto histo_3 = (TH1F*)fmerge->Get("histo_3"); // bkgd
+  auto histo_5 = (TH1F*)fmerge->Get("histo_5"); // ext
+  auto histo_1 = (TH1F*)fmerge->Get("histo_1"); // real nu
+
+  hdata_obsch_1->Add(histo_3,-1);
+  hdata_obsch_1->Add(histo_5,-1);
+  hdata_obsch_1->Divide(histo_1);
+  hdata_obsch_1->SetLineColor(1);
+  hdata_obsch_1->SetMarkerColor(1);
+  hdata_obsch_1->SetMarkerStyle(20);
+  hdata_obsch_1->SetLineWidth(2);
+  hdata_obsch_1->Draw("same");
+  // PC reco
+  auto hdata_obsch_2 = (TH1F*)fmerge->Get("hdata_obsch_2");
+  auto histo_4 = (TH1F*)fmerge->Get("histo_4"); // bkgd
+  auto histo_6 = (TH1F*)fmerge->Get("histo_6"); // ext
+  auto histo_2 = (TH1F*)fmerge->Get("histo_2"); // real nu
+
+  hdata_obsch_2->Add(histo_4,-1);
+  hdata_obsch_2->Add(histo_6,-1);
+  hdata_obsch_2->Divide(histo_2);
+  hdata_obsch_2->SetLineColor(2);
+  hdata_obsch_2->SetMarkerColor(2);
+  hdata_obsch_2->SetMarkerStyle(20);
+  hdata_obsch_2->SetLineWidth(2);
+  hdata_obsch_2->Draw("same");
+
+
+  auto lg1 = new TLegend(0.11,0.7,0.5,0.89);
+  lg1->SetBorderSize(0);
+  lg1->AddEntry(gh_rt_data2ubmc, "Unfolded Xs (NuMI)","lpe")->SetTextColor(4);
+  lg1->AddEntry(hdata_obsch_1,"FC numuCC Data/MC in E^{reco}_{#nu}","lpe");
+  lg1->AddEntry(hdata_obsch_2,"PC numuCC Data/MC in E^{reco}_{#nu}","lpe");
+  lg1->Draw();
+
+
+  auto ofile = new TFile("ccinc.root","recreate");
+  gh_rt_data2ubmc->SetName("ccinc");  
+  gh_rt_data2ubmc->Write();
   ofile->Close();
+
+
 }
 
