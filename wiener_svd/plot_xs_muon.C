@@ -69,7 +69,7 @@ void plot_xs_muon(int opt=2){
 
   double xcenter[11] = {178.133, 262.451, 341.128, 444.593, 540.291, 617.413, 705.084, 805.158, 919.43, 1114.45, 1599.94};
   // set assymetric error bar in x-axis
-  auto flux = TFile::Open("/data1/wgu/WC-LEE/LEEana/flux_info/gh_averaged_numu_flux.root");
+  auto flux = TFile::Open("../flux_info/gh_averaged_numu_flux.root");
   auto gh_flux = (TGraph*)flux->Get("gh_averaged_numu_flux");
   std::vector<double> x_v, y_v;
   std::vector<double> exl_v, exh_v;
@@ -88,6 +88,7 @@ void plot_xs_muon(int opt=2){
     exh_v.push_back(low+width-x); 
     eyl_v.push_back(ey); 
     eyh_v.push_back(ey); 
+
   }
 
   auto gr = new TGraphAsymmErrors(x_v.size(),x_v.data(),y_v.data(),exl_v.data(),exh_v.data(),eyl_v.data(),eyh_v.data());
@@ -223,8 +224,10 @@ void plot_xs_muon(int opt=2){
     cout << "sigma: " << NT << endl;
 
     for (int i=0; i<nbins; i++) {
-      cout << "dsigma/dE: " << y3.at(i) << " dsigma/dE/sigma: " << y3.at(i) / NT << endl;
+      // cout << "dsigma/dE: " << y3.at(i) << " dsigma/dE/sigma: " << y3.at(i) / NT << endl;
+      cout << y3.at(i) << ", ";
     }
+    cout << endl;
     
 //    // without Ac smearing
 //    // for (int i=0; i<nbins; i++) {
