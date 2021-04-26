@@ -52,9 +52,10 @@ void plot_xs_hadron(int opt=2){
   auto absError = (TH1D*)uBxsec->Get("absError");
 
   // real binning
-  int nbins = 11;
+  int nbins = 8;
   // double xbins1[] = {0,0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1.0,1.2};
-  double xbins1[] = {0.03, 0.1, 0.15, 0.225, 0.275, 0.336, 0.411, 0.502, 0.614, 0.75, 1.12, 2.5};
+  // double xbins1[] = {0.03, 0.1, 0.15, 0.225, 0.275, 0.336, 0.411, 0.502, 0.614, 0.75, 1.12, 2.5};
+  double xbins1[] = {0.03, 0.15, 0.275, 0.411, 0.502, 0.614, 0.75, 1.12, 2.5};
   TH1D* unfold1 = new TH1D("unfold_real","",nbins, xbins1);
   TVectorD unfold1_vd(nbins);
   unfold1->GetXaxis()->SetTitle("E_{had} [GeV]");
@@ -67,13 +68,15 @@ void plot_xs_hadron(int opt=2){
   unfold1->SetMaximum(1);
   // unfold1->Draw("E");
 
-  double xcenter[11] = {76.1812, 125.074, 186.789, 250.604, 306.665, 372.644, 453.011, 553.855, 677.571, 906.443, 1465.33};
+  // double xcenter[11] = {76.1812, 125.074, 186.789, 250.604, 306.665, 372.644, 453.011, 553.855, 677.571, 906.443, 1465.33};
+  double xcenter[8] = {102.819, 212.936, 343.37, 453.011, 553.855, 677.571, 906.443, 1465.33};
   // set assymetric error bar in x-axis
-  auto flux = TFile::Open("/data1/wgu/WC-LEE/LEEana/flux_info/gh_averaged_numu_flux.root");
+  auto flux = TFile::Open("../flux_info/gh_averaged_numu_flux.root");
   auto gh_flux = (TGraph*)flux->Get("gh_averaged_numu_flux");
   std::vector<double> x_v, y_v;
   std::vector<double> exl_v, exh_v;
   std::vector<double> eyl_v, eyh_v;
+  cout << "ex2: ";
   for (int i=0; i<nbins; i++){
     double low = unfold1->GetBinLowEdge(i+1);
     double width = unfold1->GetBinWidth(i+1);
@@ -88,7 +91,9 @@ void plot_xs_hadron(int opt=2){
     exh_v.push_back(low+width-x); 
     eyl_v.push_back(ey); 
     eyh_v.push_back(ey); 
+    cout << low+width-x<< ", ";
   }
+  cout << endl;
 
   auto gr = new TGraphAsymmErrors(x_v.size(),x_v.data(),y_v.data(),exl_v.data(),exh_v.data(),eyl_v.data(),eyh_v.data());
   gr->GetXaxis()->SetTitle("E_{had} [GeV]");
@@ -223,9 +228,12 @@ void plot_xs_hadron(int opt=2){
     }
     cout << "sigma: " << NT << endl;
 
+    cout << " MC: ";
     for (int i=0; i<nbins; i++) {
-      cout << "dsigma/dE: " << y3.at(i) << " dsigma/dE/sigma: " << y3.at(i) / NT << endl;
+      // cout << "dsigma/dE: " << y3.at(i) << " dsigma/dE/sigma: " << y3.at(i) / NT << endl;
+      cout << y3.at(i) << ", ";
     }
+    cout << endl;
     
 //    // without Ac smearing
 //    // for (int i=0; i<nbins; i++) {
