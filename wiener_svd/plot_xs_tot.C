@@ -56,8 +56,8 @@ void plot_xs_tot(int opt=2){
   // real binning
   // int nbins = 11;
   // double xbins1[] = {0,0.5,0.6,0.7,0.8,0.9,1,1.1,1.2,1.5,2.1,5.0}; // GeV
-  int nbins = 10;
-  double xbins1[] = {0.2, 0.540, 0.705, 0.805, 0.920, 1.050, 1.200, 1.375, 1.570, 2.050, 4.000}; // GeV
+  // int nbins = 10;
+  // double xbins1[] = {0.2, 0.540, 0.705, 0.805, 0.920, 1.050, 1.200, 1.375, 1.570, 2.050, 4.000}; // GeV
   int nbins = 7;
   double xbins1[] = {0.2, 0.54, 0.705, 0.920, 1.2, 1.57, 2.05, 4.0}; // GeV
 
@@ -74,10 +74,10 @@ void plot_xs_tot(int opt=2){
   // unfold1->Draw("E");
 
   // set assymetric error bar in x-axis
-  auto flux = TFile::Open("../flux_info/gh_averaged_numu_flux.root");
-  auto gh_flux = (TGraph*)flux->Get("gh_averaged_numu_flux");
-  // auto flux = TFile::Open("../flux_info/numi_flux_graphs.root");
-  // auto gh_flux = (TGraph*)flux->Get("numu");
+  // auto flux = TFile::Open("../flux_info/gh_averaged_numu_flux.root");
+  // auto gh_flux = (TGraph*)flux->Get("gh_averaged_numu_flux");
+  auto flux = TFile::Open("../flux_info/numi_flux_graphs.root");
+  auto gh_flux = (TGraph*)flux->Get("nue");
   // data points
   std::vector<double> x_v, y_v;
   std::vector<double> exl_v, exh_v;
@@ -99,13 +99,13 @@ void plot_xs_tot(int opt=2){
 
 
   // 0. xsec model
-  TFile *file1 = new TFile("..//genie/xsec_graphs_v2_tune1.root");
-  TFile *file2 = new TFile("..//genie/xsec_graphs_v3_10a_02_11a.root");
-  double mc_weight[10] = {1.21993, 1.19518, 1.19197, 1.17844, 1.16532, 1.15571, 1.15111, 1.13284, 1.11594, 1.0744};
+  TFile *file1 = new TFile("../genie/xsec_graphs_v2_tune1.root");
+  TFile *file2 = new TFile("../genie/xsec_graphs_v3_10a_02_11a.root");
+  // double mc_weight[10] = {1.21993, 1.19518, 1.19197, 1.17844, 1.16532, 1.15571, 1.15111, 1.13284, 1.11594, 1.0744};
   // double mc_weight[10] = {1.5178, 1.26847, 1.21674, 1.18273, 1.15804, 1.14223, 1.13518, 1.11799, 1.10339, 1.0671}; // no spline
  
-  TGraph *g1 = (TGraph*)file1->Get("nu_mu_Ar40/tot_cc");
-  TGraph *g2 = (TGraph*)file2->Get("nu_mu_Ar40/tot_cc");
+  TGraph *g1 = (TGraph*)file1->Get("nu_e_Ar40/tot_cc");
+  TGraph *g2 = (TGraph*)file2->Get("nu_e_Ar40/tot_cc");
 
   // scale by 1/100
   int N1 = g1->GetN();
@@ -402,8 +402,8 @@ void plot_xs_tot(int opt=2){
   lg1->Draw();
 
 
-  auto ofile = new TFile("ccinc.root","recreate");
-  gh_rt_data2ubmc->SetName("ccinc");  
+  auto ofile = new TFile("ccinc-numi-nue.root","recreate");
+  gh_rt_data2ubmc->SetName("ccinc_numi_nue");  
   gh_rt_data2ubmc->Write();
   ofile->Close();
 
