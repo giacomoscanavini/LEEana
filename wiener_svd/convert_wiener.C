@@ -227,9 +227,9 @@ void convert_wiener(){
   hcov_tot->Add(hcov_stat);
   hcov_tot->Add(hcov_mcstat);
   hcov_tot->Add(hcov_add);
-  hcov_tot->Add(hcov_flux);
-  hcov_tot->Add(hcov_det);
-  hcov_tot->Add(hcov_xs);
+  //  hcov_tot->Add(hcov_flux);
+  //hcov_tot->Add(hcov_det);
+  //hcov_tot->Add(hcov_xs);
   
   for (Int_t i=0;i!=nbin_meas;i++){
     std::cout << i << " " << sqrt(hcov_tot->GetBinContent(i+1,i+1))/hpred->GetBinContent(i+1) << " "
@@ -264,6 +264,7 @@ void convert_wiener(){
     // 	      << sqrt(hcov_det->GetBinContent(i+1,i+1))/hpred->GetBinContent(i+1) << " "
     // 	      << sqrt(hcov_xs->GetBinContent(i+1,i+1))/hpred->GetBinContent(i+1) << " "
     // 	      << std::endl;
+    if (hpred->GetBinContent(i+1)!=0){
     h10->SetBinContent(i+1,sqrt(hcov_stat->GetBinContent(i+1,i+1))/hpred->GetBinContent(i+1));
     h20->SetBinContent(i+1,sqrt(hcov_mcstat->GetBinContent(i+1,i+1))/hpred->GetBinContent(i+1));
     h30->SetBinContent(i+1,sqrt(hcov_add->GetBinContent(i+1,i+1))/hpred->GetBinContent(i+1));
@@ -271,6 +272,7 @@ void convert_wiener(){
     h50->SetBinContent(i+1,sqrt(hcov_det->GetBinContent(i+1,i+1))/hpred->GetBinContent(i+1));
     h60->SetBinContent(i+1,sqrt(hcov_xs->GetBinContent(i+1,i+1))/hpred->GetBinContent(i+1));
     h70->SetBinContent(i+1,sqrt(hcov_tot->GetBinContent(i+1,i+1))/hpred->GetBinContent(i+1));
+    }
   }
 
   h70->Draw();
