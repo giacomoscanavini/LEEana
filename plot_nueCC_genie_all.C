@@ -1,3 +1,4 @@
+/*
 void plot_nueCC_genie_all(){
 
   // auto file = TFile::Open("/data1/wgu/LEEana-tmp/processed_checkout_rootfiles/prodgenie_bnb_intrinsic_nue_overlay_run3/UBGenieFluxSmallUni.root");
@@ -138,27 +139,28 @@ void plot_nueCC_genie_all(){
 
   c1->SaveAs("canvas.root");
 }
+*/
 
-/*
+
 void plot_nueCC_genie_all(){
   auto c1 = new TCanvas("c1","",1200,600); 
   c1->Divide(2,1);
 
   auto file1 = TFile::Open("file_signalonly_nueCC_FC.root");
-  auto h1_wi = (TH1D*)file1->Get("h1_pred_Y_noConstraint_clone");
-  auto h1_wo = (TH1D*)file1->Get("h1_pred_Y_wiConstraint_clone");
+  auto h1_wo = (TH1D*)file1->Get("h1_pred_Y_noConstraint_clone");
+  auto h1_wi = (TH1D*)file1->Get("h1_pred_Y_wiConstraint_clone");
 
   auto file2 = TFile::Open("file_signalonly_nueCC_PC.root");
-  auto h2_wi = (TH1D*)file2->Get("h1_pred_Y_noConstraint_clone");
-  auto h2_wo = (TH1D*)file2->Get("h1_pred_Y_wiConstraint_clone");
+  auto h2_wo = (TH1D*)file2->Get("h1_pred_Y_noConstraint_clone");
+  auto h2_wi = (TH1D*)file2->Get("h1_pred_Y_wiConstraint_clone");
   
   auto file = TFile::Open("nueCC_All_UBGenie.root");
   auto hpredcv1 = (TH1F*)file->Get("h1"); // CV FC
   auto hpredcv2 = (TH1F*)file->Get("h2"); // CV PC
   auto hgenie = (TH1F*)file->Get("hgenie_rel"); // GENIE weights
 
-  double norm1 = h1_wi->Integral(1,26) / hpredcv1->Integral(1,26);
-  double norm2 = h2_wi->Integral(1,26) / hpredcv2->Integral(1,26);
+  double norm1 = h1_wo->Integral(1,26) / hpredcv1->Integral(1,26);
+  double norm2 = h2_wo->Integral(1,26) / hpredcv2->Integral(1,26);
   cout << "normalization FC: " << norm1 << endl;
   cout << "normalization PC: " << norm1 << endl;
 
@@ -210,4 +212,3 @@ void plot_nueCC_genie_all(){
 
 
 }
-*/
