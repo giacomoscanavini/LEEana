@@ -54,8 +54,8 @@ void plot_eff_nueCC_shower(){
 
   
   T_eval->Project("h10","truth_showerCosth:truth_showerMomentum[3]","weight_cv*weight_spline*(abs(truth_nuPdg)==12 && truth_isCC==1 && truth_vtxInside==1)");
-  T_eval->Project("h11","truth_showerCosth:truth_showerMomentum[3]","weight_cv*weight_spline*(abs(truth_nuPdg)==12 && truth_isCC==1 && truth_vtxInside==1 && flag_nueCC)");
-  T_eval->Project("h12","truth_showerCosth:truth_showerMomentum[3]","weight_cv*weight_spline*(abs(truth_nuPdg)==12 && truth_isCC==1 && truth_vtxInside==1 && flag_nueCC)");
+  T_eval->Project("h11","truth_showerCosth:truth_showerMomentum[3]","weight_cv*weight_spline*(abs(truth_nuPdg)==12 && truth_isCC==1 && truth_vtxInside==1 && flag_nueCC && match_isFC==0)");
+  T_eval->Project("h12","truth_showerCosth:truth_showerMomentum[3]","weight_cv*weight_spline*(abs(truth_nuPdg)==12 && truth_isCC==1 && truth_vtxInside==1 && flag_nueCC && match_isFC==0)");
   h12->Divide(h10); // efficiency 
 
   h10->SetTitle("Before selection");
@@ -139,14 +139,14 @@ void plot_eff_nueCC_shower(){
   gh4->Draw("same PL");
 
   
-  auto c2 = new TCanvas("c2","c2",800,800);
-  gh1->Draw("APL");
-  auto c3 = new TCanvas("c3","c3",800,800);
-  gh2->Draw("APL");
-  auto c4 = new TCanvas("c4","c4",800,800);
-  gh3->Draw("APL");
-  auto c5 = new TCanvas("c5","c5",800,800);
-  gh4->Draw("APL");
+  // auto c2 = new TCanvas("c2","c2",800,800);
+  // gh1->Draw("APL");
+  // auto c3 = new TCanvas("c3","c3",800,800);
+  // gh2->Draw("APL");
+  // auto c4 = new TCanvas("c4","c4",800,800);
+  // gh3->Draw("APL");
+  // auto c5 = new TCanvas("c5","c5",800,800);
+  // gh4->Draw("APL");
 
  
   
