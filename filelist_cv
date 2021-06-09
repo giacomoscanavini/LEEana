@@ -1,3 +1,7 @@
+/data0/xqian/MicroBooNE/new_checkout_files/	checkout_data_bnb_run1_far_sideband_Jun9.root					./checkout_rootfiles_correct_bdt/		./processed_checkout_rootfiles/		0	0
+/data0/xqian/MicroBooNE/new_checkout_files/	checkout_data_bnb_run2_far_sideband_Jun9.root					./checkout_rootfiles_correct_bdt/		./processed_checkout_rootfiles/		0	0
+/data0/xqian/MicroBooNE/new_checkout_files/	checkout_data_bnb_run3_far_sideband_Jun9.root					./checkout_rootfiles_correct_bdt/		./processed_checkout_rootfiles/		0	0
+end					end											end						end					-1	-1
 numi/					checkout_prodgenie_numi_intrinsic_nue_overlay_run1.root					./checkout_rootfiles_correct_bdt/		./processed_checkout_rootfiles/		3	0
 numi/					checkout_prodgenie_numi_overlay_run1.root						./checkout_rootfiles_correct_bdt/		./processed_checkout_rootfiles/		3	0
 end					end											end						end					-1	-1
