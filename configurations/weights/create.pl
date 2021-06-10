@@ -12,7 +12,8 @@ while(<infile>){
 	chomp($type);
 	#print "./processed_checkout_rootfiles/checkout_$dir\.root   /data0/xqian/MicroBooNE/numi/$dir\/$type\.root       ./processed_checkout_rootfiles/$dir\/$type\.root  $type\n";
 	#print "./processed_checkout_rootfiles/$dir\.root   /data0/xqian/MicroBooNE/new_checkout_files/$dir\/$type\.root       ./processed_checkout_rootfiles/$dir\/$type\.root  $type\n";
-	print "./processed_checkout_rootfiles/checkout_$dir\.root   /data0/wgu/checkout_links/$dir\/$type\.root       ./processed_checkout_rootfiles/$dir\/$type\.root  $type\n";
+	#print "./processed_checkout_rootfiles/checkout_$dir\.root   /data0/wgu/checkout_links/$dir\/$type\.root       ./processed_checkout_rootfiles/$dir\/$type\.root  $type\n";
+	print "./processed_checkout_rootfiles/checkout_$dir\.root   /data0/xqian/MicroBooNE/nc_files/$dir$type\.root       ./processed_checkout_rootfiles/$dir$type\.root  $type\n";
     }
     close(infile1);
 }
