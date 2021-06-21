@@ -1,6 +1,6 @@
-void convert_wiener(int diff_xs=0, int n_diff_xs_reco=1, int n_diff_xs_true=1){
+void convert_wiener(int diff_xs=0, int n_diff_xs_reco=2, int n_diff_xs_true=2){
 
-  bool just_stat_uncertainty = false;
+  bool just_stat_uncertainty = true;
   bool use_fakedata          = false;
   bool new_noise             = true;
   int add_noise              = 0;

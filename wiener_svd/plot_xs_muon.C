@@ -59,6 +59,8 @@ void plot_xs_muon(int opt=2){
   const int n_ebins = 11;
   int nbins = unfold->GetNbinsX();
   int n_diff_xs = nbins/n_ebins;
+  std::cout << "nbins = " << nbins << std::endl;
+  std::cout << "n_diff_xs = " << n_diff_xs << std::endl;
   //n_diff_xs=1;
 
   double max_energy = 2.506;
@@ -72,7 +74,7 @@ void plot_xs_muon(int opt=2){
     for (int j=0;j<n_ebins;j++) {		//number of energy bins
       int index = i*n_ebins+j;
       xbins1[index+1] = xbins1_default[j+1] + max_energy*i;
-      xcenter[index]  = xcenter_default[j]  + max_energy*i;
+      xcenter[index]  = xcenter_default[j]  + max_energy*i*1000;
     }
   }
 
@@ -87,6 +89,7 @@ void plot_xs_muon(int opt=2){
   }
   unfold1->SetMaximum(1);
   // unfold1->Draw("E");
+
 
   // set assymetric error bar in x-axis
   auto flux = TFile::Open("../flux_info/gh_averaged_numu_flux.root");
@@ -212,41 +215,41 @@ void plot_xs_muon(int opt=2){
 //  double* x2 = g2_flux_weighted->GetX();
 //  double* y2 = g2_flux_weighted->GetY();
   vector<double> x3, y3;
-  int nrows = smear->GetNbinsX()/n_diff_xs;
-  int ncols = smear->GetNbinsY()/n_diff_xs;
+  int nrows = smear->GetNbinsX();
+  int ncols = smear->GetNbinsY();
   TMatrixD m(nrows, ncols);
   TVectorD v1(nbins), v2(nbins), v3(nbins);
 
-    for (int i=0; i<nrows; i++) {
-      v3(i) = htrue_signal->GetBinContent(i+1);
-      for (int j=0; j<ncols; j++) {
-        m(i,j) = smear->GetBinContent(i+1, j+1);
-        // if (i==j) m(i,j) = 1;
-        // else m(i,j) = 0;
-      }
+  for (int i=0; i<nrows; i++) {
+    v3(i) = htrue_signal->GetBinContent(i+1);
+    for (int j=0; j<ncols; j++) {
+      m(i,j) = smear->GetBinContent(i+1, j+1);
+      // if (i==j) m(i,j) = 1;
+      // else m(i,j) = 0;
     }
+  }
 
-    // with Ac smearing
-    TVectorD Ac_v3 = m *  v3;
-    for (int i=0; i<nbins; i++) {
-      // x3.push_back(htrue_signal->GetBinCenter(i+1));
-      x3.push_back(xcenter[i]/1000.0);
-      y3.push_back(Ac_v3(i));
-    }
+  // with Ac smearing
+  TVectorD Ac_v3 = m *  v3;
+  for (int i=0; i<nbins; i++) {
+    // x3.push_back(htrue_signal->GetBinCenter(i+1));
+    x3.push_back(xcenter[i]/1000.0);
+    y3.push_back(Ac_v3(i));
+  }
 
-    // ratio to total sigma
-    double NT = 0; // total sigma
-    for (int i=0; i<nbins; i++) {
-      double dE = xbins1[i+1] - xbins1[i];
-      NT += y3.at(i) * dE;
-    }
-    cout << "sigma: " << NT << endl;
+  // ratio to total sigma
+  double NT = 0; // total sigma
+  for (int i=0; i<nbins; i++) {
+    double dE = xbins1[i+1] - xbins1[i];
+    NT += y3.at(i) * dE;
+  }
+  cout << "sigma: " << NT << endl;
 
-    for (int i=0; i<nbins; i++) {
-      // cout << "dsigma/dE: " << y3.at(i) << " dsigma/dE/sigma: " << y3.at(i) / NT << endl;
-      cout << y3.at(i) << ", ";
-    }
-    cout << endl;
+  for (int i=0; i<nbins; i++) {
+    // cout << "dsigma/dE: " << y3.at(i) << " dsigma/dE/sigma: " << y3.at(i) / NT << endl;
+    cout << y3.at(i) << ", ";
+  }
+  cout << endl;
     
 //    // without Ac smearing
 //    // for (int i=0; i<nbins; i++) {
@@ -260,7 +263,7 @@ void plot_xs_muon(int opt=2){
 //
 //    auto g1_flux_weighted_smeared = new TGraph(nbins, x1, y1); // GENIE  v2
 //    auto g2_flux_weighted_smeared = new TGraph(nbins, x2, y2); // v3
-    auto g3_flux_weighted_smeared = new TGraph(nbins, x3.data(), y3.data()); // MC truth
+  auto g3_flux_weighted_smeared = new TGraph(nbins, x3.data(), y3.data()); // MC truth
 // 
 //    cout << "weighted smeared" << endl;
 //    g1_flux_weighted_smeared->Draw("PLsame");
@@ -276,8 +279,8 @@ void plot_xs_muon(int opt=2){
 //    g2_flux_weighted_smeared->SetMarkerColor(1);
 //    g1_flux_weighted_smeared->SetMarkerSize(1);
 //    g2_flux_weighted_smeared->SetMarkerSize(1);
-    g3_flux_weighted_smeared->SetLineWidth(2);
-    g3_flux_weighted_smeared->Draw("Lsame");
+  g3_flux_weighted_smeared->SetLineWidth(2);
+  g3_flux_weighted_smeared->Draw("Lsame");
 //
 //  // }
 //
