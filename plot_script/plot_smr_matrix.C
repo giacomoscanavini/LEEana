@@ -40,7 +40,6 @@ void plot_smr_matrix(){
   h1PC->GetYaxis()->SetTitle("Reco #nu Energy (GeV)");
 
   c1->cd(1); gPad->SetLogz();
-  // T_eval->Draw("Ereco*1e-3:Etrue*1e-3 >> h1(100,0,4,100,0,4)","weight_cv*weight_spline*(abs(truth_nuPdg)==14 && truth_isCC==1 && truth_vtxInside==1 && T_BDTvars.numu_cc_flag>=0 && T_BDTvars.numu_score>0.9 && match_isFC>0)","colz");
   T_eval->Project("h1FC", "Ereco*1e-3:Etrue*1e-3","weight_cv*weight_spline*(abs(truth_nuPdg)==14 && truth_isCC==1 && truth_vtxInside==1 && T_BDTvars.numu_cc_flag>=0 && T_BDTvars.numu_score>0.9 && match_isFC>0)");
   h1FC->Draw("colz");
   auto l1 = new TLine(0.2,0.2,2.5,2.5);
@@ -49,8 +48,7 @@ void plot_smr_matrix(){
   l1->Draw("same");
 
   c1->cd(2); gPad->SetLogz();
-  // T_eval->Draw("Ereco*1e-3:Etrue*1e-3 >> h1PC(100,0,4,100,0,4)","weight_cv*weight_spline*(abs(truth_nuPdg)==14 && truth_isCC==1 && truth_vtxInside==1 && T_BDTvars.numu_cc_flag>=0 && T_BDTvars.numu_score>0.9 && match_isFC==0)","colz");
-  T_eval->Project("h1PC", "Ereco*1e-3:Etrue*1e-3","weight_cv*weight_spline*(abs(truth_nuPdg)==14 && truth_isCC==1 && truth_vtxInside==1 && T_BDTvars.numu_cc_flag>=0 && T_BDTvars.numu_score>0.9 && match_isFC>0)");
+  T_eval->Project("h1PC", "Ereco*1e-3:Etrue*1e-3","weight_cv*weight_spline*(abs(truth_nuPdg)==14 && truth_isCC==1 && truth_vtxInside==1 && T_BDTvars.numu_cc_flag>=0 && T_BDTvars.numu_score>0.9 && match_isFC==0)");
   h1PC->Draw("colz");
   l1->Draw("same");
 
@@ -81,7 +79,7 @@ void plot_smr_matrix(){
   l2->Draw("same");
 
   c2->cd(2); gPad->SetLogz();
-  T_eval->Project("h2PC", "Emureco:Emu","weight_cv*weight_spline*(abs(truth_nuPdg)==14 && truth_isCC==1 && truth_vtxInside==1 && T_BDTvars.numu_cc_flag>=0 && T_BDTvars.numu_score>0.9 && match_isFC>0)");
+  T_eval->Project("h2PC", "Emureco:Emu","weight_cv*weight_spline*(abs(truth_nuPdg)==14 && truth_isCC==1 && truth_vtxInside==1 && T_BDTvars.numu_cc_flag>=0 && T_BDTvars.numu_score>0.9 && match_isFC==0)");
   h2PC->Draw("colz");
   l2->Draw("same");
 
@@ -112,7 +110,7 @@ void plot_smr_matrix(){
   l3->Draw("same");
 
   c3->cd(2); gPad->SetLogz();
-  T_eval->Project("h3PC", "Ehad:nu","weight_cv*weight_spline*(abs(truth_nuPdg)==14 && truth_isCC==1 && truth_vtxInside==1 && T_BDTvars.numu_cc_flag>=0 && T_BDTvars.numu_score>0.9 && match_isFC>0)");
+  T_eval->Project("h3PC", "Ehad:nu","weight_cv*weight_spline*(abs(truth_nuPdg)==14 && truth_isCC==1 && truth_vtxInside==1 && T_BDTvars.numu_cc_flag>=0 && T_BDTvars.numu_score>0.9 && match_isFC==0)");
   h3PC->Draw("colz");
   l3->Draw("same");
 
