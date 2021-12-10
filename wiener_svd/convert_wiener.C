@@ -1,26 +1,31 @@
-void convert_wiener(int diff_xs=0, int n_diff_xs_reco=2, int n_diff_xs_true=2){
+void convert_wiener(int n_diff_xs_reco=1){
 
-  bool just_stat_uncertainty = true;
-  bool use_fakedata          = false;
-  bool new_noise             = true;
-  int add_noise              = 0;
+  bool just_stat_uncertainty      = false;
+  bool use_fakedata               = false;
+  bool new_noise                  = true;
+  int add_noise                   = 0;
+
+  bool draw = false;
+  bool data_wgu = false;
+  bool systematics_wgu = false;
 
   gStyle->SetOptStat(0);
   
-  TFile *file1 = new TFile("merge_xs.root");
+  std::string filename1     =     "merge_xs.root";
+  if (data_wgu) { filename1 = "wgu/merge_xs.root"; }
+  TFile *file1 = new TFile(filename1.c_str());
   TMatrixD *mat_collapse = (TMatrixD*)file1->Get("mat_collapse"); // collapse				// 108 x 36  (36 = 18x2)
   TMatrixD *cov_mat_add  = (TMatrixD*)file1->Get("cov_mat_add"); // additional uncertainties
   TVectorD *vec_signal   = (TVectorD*)file1->Get("vec_signal"); // xs in pbar
   TMatrixD *mat_R        = (TMatrixD*)file1->Get("mat_R"); // smearing matrix				// 108 x 11  (108 = 36x3 = 18x2x3)
 
-  std::cout << "mat_R      row,col    = " << mat_R->GetNrows() << ", " << mat_R->GetNcols() << std::endl;				//(6 x n_E_reco x n_theta_reco) x (n_E_true x n_theta_true)
-  std::cout << "collapse   row,col    = " << mat_collapse->GetNrows() << ", " << mat_collapse->GetNcols() << std::endl;			//(6 x n_E_reco x n_theta_reco) x (2 x n_E_reco x n_theta_reco)
-  std::cout << "additional row,col    = " << cov_mat_add->GetNrows() << ", " << cov_mat_add->GetNcols() << std::endl;			//(6 x n_E_reco x n_theta_reco) x (6 x n_E_reco x n_theta_reco)
-  std::cout << "signal vec row        = " << vec_signal->GetNrows() << std::endl;							//n_E_true x n_theta_true
+  //std::cout << "mat_R      row,col    = " << mat_R->GetNrows() << ", " << mat_R->GetNcols() << std::endl;				//(6 x n_E_reco x n_theta_reco) x (n_E_true x n_theta_true)
+  //std::cout << "collapse   row,col    = " << mat_collapse->GetNrows() << ", " << mat_collapse->GetNcols() << std::endl;		//(6 x n_E_reco x n_theta_reco) x (2 x n_E_reco x n_theta_reco)
+  //std::cout << "additional row,col    = " << cov_mat_add->GetNrows() << ", " << cov_mat_add->GetNcols() << std::endl;			//(6 x n_E_reco x n_theta_reco) x (6 x n_E_reco x n_theta_reco)
+  //std::cout << "signal vec row        = " << vec_signal->GetNrows() << std::endl;							//n_E_true x n_theta_true
 
-  int n_Ebins_reco = mat_R->GetNrows()/n_diff_xs_reco/6;		// 216/2/6 = 18
-  int n_Ebins_true = mat_R->GetNcols()/n_diff_xs_true;			// 22/2    = 11
-  int nbins_histo = n_Ebins_reco*n_diff_xs_reco;			// 18*2
+  int n_Ebins_reco = mat_R->GetNrows()/n_diff_xs_reco/3/2;		// N_ebin * N_theta * (sig,bkg,ext) * (FC,PC) * (Pmu,Ehad)
+  int nbins_histo = n_Ebins_reco*n_diff_xs_reco;			// 18*9
   TH1F *hdata_obsch_1 = new TH1F("hdata_obsch_1_merge","hdata_obsch_1_merge", nbins_histo, 0, nbins_histo);
   TH1F *hdata_obsch_2 = new TH1F("hdata_obsch_2_merge","hdata_obsch_2_merge", nbins_histo, 0, nbins_histo);
   TH1F *hmc_obsch_1   = new TH1F("hmc_obsch_1_merge",  "hmc_obsch_1_merge",   nbins_histo, 0, nbins_histo);
@@ -33,8 +38,8 @@ void convert_wiener(int diff_xs=0, int n_diff_xs_reco=2, int n_diff_xs_true=2){
   TH1F *histo_6       = new TH1F("histo_6_merge",      "histo_6_merge",       nbins_histo, 0, nbins_histo);
 
   for (int i=0;i<n_diff_xs_reco;i++) {
-    int FC_index = 1+2*i;
-    int PC_index = 2+2*i;
+    int FC_index = 1+i;
+    int PC_index = 1+i+n_diff_xs_reco;
     std::string FC_data_str = "hdata_obsch_" + std::to_string(FC_index);			// data numuCC FC
     std::string PC_data_str = "hdata_obsch_" + std::to_string(PC_index);			// data numuCC PC
     if (use_fakedata) {
@@ -77,6 +82,11 @@ void convert_wiener(int diff_xs=0, int n_diff_xs_reco=2, int n_diff_xs_true=2){
   int nbin_true = vec_signal->GetNoElements();
   int nbin_meas = hdata_obsch_1->GetNbinsX() + hdata_obsch_2->GetNbinsX();
 
+  std::cout << "nrow R = " << mat_R->GetNrows() << std::endl;
+  std::cout << "n_Ebins_reco = " << n_Ebins_reco << std::endl;
+  std::cout << "nbin_hdata_obsch_1 = " << hdata_obsch_1->GetNbinsX() << std::endl;
+  std::cout << "nbin_hdata_obsch_2 = " << hdata_obsch_2->GetNbinsX() << std::endl;
+  std::cout << "nbin_meas = " << nbin_meas << std::endl;
   // response matrix
   
   TMatrixD mat_collapse_T(mat_collapse->GetNcols(), mat_collapse->GetNrows()); 
@@ -110,12 +120,11 @@ void convert_wiener(int diff_xs=0, int n_diff_xs_reco=2, int n_diff_xs_true=2){
   TH2D *hcov_stat = new TH2D("hcov_stat","hcov_stat",nbin_meas,0.5,nbin_meas+0.5,nbin_meas,0.5,nbin_meas+0.5);
   for (int i=0;i<n_diff_xs_reco;i++) {
     for (int j=0;j<n_Ebins_reco;j++) {
-      int index0 =    i    * n_Ebins_reco +j+1;
-      int index1 =  2*i    * n_Ebins_reco +j+1;
-      int index2 = (2*i+1) * n_Ebins_reco +j+1;
+      int FC_index =  i                 * n_Ebins_reco + j+1;	//FC
+      int PC_index = (i+n_diff_xs_reco) * n_Ebins_reco + j+1;	//PC
 
-      double meas = hdata_obsch_1->GetBinContent(index0);
-      double pred = hmc_obsch_1->GetBinContent(index0);
+      double meas = hdata_obsch_1->GetBinContent(FC_index);
+      double pred = hmc_obsch_1->GetBinContent(FC_index);
       double content;
       if (pred !=0){
         if (meas == 0){
@@ -126,10 +135,11 @@ void convert_wiener(int diff_xs=0, int n_diff_xs_reco=2, int n_diff_xs_true=2){
       }else{
         content = 0;
       }
-      hcov_stat->SetBinContent(index1,index1,content);
+      hcov_stat->SetBinContent(FC_index,FC_index,content);
+      //std::cout << "i,j,FC,PC, FC_content = " << i << ",  " << j << ",  " << FC_index << ",     " << PC_index << ",     " << content << std::endl;
 
-      meas = hdata_obsch_2->GetBinContent(index0);
-      pred = hmc_obsch_2->GetBinContent(index0);
+      meas = hdata_obsch_2->GetBinContent(FC_index);
+      pred = hmc_obsch_2->GetBinContent(FC_index);
       if (pred !=0){
         if (meas == 0){
 	  content = pred/2.;
@@ -139,10 +149,10 @@ void convert_wiener(int diff_xs=0, int n_diff_xs_reco=2, int n_diff_xs_true=2){
       }else{
         content = 0;
       }
-      hcov_stat->SetBinContent(index2,index2,content);
+      hcov_stat->SetBinContent(PC_index,PC_index,content);
     }
   }
-  
+
   // additional uncertainty
   TH2D *hcov_add = new TH2D("hcov_add","hcov_add",nbin_meas,0.5,nbin_meas+0.5,nbin_meas,0.5,nbin_meas+0.5);
   TMatrixD mat_add = mat_collapse_T * (*cov_mat_add) * (*mat_collapse);
@@ -155,11 +165,11 @@ void convert_wiener(int diff_xs=0, int n_diff_xs_reco=2, int n_diff_xs_true=2){
   // detector systematics
   TH2D *hcov_det = new TH2D("hcov_det","hcov_det",nbin_meas,0.5,nbin_meas+0.5,nbin_meas,0.5,nbin_meas+0.5);
   int nold = mat_collapse->GetNrows();
-  std::cout << "nold = " << nold << std::endl;
   TVectorD vec_nominal(nold);
 
   for (int i=0;i<n_diff_xs_reco;i++) {
     for (int j=0;j<n_Ebins_reco;j++) {
+/*
       int index0 =    i    * n_Ebins_reco +j+1;
       int index1 =  2*i    * n_Ebins_reco +j;
       int index2 = (2*i+1) * n_Ebins_reco +j;
@@ -173,21 +183,39 @@ void convert_wiener(int diff_xs=0, int n_diff_xs_reco=2, int n_diff_xs_true=2){
       vec_nominal(index4) = histo_4->GetBinContent(index0);
       vec_nominal(index5) = histo_5->GetBinContent(index0);
       vec_nominal(index6) = histo_6->GetBinContent(index0);
+*/
+      int index0 = i*n_Ebins_reco + j;
+      int index1 = index0 + n_Ebins_reco*n_diff_xs_reco*0;
+      int index2 = index0 + n_Ebins_reco*n_diff_xs_reco*1;
+      int index3 = index0 + n_Ebins_reco*n_diff_xs_reco*2;
+      int index4 = index0 + n_Ebins_reco*n_diff_xs_reco*3;
+      int index5 = index0 + n_Ebins_reco*n_diff_xs_reco*4;
+      int index6 = index0 + n_Ebins_reco*n_diff_xs_reco*5;
+      vec_nominal(index1) = histo_1->GetBinContent(index0+1);
+      vec_nominal(index2) = histo_2->GetBinContent(index0+1);
+      vec_nominal(index3) = histo_3->GetBinContent(index0+1);
+      vec_nominal(index4) = histo_4->GetBinContent(index0+1);
+      vec_nominal(index5) = histo_5->GetBinContent(index0+1);
+      vec_nominal(index6) = histo_6->GetBinContent(index0+1);
+
+
     }
   }
   //vec_nominal.Draw();
 
   std::map<int, TString> map_det_str;
-  map_det_str[1] = "./DetVar/cov_LYDown.root";
-  map_det_str[2] = "./DetVar/cov_LYRayleigh.root";
-  map_det_str[3] = "./DetVar/cov_Recomb2.root";
-  map_det_str[4] = "./DetVar/cov_SCE.root";
-  // map_det_str[5] = "./DetVar/cov_WMdEdx.root";
-  map_det_str[6] = "./DetVar/cov_WMThetaXZ.root";
-  map_det_str[7] = "./DetVar/cov_WMThetaYZ.root";
-  map_det_str[8] = "./DetVar/cov_WMX.root";
-  map_det_str[9] = "./DetVar/cov_WMYZ.root";
-  map_det_str[10] = "./DetVar/cov_LYatt.root";
+  std::string detvar_prefix = "./DetVar/";
+  if (systematics_wgu) { detvar_prefix = "./wgu/DetVar/"; }
+  map_det_str[1]  = detvar_prefix+"cov_LYDown.root";
+  map_det_str[2]  = detvar_prefix+"cov_LYRayleigh.root";
+  map_det_str[3]  = detvar_prefix+"cov_Recomb2.root";
+  map_det_str[4]  = detvar_prefix+"cov_SCE.root";
+  // map_det_str[5]  = detvar_prefix+"cov_WMdEdx.root";
+  map_det_str[6]  = detvar_prefix+"cov_WMThetaXZ.root";
+  map_det_str[7]  = detvar_prefix+"cov_WMThetaYZ.root";
+  map_det_str[8]  = detvar_prefix+"cov_WMX.root";
+  map_det_str[9]  = detvar_prefix+"cov_WMYZ.root";
+  map_det_str[10] = detvar_prefix+"cov_LYatt.root";
   TMatrixD frac_det(nold,nold);
   for (auto it = map_det_str.begin(); it!=map_det_str.end(); it++){
     int idx = it->first;
@@ -201,9 +229,7 @@ void convert_wiener(int diff_xs=0, int n_diff_xs_reco=2, int n_diff_xs_true=2){
       frac_det(i,j) *= vec_nominal(i) * vec_nominal(j);
     }
   }
-  //  frac_det.Draw("COLZ");
   TMatrixD mat_det = mat_collapse_T * frac_det * (*mat_collapse);
-  //mat_det.Draw("COLZ");
   for (Int_t i=0;i!=nbin_meas;i++){
     for (Int_t j=0;j!=nbin_meas;j++){
       hcov_det->SetBinContent(i+1,j+1,mat_det(i,j));
@@ -213,8 +239,10 @@ void convert_wiener(int diff_xs=0, int n_diff_xs_reco=2, int n_diff_xs_true=2){
   // Flux systematics
   TH2D *hcov_flux = new TH2D("hcov_flux","hcov_flux",nbin_meas,0.5,nbin_meas+0.5,nbin_meas,0.5,nbin_meas+0.5);
   TMatrixD frac_flux(nold,nold);
+  std::string flux_str            =     "./XsFlux/cov_%d.root";
+  if (systematics_wgu) { flux_str = "./wgu/XsFlux/cov_%d.root"; }
   for(Int_t i=1;i!=17;i++){
-    TFile tmp_file(Form("./XsFlux/cov_%d.root",i));
+    TFile tmp_file(Form(flux_str.c_str(),i));
     TMatrixD *tmp_matrix = (TMatrixD*)tmp_file.Get(Form("frac_cov_xf_mat_%d",i));
     frac_flux += *tmp_matrix;
   }
@@ -233,10 +261,9 @@ void convert_wiener(int diff_xs=0, int n_diff_xs_reco=2, int n_diff_xs_true=2){
   }
   // hcov_flux->Draw("COLZ");
 
-
-  
   // Xs systematics
-  TH2D *hcov_xs = new TH2D("hcov_xs","hcov_xs",nbin_meas,0.5,nbin_meas+0.5,nbin_meas,0.5,nbin_meas+0.5);
+  TH2D *hcov_xs      = new TH2D("hcov_xs","hcov_xs",nbin_meas,0.5,nbin_meas+0.5,nbin_meas,0.5,nbin_meas+0.5);
+
   {
     TFile tmp_file("./XsFlux/cov_xs.root");
     //TFile tmp_file("./XsFlux/cov_17.root");
@@ -257,7 +284,7 @@ void convert_wiener(int diff_xs=0, int n_diff_xs_reco=2, int n_diff_xs_true=2){
     }
     //    hcov_xs->Draw("COLZ");
   }
-  vec_nominal.Draw();
+  //vec_nominal.Draw();
 
 
   //before storing the measured and predicted values, apply a gaussian noise to them for debugging purposes
@@ -298,14 +325,13 @@ void convert_wiener(int diff_xs=0, int n_diff_xs_reco=2, int n_diff_xs_true=2){
   TH1D *hpred = new TH1D("hpred","hpred",nbin_meas,0.5, nbin_meas+0.5);
   for (int i=0;i<n_diff_xs_reco;i++) {
     for (int j=0;j<n_Ebins_reco;j++) {
-      int index0 =    i    * n_Ebins_reco +j+1;
-      int index1 =  2*i    * n_Ebins_reco +j+1;
-      int index2 = (2*i+1) * n_Ebins_reco +j+1;
-      hmeas->SetBinContent(index1, hdata_obsch_1->GetBinContent(index0) - histo_3->GetBinContent(index0) - histo_5->GetBinContent(index0) + add_noise*hnoise->GetBinContent(index1));
-      hmeas->SetBinContent(index2, hdata_obsch_2->GetBinContent(index0) - histo_4->GetBinContent(index0) - histo_6->GetBinContent(index0) + add_noise*hnoise->GetBinContent(index2));
+      int FC_index =  i                 * n_Ebins_reco + j+1;	//FC
+      int PC_index = (i+n_diff_xs_reco) * n_Ebins_reco + j+1;	//PC
+      hmeas->SetBinContent(FC_index, hdata_obsch_1->GetBinContent(FC_index) - histo_3->GetBinContent(FC_index) - histo_5->GetBinContent(FC_index) + add_noise*hnoise->GetBinContent(FC_index));
+      hmeas->SetBinContent(PC_index, hdata_obsch_2->GetBinContent(FC_index) - histo_4->GetBinContent(FC_index) - histo_6->GetBinContent(FC_index) + add_noise*hnoise->GetBinContent(PC_index));
 
-      hpred->SetBinContent(index1, hmc_obsch_1->GetBinContent(index0) );
-      hpred->SetBinContent(index2, hmc_obsch_2->GetBinContent(index0) );
+      hpred->SetBinContent(FC_index, hmc_obsch_1->GetBinContent(FC_index) );
+      hpred->SetBinContent(PC_index, hmc_obsch_2->GetBinContent(FC_index) );
     }
   }
 
@@ -363,32 +389,39 @@ void convert_wiener(int diff_xs=0, int n_diff_xs_reco=2, int n_diff_xs_true=2){
     }
   }
 
-  h70->Draw();
-  h70->SetXTitle("Bin no");
-  h70->SetTitle("Relative Uncertainties");
-  h70->SetLineColor(1);
-  h70->SetLineWidth(2);
-  
-  h10->Draw("same");  //stat
-  if (!just_stat_uncertainty) {
-    h20->Draw("same");  // mcstat
-    h30->Draw("same"); //dirt
-    h40->Draw("same"); //flux
-    h50->Draw("same"); //det
+  if (draw) {
+    h70->Draw();
+ 
+    h10->Draw("same"); // stat
+    h20->Draw("same"); // mcstat
+    h30->Draw("same"); // dirt
+    h40->Draw("same"); // flux
+    h50->Draw("same"); // det
     h60->Draw("same"); // xs
   }
+
+  h10->SetTitle("Stat, London");
+  h20->SetTitle("MCstat, London");
+  h30->SetTitle("Dirt, London");
+  h40->SetTitle("Flux, London");
+  h50->SetTitle("Det, London");
+  h60->SetTitle("XS, London");
+  h70->SetTitle("London, Relative Uncertainties");
+  h70->SetXTitle("Bin no");
   h10->SetLineColor(9);
   h20->SetLineColor(8);
   h30->SetLineColor(3);
   h40->SetLineColor(2);
   h50->SetLineColor(6);
   h60->SetLineColor(4);
+  h70->SetLineColor(1);
   h10->SetLineWidth(2);
   h20->SetLineWidth(2);
   h30->SetLineWidth(2);
   h40->SetLineWidth(2);
   h50->SetLineWidth(2);
   h60->SetLineWidth(2);
+  h70->SetLineWidth(2);
 
   h70->GetYaxis()->SetRangeUser(0,2.5);
 
@@ -400,7 +433,7 @@ void convert_wiener(int diff_xs=0, int n_diff_xs_reco=2, int n_diff_xs_true=2){
   le1->AddEntry(h40,"Flux","l");
   le1->AddEntry(h50,"Det.","l");
   le1->AddEntry(h60,"Xs","l");
-  le1->Draw();
+  //le1->Draw();
 
 
   if (new_noise) {
@@ -412,8 +445,13 @@ void convert_wiener(int diff_xs=0, int n_diff_xs_reco=2, int n_diff_xs_true=2){
   }
 
  TFile *file = new TFile("wiener.root","RECREATE");
+ hdata_obsch_1->SetDirectory(file);
+ hdata_obsch_2->SetDirectory(file);
+ hmc_obsch_1->SetDirectory(file);
+ hmc_obsch_2->SetDirectory(file);
  htrue_signal->SetDirectory(file);
  hmeas->SetDirectory(file);
+ hpred->SetDirectory(file);
  hR->SetDirectory(file);
  hcov_stat->SetDirectory(file);
  hcov_mcstat->SetDirectory(file);
@@ -422,6 +460,17 @@ void convert_wiener(int diff_xs=0, int n_diff_xs_reco=2, int n_diff_xs_true=2){
  hcov_flux->SetDirectory(file);
  hcov_xs->SetDirectory(file);
  hcov_tot->SetDirectory(file);
+
+ if (!draw) {
+   h10->SetDirectory(file);
+   h20->SetDirectory(file);
+   h30->SetDirectory(file);
+   h40->SetDirectory(file);
+   h50->SetDirectory(file);
+   h60->SetDirectory(file);
+   h70->SetDirectory(file);
+ }
+
  file->Write();
  file->Close();
 

@@ -122,7 +122,7 @@ void plot_xs_muon(int opt=2){
   gr->SetMarkerSize(1);
   gr->SetLineWidth(2);
   gr->SetLineColor(4);
-  gr->SetMaximum(1);
+  //gr->SetMaximum(1);
   gr->SetTitle("");
   gr->Draw("AP");
 
