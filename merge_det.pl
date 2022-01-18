@@ -9,7 +9,7 @@ while(<infile>){
     if ($temp[0] eq "end"){
 	last;
     }
-    if ($num % 12 == 11){
+    if ($num % 6 == 5){
 	system("./bin/merge_det $filename");
     }else{
 	system("./bin/merge_det $filename&");
