@@ -1,0 +1,38 @@
+generic_bnb			numu_cc_3_max_muon_length	20		0		500		1		0			0		0			0			0			5		unity		0
+generic_overlay		numu_cc_3_max_muon_length	20		0		500		1		1			1		0			0			1			2		cv_spline	0
+generic_dirt		numu_cc_3_max_muon_length	20		0		500		1		1			1		0.5			0			1			4		cv_spline	0
+generic_ext			numu_cc_3_max_muon_length	20		0		500		1		0			0		0			0			6			3		unity		0
+
+generic1_bnb		lem_shower_num_segs			15		0		150		2		0			0		0			0			0			5		unity		0
+generic1_overlay	lem_shower_num_segs			15		0		150		2		1			1		0			0			2			2		cv_spline	0
+generic1_dirt		lem_shower_num_segs			15		0		150		2		1			1		0.5			0			2			4		cv_spline	0
+generic1_ext		lem_shower_num_segs			15		0		150		2		0			0		0			0			7			3		unity		0
+
+generic2_bnb		kine_pio_energy_1			20		0		400		3		0			0		0			0			0			5		unity		0
+generic2_overlay	kine_pio_energy_1			20		0		400		3		1			1		0			0			3			2		cv_spline	0
+generic2_dirt		kine_pio_energy_1			20		0		400		3		1			1		0.5			0			3			4		cv_spline	0
+generic2_ext		kine_pio_energy_1			20		0		400		3		0			0		0			0			8			3		unity		0
+
+generic3_bnb		kine_pio_energy_2			20		0		400		4		0			0		0			0			0			5		unity		0
+generic3_overlay	kine_pio_energy_2			20		0		400		4		1			1		0			0			4			2		cv_spline	0
+generic3_dirt		kine_pio_energy_2			20		0		400		4		1			1		0.5			0			4			4		cv_spline	0
+generic3_ext		kine_pio_energy_2			20		0		400		4		0			0		0			0			9			3		unity		0
+
+generic4_bnb		numu_score					20		-7		9		5		0			0		0			0			0			5		unity		0
+generic4_overlay	numu_score					20		-7		9		5		1			1		0			0			5			2		cv_spline	0
+generic4_dirt		numu_score					20		-7		9		5		1			1		0.5			0			5			4		cv_spline	0
+generic4_ext		numu_score					20		-7		9		5		0			0		0			0			10			3		unity		0
+
+End					End							-1		-1		-1		-1		-1			-1		-1			-1			-1			-1		end			-1
+Name:				#Var:						#bin	#start	#end	#obs	#xs_flux	#det	#add_sys	#same_mc	#cov_sec	#file	#weight		#lee_strength
+
+
+generic_FC_bnb						nc_pio_score	28 		-10 	8 		1 		0 			0 		0 			0 			0 			5 		unity 		0
+generic_FC_overlay					nc_pio_score	28 		-10 	8 		1 		1 			1 		0 			0 			1 			2 		cv_spline 	0
+generic_FC_dirt						nc_pio_score	28 		-10 	8 		1 		1 			1 		0.5 		0 			1 			4 		cv_spline 	0
+generic_FC_ext						nc_pio_score	28 		-10 	8 		1 		0 			0 		0 			0 			3 			3 		unity 		0
+
+generic_PC_bnb						nc_pio_score	28 		-10 	8 		2 		0 			0 		0 			0 			0 			5 		unity 		0
+generic_PC_overlay					nc_pio_score	28 		-10 	8 		2 		1 			1 		0 			0 			2 			2 		cv_spline 	0
+generic_PC_dirt						nc_pio_score	28 		-10 	8 		2 		1 			1 		0.5 		0 			2 			4 		cv_spline 	0
+generic_PC_ext						nc_pio_score	28 		-10 	8 		2 		0 			0 		0 			0 			4 			3 		unity 		0

@@ -1,0 +1,51 @@
+1 		18 			NCpi0BDT.inside.Enu.le.8000.gt.275 		42988.4			0.022 		0.011
+
+-1		-1			End										-1				-1			-1
+#bin	#cut_file  	#cut									#const			#pot_err	#target_err
+
+
+
+1		8			numuCC.inside.Enu.le.2000.gt.200 		42583.7			0.022		0.01
+2		8			numuCC.inside.Enu.le.4000.gt.2000 		787.715			0.022		0.01
+
+1		4			numuCC.inside.Enu.le.540.gt.200			11909.4			0.022		0.01	
+2		4			numuCC.inside.Enu.le.705.gt.540			6539.56			0.022		0.01
+3		4			numuCC.inside.Enu.le.805.gt.705			3809.78			0.022		0.01
+4		4			numuCC.inside.Enu.le.920.gt.805			4065.94			0.022		0.01
+5		4			numuCC.inside.Enu.le.1050.gt.920		4074.76			0.022		0.01
+6		4			numuCC.inside.Enu.le.1200.gt.1050		3933.4			0.022		0.01
+7		4			numuCC.inside.Enu.le.1375.gt.1200		3507.89			0.022		0.01
+8		4			numuCC.inside.Enu.le.1570.gt.1375		2557.06			0.022		0.01
+9		4			numuCC.inside.Enu.le.2050.gt.1570		2272.93			0.022		0.01
+10		4			numuCC.inside.Enu.le.4000.gt.2050		700.703			0.022		0.01
+
+1		17			NCpi0BDT.inside.Enu.le.540.gt.200		11909.4			0.022		0.01	
+2		17			NCpi0BDT.inside.Enu.le.705.gt.540		6539.56			0.022		0.01
+3		17			NCpi0BDT.inside.Enu.le.805.gt.705		3809.78			0.022		0.01
+4		17			NCpi0BDT.inside.Enu.le.920.gt.805		4065.94			0.022		0.01
+5		17			NCpi0BDT.inside.Enu.le.1050.gt.920		4074.76			0.022		0.01
+6		17			NCpi0BDT.inside.Enu.le.1200.gt.1050		3933.4			0.022		0.01
+7		17			NCpi0BDT.inside.Enu.le.1375.gt.1200		3507.89			0.022		0.01
+8		17			NCpi0BDT.inside.Enu.le.1570.gt.1375		2557.06			0.022		0.01
+9		17			NCpi0BDT.inside.Enu.le.2050.gt.1570		2272.93			0.022		0.01
+10		17			NCpi0BDT.inside.Enu.le.4000.gt.2050		700.703			0.022		0.01
+
+1 		18 			numuCC.inside.Pmuon.le.180.gt.0			2549.27			0.022 		0.01
+2 		18 			numuCC.inside.Pmuon.le.300.gt.180		3512.11			0.022 		0.01
+3 		18 			numuCC.inside.Pmuon.le.450.gt.300		5347.86			0.022 		0.01
+4 		18 			numuCC.inside.Pmuon.le.770.gt.450		12586.2			0.022 		0.01
+5 		18 			numuCC.inside.Pmuon.le.1280.gt.770		15134.9			0.022 		0.01
+6 		18 			numuCC.inside.Pmuon.le.2500.gt.1280		6936.01			0.022 		0.01
+
+
+1		19			NCpi0BDT.inside.Enu.le.4000.gt.275		42880.3 		0.022		0.011
+
+1		20			NCpi0BDT.inside.Ppi0.le.4000.gt.0		198576			0.022		0.011
+
+
+
+1 		18 			NCpi0BDT.inside.Enu.le.8000.gt.275 		42988.4			0.022 		0.011
+
+1 		21 			NCpi0BDT.inside.Enu.0p.le.8000.gt.275 	42988.4			0.022 		0.011
+
+1 		22 			NCpi0BDT.inside.Enu.Np.le.8000.gt.275 	42988.4			0.022 		0.011
