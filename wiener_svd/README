@@ -1,4 +1,13 @@
-1. in the previous directory    ./run_xs.pl
-2. in the current directory     ./copy.pl
-3. root -l convert_wiener.C
-4. ../bin/wiener_example wiener.root output.root 2 0.5 (2 means 2nd derivative matrix; 0.5 means #signal in each bin normalized by #signal^0.5)
+1. (in LEEana)               ./run_xs.pl
+2. (in LEEana/wiener_svd)    ./copy.pl
+3. (in LEEana/wiener_svd)    root -l convert_wiener_simple.C
+4. (in LEEana/wiener_svd)    ../bin/wiener_example wiener.root output.root 2 0.5
+
+For plots ----------------------------------------
+------ TOTAL CROSS SECTION (single bin)
+5. (in LEEana/wiener_svd)    root -l plot_total_xs_Enu_1bin.C
+5. (in LEEana/wiener_svd)    root -l plot_total_xs_Ppi0_1bin.C
+
+------ DIFFERENTIAL CROSS SECTION (many bins)
+5. (in LEEana/wiener_svd)    root -l plot_diff_xs_Ppi0_Nbin.C
+

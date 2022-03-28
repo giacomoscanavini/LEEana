@@ -1,4 +1,4 @@
-void convert_wiener(int n_diff_bins_2D=9, int n_diff_bins_3D=4){
+void convert_wiener(int n_diff_xs_reco=1){
 
   bool just_stat_uncertainty      = false;
   bool use_fakedata               = false;
@@ -24,9 +24,8 @@ void convert_wiener(int n_diff_bins_2D=9, int n_diff_bins_3D=4){
   //std::cout << "additional row,col    = " << cov_mat_add->GetNrows() << ", " << cov_mat_add->GetNcols() << std::endl;			//(6 x n_E_reco x n_theta_reco) x (6 x n_E_reco x n_theta_reco)
   //std::cout << "signal vec row        = " << vec_signal->GetNrows() << std::endl;							//n_E_true x n_theta_true
 
-  int n_Ebins_reco = mat_R->GetNrows()/n_diff_bins_2D/n_diff_bins_3D/3/2;	// N_ebin * N_theta * (sig,bkg,ext) * (FC,PC) * (Pmu,Ehad)
-  int nbins_histo = n_Ebins_reco*n_diff_bins_2D*n_diff_bins_3D;			// 16*9*4
-std::cout << "nbins_histo = " << nbins_histo << std::endl;
+  int n_Ebins_reco = mat_R->GetNrows()/n_diff_xs_reco/3/2;		// N_ebin * N_theta * (sig,bkg,ext) * (FC,PC) * (Pmu,Ehad)
+  int nbins_histo = n_Ebins_reco*n_diff_xs_reco;			// 18*9
   TH1F *hdata_obsch_1 = new TH1F("hdata_obsch_1_merge","hdata_obsch_1_merge", nbins_histo, 0, nbins_histo);
   TH1F *hdata_obsch_2 = new TH1F("hdata_obsch_2_merge","hdata_obsch_2_merge", nbins_histo, 0, nbins_histo);
   TH1F *hmc_obsch_1   = new TH1F("hmc_obsch_1_merge",  "hmc_obsch_1_merge",   nbins_histo, 0, nbins_histo);
@@ -38,56 +37,55 @@ std::cout << "nbins_histo = " << nbins_histo << std::endl;
   TH1F *histo_5       = new TH1F("histo_5_merge",      "histo_5_merge",       nbins_histo, 0, nbins_histo);
   TH1F *histo_6       = new TH1F("histo_6_merge",      "histo_6_merge",       nbins_histo, 0, nbins_histo);
 
-  for (int k=0;k<n_diff_bins_3D;k++) {
-    for (int i=0;i<n_diff_bins_2D;i++) {
-      int FC_index = 1+i+k*n_diff_bins_2D;
-      int PC_index = 1+i+k*n_diff_bins_2D+n_diff_bins_2D*n_diff_bins_3D;
-      std::string FC_data_str = "hdata_obsch_" + std::to_string(FC_index);					// data numuCC FC
-      std::string PC_data_str = "hdata_obsch_" + std::to_string(PC_index);					// data numuCC PC
-std::cout << FC_data_str << ",  " << PC_data_str << std::endl;
-      if (use_fakedata) {
-        FC_data_str = "hmc_obsch_" + std::to_string(FC_index);							// fakedata numuCC FC
-        PC_data_str = "hmc_obsch_" + std::to_string(PC_index);							// fakedata numuCC PC
-      }
-      std::string FC_mc_str   = "hmc_obsch_"   + std::to_string(FC_index);					// pred numuCC FC
-      std::string PC_mc_str   = "hmc_obsch_"   + std::to_string(PC_index);					// pred numuCC PC
-      std::string histo_str_1 = "histo_"       + std::to_string(FC_index + 0*2*n_diff_bins_2D*n_diff_bins_3D);	// sig numuCC FC
-      std::string histo_str_2 = "histo_"       + std::to_string(PC_index + 0*2*n_diff_bins_2D*n_diff_bins_3D);	// sig numuCC PC
-      std::string histo_str_3 = "histo_"       + std::to_string(FC_index + 1*2*n_diff_bins_2D*n_diff_bins_3D);	// bkg numuCC FC
-      std::string histo_str_4 = "histo_"       + std::to_string(PC_index + 1*2*n_diff_bins_2D*n_diff_bins_3D);	// bkg numuCC PC
-      std::string histo_str_5 = "histo_"       + std::to_string(FC_index + 2*2*n_diff_bins_2D*n_diff_bins_3D);	// EXT FC
-      std::string histo_str_6 = "histo_"       + std::to_string(PC_index + 2*2*n_diff_bins_2D*n_diff_bins_3D);	// EXT PC
-      TH1F *hdata_obsch_1_tmp = (TH1F*)file1->Get(FC_data_str.c_str());						// data numuCC FC
-      TH1F *hdata_obsch_2_tmp = (TH1F*)file1->Get(PC_data_str.c_str());						// data numuCC PC
-      TH1F *hmc_obsch_1_tmp   = (TH1F*)file1->Get(FC_mc_str.c_str());						// pred numuCC FC
-      TH1F *hmc_obsch_2_tmp   = (TH1F*)file1->Get(PC_mc_str.c_str());						// pred numuCC PC
-      TH1F *histo_1_tmp       = (TH1F*)file1->Get(histo_str_1.c_str());						// sig numuCC FC
-      TH1F *histo_2_tmp       = (TH1F*)file1->Get(histo_str_2.c_str());						// sig numuCC PC
-      TH1F *histo_3_tmp       = (TH1F*)file1->Get(histo_str_3.c_str());						// bkg numuCC FC
-      TH1F *histo_4_tmp       = (TH1F*)file1->Get(histo_str_4.c_str());						// bkg numuCC PC
-      TH1F *histo_5_tmp       = (TH1F*)file1->Get(histo_str_5.c_str());						// EXT FC
-      TH1F *histo_6_tmp       = (TH1F*)file1->Get(histo_str_6.c_str());						// EXT PC
+  for (int i=0;i<n_diff_xs_reco;i++) {
+    int FC_index = 1+i;
+    int PC_index = 1+i+n_diff_xs_reco;
+    std::string FC_data_str = "hdata_obsch_" + std::to_string(FC_index);			// data numuCC FC
+    std::string PC_data_str = "hdata_obsch_" + std::to_string(PC_index);			// data numuCC PC
+    if (use_fakedata) {
+      FC_data_str = "hmc_obsch_" + std::to_string(FC_index);					// fakedata numuCC FC
+      PC_data_str = "hmc_obsch_" + std::to_string(PC_index);					// fakedata numuCC PC
+    }
+    std::string FC_mc_str   = "hmc_obsch_"   + std::to_string(FC_index);			// pred numuCC FC
+    std::string PC_mc_str   = "hmc_obsch_"   + std::to_string(PC_index);			// pred numuCC PC
+    std::string histo_str_1 = "histo_"       + std::to_string(FC_index + 0*2*n_diff_xs_reco);	// sig numuCC FC
+    std::string histo_str_2 = "histo_"       + std::to_string(PC_index + 0*2*n_diff_xs_reco);	// sig numuCC PC
+    std::string histo_str_3 = "histo_"       + std::to_string(FC_index + 1*2*n_diff_xs_reco);	// bkg numuCC FC
+    std::string histo_str_4 = "histo_"       + std::to_string(PC_index + 1*2*n_diff_xs_reco);	// bkg numuCC PC
+    std::string histo_str_5 = "histo_"       + std::to_string(FC_index + 2*2*n_diff_xs_reco);	// EXT FC
+    std::string histo_str_6 = "histo_"       + std::to_string(PC_index + 2*2*n_diff_xs_reco);	// EXT PC
+    TH1F *hdata_obsch_1_tmp = (TH1F*)file1->Get(FC_data_str.c_str());				// data numuCC FC
+    TH1F *hdata_obsch_2_tmp = (TH1F*)file1->Get(PC_data_str.c_str());				// data numuCC PC
+    TH1F *hmc_obsch_1_tmp   = (TH1F*)file1->Get(FC_mc_str.c_str());				// pred numuCC FC
+    TH1F *hmc_obsch_2_tmp   = (TH1F*)file1->Get(PC_mc_str.c_str());				// pred numuCC PC
+    TH1F *histo_1_tmp       = (TH1F*)file1->Get(histo_str_1.c_str());				// sig numuCC FC
+    TH1F *histo_2_tmp       = (TH1F*)file1->Get(histo_str_2.c_str());				// sig numuCC PC
+    TH1F *histo_3_tmp       = (TH1F*)file1->Get(histo_str_3.c_str());				// bkg numuCC FC
+    TH1F *histo_4_tmp       = (TH1F*)file1->Get(histo_str_4.c_str());				// bkg numuCC PC
+    TH1F *histo_5_tmp       = (TH1F*)file1->Get(histo_str_5.c_str());				// EXT FC
+    TH1F *histo_6_tmp       = (TH1F*)file1->Get(histo_str_6.c_str());				// EXT PC
 
-      for (int j=0;j<n_Ebins_reco;j++) {
-        int index = (k*n_diff_bins_2D+i)*n_Ebins_reco+j+1;
-        histo_1->SetBinContent(      index, histo_1_tmp->GetBinContent(j+1));
-        histo_2->SetBinContent(      index, histo_2_tmp->GetBinContent(j+1));
-        histo_3->SetBinContent(      index, histo_3_tmp->GetBinContent(j+1));
-        histo_4->SetBinContent(      index, histo_4_tmp->GetBinContent(j+1));
-        histo_5->SetBinContent(      index, histo_5_tmp->GetBinContent(j+1));
-        histo_6->SetBinContent(      index, histo_6_tmp->GetBinContent(j+1));
-        hdata_obsch_1->SetBinContent(index, hdata_obsch_1_tmp->GetBinContent(j+1));
-        hdata_obsch_2->SetBinContent(index, hdata_obsch_2_tmp->GetBinContent(j+1));
-std::cout << "index, j+1 = " << index<< ",  " << (j+1) << std::endl;
-        hmc_obsch_1->SetBinContent(  index, hmc_obsch_1_tmp->GetBinContent(j+1));
-        hmc_obsch_2->SetBinContent(  index, hmc_obsch_2_tmp->GetBinContent(j+1));
-      }
+    for (int j=0;j<n_Ebins_reco;j++) {
+      histo_1->SetBinContent(      i*n_Ebins_reco+j+1, histo_1_tmp->GetBinContent(j+1));
+      histo_2->SetBinContent(      i*n_Ebins_reco+j+1, histo_2_tmp->GetBinContent(j+1));
+      histo_3->SetBinContent(      i*n_Ebins_reco+j+1, histo_3_tmp->GetBinContent(j+1));
+      histo_4->SetBinContent(      i*n_Ebins_reco+j+1, histo_4_tmp->GetBinContent(j+1));
+      histo_5->SetBinContent(      i*n_Ebins_reco+j+1, histo_5_tmp->GetBinContent(j+1));
+      histo_6->SetBinContent(      i*n_Ebins_reco+j+1, histo_6_tmp->GetBinContent(j+1));
+      hdata_obsch_1->SetBinContent(i*n_Ebins_reco+j+1, hdata_obsch_1_tmp->GetBinContent(j+1));
+      hdata_obsch_2->SetBinContent(i*n_Ebins_reco+j+1, hdata_obsch_2_tmp->GetBinContent(j+1));
+      hmc_obsch_1->SetBinContent(  i*n_Ebins_reco+j+1, hmc_obsch_1_tmp->GetBinContent(j+1));
+      hmc_obsch_2->SetBinContent(  i*n_Ebins_reco+j+1, hmc_obsch_2_tmp->GetBinContent(j+1));
     }
   }
 
   int nbin_true = vec_signal->GetNoElements();
   int nbin_meas = hdata_obsch_1->GetNbinsX() + hdata_obsch_2->GetNbinsX();
 
+  std::cout << "nrow R = " << mat_R->GetNrows() << std::endl;
+  std::cout << "n_Ebins_reco = " << n_Ebins_reco << std::endl;
+  std::cout << "nbin_hdata_obsch_1 = " << hdata_obsch_1->GetNbinsX() << std::endl;
+  std::cout << "nbin_hdata_obsch_2 = " << hdata_obsch_2->GetNbinsX() << std::endl;
   std::cout << "nbin_meas = " << nbin_meas << std::endl;
   // response matrix
   
@@ -120,40 +118,38 @@ std::cout << "index, j+1 = " << index<< ",  " << (j+1) << std::endl;
 
   // statistical uncertainties
   TH2D *hcov_stat = new TH2D("hcov_stat","hcov_stat",nbin_meas,0.5,nbin_meas+0.5,nbin_meas,0.5,nbin_meas+0.5);
-  for (int k=0;k<n_diff_bins_3D;k++) {
-    for (int i=0;i<n_diff_bins_2D;i++) {
-      for (int j=0;j<n_Ebins_reco;j++) {
-        int FC_index = (i+k*n_diff_bins_2D                              ) * n_Ebins_reco + j+1;	//FC
-        int PC_index = (i+k*n_diff_bins_2D+n_diff_bins_2D*n_diff_bins_3D) * n_Ebins_reco + j+1;	//PC
+  for (int i=0;i<n_diff_xs_reco;i++) {
+    for (int j=0;j<n_Ebins_reco;j++) {
+      int FC_index =  i                 * n_Ebins_reco + j+1;	//FC
+      int PC_index = (i+n_diff_xs_reco) * n_Ebins_reco + j+1;	//PC
 
-        double meas = hdata_obsch_1->GetBinContent(FC_index);
-        double pred = hmc_obsch_1->GetBinContent(FC_index);
-        double content;
-        if (pred !=0){
-          if (meas == 0){
-            content = pred/2.;
-          }else{
-	    content = 3./(1./meas+2./pred);
-          }
+      double meas = hdata_obsch_1->GetBinContent(FC_index);
+      double pred = hmc_obsch_1->GetBinContent(FC_index);
+      double content;
+      if (pred !=0){
+        if (meas == 0){
+	  content = pred/2.;
         }else{
-          content = 0;
+	  content = 3./(1./meas+2./pred);
         }
-        hcov_stat->SetBinContent(FC_index,FC_index,content);
-        //std::cout << "i,j,FC,PC, FC_content = " << i << ",  " << j << ",  " << FC_index << ",     " << PC_index << ",     " << content << std::endl;
-
-        meas = hdata_obsch_2->GetBinContent(FC_index);
-        pred = hmc_obsch_2->GetBinContent(FC_index);
-        if (pred !=0){
-          if (meas == 0){
-	    content = pred/2.;
-          }else{
-	    content = 3./(1./meas+2./pred);
-          }
-        }else{
-          content = 0;
-        }
-        hcov_stat->SetBinContent(PC_index,PC_index,content);
+      }else{
+        content = 0;
       }
+      hcov_stat->SetBinContent(FC_index,FC_index,content);
+      //std::cout << "i,j,FC,PC, FC_content = " << i << ",  " << j << ",  " << FC_index << ",     " << PC_index << ",     " << content << std::endl;
+
+      meas = hdata_obsch_2->GetBinContent(FC_index);
+      pred = hmc_obsch_2->GetBinContent(FC_index);
+      if (pred !=0){
+        if (meas == 0){
+	  content = pred/2.;
+        }else{
+	  content = 3./(1./meas+2./pred);
+        }
+      }else{
+        content = 0;
+      }
+      hcov_stat->SetBinContent(PC_index,PC_index,content);
     }
   }
 
@@ -171,24 +167,38 @@ std::cout << "index, j+1 = " << index<< ",  " << (j+1) << std::endl;
   int nold = mat_collapse->GetNrows();
   TVectorD vec_nominal(nold);
 
-  for (int k=0;k<n_diff_bins_3D;k++) {
-    for (int i=0;i<n_diff_bins_2D;i++) {
-      for (int j=0;j<n_Ebins_reco;j++) {
+  for (int i=0;i<n_diff_xs_reco;i++) {
+    for (int j=0;j<n_Ebins_reco;j++) {
+/*
+      int index0 =    i    * n_Ebins_reco +j+1;
+      int index1 =  2*i    * n_Ebins_reco +j;
+      int index2 = (2*i+1) * n_Ebins_reco +j;
+      int index3 =  2*i    * n_Ebins_reco +j + 2*nbins_histo;
+      int index4 = (2*i+1) * n_Ebins_reco +j + 2*nbins_histo;
+      int index5 =  2*i    * n_Ebins_reco +j + 4*nbins_histo;
+      int index6 = (2*i+1) * n_Ebins_reco +j + 4*nbins_histo;
+      vec_nominal(index1) = histo_1->GetBinContent(index0);
+      vec_nominal(index2) = histo_2->GetBinContent(index0);
+      vec_nominal(index3) = histo_3->GetBinContent(index0);
+      vec_nominal(index4) = histo_4->GetBinContent(index0);
+      vec_nominal(index5) = histo_5->GetBinContent(index0);
+      vec_nominal(index6) = histo_6->GetBinContent(index0);
+*/
+      int index0 = i*n_Ebins_reco + j;
+      int index1 = index0 + n_Ebins_reco*n_diff_xs_reco*0;
+      int index2 = index0 + n_Ebins_reco*n_diff_xs_reco*1;
+      int index3 = index0 + n_Ebins_reco*n_diff_xs_reco*2;
+      int index4 = index0 + n_Ebins_reco*n_diff_xs_reco*3;
+      int index5 = index0 + n_Ebins_reco*n_diff_xs_reco*4;
+      int index6 = index0 + n_Ebins_reco*n_diff_xs_reco*5;
+      vec_nominal(index1) = histo_1->GetBinContent(index0+1);
+      vec_nominal(index2) = histo_2->GetBinContent(index0+1);
+      vec_nominal(index3) = histo_3->GetBinContent(index0+1);
+      vec_nominal(index4) = histo_4->GetBinContent(index0+1);
+      vec_nominal(index5) = histo_5->GetBinContent(index0+1);
+      vec_nominal(index6) = histo_6->GetBinContent(index0+1);
 
-        int index0 = (k*n_diff_bins_2D+i)*n_Ebins_reco + j;
-        int index1 = index0 + n_Ebins_reco*n_diff_bins_2D*n_diff_bins_3D*0;
-        int index2 = index0 + n_Ebins_reco*n_diff_bins_2D*n_diff_bins_3D*1;
-        int index3 = index0 + n_Ebins_reco*n_diff_bins_2D*n_diff_bins_3D*2;
-        int index4 = index0 + n_Ebins_reco*n_diff_bins_2D*n_diff_bins_3D*3;
-        int index5 = index0 + n_Ebins_reco*n_diff_bins_2D*n_diff_bins_3D*4;
-        int index6 = index0 + n_Ebins_reco*n_diff_bins_2D*n_diff_bins_3D*5;
-        vec_nominal(index1) = histo_1->GetBinContent(index0+1);
-        vec_nominal(index2) = histo_2->GetBinContent(index0+1);
-        vec_nominal(index3) = histo_3->GetBinContent(index0+1);
-        vec_nominal(index4) = histo_4->GetBinContent(index0+1);
-        vec_nominal(index5) = histo_5->GetBinContent(index0+1);
-        vec_nominal(index6) = histo_6->GetBinContent(index0+1);
-      }
+
     }
   }
   //vec_nominal.Draw();
@@ -278,26 +288,24 @@ std::cout << "index, j+1 = " << index<< ",  " << (j+1) << std::endl;
 
 
   //before storing the measured and predicted values, apply a gaussian noise to them for debugging purposes
-  TH1D *hnoise           = new TH1D("hnoise",          "hnoise"          ,nbin_meas,                              0.5,  nbin_meas                               +0.5);
-  TH1D *hnoise_collapsed = new TH1D("hnoise_collapsed","hnoise_collapsed",nbin_meas/n_diff_bins_2D/n_diff_bins_3D,0.5, (nbin_meas/n_diff_bins_2D/n_diff_bins_3D)+0.5);
+  TH1D *hnoise           = new TH1D("hnoise",          "hnoise"          ,nbin_meas,               0.5,  nbin_meas                +0.5);
+  TH1D *hnoise_collapsed = new TH1D("hnoise_collapsed","hnoise_collapsed",nbin_meas/n_diff_xs_reco,0.5, (nbin_meas/n_diff_xs_reco)+0.5);
 
   if (new_noise) {
     int seed = std::random_device{}();
     std::cout << "seed = " << seed << std::endl;
     std::mt19937 generator(seed);	// https://en.cppreference.com/w/cpp/numeric/random/mersenne_twister_engine
-    for (int k=0;k<n_diff_bins_3D;k++) {
-      for (int i=0;i<n_diff_bins_2D;i++) {
-        for (int j=0;j<2*n_Ebins_reco;j++) {
-          int index = 2*(k*n_diff_bins_2D+i)*n_Ebins_reco + j+1;
+    for (int i=0;i<n_diff_xs_reco;i++) {
+      for (int j=0;j<2*n_Ebins_reco;j++) {
+        int index = 2*i*n_Ebins_reco + j+1;
 
-          double sigma = std::sqrt(hcov_stat->GetBinContent(index,index));
-          std::normal_distribution<double> dist(0, sigma);
-          double noise = dist(generator);
+        double sigma = std::sqrt(hcov_stat->GetBinContent(index,index));
+        std::normal_distribution<double> dist(0, sigma);
+        double noise = dist(generator);
 
-          hnoise->SetBinContent(index, noise);
-          hnoise_collapsed->SetBinContent(j+1, hnoise_collapsed->GetBinContent(j+1)+noise);
-          //std::cout << "i,j,index, sigma, noise, hnoise_collapsed = " << i << ",  " << j << ",   " << index << ",     " << sigma << ",     " << noise << ",     " << hnoise_collapsed->GetBinContent(j+1) << std::endl;
-        }
+        hnoise->SetBinContent(index, noise);
+        hnoise_collapsed->SetBinContent(j+1, hnoise_collapsed->GetBinContent(j+1)+noise);
+        //std::cout << "i,j,index, sigma, noise, hnoise_collapsed = " << i << ",  " << j << ",   " << index << ",     " << sigma << ",     " << noise << ",     " << hnoise_collapsed->GetBinContent(j+1) << std::endl;
       }
     }
   } else {
@@ -315,17 +323,15 @@ std::cout << "index, j+1 = " << index<< ",  " << (j+1) << std::endl;
   // measurement ...
   TH1D *hmeas = new TH1D("hmeas","hmeas",nbin_meas,0.5, nbin_meas+0.5);
   TH1D *hpred = new TH1D("hpred","hpred",nbin_meas,0.5, nbin_meas+0.5);
-  for (int k=0;k<n_diff_bins_3D;k++) {
-    for (int i=0;i<n_diff_bins_2D;i++) {
-      for (int j=0;j<n_Ebins_reco;j++) {
-        int FC_index = (i+k*n_diff_bins_2D                              ) * n_Ebins_reco + j+1;	//FC
-        int PC_index = (i+k*n_diff_bins_2D+n_diff_bins_2D*n_diff_bins_3D) * n_Ebins_reco + j+1;	//PC
-        hmeas->SetBinContent(FC_index, hdata_obsch_1->GetBinContent(FC_index) - histo_3->GetBinContent(FC_index) - histo_5->GetBinContent(FC_index) + add_noise*hnoise->GetBinContent(FC_index));
-        hmeas->SetBinContent(PC_index, hdata_obsch_2->GetBinContent(FC_index) - histo_4->GetBinContent(FC_index) - histo_6->GetBinContent(FC_index) + add_noise*hnoise->GetBinContent(PC_index));
+  for (int i=0;i<n_diff_xs_reco;i++) {
+    for (int j=0;j<n_Ebins_reco;j++) {
+      int FC_index =  i                 * n_Ebins_reco + j+1;	//FC
+      int PC_index = (i+n_diff_xs_reco) * n_Ebins_reco + j+1;	//PC
+      hmeas->SetBinContent(FC_index, hdata_obsch_1->GetBinContent(FC_index) - histo_3->GetBinContent(FC_index) - histo_5->GetBinContent(FC_index) + add_noise*hnoise->GetBinContent(FC_index));
+      hmeas->SetBinContent(PC_index, hdata_obsch_2->GetBinContent(FC_index) - histo_4->GetBinContent(FC_index) - histo_6->GetBinContent(FC_index) + add_noise*hnoise->GetBinContent(PC_index));
 
-        hpred->SetBinContent(FC_index, hmc_obsch_1->GetBinContent(FC_index) );
-        hpred->SetBinContent(PC_index, hmc_obsch_2->GetBinContent(FC_index) );
-      }
+      hpred->SetBinContent(FC_index, hmc_obsch_1->GetBinContent(FC_index) );
+      hpred->SetBinContent(PC_index, hmc_obsch_2->GetBinContent(FC_index) );
     }
   }
 
@@ -363,17 +369,15 @@ std::cout << "index, j+1 = " << index<< ",  " << (j+1) << std::endl;
   TH1F *h60 = new TH1F("h60","h10",nbin_meas,0.5,nbin_meas+0.5); // xs
   TH1F *h70 = new TH1F("h70","h10",nbin_meas,0.5,nbin_meas+0.5); // total
 
-  TH1F *h10_rel = new TH1F("h10_rel","h10_rel",nbin_meas,0.5,nbin_meas+0.5); // stat
-  TH1F *h20_rel = new TH1F("h20_rel","h10_rel",nbin_meas,0.5,nbin_meas+0.5); // mcstat
-  TH1F *h30_rel = new TH1F("h30_rel","h10_rel",nbin_meas,0.5,nbin_meas+0.5); // add
-  TH1F *h40_rel = new TH1F("h40_rel","h10_rel",nbin_meas,0.5,nbin_meas+0.5); // det
-  TH1F *h50_rel = new TH1F("h50_rel","h10_rel",nbin_meas,0.5,nbin_meas+0.5); // flux
-  TH1F *h60_rel = new TH1F("h60_rel","h10_rel",nbin_meas,0.5,nbin_meas+0.5); // xs
-  TH1F *h70_rel = new TH1F("h70_rel","h10_rel",nbin_meas,0.5,nbin_meas+0.5); // total
-
-
-
   for (Int_t i=0;i!=nbin_meas;i++){
+    // std::cout << i << " " << sqrt(hcov_tot->GetBinContent(i+1,i+1))/hpred->GetBinContent(i+1) << " "
+    // 	      << sqrt(hcov_stat->GetBinContent(i+1,i+1))/hpred->GetBinContent(i+1) << " "
+    // 	      << sqrt(hcov_mcstat->GetBinContent(i+1,i+1))/hpred->GetBinContent(i+1) << " "
+    // 	      << sqrt(hcov_add->GetBinContent(i+1,i+1))/hpred->GetBinContent(i+1) << " "
+    // 	      << sqrt(hcov_flux->GetBinContent(i+1,i+1))/hpred->GetBinContent(i+1) << " "
+    // 	      << sqrt(hcov_det->GetBinContent(i+1,i+1))/hpred->GetBinContent(i+1) << " "
+    // 	      << sqrt(hcov_xs->GetBinContent(i+1,i+1))/hpred->GetBinContent(i+1) << " "
+    // 	      << std::endl;
     if (hpred->GetBinContent(i+1)!=0){
       h10->SetBinContent(i+1,sqrt(hcov_stat->GetBinContent(i+1,i+1))/hpred->GetBinContent(i+1));
       h20->SetBinContent(i+1,sqrt(hcov_mcstat->GetBinContent(i+1,i+1))/hpred->GetBinContent(i+1));
@@ -382,51 +386,34 @@ std::cout << "index, j+1 = " << index<< ",  " << (j+1) << std::endl;
       h50->SetBinContent(i+1,sqrt(hcov_det->GetBinContent(i+1,i+1))/hpred->GetBinContent(i+1));
       h60->SetBinContent(i+1,sqrt(hcov_xs->GetBinContent(i+1,i+1))/hpred->GetBinContent(i+1));
       h70->SetBinContent(i+1,sqrt(hcov_tot->GetBinContent(i+1,i+1))/hpred->GetBinContent(i+1));
-
-      h10_rel->SetBinContent(i+1, hcov_stat->GetBinContent(i+1,i+1)   / hcov_tot->GetBinContent(i+1,i+1));
-      h20_rel->SetBinContent(i+1, hcov_mcstat->GetBinContent(i+1,i+1) / hcov_tot->GetBinContent(i+1,i+1));
-      h30_rel->SetBinContent(i+1, hcov_add->GetBinContent(i+1,i+1)    / hcov_tot->GetBinContent(i+1,i+1));
-      h40_rel->SetBinContent(i+1, hcov_flux->GetBinContent(i+1,i+1)   / hcov_tot->GetBinContent(i+1,i+1));
-      h50_rel->SetBinContent(i+1, hcov_det->GetBinContent(i+1,i+1)    / hcov_tot->GetBinContent(i+1,i+1));
-      h60_rel->SetBinContent(i+1, hcov_xs->GetBinContent(i+1,i+1)     / hcov_tot->GetBinContent(i+1,i+1));
-      h70_rel->SetBinContent(i+1, hcov_tot->GetBinContent(i+1,i+1)    / hcov_tot->GetBinContent(i+1,i+1));
     }
   }
 
-  //DetVar covariance and correlation matrices
-  int nbins_cov = hcov_det->GetNbinsX();
-  TH2D* detvar_covariance_matrix  = new TH2D("detvar_covariance_matrix", "Detector Systematic Covariance Matrix", nbins_cov,0.5,0.5+nbins_cov,nbins_cov,0.5,0.5+nbins_cov);
-  TH2D* detvar_correlation_matrix = new TH2D("detvar_correlation_matrix","Detector Systematic Correlation Matrix",nbins_cov,0.5,0.5+nbins_cov,nbins_cov,0.5,0.5+nbins_cov);
-  for (int i=0;i<nbins_cov;i++) {
-    for (int j=0;j<nbins_cov;j++) {
-      double cov_ij = sqrt(hcov_det->GetBinContent(i+1,j+1));
-      double cov_ii = sqrt(hcov_det->GetBinContent(i+1,i+1));
-      double cov_jj = sqrt(hcov_det->GetBinContent(j+1,j+1));
-      double val = cov_ij/std::sqrt(cov_ii*cov_jj);      
-      if (cov_ij==0) { val = 0; }
-      if (i==j)      { val = 1; }
-      if (cov_ij > 4000) { cov_ij = 4000; }
-      detvar_covariance_matrix->SetBinContent(i+1,j+1,cov_ij);
-      detvar_correlation_matrix->SetBinContent(i+1,j+1,val);
-    }
+  if (draw) {
+    h70->Draw();
+ 
+    h10->Draw("same"); // stat
+    h20->Draw("same"); // mcstat
+    h30->Draw("same"); // dirt
+    h40->Draw("same"); // flux
+    h50->Draw("same"); // det
+    h60->Draw("same"); // xs
   }
 
-  h10->SetTitle("Stat");
-  h20->SetTitle("MCstat");
-  h30->SetTitle("Dirt");
-  h40->SetTitle("Flux");
-  h50->SetTitle("Det");
-  h60->SetTitle("XS");
-  h70->SetTitle("Relative Uncertainties");
-  h70->GetYaxis()->SetTitle("Diagonal Uncertainty / Bin Content");
-  h70->SetXTitle("Reco Bin Index");
-  h70->GetXaxis()->SetTitleSize(.05);
-  h10->SetLineColor(kCyan);
-  h20->SetLineColor(kYellow);
-  h30->SetLineColor(kGreen);
-  h40->SetLineColor(kRed);
-  h50->SetLineColor(kMagenta);
-  h60->SetLineColor(kBlue);
+  h10->SetTitle("Stat, London");
+  h20->SetTitle("MCstat, London");
+  h30->SetTitle("Dirt, London");
+  h40->SetTitle("Flux, London");
+  h50->SetTitle("Det, London");
+  h60->SetTitle("XS, London");
+  h70->SetTitle("London, Relative Uncertainties");
+  h70->SetXTitle("Bin no");
+  h10->SetLineColor(9);
+  h20->SetLineColor(8);
+  h30->SetLineColor(3);
+  h40->SetLineColor(2);
+  h50->SetLineColor(6);
+  h60->SetLineColor(4);
   h70->SetLineColor(1);
   h10->SetLineWidth(2);
   h20->SetLineWidth(2);
@@ -435,100 +422,18 @@ std::cout << "index, j+1 = " << index<< ",  " << (j+1) << std::endl;
   h50->SetLineWidth(2);
   h60->SetLineWidth(2);
   h70->SetLineWidth(2);
-  h70->GetYaxis()->SetRangeUser(0,2.5);
 
-  TLegend *legend1 = new TLegend(0.6,0.6,0.89,0.89);
-  legend1->AddEntry(h70,"Total","l");
-  legend1->AddEntry(h10,"Stat.","l");
-  legend1->AddEntry(h20,"MC stat.","l");
-  legend1->AddEntry(h30,"Dirt","l");
-  legend1->AddEntry(h40,"Flux","l");
-  legend1->AddEntry(h50,"Det.","l");
-  legend1->AddEntry(h60,"Xs","l");
+  h70->GetYaxis()->SetRangeUser(0,1.5);
 
-  //budget plot
-  h10_rel->SetTitle("Stat");
-  h20_rel->SetTitle("MCstat");
-  h30_rel->SetTitle("Dirt");
-  h40_rel->SetTitle("Flux");
-  h50_rel->SetTitle("Det");
-  h60_rel->SetTitle("XS");
-  h70_rel->SetTitle("Relative Uncertainties");
-  h70_rel->SetXTitle("Reco Bin Index");
-  h10_rel->SetLineColor(kCyan);
-  h20_rel->SetLineColor(kYellow);
-  h30_rel->SetLineColor(kGreen);
-  h40_rel->SetLineColor(kRed);
-  h50_rel->SetLineColor(kMagenta);
-  h60_rel->SetLineColor(kBlue);
-  h70_rel->SetLineColor(1);
-  h10_rel->SetFillColor(kCyan);
-  h20_rel->SetFillColor(kYellow);
-  h30_rel->SetFillColor(kGreen);
-  h40_rel->SetFillColor(kRed);
-  h50_rel->SetFillColor(kMagenta);
-  h60_rel->SetFillColor(kBlue);
-  h70_rel->SetFillColor(1);
-
-  THStack *hstack = new THStack("hs","");
-  hstack->Add(h30_rel);
-  hstack->Add(h20_rel);
-  hstack->Add(h10_rel);
-  hstack->Add(h60_rel);
-  hstack->Add(h40_rel);
-  hstack->Add(h50_rel);
-
-  TLegend *legend2 = new TLegend(0.6,0.6,0.89,0.89);
-  legend2->AddEntry(h30_rel,"Dirt","f");
-  legend2->AddEntry(h20_rel,"MC stat.","f");
-  legend2->AddEntry(h10_rel,"Stat.","f");
-  legend2->AddEntry(h60_rel,"Xs","f");
-  legend2->AddEntry(h40_rel,"Flux","f");
-  legend2->AddEntry(h50_rel,"Det.","f");
- 
-  
-  if (draw) {
-    TCanvas* c1 = new TCanvas("c1","c1");
-    c1->cd();
-    gPad->SetBottomMargin(0.15);
-    h70->Draw();
-    h10->Draw("same"); // stat
-    h20->Draw("same"); // mcstat
-    h30->Draw("same"); // dirt
-    h40->Draw("same"); // flux
-    h50->Draw("same"); // det
-    h60->Draw("same"); // xs
-    legend1->Draw("same");
-
-    TCanvas* c2 = new TCanvas("c2","c2");
-    c2->cd();
-    gPad->SetBottomMargin(0.15);
-    //hstack->GetXaxis()->SetTitleSize(.05);
-    //hstack->GetXaxis()->SetTitle("Reco Bin Index");
-    hstack->Draw();
-    legend2->Draw("same");
-
-    TCanvas* c_det_cov = new TCanvas("c_det_cov","c_det_cov");
-    c_det_cov->cd();
-    gPad->SetBottomMargin(0.15);
-    detvar_covariance_matrix->GetYaxis()->SetTitleOffset(.82);
-    detvar_covariance_matrix->GetYaxis()->SetTitleSize(.05);
-    detvar_covariance_matrix->GetXaxis()->SetTitleSize(.05);
-    detvar_covariance_matrix->GetXaxis()->SetTitle("Reco Bin Index");
-    detvar_covariance_matrix->GetYaxis()->SetTitle("Reco Bin Index");
-    detvar_covariance_matrix->Draw("colz");
-
-    TCanvas* c_det_corr = new TCanvas("c_det_corr","c_det_corr");
-    c_det_corr->cd();
-    gPad->SetBottomMargin(0.15);
-    detvar_correlation_matrix->GetYaxis()->SetTitleOffset(.82);
-    detvar_correlation_matrix->GetYaxis()->SetTitleSize(.05);
-    detvar_correlation_matrix->GetXaxis()->SetTitleSize(.05);
-    detvar_correlation_matrix->GetXaxis()->SetTitle("Reco Bin Index");
-    detvar_correlation_matrix->GetYaxis()->SetTitle("Reco Bin Index");
-    detvar_correlation_matrix->Draw("colz");
-  }
-
+  TLegend *le1 = new TLegend(0.6,0.6,0.89,0.89);
+  le1->AddEntry(h70,"Total","l");
+  le1->AddEntry(h10,"Stat.","l");
+  le1->AddEntry(h20,"MC stat.","l");
+  le1->AddEntry(h30,"Dirt","l");
+  le1->AddEntry(h40,"Flux","l");
+  le1->AddEntry(h50,"Det.","l");
+  le1->AddEntry(h60,"Xs","l");
+  //le1->Draw();
 
 
   if (new_noise) {
@@ -540,7 +445,6 @@ std::cout << "index, j+1 = " << index<< ",  " << (j+1) << std::endl;
   }
 
  TFile *file = new TFile("wiener.root","RECREATE");
- file->cd();
  hdata_obsch_1->SetDirectory(file);
  hdata_obsch_2->SetDirectory(file);
  hmc_obsch_1->SetDirectory(file);
@@ -565,20 +469,6 @@ std::cout << "index, j+1 = " << index<< ",  " << (j+1) << std::endl;
    h50->SetDirectory(file);
    h60->SetDirectory(file);
    h70->SetDirectory(file);
-   legend1->Write("legend1");
-
-   h10_rel->SetDirectory(file);
-   h20_rel->SetDirectory(file);
-   h30_rel->SetDirectory(file);
-   h40_rel->SetDirectory(file);
-   h50_rel->SetDirectory(file);
-   h60_rel->SetDirectory(file);
-   h70_rel->SetDirectory(file);
-   hstack->Write("hstack");
-   legend2->Write("legend2");
-
-   detvar_covariance_matrix->SetDirectory(file);
-   detvar_correlation_matrix->SetDirectory(file);
  }
 
  file->Write();
