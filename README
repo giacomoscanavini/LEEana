@@ -1,0 +1,22 @@
+conda activate env_root
+
+export DISPLAY="`grep nameserver /etc/resolv.conf | sed 's/nameserver //'`:0"
+
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/gs627/wcp-uboone-bdt/lib
+
+./wcb -p build install
+./wcb clean
+
+./convert_histo.pl
+
+./bin/merge_hist -r0 -l0 -b1 -d1
+
+./bin/merge_hist -r0 -l0
+
+./run_mc_stat.pl
+
+./run_det_sys.pl  &&  ./run_xf_sys.pl 
+
+./bin/read_TLee_v20
+
+./bin/plot_hist -r0 -l0 -e3 -sfile_collapsed_covariance_matrix.root

@@ -1,13 +1,18 @@
-
 # single bin NCpi0 Enu
-#root -l -b -q 'calculate_num.C(0., 5.00, 1000, 6.3e20)' 
 #root -l -b -q 'calculate_num.C(0.275, 8.00, 1000, 5.327e19)' 
 
-# single bin NCpi0 Ppi0
-root -l -b -q 'calculate_num.C(0.275, 8.00, 1000, 5.327e19, 0., 4.)' 
-
-
-
+# multiple bin NCpi0 Ppi0
+root -l -b -q 'calculate_num.C(0.275, 8.00, 1000, 5.327e19, 0.00, 0.10)' 
+root -l -b -q 'calculate_num.C(0.275, 8.00, 1000, 5.327e19, 0.10, 0.15)'
+root -l -b -q 'calculate_num.C(0.275, 8.00, 1000, 5.327e19, 0.15, 0.20)' 
+root -l -b -q 'calculate_num.C(0.275, 8.00, 1000, 5.327e19, 0.20, 0.25)' 
+root -l -b -q 'calculate_num.C(0.275, 8.00, 1000, 5.327e19, 0.25, 0.30)' 
+root -l -b -q 'calculate_num.C(0.275, 8.00, 1000, 5.327e19, 0.30, 0.40)' 
+root -l -b -q 'calculate_num.C(0.275, 8.00, 1000, 5.327e19, 0.40, 0.50)' 
+root -l -b -q 'calculate_num.C(0.275, 8.00, 1000, 5.327e19, 0.50, 0.60)' 
+root -l -b -q 'calculate_num.C(0.275, 8.00, 1000, 5.327e19, 0.60, 0.80)' 
+root -l -b -q 'calculate_num.C(0.275, 8.00, 1000, 5.327e19, 0.80, 1.00)' 
+root -l -b -q 'calculate_num.C(0.275, 8.00, 1000, 5.327e19, 1.00, 1.50)' 
 
 
 # single bin NC pi0 momentum

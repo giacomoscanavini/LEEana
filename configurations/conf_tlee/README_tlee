@@ -1,0 +1,22 @@
+This is the list of file to modify for the Tlee plots
+
+file_ch.txt 	---> Pool of available files (specify breakdown of each file)
+cv_input.txt	---> Files to used with POT for each included sample
+cov_input.txt	---> Variables to plot, samples to consider, histogram configurations
+
+det_file.txt	---> Useful for merging
+det_file_ch.txt ---> Pool of available files 
+det_input.txt	---> Specify input and output files with POT normalization
+
+xf_file_ch.txt	---> Pool of available files 
+xf_input.txt	---> Specify input and output files with POT normalization
+
+wcp-uboone-bdt/inc/WCPLEEANA/Configure_Lee.h ---> Specify number of channels and some settings
+wcp-uboone-bdt/srcs/TLee.cxx ---> Specify name of channels
+
+wcp-uboone-bdt/inc/WCPLEEANA/cuts.h 	---> List of all cuts, for variables and histograms
+
+wcp-uboone-bdt/apps/det_cov_matrix.cxx 	---> Script for ./run_det_sys.pl
+wcp-uboone-bdt/apps/xf_cov_matrix.cxx 	---> Script for ./run_xf_sys.pl
+wcp-uboone-bdt/apps/read_TLee_v20.cxx 	---> Script for ./bin/read_TLee_v20
+wcp-uboone-bdt/apps/plot_hist.cxx 		---> Script for ./bin/plot_hist -r0 -l0 -e3 -sfile_collapsed_covariance_matrix.root

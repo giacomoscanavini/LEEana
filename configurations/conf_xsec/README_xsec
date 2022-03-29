@@ -1,0 +1,16 @@
+This is the list of file to modify for the X-sec plots
+
+file_ch.txt 	---> Pool of available files (specify breakdown of each file)
+cv_input.txt	---> Files to used with POT for each included sample
+cov_input.txt	---> Variables to plot, samples to consider, histogram configurations
+
+xs_ch.txt  		---> Specify signal sample, which is also in cov_input.txt
+xs_real_bin.txt	---> Specify bins with flux constat
+
+calculate_num.C	---> Calculate flux constant from file
+batch.sh 		---> Calculate flux constant from provided bins
+
+
+
+
+wcp-uboone-bdt/inc/WCPLEEANA/cuts.h 	---> List of all cuts, for variables and histograms

@@ -1,0 +1,113 @@
+./processed_checkout_rootfiles/CV/wcp_data_extbnb_run1_mcc9_v08_00_00_53_checkout.root			all
+./processed_checkout_rootfiles/CV/wcp_data_extbnb_run3_mcc9_v08_00_00_53_checkout.root			all
+
+./processed_checkout_rootfiles/CV/checkout_prodgenie_dirt_overlay_run1.root						all
+./processed_checkout_rootfiles/CV/checkout_prodgenie_dirt_overlay_run3.root						all
+
+./processed_checkout_rootfiles/CV/checkout_prodgenie_bnb_intrinsic_nue_overlay_run1.root		outFV
+./processed_checkout_rootfiles/CV/checkout_prodgenie_bnb_intrinsic_nue_overlay_run1.root		nueCCinFV
+./processed_checkout_rootfiles/CV/checkout_prodgenie_bnb_intrinsic_nue_overlay_run1.root		badmatch
+
+./processed_checkout_rootfiles/CV/checkout_prodgenie_bnb_intrinsic_nue_overlay_run3.root		outFV
+./processed_checkout_rootfiles/CV/checkout_prodgenie_bnb_intrinsic_nue_overlay_run3.root		nueCCinFV
+./processed_checkout_rootfiles/CV/checkout_prodgenie_bnb_intrinsic_nue_overlay_run3.root		badmatch
+
+./processed_checkout_rootfiles/CV/checkout_prodgenie_bnb_nu_overlay_run1.root					outFV
+./processed_checkout_rootfiles/CV/checkout_prodgenie_bnb_nu_overlay_run1.root					numuCCinFV
+./processed_checkout_rootfiles/CV/checkout_prodgenie_bnb_nu_overlay_run1.root					nueCCinFV
+./processed_checkout_rootfiles/CV/checkout_prodgenie_bnb_nu_overlay_run1.root					NCinFV	
+./processed_checkout_rootfiles/CV/checkout_prodgenie_bnb_nu_overlay_run1.root					CCpi0inFV
+./processed_checkout_rootfiles/CV/checkout_prodgenie_bnb_nu_overlay_run1.root					NCpi0inFV
+./processed_checkout_rootfiles/CV/checkout_prodgenie_bnb_nu_overlay_run1.root					badmatch
+
+./processed_checkout_rootfiles/CV/checkout_prodgenie_bnb_nu_overlay_run3.root					outFV	
+./processed_checkout_rootfiles/CV/checkout_prodgenie_bnb_nu_overlay_run3.root					numuCCinFV
+./processed_checkout_rootfiles/CV/checkout_prodgenie_bnb_nu_overlay_run3.root					nueCCinFV
+./processed_checkout_rootfiles/CV/checkout_prodgenie_bnb_nu_overlay_run3.root					NCinFV	
+./processed_checkout_rootfiles/CV/checkout_prodgenie_bnb_nu_overlay_run3.root					CCpi0inFV
+./processed_checkout_rootfiles/CV/checkout_prodgenie_bnb_nu_overlay_run3.root					NCpi0inFV
+./processed_checkout_rootfiles/CV/checkout_prodgenie_bnb_nu_overlay_run3.root					badmatch
+
+./processed_checkout_rootfiles/CV/checkout_data_bnb_run1_5e19.root								all
+./processed_checkout_rootfiles/CV/checkout_data_bnb_run3_1e19.root								all
+
+./processed_checkout_rootfiles/CV/checkout_nu2020_fakedata_set5.root							all
+
+./processed_checkout_rootfiles/CV/checkout_fakedata_set7_run1.root								all
+./processed_checkout_rootfiles/CV/checkout_fakedata_set7_run3.root								all
+
+./processed_checkout_rootfiles/CV/checkout_prodgenie_nc_pi0_overlay_run1.root					outFV
+./processed_checkout_rootfiles/CV/checkout_prodgenie_nc_pi0_overlay_run1.root					numuCCinFV
+./processed_checkout_rootfiles/CV/checkout_prodgenie_nc_pi0_overlay_run1.root					nueCCinFV
+./processed_checkout_rootfiles/CV/checkout_prodgenie_nc_pi0_overlay_run1.root					NCinFV
+./processed_checkout_rootfiles/CV/checkout_prodgenie_nc_pi0_overlay_run1.root					CCpi0inFV
+./processed_checkout_rootfiles/CV/checkout_prodgenie_nc_pi0_overlay_run1.root					NCpi0inFV
+./processed_checkout_rootfiles/CV/checkout_prodgenie_nc_pi0_overlay_run1.root					badmatch
+
+./processed_checkout_rootfiles/CV/checkout_prodgenie_nc_pi0_overlay_run3.root					outFV
+./processed_checkout_rootfiles/CV/checkout_prodgenie_nc_pi0_overlay_run3.root					numuCCinFV
+./processed_checkout_rootfiles/CV/checkout_prodgenie_nc_pi0_overlay_run3.root					nueCCinFV
+./processed_checkout_rootfiles/CV/checkout_prodgenie_nc_pi0_overlay_run3.root					NCinFV
+./processed_checkout_rootfiles/CV/checkout_prodgenie_nc_pi0_overlay_run3.root					CCpi0inFV
+./processed_checkout_rootfiles/CV/checkout_prodgenie_nc_pi0_overlay_run3.root					NCpi0inFV
+./processed_checkout_rootfiles/CV/checkout_prodgenie_nc_pi0_overlay_run3.root					badmatch
+
+end																							end
+#file																						#cut
+
+
+
+./processed_checkout_rootfiles/CV/checkout_prodgenie_bnb_intrinsic_nue_overlay_run1.root 	all
+./processed_checkout_rootfiles/CV/checkout_prodgenie_bnb_intrinsic_nue_overlay_run3.root 	all
+./processed_checkout_rootfiles/CV/checkout_prodgenie_bnb_nu_overlay_run1.root 				all
+./processed_checkout_rootfiles/CV/checkout_prodgenie_bnb_nu_overlay_run3.root 				all
+./processed_checkout_rootfiles/CV/wcp_data_extbnb_run1_mcc9_v08_00_00_53_checkout.root		all
+./processed_checkout_rootfiles/CV/wcp_data_extbnb_run3_mcc9_v08_00_00_53_checkout.root		all
+./processed_checkout_rootfiles/CV/checkout_prodgenie_dirt_overlay_run1.root 				all
+./processed_checkout_rootfiles/CV/checkout_prodgenie_dirt_overlay_run3.root 				all
+
+./processed_checkout_rootfiles/CV/checkout_data_bnb_run1_5e19.root							all
+./processed_checkout_rootfiles/CV/checkout_data_bnb_run3_1e19.root							all
+
+
+
+
+
+./processed_checkout_rootfiles/CV/wcp_data_extbnb_run1_mcc9_v08_00_00_53_checkout.root			all
+./processed_checkout_rootfiles/CV/wcp_data_extbnb_run2_mcc9_v08_00_00_53_checkout.root			all
+./processed_checkout_rootfiles/CV/wcp_data_extbnb_run3_mcc9_v08_00_00_53_checkout.root			all
+./processed_checkout_rootfiles/CV/checkout_prodgenie_dirt_overlay_run1_all.root					all
+./processed_checkout_rootfiles/CV/checkout_prodgenie_dirt_overlay_run2_all.root					all
+./processed_checkout_rootfiles/CV/checkout_prodgenie_dirt_overlay_run3_all.root					all
+./processed_checkout_rootfiles/CV/checkout_prodgenie_bnb_intrinsic_nue_overlay_run1.root		outFV
+./processed_checkout_rootfiles/CV/checkout_prodgenie_bnb_intrinsic_nue_overlay_run1.root		nueCCinFV
+./processed_checkout_rootfiles/CV/checkout_prodgenie_bnb_intrinsic_nue_overlay_run1.root		badmatch
+./processed_checkout_rootfiles/CV/checkout_prodgenie_bnb_intrinsic_nue_overlay_run2.root		outFV
+./processed_checkout_rootfiles/CV/checkout_prodgenie_bnb_intrinsic_nue_overlay_run2.root		nueCCinFV
+./processed_checkout_rootfiles/CV/checkout_prodgenie_bnb_intrinsic_nue_overlay_run2.root		badmatch
+./processed_checkout_rootfiles/CV/checkout_prodgenie_bnb_intrinsic_nue_overlay_run3.root		outFV
+./processed_checkout_rootfiles/CV/checkout_prodgenie_bnb_intrinsic_nue_overlay_run3.root		nueCCinFV
+./processed_checkout_rootfiles/CV/checkout_prodgenie_bnb_intrinsic_nue_overlay_run3.root		badmatch
+./processed_checkout_rootfiles/CV/checkout_prodgenie_bnb_nu_overlay_run1.root					outFV
+./processed_checkout_rootfiles/CV/checkout_prodgenie_bnb_nu_overlay_run1.root					numuCCinFV
+./processed_checkout_rootfiles/CV/checkout_prodgenie_bnb_nu_overlay_run1.root					nueCCinFV
+./processed_checkout_rootfiles/CV/checkout_prodgenie_bnb_nu_overlay_run1.root					NCinFV	
+./processed_checkout_rootfiles/CV/checkout_prodgenie_bnb_nu_overlay_run1.root					CCpi0inFV
+./processed_checkout_rootfiles/CV/checkout_prodgenie_bnb_nu_overlay_run1.root					NCpi0inFV
+./processed_checkout_rootfiles/CV/checkout_prodgenie_bnb_nu_overlay_run1.root					badmatch
+./processed_checkout_rootfiles/CV/checkout_prodgenie_bnb_nu_overlay_run2.root					outFV
+./processed_checkout_rootfiles/CV/checkout_prodgenie_bnb_nu_overlay_run2.root					numuCCinFV
+./processed_checkout_rootfiles/CV/checkout_prodgenie_bnb_nu_overlay_run2.root					nueCCinFV
+./processed_checkout_rootfiles/CV/checkout_prodgenie_bnb_nu_overlay_run2.root					NCinFV	
+./processed_checkout_rootfiles/CV/checkout_prodgenie_bnb_nu_overlay_run2.root					CCpi0inFV
+./processed_checkout_rootfiles/CV/checkout_prodgenie_bnb_nu_overlay_run2.root					NCpi0inFV
+./processed_checkout_rootfiles/CV/checkout_prodgenie_bnb_nu_overlay_run2.root					badmatch
+./processed_checkout_rootfiles/CV/checkout_prodgenie_bnb_nu_overlay_run3.root					outFV	
+./processed_checkout_rootfiles/CV/checkout_prodgenie_bnb_nu_overlay_run3.root					numuCCinFV
+./processed_checkout_rootfiles/CV/checkout_prodgenie_bnb_nu_overlay_run3.root					nueCCinFV
+./processed_checkout_rootfiles/CV/checkout_prodgenie_bnb_nu_overlay_run3.root					NCinFV	
+./processed_checkout_rootfiles/CV/checkout_prodgenie_bnb_nu_overlay_run3.root					CCpi0inFV
+./processed_checkout_rootfiles/CV/checkout_prodgenie_bnb_nu_overlay_run3.root					NCpi0inFV
+./processed_checkout_rootfiles/CV/checkout_prodgenie_bnb_nu_overlay_run3.root					badmatch
+./processed_checkout_rootfiles/CV/checkout_data_bnb_run1_5e19.root								all
+./processed_checkout_rootfiles/CV/checkout_data_bnb_run3_1e19.root								all
