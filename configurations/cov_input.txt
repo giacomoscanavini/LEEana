@@ -1,153 +1,100 @@
-NCpi0BDT_FC_bnb							kine_reco_Enu		1		0		8000	1		0			0		0			0			0			5		unity		0
-NCpi0BDT_PC_bnb							kine_reco_Enu		1		0		8000	2		0			0		0			0			0			5		unity		0
-NCpi0BDT_signal_Enu_FC_overlay			kine_reco_Enu		1		0		8000	1		1			1		0			0			1			2		cv_spline	0
-NCpi0BDT_signal_Enu_PC_overlay			kine_reco_Enu		1		0		8000	2		1			1		0			0			2			2		cv_spline	0
-NCpi0BDT_background_Enu_FC_overlay		kine_reco_Enu		1		0		8000	1		1			1		0			0			3			2		cv_spline	0
-NCpi0BDT_background_Enu_PC_overlay		kine_reco_Enu		1		0		8000	2		1			1		0			0			4			2		cv_spline	0
-BG_NCpi0BDT_FC_ext						kine_reco_Enu		1		0		8000	1		0			0		0			0			5			3		unity		0
-BG_NCpi0BDT_PC_ext						kine_reco_Enu		1		0		8000	2		0			0		0			0			6			3		unity		0
-BG_NCpi0BDT_FC_dirt						kine_reco_Enu		1		0		8000	1		0			0		0.5			0			3			4		cv_spline	0
-BG_NCpi0BDT_PC_dirt						kine_reco_Enu		1		0		8000	2		0			0		0.5			0			4			4		cv_spline	0
+NCpi0BDT_FC_Np_bnb						kine_pio_energy_high	24	0		600		1		0			0		0			0			0			5		unity		0
+NCpi0BDT_FC_Np_overlay					kine_pio_energy_high	24	0		600		1		1			1		0			0			1			2		cv_spline	0
+NCpi0BDT_FC_Np_dirt						kine_pio_energy_high	24	0		600		1		1			0		0.5			0			1			4		cv_spline	0
+NCpi0BDT_FC_Np_ext						kine_pio_energy_high	24	0		600		1		0			0		0			0			5			3		unity		0
+
+NCpi0BDT1_FC_Np_bnb						kine_pio_energy_low		16	0		400		2		0			0		0			0			0			5		unity		0
+NCpi0BDT1_FC_Np_overlay					kine_pio_energy_low		16	0		400		2		1			1		0			0			2			2		cv_spline	0
+NCpi0BDT1_FC_Np_dirt					kine_pio_energy_low		16	0		400		2		1			0		0.5			0			2			4		cv_spline	0
+NCpi0BDT1_FC_Np_ext						kine_pio_energy_low		16	0		400		2		0			0		0			0			6			3		unity		0
+
+NCpi0BDT2_FC_Np_bnb						kine_pio_costheta_high	24	0		180		3		0			0		0			0			0			5		unity		0
+NCpi0BDT2_FC_Np_overlay					kine_pio_costheta_high	24	0		180		3		1			1		0			0			3			2		cv_spline	0
+NCpi0BDT2_FC_Np_dirt					kine_pio_costheta_high	24	0		180		3		1			0		0.5			0			3			4		cv_spline	0
+NCpi0BDT2_FC_Np_ext						kine_pio_costheta_high	24	0		180		3		0			0		0			0			7			3		unity		0
+
+NCpi0BDT3_FC_Np_bnb						kine_pio_costheta_low	24	0		180		4		0			0		0			0			0			5		unity		0
+NCpi0BDT3_FC_Np_overlay					kine_pio_costheta_low	24	0		180		4		1			1		0			0			4			2		cv_spline	0
+NCpi0BDT3_FC_Np_dirt					kine_pio_costheta_low	24	0		180		4		1			0		0.5			0			4			4		cv_spline	0
+NCpi0BDT3_FC_Np_ext						kine_pio_costheta_low	24	0		180		4		0			0		0			0			8			3		unity		0
+
 
 End										End					-1		-1		-1		-1		-1			-1		-1			-1			-1			-1		end			-1
 Name:									#Var:				#bin	#start	#end	#obs	#xs_flux	#det	#add_sys	#same_mc	#cov_sec	#file	#weight		#lee_strength
 
-NCpi0BDT_bnb							kine_reco_Enu		25		0		2000	1		0			0		0			0			0			5		unity		0
-NCpi0BDT_overlay						kine_reco_Enu		25		0		2000	1		1			1		0			0			1			2		cv_spline	0
-NCpi0BDT_dirt							kine_reco_Enu		25		0		2000	1		1			1		0.5			0			1			4		cv_spline	0
-NCpi0BDT_ext							kine_reco_Enu		25		0		2000	1		0			0		0			0			3			3		unity		0
-
-NCpi0BDT1_bnb							pi0_momentum		25		0		1500	2		0			0		0			0			0			5		unity		0
-NCpi0BDT1_overlay						pi0_momentum		25		0		1500	2		1			1		0			0			2			2		cv_spline	0
-NCpi0BDT1_dirt							pi0_momentum		25		0		1500	2		1			1		0.5			0			2			4		cv_spline	0
-NCpi0BDT1_ext							pi0_momentum		25		0		1500	2		0			0		0			0			6			3		unity		0
-
-NCpi0BDT2_bnb							pi0_mass			29		0		300		3		0			0		0			0			0			5		unity		0
-NCpi0BDT2_overlay						pi0_mass			29		0		300		3		1			1		0			0			3			2		cv_spline	0
-NCpi0BDT2_dirt							pi0_mass			29		0		300		3		1			1		0.5			0			3			4		cv_spline	0
-NCpi0BDT2_ext							pi0_mass			29		0		300		3		0			0		0			0			7			3		unity		0
-
-NCpi0BDT3_bnb							pi0_costheta		24		-1		1		2		0			0		0			0			0			5		unity		0
-NCpi0BDT3_overlay						pi0_costheta		24		-1		1		2		1			1		0			0			2			2		cv_spline	0
-NCpi0BDT3_dirt							pi0_costheta		24		-1		1		2		1			1		0.5			0			2			4		cv_spline	0
-NCpi0BDT3_ext							pi0_costheta		24		-1		1		2		0			0		0			0			4			3		unity		0
 
 
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-// XS - NCpi0BDT - Enu_275_8000
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-NCpi0BDT_FC_bnb							kine_reco_Enu		1		0		8000	1		0			0		0			0			0			5		unity		0
-NCpi0BDT_PC_bnb							kine_reco_Enu		1		0		8000	2		0			0		0			0			0			5		unity		0
-NCpi0BDT_signal_Enu_FC_overlay			kine_reco_Enu		1		0		8000	1		1			1		0			0			1			2		cv_spline	0
-NCpi0BDT_signal_Enu_PC_overlay			kine_reco_Enu		1		0		8000	2		1			1		0			0			2			2		cv_spline	0
-NCpi0BDT_background_Enu_FC_overlay		kine_reco_Enu		1		0		8000	1		1			1		0			0			3			2		cv_spline	0
-NCpi0BDT_background_Enu_PC_overlay		kine_reco_Enu		1		0		8000	2		1			1		0			0			4			2		cv_spline	0
-BG_NCpi0BDT_FC_ext						kine_reco_Enu		1		0		8000	1		0			0		0			0			5			3		unity		0
-BG_NCpi0BDT_PC_ext						kine_reco_Enu		1		0		8000	2		0			0		0			0			6			3		unity		0
-BG_NCpi0BDT_FC_dirt						kine_reco_Enu		1		0		8000	1		0			0		0.5			0			3			4		cv_spline	0
-BG_NCpi0BDT_PC_dirt						kine_reco_Enu		1		0		8000	2		0			0		0.5			0			4			4		cv_spline	0
+// Plots for comments Jarek - costheta pi0 single bin -------------------------------------------------------------------------------------------------------------------------------------
+NCpi0BDT_FC_0p_bnb						pi0_costheta		1		-1		1		1		0			0		0			0			0			5		unity		0
+NCpi0BDT_FC_0p_overlay					pi0_costheta		1		-1		1		1		1			1		0			0			1			2		cv_spline	0
+NCpi0BDT_FC_0p_dirt						pi0_costheta		1		-1		1		1		1			0		0.5			0			1			4		cv_spline	0
+NCpi0BDT_FC_0p_ext						pi0_costheta		1		-1		1		1		0			0		0			0			3			3		unity		0
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-// XS - NCpi0BDT - Enu_0p_275_8000
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-NCpi0BDT_FC_0p_bnb 						kine_reco_Enu 		1		0		8000	1		0			0		0			0			0			5		unity		0
-NCpi0BDT_PC_0p_bnb 						kine_reco_Enu 		1		0		8000	2		0			0		0			0			0			5		unity		0
-NCpi0BDT_signal_Enu_0p_FC_overlay 		kine_reco_Enu 		1		0		8000	1		1			1		0			0			1			2		cv_spline	0
-NCpi0BDT_signal_Enu_0p_PC_overlay 		kine_reco_Enu 		1		0		8000	2		1			1		0			0			2			2		cv_spline	0
-NCpi0BDT_background_Enu_0p_FC_overlay 	kine_reco_Enu 		1		0		8000	1		1			1		0			0			3			2		cv_spline	0
-NCpi0BDT_background_Enu_0p_PC_overlay 	kine_reco_Enu 		1		0		8000	2		1			1		0			0			4			2		cv_spline	0
-BG_NCpi0BDT_FC_0p_ext 					kine_reco_Enu 		1		0		8000	1		0			0		0			0			5			3		unity		0
-BG_NCpi0BDT_PC_0p_ext 					kine_reco_Enu 		1		0		8000	2		0			0		0			0			6			3		unity		0
-BG_NCpi0BDT_FC_0p_dirt 					kine_reco_Enu 		1		0		8000	1		0			0		0.5			0			3			4		cv_spline	0
-BG_NCpi0BDT_PC_0p_dirt 					kine_reco_Enu 		1		0		8000	2		0			0		0.5			0			4			4		cv_spline	0
-
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-// XS - NCpi0BDT - Enu_Np_275_8000
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-NCpi0BDT_FC_Np_bnb 						kine_reco_Enu 		1		0		8000	1		0			0		0			0			0			5		unity		0
-NCpi0BDT_PC_Np_bnb 						kine_reco_Enu 		1		0		8000	2		0			0		0			0			0			5		unity		0
-NCpi0BDT_signal_Enu_Np_FC_overlay 		kine_reco_Enu 		1		0		8000	1		1			1		0			0			1			2		cv_spline	0
-NCpi0BDT_signal_Enu_Np_PC_overlay 		kine_reco_Enu 		1		0		8000	2		1			1		0			0			2			2		cv_spline	0
-NCpi0BDT_background_Enu_Np_FC_overlay 	kine_reco_Enu 		1		0		8000	1		1			1		0			0			3			2		cv_spline	0
-NCpi0BDT_background_Enu_Np_PC_overlay 	kine_reco_Enu 		1		0		8000	2		1			1		0			0			4			2		cv_spline	0
-BG_NCpi0BDT_FC_Np_ext 					kine_reco_Enu 		1		0		8000	1		0			0		0			0			5			3		unity		0
-BG_NCpi0BDT_PC_Np_ext 					kine_reco_Enu 		1		0		8000	2		0			0		0			0			6			3		unity		0
-BG_NCpi0BDT_FC_Np_dirt 					kine_reco_Enu 		1		0		8000	1		0			0		0.5			0			3			4		cv_spline	0
-BG_NCpi0BDT_PC_Np_dirt 					kine_reco_Enu 		1		0		8000	2		0			0		0.5			0			4			4		cv_spline	0
+NCpi0BDT_FC_Np_bnb						pi0_costheta		1		-1		1		2		0			0		0			0			0			5		unity		0
+NCpi0BDT_FC_Np_overlay					pi0_costheta		1		-1		1		2		1			1		0			0			2			2		cv_spline	0
+NCpi0BDT_FC_Np_dirt						pi0_costheta		1		-1		1		2		1			0		0.5			0			2			4		cv_spline	0
+NCpi0BDT_FC_Np_ext						pi0_costheta		1		-1		1		2		0			0		0			0			4			3		unity		0
 
 
 
-NCpi0BDT_FC_bnb							pi0_momentum		15		0		1500	1		0			0		0			0			0			5		unity		0
-NCpi0BDT_PC_bnb							pi0_momentum		15		0		1500	2		0			0		0			0			0			5		unity		0
-NCpi0BDT_signal_Ppi0_FC_overlay			pi0_momentum		15		0		1500	1		1			1		0			0			1			2		cv_spline	0
-NCpi0BDT_signal_Ppi0_PC_overlay			pi0_momentum		15		0		1500	2		1			1		0			0			2			2		cv_spline	0
-NCpi0BDT_background_Ppi0_FC_overlay		pi0_momentum		15		0		1500	1		1			1		0			0			3			2		cv_spline	0
-NCpi0BDT_background_Ppi0_PC_overlay		pi0_momentum		15		0		1500	2		1			1		0			0			4			2		cv_spline	0
-BG_NCpi0BDT_FC_ext						pi0_momentum		15		0		1500	1		0			0		0			0			5			3		unity		0
-BG_NCpi0BDT_PC_ext						pi0_momentum		15		0		1500	2		0			0		0			0			6			3		unity		0
-BG_NCpi0BDT_FC_dirt						pi0_momentum		15		0		1500	1		0			0		0.5			0			3			4		cv_spline	0
-BG_NCpi0BDT_PC_dirt						pi0_momentum		15		0		1500	2		0			0		0.5			0			4			4		cv_spline	0
+// Plots for comments Jarek ----------------------------------------------------------------------------------------------------------------------------------------------------------------
+NCpi0BDT_bnb							kine_pio_energy_high	24	0		600		1		0			0		0			0			0			5		unity		0
+NCpi0BDT_overlay						kine_pio_energy_high	24	0		600		1		1			1		0			0			1			2		cv_spline	0
+NCpi0BDT_dirt							kine_pio_energy_high	24	0		600		1		1			0		0.5			0			1			4		cv_spline	0
+NCpi0BDT_ext							kine_pio_energy_high	24	0		600		1		0			0		0			0			5			3		unity		0
+
+NCpi0BDT1_bnb							kine_pio_energy_low		16	0		400		2		0			0		0			0			0			5		unity		0
+NCpi0BDT1_overlay						kine_pio_energy_low		16	0		400		2		1			1		0			0			2			2		cv_spline	0
+NCpi0BDT1_dirt							kine_pio_energy_low		16	0		400		2		1			0		0.5			0			2			4		cv_spline	0
+NCpi0BDT1_ext							kine_pio_energy_low		16	0		400		2		0			0		0			0			6			3		unity		0
+
+NCpi0BDT2_bnb							kine_pio_costheta_high	24	0		180		3		0			0		0			0			0			5		unity		0
+NCpi0BDT2_overlay						kine_pio_costheta_high	24	0		180		3		1			1		0			0			3			2		cv_spline	0
+NCpi0BDT2_dirt							kine_pio_costheta_high	24	0		180		3		1			0		0.5			0			3			4		cv_spline	0
+NCpi0BDT2_ext							kine_pio_costheta_high	24	0		180		3		0			0		0			0			7			3		unity		0
+
+NCpi0BDT3_bnb							kine_pio_costheta_low	24	0		180		4		0			0		0			0			0			5		unity		0
+NCpi0BDT3_overlay						kine_pio_costheta_low	24	0		180		4		1			1		0			0			4			2		cv_spline	0
+NCpi0BDT3_dirt							kine_pio_costheta_low	24	0		180		4		1			0		0.5			0			4			4		cv_spline	0
+NCpi0BDT3_ext							kine_pio_costheta_low	24	0		180		4		0			0		0			0			8			3		unity		0
+
+// Plots for comments Jarek - FC Np case ----------------------------------------------------------------------------------------------------------------------------------------------------------------
+NCpi0BDT_FC_Np_bnb						kine_pio_energy_high	24	0		600		1		0			0		0			0			0			5		unity		0
+NCpi0BDT_FC_Np_overlay					kine_pio_energy_high	24	0		600		1		1			1		0			0			1			2		cv_spline	0
+NCpi0BDT_FC_Np_dirt						kine_pio_energy_high	24	0		600		1		1			0		0.5			0			1			4		cv_spline	0
+NCpi0BDT_FC_Np_ext						kine_pio_energy_high	24	0		600		1		0			0		0			0			5			3		unity		0
+
+NCpi0BDT1_FC_Np_bnb						kine_pio_energy_low		16	0		400		2		0			0		0			0			0			5		unity		0
+NCpi0BDT1_FC_Np_overlay					kine_pio_energy_low		16	0		400		2		1			1		0			0			2			2		cv_spline	0
+NCpi0BDT1_FC_Np_dirt					kine_pio_energy_low		16	0		400		2		1			0		0.5			0			2			4		cv_spline	0
+NCpi0BDT1_FC_Np_ext						kine_pio_energy_low		16	0		400		2		0			0		0			0			6			3		unity		0
+
+NCpi0BDT2_FC_Np_bnb						kine_pio_costheta_high	24	0		180		3		0			0		0			0			0			5		unity		0
+NCpi0BDT2_FC_Np_overlay					kine_pio_costheta_high	24	0		180		3		1			1		0			0			3			2		cv_spline	0
+NCpi0BDT2_FC_Np_dirt					kine_pio_costheta_high	24	0		180		3		1			0		0.5			0			3			4		cv_spline	0
+NCpi0BDT2_FC_Np_ext						kine_pio_costheta_high	24	0		180		3		0			0		0			0			7			3		unity		0
+
+NCpi0BDT3_FC_Np_bnb						kine_pio_costheta_low	24	0		180		4		0			0		0			0			0			5		unity		0
+NCpi0BDT3_FC_Np_overlay					kine_pio_costheta_low	24	0		180		4		1			1		0			0			4			2		cv_spline	0
+NCpi0BDT3_FC_Np_dirt					kine_pio_costheta_low	24	0		180		4		1			0		0.5			0			4			4		cv_spline	0
+NCpi0BDT3_FC_Np_ext						kine_pio_costheta_low	24	0		180		4		0			0		0			0			8			3		unity		0
 
 
 
+// X-sec NCpi0BDT using Enu 0-8000 MeV ----------------------------------------------------------------------------------------------------------------------------------------------------------------
+NCpi0BDT_FC_bnb							kine_reco_Enu	10		0		8000	1		0			0		0			0			0			5		unity		0
+NCpi0BDT_PC_bnb							kine_reco_Enu	10		0		8000	2		0			0		0			0			0			5		unity		0
+NCpi0BDT_signal_Enu_FC_overlay			kine_reco_Enu	10		0		8000	1		1			1		0			0			1			2		cv_spline	0
+NCpi0BDT_signal_Enu_PC_overlay			kine_reco_Enu	10		0		8000	2		1			1		0			0			2			2		cv_spline	0
+NCpi0BDT_background_Enu_FC_overlay		kine_reco_Enu	10		0		8000	1		1			1		0			0			3			2		cv_spline	0
+NCpi0BDT_background_Enu_PC_overlay		kine_reco_Enu	10		0		8000	2		1			1		0			0			4			2		cv_spline	0
+BG_NCpi0BDT_FC_ext						kine_reco_Enu	10		0		8000	1		0			0		0			0			5			3		unity		0
+BG_NCpi0BDT_PC_ext						kine_reco_Enu	10		0		8000	2		0			0		0			0			6			3		unity		0
+BG_NCpi0BDT_FC_dirt						kine_reco_Enu	10		0		8000	1		0			0		0.5			0			3			4		cv_spline	0
+BG_NCpi0BDT_PC_dirt						kine_reco_Enu	10		0		8000	2		0			0		0.5			0			4			4		cv_spline	0
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-NCpi0BDT_FC_bnb						kine_reco_Enu	1		275		4000	1		0			0		0			0			0			5		unity		0
-NCpi0BDT_PC_bnb						kine_reco_Enu	1		275		4000	2		0			0		0			0			0			5		unity		0
-NCpi0BDT_signal_Enu_FC_overlay		kine_reco_Enu	1		275		4000	1		1			1		0			0			1			2		cv_spline	0
-NCpi0BDT_signal_Enu_PC_overlay		kine_reco_Enu	1		275		4000	2		1			1		0			0			2			2		cv_spline	0
-NCpi0BDT_background_Enu_FC_overlay	kine_reco_Enu	1		275		4000	1		1			1		0			0			3			2		cv_spline	0
-NCpi0BDT_background_Enu_PC_overlay	kine_reco_Enu	1		275		4000	2		1			1		0			0			4			2		cv_spline	0
-BG_NCpi0BDT_FC_ext					kine_reco_Enu	1		275		4000	1		0			0		0			0			5			3		unity		0
-BG_NCpi0BDT_PC_ext					kine_reco_Enu	1		275		4000	2		0			0		0			0			6			3		unity		0
-BG_NCpi0BDT_FC_dirt					kine_reco_Enu	1		275		4000	1		0			0		0.5			0			3			4		cv_spline	0
-BG_NCpi0BDT_PC_dirt					kine_reco_Enu	1		275		4000	2		0			0		0.5			0			4			4		cv_spline	0
-
-numuCC_FC_bnb						kine_reco_Enu	25		0		2500	1		0			0		0			0			0			5		unity		0
-numuCC_PC_bnb						kine_reco_Enu	25		0		2500	2		0			0		0			0			0			5		unity		0
-numuCC_signal_Enu_FC_overlay		kine_reco_Enu	25		0		2500	1		1			1		0			0			1			2		cv_spline	0
-numuCC_signal_Enu_PC_overlay		kine_reco_Enu	25		0		2500	2		1			1		0			0			2			2		cv_spline	0
-numuCC_background_Enu_FC_overlay	kine_reco_Enu	25		0		2500	1		1			1		0			0			3			2		cv_spline	0
-numuCC_background_Enu_PC_overlay	kine_reco_Enu	25		0		2500	2		1			1		0			0			4			2		cv_spline	0
-BG_numuCC_FC_ext					kine_reco_Enu	25		0		2500	1		0			0		0			0			5			3		unity		0
-BG_numuCC_PC_ext					kine_reco_Enu	25		0		2500	2		0			0		0			0			6			3		unity		0
-BG_numuCC_FC_dirt					kine_reco_Enu	25		0		2500	1		0			0		0.5			0			3			4		cv_spline	0
-BG_numuCC_PC_dirt					kine_reco_Enu	25		0		2500	2		0			0		0.5			0			4			4		cv_spline	0
-
-NCpi0BDT_FC_bnb						kine_reco_Enu	25		0		2500	1		0			0		0			0			0			5		unity		0
-NCpi0BDT_PC_bnb						kine_reco_Enu	25		0		2500	2		0			0		0			0			0			5		unity		0
-NCpi0BDT_signal_Enu_FC_overlay		kine_reco_Enu	25		0		2500	1		1			1		0			0			1			2		cv_spline	0
-NCpi0BDT_signal_Enu_PC_overlay		kine_reco_Enu	25		0		2500	2		1			1		0			0			2			2		cv_spline	0
-NCpi0BDT_background_Enu_FC_overlay	kine_reco_Enu	25		0		2500	1		1			1		0			0			3			2		cv_spline	0
-NCpi0BDT_background_Enu_PC_overlay	kine_reco_Enu	25		0		2500	2		1			1		0			0			4			2		cv_spline	0
-BG_NCpi0BDT_FC_ext					kine_reco_Enu	25		0		2500	1		0			0		0			0			5			3		unity		0
-BG_NCpi0BDT_PC_ext					kine_reco_Enu	25		0		2500	2		0			0		0			0			6			3		unity		0
-BG_NCpi0BDT_FC_dirt					kine_reco_Enu	25		0		2500	1		0			0		0.5			0			3			4		cv_spline	0
-BG_NCpi0BDT_PC_dirt					kine_reco_Enu	25		0		2500	2		0			0		0.5			0			4			4		cv_spline	0
-
-numuCC_FC_bnb						muon_momentum	25	0	2500	1	0		0	0		0		0		5	unity		0
-numuCC_PC_bnb						muon_momentum	25	0	2500	2	0		0	0		0		0		5	unity		0
-numuCC_signal_Pmu_FC_overlay		muon_momentum	25	0	2500	1	1		1	0		0		1		2	cv_spline	0
-numuCC_signal_Pmu_PC_overlay		muon_momentum	25	0	2500	2	1		1	0		0		2		2	cv_spline	0
-numuCC_background_Pmu_FC_overlay	muon_momentum	25	0	2500	1	1		1	0		0		3		2	cv_spline	0
-numuCC_background_Pmu_PC_overlay	muon_momentum	25	0	2500	2	1		1	0		0		4		2	cv_spline	0
-BG_numuCC_FC_ext					muon_momentum	25	0	2500	1	0		0	0		0		5		3	unity		0
-BG_numuCC_PC_ext					muon_momentum	25	0	2500	2	0		0	0		0		6		3	unity		0
-BG_numuCC_FC_dirt					muon_momentum	25	0	2500	1	0		0	0.5		0		3		4	cv_spline	0
-BG_numuCC_PC_dirt					muon_momentum	25	0	2500	2	0		0	0.5		0		4		4	cv_spline	0
 
 
 
