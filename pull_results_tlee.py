@@ -12,3 +12,5 @@ os.system('cp ./%s/merge.root ./'%(target))
 
 os.system('cp -rf ./%s/mc_stat ./'%(target))
 os.system('cp -rf ./%s/hist_rootfiles ./'%(target))
+
+os.system('cp ./%s/cov_input.txt ./configurations/'%(target))
