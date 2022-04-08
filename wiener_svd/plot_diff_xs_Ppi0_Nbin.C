@@ -449,6 +449,13 @@ void plot_diff_xs_Ppi0_Nbin(){
   c2->SaveAs("ncpio_xs_diff_P_Ar.png");
 
   std::cout << "\n--------------------- Template for importing into plot ----------------------- " << std::endl;
+  
+  std::cout << "double GENIE_CV[] = {";
+  for (int i=0; i<nbins; i++){
+    if (i==0) std::cout << y3[i];
+    else std::cout << ", " << y3[i];
+  }
+  std::cout << "};" << std::endl;
   std::cout << "double x_STAT_NAME[] = {";
   for (int i=0; i<nbins; i++){
     if (i==0) std::cout << x_v[i];
