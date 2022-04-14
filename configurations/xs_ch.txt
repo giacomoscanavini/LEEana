@@ -1,5 +1,5 @@
-NCpi0BDT_signal_Enu_FC_overlay
-NCpi0BDT_signal_Enu_PC_overlay
+NCpi0BDT_signal_Ppi0_FC_overlay
+NCpi0BDT_signal_Ppi0_PC_overlay
 
 End
 Name_of_histogram_used_for_signal

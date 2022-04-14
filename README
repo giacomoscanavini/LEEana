@@ -1,7 +1,6 @@
 conda activate env_root
 
 export DISPLAY="`grep nameserver /etc/resolv.conf | sed 's/nameserver //'`:0"
-
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/gs627/wcp-uboone-bdt/lib
 
 ./wcb -p build install
