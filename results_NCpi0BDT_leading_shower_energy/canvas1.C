@@ -4,8 +4,8 @@
 void canvas1()
 {
 //=========Macro generated from canvas: canvas1/channel1
-//=========  (Fri Apr  8 12:44:06 2022) by ROOT version 6.26/00
-   TCanvas *canvas1 = new TCanvas("canvas1", "channel1",190,172,1200,900);
+//=========  (Sat Apr 16 15:50:22 2022) by ROOT version 6.26/00
+   TCanvas *canvas1 = new TCanvas("canvas1", "channel1",138,161,1200,900);
    gStyle->SetOptFit(1);
    gStyle->SetOptStat(0);
    canvas1->SetHighLightColor(2);
@@ -1372,7 +1372,7 @@ void canvas1()
    Graph_Graph3002->SetStats(0);
    Graph_Graph3002->SetLineWidth(2);
    Graph_Graph3002->SetMarkerStyle(20);
-   Graph_Graph3002->GetXaxis()->SetTitle("E_{#gamma} [MeV]");
+   Graph_Graph3002->GetXaxis()->SetTitle("Leading shower Energy [MeV]");
    Graph_Graph3002->GetXaxis()->SetRange(1,91);
    Graph_Graph3002->GetXaxis()->SetNdivisions(509);
    Graph_Graph3002->GetXaxis()->SetLabelFont(132);

@@ -4,8 +4,8 @@
 void canvas2()
 {
 //=========Macro generated from canvas: canvas2/channel2
-//=========  (Fri Apr  8 12:29:02 2022) by ROOT version 6.26/00
-   TCanvas *canvas2 = new TCanvas("canvas2", "channel2",164,172,1200,900);
+//=========  (Sat Apr 16 15:48:13 2022) by ROOT version 6.26/00
+   TCanvas *canvas2 = new TCanvas("canvas2", "channel2",112,135,1200,900);
    gStyle->SetOptFit(1);
    gStyle->SetOptStat(0);
    canvas2->SetHighLightColor(2);
@@ -1372,6 +1372,7 @@ void canvas2()
    Graph_Graph3006->SetStats(0);
    Graph_Graph3006->SetLineWidth(2);
    Graph_Graph3006->SetMarkerStyle(20);
+   Graph_Graph3006->GetXaxis()->SetTitle("Sub-leading shower #theta [deg]");
    Graph_Graph3006->GetXaxis()->SetRange(1,91);
    Graph_Graph3006->GetXaxis()->SetNdivisions(509);
    Graph_Graph3006->GetXaxis()->SetLabelFont(132);

@@ -4,7 +4,7 @@
 void canvas2()
 {
 //=========Macro generated from canvas: canvas2/channel2
-//=========  (Fri Apr  8 12:54:07 2022) by ROOT version 6.26/00
+//=========  (Sat Apr 16 15:52:36 2022) by ROOT version 6.26/00
    TCanvas *canvas2 = new TCanvas("canvas2", "channel2",216,172,1200,900);
    gStyle->SetOptFit(1);
    gStyle->SetOptStat(0);
@@ -1194,6 +1194,7 @@ void canvas2()
    Graph_Graph3006->SetStats(0);
    Graph_Graph3006->SetLineWidth(2);
    Graph_Graph3006->SetMarkerStyle(20);
+   Graph_Graph3006->GetXaxis()->SetTitle("Sub-leading shower Conv. Distance [cm]");
    Graph_Graph3006->GetXaxis()->SetRange(1,91);
    Graph_Graph3006->GetXaxis()->SetNdivisions(509);
    Graph_Graph3006->GetXaxis()->SetLabelFont(132);

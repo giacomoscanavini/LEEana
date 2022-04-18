@@ -4,8 +4,8 @@
 void canvas2()
 {
 //=========Macro generated from canvas: canvas2/channel2
-//=========  (Thu Apr  7 21:28:05 2022) by ROOT version 6.26/00
-   TCanvas *canvas2 = new TCanvas("canvas2", "channel2",112,135,1200,900);
+//=========  (Fri Apr 15 13:02:45 2022) by ROOT version 6.26/00
+   TCanvas *canvas2 = new TCanvas("canvas2", "channel2",164,172,1200,900);
    gStyle->SetOptFit(1);
    gStyle->SetOptStat(0);
    canvas2->SetHighLightColor(2);
@@ -1264,7 +1264,7 @@ void canvas2()
    Graph_Graph3006->SetStats(0);
    Graph_Graph3006->SetLineWidth(2);
    Graph_Graph3006->SetMarkerStyle(20);
-   Graph_Graph3006->GetXaxis()->SetTitle("Reconstructed E_{#gamma} [MeV]");
+   Graph_Graph3006->GetXaxis()->SetTitle("Visible Energy [MeV]");
    Graph_Graph3006->GetXaxis()->SetRange(1,91);
    Graph_Graph3006->GetXaxis()->SetNdivisions(509);
    Graph_Graph3006->GetXaxis()->SetLabelFont(132);
