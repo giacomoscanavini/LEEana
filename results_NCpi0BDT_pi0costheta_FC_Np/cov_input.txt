@@ -1,12 +1,12 @@
-NCpi0BDT_FC_0p_bnb						pi0_mass				29		0		300		1		0			0		0			0			0			5		unity		0
-NCpi0BDT_FC_0p_overlay					pi0_mass				29		0		300		1		1			1		0			0			1			2		cv_spline	0
-NCpi0BDT_FC_0p_dirt						pi0_mass				29		0		300		1		1			0		0.5			0			1			4		cv_spline	0
-NCpi0BDT_FC_0p_ext						pi0_mass				29		0		300		1		0			0		0			0			3			3		unity		0
+NCpi0BDT_FC_0p_bnb						pi0_costheta			20		-1		1		1		0			0		0			0			0			5		unity		0
+NCpi0BDT_FC_0p_overlay					pi0_costheta			20		-1		1		1		1			1		0			0			1			2		cv_spline	0
+NCpi0BDT_FC_0p_dirt						pi0_costheta			20		-1		1		1		1			0		0.5			0			1			4		cv_spline	0
+NCpi0BDT_FC_0p_ext						pi0_costheta			20		-1		1		1		0			0		0			0			3			3		unity		0
 
-NCpi0BDT_FC_Np_bnb						pi0_mass				29		0		300		2 		0			0		0			0			0			5		unity		0
-NCpi0BDT_FC_Np_overlay					pi0_mass				29		0		300		2 		1			1		0			0			2			2		cv_spline	0
-NCpi0BDT_FC_Np_dirt						pi0_mass				29		0		300		2 		1			0		0.5			0			2			4		cv_spline	0
-NCpi0BDT_FC_Np_ext						pi0_mass				29		0		300		2 		0			0		0			0			4			3		unity		0
+NCpi0BDT_FC_Np_bnb						pi0_costheta			20		-1		1		2 		0			0		0			0			0			5		unity		0
+NCpi0BDT_FC_Np_overlay					pi0_costheta			20		-1		1		2 		1			1		0			0			2			2		cv_spline	0
+NCpi0BDT_FC_Np_dirt						pi0_costheta			20		-1		1		2 		1			0		0.5			0			2			4		cv_spline	0
+NCpi0BDT_FC_Np_ext						pi0_costheta			20		-1		1		2 		0			0		0			0			4			3		unity		0
 
 
 
