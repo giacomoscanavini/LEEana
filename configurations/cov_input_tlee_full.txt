@@ -1,14 +1,14 @@
-NCpi0BDT_0p_bnb							pi0_phi					24	  	-3.15	3.15	1		0			0		0			0			0			5		unity		0
-NCpi0BDT_0p_overlay						pi0_phi					24	  	-3.15	3.15	1		1			1		0			0			1			2		cv_spline	0
-NCpi0BDT_0p_ncpi0						pi0_phi					24	  	-3.15	3.15	1		1			1		0			0			1			6		cv_spline	0
-NCpi0BDT_0p_dirt						pi0_phi					24	  	-3.15	3.15	1		1			0		0.5			0			1			4		cv_spline	0
-NCpi0BDT_0p_ext							pi0_phi					24	  	-3.15	3.15	1		0			0		0			0			3			3		unity		0
+NCpi0BDT_0p_bnb							reco_nuvtxZ				32		0		1100		1		0			0		0			0			0			5		unity		0
+NCpi0BDT_0p_overlay						reco_nuvtxZ				32		0		1100		1		1			1		0			0			1			2		cv_spline	0
+NCpi0BDT_0p_ncpi0						reco_nuvtxZ				32		0		1100		1		1			1		0			0			1			6		cv_spline	0
+NCpi0BDT_0p_dirt						reco_nuvtxZ				32		0		1100		1		1			0		0.5			0			1			4		cv_spline	0
+NCpi0BDT_0p_ext							reco_nuvtxZ				32		0		1100		1		0			0		0			0			3			3		unity		0
 
-NCpi0BDT_Np_bnb							pi0_phi					24	  	-3.15	3.15	2		0			0		0			0			0			5		unity		0
-NCpi0BDT_Np_overlay						pi0_phi					24	  	-3.15	3.15	2		1			1		0			0			2			2		cv_spline	0
-NCpi0BDT_Np_ncpi0						pi0_phi					24	  	-3.15	3.15	2		1			1		0			0			2			6		cv_spline	0
-NCpi0BDT_Np_dirt						pi0_phi					24	  	-3.15	3.15	2		1			0		0.5			0			2			4		cv_spline	0
-NCpi0BDT_Np_ext							pi0_phi					24	  	-3.15	3.15	2		0			0		0			0			4			3		unity		0
+NCpi0BDT_Np_bnb							reco_nuvtxZ				32		0		1100		2		0			0		0			0			0			5		unity		0
+NCpi0BDT_Np_overlay						reco_nuvtxZ				32		0		1100		2		1			1		0			0			2			2		cv_spline	0
+NCpi0BDT_Np_ncpi0						reco_nuvtxZ				32		0		1100		2		1			1		0			0			2			6		cv_spline	0
+NCpi0BDT_Np_dirt						reco_nuvtxZ				32		0		1100		2		1			0		0.5			0			2			4		cv_spline	0
+NCpi0BDT_Np_ext							reco_nuvtxZ				32		0		1100		2		0			0		0			0			4			3		unity		0
 
 
 End										End						-1		-1		-1		-1		-1			-1		-1			-1			-1			-1		end			-1
@@ -82,6 +82,78 @@ NCpi0BDT_Np_overlay						pi0_mass				29		0		300		2		1			1		0			0			2			2		cv_spl
 NCpi0BDT_Np_ncpi0						pi0_mass				29		0		300		2		1			1		0			0			2			6		cv_spline	0
 NCpi0BDT_Np_dirt						pi0_mass				29		0		300		2		1			0		0.5			0			2			4		cv_spline	0
 NCpi0BDT_Np_ext							pi0_mass				29		0		300		2		0			0		0			0			4			3		unity		0
+
+
+
+NCpi0BDT_0p_bnb							pi0_phi					24	  	-3.15	3.15	1		0			0		0			0			0			5		unity		0
+NCpi0BDT_0p_overlay						pi0_phi					24	  	-3.15	3.15	1		1			1		0			0			1			2		cv_spline	0
+NCpi0BDT_0p_ncpi0						pi0_phi					24	  	-3.15	3.15	1		1			1		0			0			1			6		cv_spline	0
+NCpi0BDT_0p_dirt						pi0_phi					24	  	-3.15	3.15	1		1			0		0.5			0			1			4		cv_spline	0
+NCpi0BDT_0p_ext							pi0_phi					24	  	-3.15	3.15	1		0			0		0			0			3			3		unity		0
+
+NCpi0BDT_Np_bnb							pi0_phi					24	  	-3.15	3.15	2		0			0		0			0			0			5		unity		0
+NCpi0BDT_Np_overlay						pi0_phi					24	  	-3.15	3.15	2		1			1		0			0			2			2		cv_spline	0
+NCpi0BDT_Np_ncpi0						pi0_phi					24	  	-3.15	3.15	2		1			1		0			0			2			6		cv_spline	0
+NCpi0BDT_Np_dirt						pi0_phi					24	  	-3.15	3.15	2		1			0		0.5			0			2			4		cv_spline	0
+NCpi0BDT_Np_ext							pi0_phi					24	  	-3.15	3.15	2		0			0		0			0			4			3		unity		0
+
+
+
+
+NCpi0BDT_0p_bnb							nc_pio_score			20		1		6		1		0			0		0			0			0			5		unity		0
+NCpi0BDT_0p_overlay						nc_pio_score			20		1		6		1		1			1		0			0			1			2		cv_spline	0
+NCpi0BDT_0p_ncpi0						nc_pio_score			20		1		6		1		1			1		0			0			1			6		cv_spline	0
+NCpi0BDT_0p_dirt						nc_pio_score			20		1		6		1		1			0		0.5			0			1			4		cv_spline	0
+NCpi0BDT_0p_ext							nc_pio_score			20		1		6		1		0			0		0			0			3			3		unity		0
+
+NCpi0BDT_Np_bnb							nc_pio_score			20		1		6		2		0			0		0			0			0			5		unity		0
+NCpi0BDT_Np_overlay						nc_pio_score			20		1		6		2		1			1		0			0			2			2		cv_spline	0
+NCpi0BDT_Np_ncpi0						nc_pio_score			20		1		6		2		1			1		0			0			2			6		cv_spline	0
+NCpi0BDT_Np_dirt						nc_pio_score			20		1		6		2		1			0		0.5			0			2			4		cv_spline	0
+NCpi0BDT_Np_ext							nc_pio_score			20		1		6		2		0			0		0			0			4			3		unity		0
+
+
+
+NCpi0BDT_0p_bnb							reco_nuvtxX				26		0		260		1		0			0		0			0			0			5		unity		0
+NCpi0BDT_0p_overlay						reco_nuvtxX				26		0		260		1		1			1		0			0			1			2		cv_spline	0
+NCpi0BDT_0p_ncpi0						reco_nuvtxX				26		0		260		1		1			1		0			0			1			6		cv_spline	0
+NCpi0BDT_0p_dirt						reco_nuvtxX				26		0		260		1		1			0		0.5			0			1			4		cv_spline	0
+NCpi0BDT_0p_ext							reco_nuvtxX				26		0		260		1		0			0		0			0			3			3		unity		0
+
+NCpi0BDT_Np_bnb							reco_nuvtxX				26		0		260		2		0			0		0			0			0			5		unity		0
+NCpi0BDT_Np_overlay						reco_nuvtxX				26		0		260		2		1			1		0			0			2			2		cv_spline	0
+NCpi0BDT_Np_ncpi0						reco_nuvtxX				26		0		260		2		1			1		0			0			2			6		cv_spline	0
+NCpi0BDT_Np_dirt						reco_nuvtxX				26		0		260		2		1			0		0.5			0			2			4		cv_spline	0
+NCpi0BDT_Np_ext							reco_nuvtxX				26		0		260		2		0			0		0			0			4			3		unity		0
+
+
+
+NCpi0BDT_0p_bnb							reco_nuvtxY				26		-130	130		1		0			0		0			0			0			5		unity		0
+NCpi0BDT_0p_overlay						reco_nuvtxY				26		-130	130		1		1			1		0			0			1			2		cv_spline	0
+NCpi0BDT_0p_ncpi0						reco_nuvtxY				26		-130	130		1		1			1		0			0			1			6		cv_spline	0
+NCpi0BDT_0p_dirt						reco_nuvtxY				26		-130	130		1		1			0		0.5			0			1			4		cv_spline	0
+NCpi0BDT_0p_ext							reco_nuvtxY				26		-130	130		1		0			0		0			0			3			3		unity		0
+
+NCpi0BDT_Np_bnb							reco_nuvtxY				26		-130	130		2		0			0		0			0			0			5		unity		0
+NCpi0BDT_Np_overlay						reco_nuvtxY				26		-130	130		2		1			1		0			0			2			2		cv_spline	0
+NCpi0BDT_Np_ncpi0						reco_nuvtxY				26		-130	130		2		1			1		0			0			2			6		cv_spline	0
+NCpi0BDT_Np_dirt						reco_nuvtxY				26		-130	130		2		1			0		0.5			0			2			4		cv_spline	0
+NCpi0BDT_Np_ext							reco_nuvtxY				26		-130	130		2		0			0		0			0			4			3		unity		0
+
+
+
+
+NCpi0BDT_0p_bnb							reco_nuvtxZ				40		0		1200		1		0			0		0			0			0			5		unity		0
+NCpi0BDT_0p_overlay						reco_nuvtxZ				40		0		1200		1		1			1		0			0			1			2		cv_spline	0
+NCpi0BDT_0p_ncpi0						reco_nuvtxZ				40		0		1200		1		1			1		0			0			1			6		cv_spline	0
+NCpi0BDT_0p_dirt						reco_nuvtxZ				40		0		1200		1		1			0		0.5			0			1			4		cv_spline	0
+NCpi0BDT_0p_ext							reco_nuvtxZ				40		0		1200		1		0			0		0			0			3			3		unity		0
+
+NCpi0BDT_Np_bnb							reco_nuvtxZ				40		0		1200		2		0			0		0			0			0			5		unity		0
+NCpi0BDT_Np_overlay						reco_nuvtxZ				40		0		1200		2		1			1		0			0			2			2		cv_spline	0
+NCpi0BDT_Np_ncpi0						reco_nuvtxZ				40		0		1200		2		1			1		0			0			2			6		cv_spline	0
+NCpi0BDT_Np_dirt						reco_nuvtxZ				40		0		1200		2		1			0		0.5			0			2			4		cv_spline	0
+NCpi0BDT_Np_ext							reco_nuvtxZ				40		0		1200		2		0			0		0			0			4			3		unity		0
 
 
 
