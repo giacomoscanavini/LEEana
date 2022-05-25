@@ -3,12 +3,21 @@ conda activate env_root
 export DISPLAY="`grep nameserver /etc/resolv.conf | sed 's/nameserver //'`:0"
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/gs627/wcp-uboone-bdt/lib
 
+Modify: 
+- plot_hist.cxx ------------> X-axis label and Legend position
+- Configure_Lee.h ----------> Number of obs channels
+- TLee.cxx -----------------> Number and name of cov channels
+- cov_input_tlee_full.txt --> Histograms
+- read_TLee_v20.cxx --------> Bins and channels for combined chi-square
+- gp_input.txt -------------> CV bins for smoothing (default = -g0)
+
 cd ../wcp-uboone-bdt/
 ./wcb -p build install
 ./wcb clean
 cd ../LEEana/
 
-./run_tlee.pl
+./run_tlee_open.pl
+./run_tlee_full.pl
 
 ./bin/merge_hist -r0 -l0 -b1 -d1
 
@@ -21,3 +30,6 @@ cd ../LEEana/
 ./bin/read_TLee_v20
 
 ./bin/plot_hist -r0 -l0 -e3 -sfile_collapsed_covariance_matrix.root
+
+
+git token (May 25th - 90 days): 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
