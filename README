@@ -8,7 +8,7 @@ cd ../wcp-uboone-bdt/
 ./wcb clean
 cd ../LEEana/
 
-./convert_histo.pl
+./run_tlee.pl
 
 ./bin/merge_hist -r0 -l0 -b1 -d1
 

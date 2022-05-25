@@ -27,7 +27,7 @@ void convert_wiener_simple(){
   }
   Int_t nbin_meas = hdata_obsch_1->GetNbinsX() + 1 + hdata_obsch_2->GetNbinsX() + 1;
 
-  // measurement ...
+  // Cross section Numerator for data and prediction
   TH1D *hmeas = new TH1D("hmeas","hmeas",nbin_meas,0.5, nbin_meas+0.5);
   TH1D *hpred = new TH1D("hpred","hpred",nbin_meas,0.5, nbin_meas+0.5);
   for (Int_t i=0;i!=hdata_obsch_1->GetNbinsX()+1;i++){
@@ -75,13 +75,10 @@ void convert_wiener_simple(){
     double pred = hmc_obsch_1->GetBinContent(i+1);
     double content;
     if (pred !=0){
-      if (meas == 0){
-	content = pred/2.;
-      }else{
-	content = 3./(1./meas+2./pred);
+      if (meas == 0){ content = pred/2.;
+      }else{ content = 3./(1./meas+2./pred);
       }
-    }else{
-      content = 0;
+    }else{ content = 0;
     }
     hcov_stat->SetBinContent(i+1,i+1,content);
   }
@@ -90,13 +87,10 @@ void convert_wiener_simple(){
     double pred = hmc_obsch_2->GetBinContent(i+1);
     double content;
     if (pred !=0){
-      if (meas == 0){
-	content = pred/2.;
-      }else{
-	content = 3./(1./meas+2./pred);
+      if (meas == 0){ content = pred/2.;
+      }else{ content = 3./(1./meas+2./pred);
       }
-    }else{
-      content = 0;
+    }else{ content = 0;
     }
     hcov_stat->SetBinContent(hdata_obsch_1->GetNbinsX()+1+i+1,hdata_obsch_1->GetNbinsX()+1+i+1,content);
   }

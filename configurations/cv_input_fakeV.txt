@@ -1,0 +1,18 @@
+2		nu_overlay	1		./processed_checkout_rootfiles/CV_open/checkout_prodgenie_bnb_nu_overlay_run1.root				./hist_rootfiles/checkout_prodgenie_bnb_nu_overlay_run1.root	0				1			0		1
+2		nu_overlay	3		./processed_checkout_rootfiles/CV_open/checkout_prodgenie_bnb_nu_overlay_run3.root				./hist_rootfiles/checkout_prodgenie_bnb_nu_overlay_run3.root	0				2			0		3
+
+5		BNB			1		./processed_checkout_rootfiles/CV_open/checkout_nu2020_fakedata_set5.root						./hist_rootfiles/checkout_nu2020_fakedata_set5.root				7.243244e+20 	3			0		1
+
+
+-1		end			-1		end																								end																-1				-1		  	-1		-1
+#file	#type		#period	#filename																						#outfile_name													#ext_pot		#file_no  #norm 	#norm_period
+
+
+
+5		BNB			1		./processed_checkout_rootfiles/CV_open/checkout_nu2020_fakedata_set5.root						./hist_rootfiles/checkout_nu2020_fakedata_set5.root				7.243244e+20 	7			0		1
+
+5		BNB			1		./processed_checkout_rootfiles/CV_open/checkout_fakedata_set7_run1.root							./hist_rootfiles/checkout_fakedata_set7_run1.root				1.82202e+20		7			0		1
+5		BNB			3		./processed_checkout_rootfiles/CV_open/checkout_fakedata_set7_run3.root				        	./hist_rootfiles/checkout_fakedata_set7_run3.root				2.01956e+20		8			0		3
+
+5		BNB			1		./processed_checkout_rootfiles/CV_open/checkout_data_bnb_run1_5e19.root							./hist_rootfiles/run1_data_bnb.root								4.42723e+19		7			0		1
+5		BNB			3		./processed_checkout_rootfiles/CV_open/checkout_data_bnb_run3_1e19.root							./hist_rootfiles/run3_data_bnb.root								9.00001e+18		8			0		3	
