@@ -32,4 +32,4 @@ cd ../LEEana/
 ./bin/plot_hist -r0 -l0 -e3 -sfile_collapsed_covariance_matrix.root
 
 
-git token (May 25th - 90 days): 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
+git token (May 25th - 90 days): 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
