@@ -1,13 +1,5 @@
 1. (in LEEana)               ./run_xs.pl
 2. (in LEEana/wiener_svd)    ./copy.pl
-3. (in LEEana/wiener_svd)    root -l convert_wiener_simple.C
-4. (in LEEana/wiener_svd)    ../bin/wiener_example wiener.root output.root 2 0.5
-
-For plots ----------------------------------------
------- TOTAL CROSS SECTION (single bin)
-5. (in LEEana/wiener_svd)    root -l plot_total_xs_Enu_1bin.C
-5. (in LEEana/wiener_svd)    root -l plot_total_xs_Ppi0_1bin.C
-
------- DIFFERENTIAL CROSS SECTION (many bins)
-5. (in LEEana/wiener_svd)    root -l plot_diff_xs_Ppi0_Nbin.C
-
+3. (in LEEana/wiener_svd)    root -l --web=off convert_wiener_simple.C
+4. (in LEEana/wiener_svd)    ../bin/wiener_example wiener.root output.root 2 0.5    // With wiener filter
+5. (in LEEana/wiener_svd)    ../bin/wiener_example wiener.root output.root 2 0.5 0  // No-wiener filter (Ac matrix should be identity)

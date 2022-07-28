@@ -7,18 +7,40 @@ void convert_wiener_simple(){
   TVectorD *vec_signal = (TVectorD*)file1->Get("vec_signal"); // xs in pbar
   TMatrixD *mat_R = (TMatrixD*)file1->Get("mat_R"); // smearing matrix
 
-  TH1F *hdata_obsch_1 = (TH1F*)file1->Get("hdata_obsch_1"); // data numuCC FC
-  TH1F *hdata_obsch_2 = (TH1F*)file1->Get("hdata_obsch_2"); // data numuCC PC
-  TH1F *hmc_obsch_1 = (TH1F*)file1->Get("hmc_obsch_1");  // pred numuCC FC
-  TH1F *hmc_obsch_2 = (TH1F*)file1->Get("hmc_obsch_2"); // pred numuCC PC
-  TH1F *histo_1 = (TH1F*)file1->Get("histo_1"); // real numuCC
-  TH1F *histo_2 = (TH1F*)file1->Get("histo_2"); // real numuCC
-  TH1F *histo_3 = (TH1F*)file1->Get("histo_3"); // numuCC bg
-  TH1F *histo_4 = (TH1F*)file1->Get("histo_4"); // numuCC bg
-  TH1F *histo_5 = (TH1F*)file1->Get("histo_5"); // EXT
-  TH1F *histo_6 = (TH1F*)file1->Get("histo_6"); //EXT
-  
+  TH1F *hdata_obsch_1 = (TH1F*)file1->Get("hdata_obsch_1"); // BNB data FC
+  TH1F *hdata_obsch_2 = (TH1F*)file1->Get("hdata_obsch_2"); // BNB data PC
+  TH1F *hmc_obsch_1 = (TH1F*)file1->Get("hmc_obsch_1");  // Total pred FC
+  TH1F *hmc_obsch_2 = (TH1F*)file1->Get("hmc_obsch_2"); // Total pred PC
+  TH1F *histo_1 = (TH1F*)file1->Get("histo_1"); // MC signal FC
+  TH1F *histo_2 = (TH1F*)file1->Get("histo_2"); // MC signal PC
+  TH1F *histo_3 = (TH1F*)file1->Get("histo_3"); // MC bkg FC
+  TH1F *histo_4 = (TH1F*)file1->Get("histo_4"); // MC bkg PC
+  TH1F *histo_5 = (TH1F*)file1->Get("histo_5"); // EXT FC
+  TH1F *histo_6 = (TH1F*)file1->Get("histo_6"); // EXT PC
+
   int nbin_true = vec_signal->GetNoElements();
+
+  std::vector<double> cv_data_obsch_1;  std::vector<double> err_data_obsch_1;
+  std::vector<double> cv_data_obsch_2;  std::vector<double> err_data_obsch_2;
+  std::vector<double> cv_mc_obsch_1;    std::vector<double> err_mc_obsch_1;
+  std::vector<double> cv_mc_obsch_2;    std::vector<double> err_mc_obsch_2;
+  std::vector<double> cv_histo_1;       std::vector<double> err_histo_1;
+  std::vector<double> cv_histo_2;       std::vector<double> err_histo_2;
+  std::vector<double> cv_histo_3;       std::vector<double> err_histo_3;
+  std::vector<double> cv_histo_4;       std::vector<double> err_histo_4;
+  std::vector<double> cv_histo_5;       std::vector<double> err_histo_5;
+  std::vector<double> cv_histo_6;       std::vector<double> err_histo_6;
+
+  for(int i=0;i!=nbin_true;i++) cv_data_obsch_1.push_back(hdata_obsch_1->GetBinContent(i+1));
+  for(int i=0;i!=nbin_true;i++) cv_data_obsch_2.push_back(hdata_obsch_2->GetBinContent(i+1));
+  for(int i=0;i!=nbin_true;i++) cv_mc_obsch_1.push_back(hmc_obsch_1->GetBinContent(i+1));
+  for(int i=0;i!=nbin_true;i++) cv_mc_obsch_2.push_back(hmc_obsch_2->GetBinContent(i+1));
+  for(int i=0;i!=nbin_true;i++) cv_histo_1.push_back(histo_1->GetBinContent(i+1));
+  for(int i=0;i!=nbin_true;i++) cv_histo_2.push_back(histo_2->GetBinContent(i+1));
+  for(int i=0;i!=nbin_true;i++) cv_histo_3.push_back(histo_3->GetBinContent(i+1));
+  for(int i=0;i!=nbin_true;i++) cv_histo_4.push_back(histo_4->GetBinContent(i+1));
+  for(int i=0;i!=nbin_true;i++) cv_histo_5.push_back(histo_5->GetBinContent(i+1));
+  for(int i=0;i!=nbin_true;i++) cv_histo_6.push_back(histo_6->GetBinContent(i+1));
 
   // true signal ...
   TH1D *htrue_signal = new TH1D("htrue_signal","htrue_signal",nbin_true, 0.5, nbin_true+0.5);
@@ -45,7 +67,7 @@ void convert_wiener_simple(){
   mat_collapse_T.Transpose(*mat_collapse);
   TMatrixD mat_R_collapse = (mat_collapse_T)*(*mat_R);
   
-  //mat_R_collapse.Draw("COLZ");
+  ////mat_R_collapse.Draw("COLZ");
 
   TH2D* hR = new TH2D("hR","hR",nbin_meas,0.5,nbin_meas+0.5, nbin_true, 0.5, nbin_true+0.5);
   for (Int_t i=0;i!=nbin_true;i++){
@@ -53,7 +75,7 @@ void convert_wiener_simple(){
       hR->SetBinContent(j+1,i+1,mat_R_collapse(j,i));
     }
   }
-  //  hR->Draw("COLZ");
+  ////  hR->Draw("COLZ");
   
   // covariance matrix
   TH2D *hcov_tot = new TH2D("hcov_tot","hcov_tot",nbin_meas,0.5,nbin_meas+0.5,nbin_meas,0.5,nbin_meas+0.5);
@@ -66,7 +88,7 @@ void convert_wiener_simple(){
     infile >> temp >> temp >> temp >> err2 >> temp;
     hcov_mcstat->SetBinContent(i+1,i+1,err2);
   }
-  //hcov_mcstat->Draw("COLZ");
+  ////hcov_mcstat->Draw("COLZ");
 
   // statistical uncertainties
   TH2D *hcov_stat = new TH2D("hcov_stat","hcov_stat",nbin_meas,0.5,nbin_meas+0.5,nbin_meas,0.5,nbin_meas+0.5);
@@ -99,7 +121,7 @@ void convert_wiener_simple(){
   // additional uncertainty
   TH2D *hcov_add = new TH2D("hcov_add","hcov_add",nbin_meas,0.5,nbin_meas+0.5,nbin_meas,0.5,nbin_meas+0.5);
   TMatrixD mat_add = mat_collapse_T * (*cov_mat_add) * (*mat_collapse);
-  //  mat_add.Draw("COLZ");
+  ////  mat_add.Draw("COLZ");
   for (Int_t i=0;i!=nbin_meas;i++){
     hcov_add->SetBinContent(i+1,i+1,mat_add(i,i));
   }
@@ -160,14 +182,15 @@ void convert_wiener_simple(){
       frac_det(i,j) *= vec_nominal(i) * vec_nominal(j);
     }
   }
-  //  frac_det.Draw("COLZ");
+  ////frac_det.Draw("COLZ");
   TMatrixD mat_det = mat_collapse_T * frac_det * (*mat_collapse);
-  //mat_det.Draw("COLZ");
+  ////mat_det.Draw("COLZ");
   for (Int_t i=0;i!=nbin_meas;i++){
     for (Int_t j=0;j!=nbin_meas;j++){
       hcov_det->SetBinContent(i+1,j+1,mat_det(i,j));
     }
   }
+  //hcov_det->Draw("COLZ");
   
   // Flux systematics
   TH2D *hcov_flux = new TH2D("hcov_flux","hcov_flux",nbin_meas,0.5,nbin_meas+0.5,nbin_meas,0.5,nbin_meas+0.5);
@@ -182,39 +205,36 @@ void convert_wiener_simple(){
       frac_flux(i,j) *= vec_nominal(i) * vec_nominal(j);
     }
   }
-  //frac_flux.Draw("COLZ");
+  ////frac_flux.Draw("COLZ");
   TMatrixD mat_flux = mat_collapse_T * frac_flux * (*mat_collapse);
-  //mat_flux.Draw("COLZ");
+  ////mat_flux.Draw("COLZ");
   for (Int_t i=0;i!=nbin_meas;i++){
     for (Int_t j=0;j!=nbin_meas;j++){
       hcov_flux->SetBinContent(i+1,j+1,mat_flux(i,j));
     }
   }
-  // hcov_flux->Draw("COLZ");
+  //hcov_flux->Draw("COLZ");
 
-
-  
   // Xs systematics
   TH2D *hcov_xs = new TH2D("hcov_xs","hcov_xs",nbin_meas,0.5,nbin_meas+0.5,nbin_meas,0.5,nbin_meas+0.5);
   {
-    TFile tmp_file("./XsFlux/cov_xs.root");
-    //TFile tmp_file("./XsFlux/cov_17.root");
+    TFile tmp_file("./XsFlux/cov_xs.root");   // cross section mode
+    //TFile tmp_file("./XsFlux/cov_17.root"); // nominal 
     TMatrixD *frac_xs = (TMatrixD*)tmp_file.Get("frac_cov_xf_mat_17");
     
     for (Int_t i=0;i!=nold;i++){
       for (Int_t j=0;j!=nold;j++){
-	(*frac_xs)(i,j) *= vec_nominal(i) * vec_nominal(j);
+        (*frac_xs)(i,j) *= vec_nominal(i) * vec_nominal(j);
       }
     }
-    //frac_flux.Draw("COLZ");
+    ////frac_flux.Draw("COLZ");
     TMatrixD mat_xs = mat_collapse_T * (*frac_xs) * (*mat_collapse);
-
     for (Int_t i=0;i!=nbin_meas;i++){
       for (Int_t j=0;j!=nbin_meas;j++){
-	hcov_xs->SetBinContent(i+1,j+1,mat_xs(i,j));
+        hcov_xs->SetBinContent(i+1,j+1,mat_xs(i,j));
       }
     }
-    //    hcov_xs->Draw("COLZ");
+    //hcov_xs->Draw("COLZ");
   }
   vec_nominal.Draw();
 
@@ -224,24 +244,81 @@ void convert_wiener_simple(){
   hcov_tot->Add(hcov_flux);
   hcov_tot->Add(hcov_det);
   hcov_tot->Add(hcov_xs);
-  
+
+  //hcov_tot->Draw("COLZ");
+
+  int reco_bin_1 = hdata_obsch_1->GetNbinsX();
+  int reco_bin_2 = hdata_obsch_1->GetNbinsX() + 1;
+  int reco_bin_3 = reco_bin_2 + hdata_obsch_2->GetNbinsX();
+  int reco_bin_4 = reco_bin_2 + hdata_obsch_2->GetNbinsX() + 1;
+
+  ofstream myfile;
+  myfile.open ("values.txt");
+
+  std::cout << "----------------------------------------------------------------------------" << std::endl;
   for (Int_t i=0;i!=nbin_meas;i++){
-    if (hpred->GetBinContent(i+1)==0) { cout << i << endl; continue; }
-    std::cout << i << " " << sqrt(hcov_tot->GetBinContent(i+1,i+1))/hpred->GetBinContent(i+1) << " "
-	      << sqrt(hcov_stat->GetBinContent(i+1,i+1))/hpred->GetBinContent(i+1) << " "
-	      << sqrt(hcov_mcstat->GetBinContent(i+1,i+1))/hpred->GetBinContent(i+1) << " "
-	      << sqrt(hcov_add->GetBinContent(i+1,i+1))/hpred->GetBinContent(i+1) << " "
-	      << sqrt(hcov_flux->GetBinContent(i+1,i+1))/hpred->GetBinContent(i+1) << " "
-	      << sqrt(hcov_det->GetBinContent(i+1,i+1))/hpred->GetBinContent(i+1) << " "
-	      << sqrt(hcov_xs->GetBinContent(i+1,i+1))/hpred->GetBinContent(i+1) << " "
-	      << std::endl;
+    if(i==0){
+      myfile << "                  Reconstructed space fractional uncertainties (diagonal terms / prediction)" << std::endl;
+      myfile << "# BNB  MCBKG   EXT    NUM     MCSIG  err_tot  err_stat  err_mcstat  err_add  err_flux  err_det  err_xs" << std::endl;
+      std::cout << "                  Reconstructed space fractional uncertainties (diagonal terms / prediction)" << std::endl;
+      std::cout << "# BNB  MCBKG   EXT    NUM     MCSIG  err_tot  err_stat  err_mcstat  err_add  err_flux  err_det  err_xs" << std::endl;
+      std::cout << "----------------------------------------------------------------------------" << std::endl;
+    }
+    if(i==reco_bin_1) std::cout << "----------------------------------------------------------------------------" << std::endl;
+    if(i==reco_bin_2) std::cout << "----------------------------------------------------------------------------" << std::endl;
+    if(i==reco_bin_3) std::cout << "----------------------------------------------------------------------------" << std::endl;
+    if(i==reco_bin_4) std::cout << "----------------------------------------------------------------------------" << std::endl;     
+
+    //if (hpred->GetBinContent(i+1)==0) { cout << i << endl; continue; }
+
+    if(i<reco_bin_2){
+      std::cout << i << " " << hdata_obsch_1->GetBinContent(i+1) << " " << histo_3->GetBinContent(i+1) << " " << histo_5->GetBinContent(i+1) << " " << hmeas->GetBinContent(i+1) << " " << hpred->GetBinContent(i+1) << " "
+                                                                                                                 << sqrt(hcov_tot->GetBinContent(i+1,i+1))/hpred->GetBinContent(i+1) << " "
+                                                                                                                 << sqrt(hcov_stat->GetBinContent(i+1,i+1))/hpred->GetBinContent(i+1) << " "
+                                                                                                                 << sqrt(hcov_mcstat->GetBinContent(i+1,i+1))/hpred->GetBinContent(i+1) << " "
+                                                                                                                 << sqrt(hcov_add->GetBinContent(i+1,i+1))/hpred->GetBinContent(i+1) << " "
+                                                                                                                 << sqrt(hcov_flux->GetBinContent(i+1,i+1))/hpred->GetBinContent(i+1) << " "
+                                                                                                                 << sqrt(hcov_det->GetBinContent(i+1,i+1))/hpred->GetBinContent(i+1) << " "
+                                                                                                                 << sqrt(hcov_xs->GetBinContent(i+1,i+1))/hpred->GetBinContent(i+1) << " "
+                                                                                                                 << std::endl;
+      myfile << i << " " << hdata_obsch_1->GetBinContent(i+1) << " " << histo_3->GetBinContent(i+1) << " " << histo_5->GetBinContent(i+1) << " " << hmeas->GetBinContent(i+1) << " " << hpred->GetBinContent(i+1) << " "
+                                                                                                                 << sqrt(hcov_tot->GetBinContent(i+1,i+1))/hpred->GetBinContent(i+1) << " "
+                                                                                                                 << sqrt(hcov_stat->GetBinContent(i+1,i+1))/hpred->GetBinContent(i+1) << " "
+                                                                                                                 << sqrt(hcov_mcstat->GetBinContent(i+1,i+1))/hpred->GetBinContent(i+1) << " "
+                                                                                                                 << sqrt(hcov_add->GetBinContent(i+1,i+1))/hpred->GetBinContent(i+1) << " "
+                                                                                                                 << sqrt(hcov_flux->GetBinContent(i+1,i+1))/hpred->GetBinContent(i+1) << " "
+                                                                                                                 << sqrt(hcov_det->GetBinContent(i+1,i+1))/hpred->GetBinContent(i+1) << " "
+                                                                                                                 << sqrt(hcov_xs->GetBinContent(i+1,i+1))/hpred->GetBinContent(i+1) << " "
+                                                                                                                 << std::endl; 
+    }
+    if(i>=reco_bin_2 && i<=reco_bin_4){
+      int j = i-reco_bin_1;
+      std::cout << i << " " << hdata_obsch_2->GetBinContent(j) << " " << histo_4->GetBinContent(j) << " " << histo_6->GetBinContent(j) << " " << hmeas->GetBinContent(i+1) << " " << hpred->GetBinContent(i+1) << " "
+                                                                                                                 << sqrt(hcov_tot->GetBinContent(i+1,i+1))/hpred->GetBinContent(i+1) << " "
+                                                                                                                 << sqrt(hcov_stat->GetBinContent(i+1,i+1))/hpred->GetBinContent(i+1) << " "
+                                                                                                                 << sqrt(hcov_mcstat->GetBinContent(i+1,i+1))/hpred->GetBinContent(i+1) << " "
+                                                                                                                 << sqrt(hcov_add->GetBinContent(i+1,i+1))/hpred->GetBinContent(i+1) << " "
+                                                                                                                 << sqrt(hcov_flux->GetBinContent(i+1,i+1))/hpred->GetBinContent(i+1) << " "
+                                                                                                                 << sqrt(hcov_det->GetBinContent(i+1,i+1))/hpred->GetBinContent(i+1) << " "
+                                                                                                                 << sqrt(hcov_xs->GetBinContent(i+1,i+1))/hpred->GetBinContent(i+1) << " "
+                                                                                                                 << std::endl;
+      myfile << i << " " << hdata_obsch_2->GetBinContent(j) << " " << histo_4->GetBinContent(j) << " " << histo_6->GetBinContent(j) << " " << hmeas->GetBinContent(i+1) << " " << hpred->GetBinContent(i+1) << " "
+                                                                                                                 << sqrt(hcov_tot->GetBinContent(i+1,i+1))/hpred->GetBinContent(i+1) << " "
+                                                                                                                 << sqrt(hcov_stat->GetBinContent(i+1,i+1))/hpred->GetBinContent(i+1) << " "
+                                                                                                                 << sqrt(hcov_mcstat->GetBinContent(i+1,i+1))/hpred->GetBinContent(i+1) << " "
+                                                                                                                 << sqrt(hcov_add->GetBinContent(i+1,i+1))/hpred->GetBinContent(i+1) << " "
+                                                                                                                 << sqrt(hcov_flux->GetBinContent(i+1,i+1))/hpred->GetBinContent(i+1) << " "
+                                                                                                                 << sqrt(hcov_det->GetBinContent(i+1,i+1))/hpred->GetBinContent(i+1) << " "
+                                                                                                                 << sqrt(hcov_xs->GetBinContent(i+1,i+1))/hpred->GetBinContent(i+1) << " "
+                                                                                                                 << std::endl;
+     
+    }
   }
-  
- 
+  std::cout << "----------------------------------------------------------------------------" << std::endl;
+  myfile.close();
 
 
   // stack plots ...
-  
   TH1F *h10 = new TH1F("h10","h10",nbin_meas,0.5,nbin_meas+0.5); // stat
   TH1F *h20 = new TH1F("h20","h10",nbin_meas,0.5,nbin_meas+0.5); // mcstat
   TH1F *h30 = new TH1F("h30","h10",nbin_meas,0.5,nbin_meas+0.5); // add

@@ -1,0 +1,17 @@
+false	false	true	false	false
+0	0	1.2	0	0	1
+0	1	2
+0	1
+17.1875	51.5625	85.9375	120.3125	154.6875	189.0625	223.4375	257.8125	292.1875	326.5625	360.9375	395.3125	429.6875	464.0625	498.4375	532.8125	567.1875	601.5625	635.9375	670.3125	704.6875	739.0625	773.4375	807.8125	842.1875	876.5625	910.9375	945.3125	979.6875	1014.0625	1048.4375	1082.8125	1116.1458
+0
+0
+#END
+#	Row 1 specifies which (if any) of the 5 dimension should be smoothed on a log scale.
+#  	If a log scale is used, a length of 1.2 means a smoothing of 20%, and in general X% is given as 1+X/100.
+# 	Row 2 specifies the length scale for each of the 5 dimensions and then the kernel scaling parameter (usually 1).
+#  	A length of 0 means that for this dimension, bins with different values will not be correlated through GP.
+#	Row 3-7 specifies the bin centers for the 5 dimensions.  These rows should have as many entries as the corresponding dimension has distinct bins (including overflow bins).
+#  	Dimension 1 is typically sig/bkg/ext
+#  	Dimension 2 is typically FC/PC (in this case 0 1)
+#  	Dimensions 3-5 are standard dimensions for the data.  If you have fewer than 3 standard dimensions, treat higher dimensions as having a single bin each.
+#  	In the default configuration, dims 4 and 5 are left empty with just a single bin, so this is setup for 1D smoothing.

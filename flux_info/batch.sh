@@ -1,22 +1,60 @@
+########################################################################################## FULL DATASET ##########################################################################################
 # single bin NCpi0 Enu
-#root -l -b -q 'calculate_num.C(0.275, 8.00, 1000, 5.327e19)' 
+#root -l -b -q 'calculate_num.C(0.275, 4.00, 1000, 6.369e20)'
 
 # multiple bin NCpi0 Ppi0
-root -l -b -q 'calculate_num.C(0.275, 8.00, 1000, 5.327e19, 0.00, 0.10)' 
-root -l -b -q 'calculate_num.C(0.275, 8.00, 1000, 5.327e19, 0.10, 0.15)'
-root -l -b -q 'calculate_num.C(0.275, 8.00, 1000, 5.327e19, 0.15, 0.20)' 
-root -l -b -q 'calculate_num.C(0.275, 8.00, 1000, 5.327e19, 0.20, 0.25)' 
-root -l -b -q 'calculate_num.C(0.275, 8.00, 1000, 5.327e19, 0.25, 0.30)' 
-root -l -b -q 'calculate_num.C(0.275, 8.00, 1000, 5.327e19, 0.30, 0.40)' 
-root -l -b -q 'calculate_num.C(0.275, 8.00, 1000, 5.327e19, 0.40, 0.50)' 
-root -l -b -q 'calculate_num.C(0.275, 8.00, 1000, 5.327e19, 0.50, 0.60)' 
-root -l -b -q 'calculate_num.C(0.275, 8.00, 1000, 5.327e19, 0.60, 0.80)' 
-root -l -b -q 'calculate_num.C(0.275, 8.00, 1000, 5.327e19, 0.80, 1.00)' 
-root -l -b -q 'calculate_num.C(0.275, 8.00, 1000, 5.327e19, 1.00, 1.50)' 
+#root -l -b -q 'calculate_num.C(0.275, 4.00, 1000, 6.369e20, 0.00, 0.10)' 
+#root -l -b -q 'calculate_num.C(0.275, 4.00, 1000, 6.369e20, 0.10, 0.15)'
+#root -l -b -q 'calculate_num.C(0.275, 4.00, 1000, 6.369e20, 0.15, 0.20)' 
+#root -l -b -q 'calculate_num.C(0.275, 4.00, 1000, 6.369e20, 0.20, 0.25)' 
+#root -l -b -q 'calculate_num.C(0.275, 4.00, 1000, 6.369e20, 0.25, 0.30)' 
+#root -l -b -q 'calculate_num.C(0.275, 4.00, 1000, 6.369e20, 0.30, 0.40)' 
+#root -l -b -q 'calculate_num.C(0.275, 4.00, 1000, 6.369e20, 0.40, 0.50)' 
+#root -l -b -q 'calculate_num.C(0.275, 4.00, 1000, 6.369e20, 0.50, 0.60)' 
+#root -l -b -q 'calculate_num.C(0.275, 4.00, 1000, 6.369e20, 0.60, 0.80)' 
+#root -l -b -q 'calculate_num.C(0.275, 4.00, 1000, 6.369e20, 0.80, 1.00)' 
+#root -l -b -q 'calculate_num.C(0.275, 4.00, 1000, 6.369e20, 1.00, 1.50)'
 
 
-# single bin NC pi0 momentum
-#root -l -b -q 'calculate_num.C(0.275, 4.00, 1000, 5.327e19, 0, 2.)' 
+########################################################################################## OPEN DATASET ##########################################################################################
+
+# single bin NCpi0 Enu
+#root -l -b -q 'calculate_num.C(0.275, 4.00, 1000, 5.327e19)'
+
+# multiple bin NCpi0 Ppi0
+#root -l -b -q 'calculate_num.C(0.275, 4.00, 1000, 5.327e19, 0.00, 0.10)' 
+#root -l -b -q 'calculate_num.C(0.275, 4.00, 1000, 5.327e19, 0.10, 0.15)'
+#root -l -b -q 'calculate_num.C(0.275, 4.00, 1000, 5.327e19, 0.15, 0.20)' 
+#root -l -b -q 'calculate_num.C(0.275, 4.00, 1000, 5.327e19, 0.20, 0.25)' 
+#root -l -b -q 'calculate_num.C(0.275, 4.00, 1000, 5.327e19, 0.25, 0.30)' 
+#root -l -b -q 'calculate_num.C(0.275, 4.00, 1000, 5.327e19, 0.30, 0.40)' 
+#root -l -b -q 'calculate_num.C(0.275, 4.00, 1000, 5.327e19, 0.40, 0.50)' 
+#root -l -b -q 'calculate_num.C(0.275, 4.00, 1000, 5.327e19, 0.50, 0.60)' 
+#root -l -b -q 'calculate_num.C(0.275, 4.00, 1000, 5.327e19, 0.60, 0.80)' 
+#root -l -b -q 'calculate_num.C(0.275, 4.00, 1000, 5.327e19, 0.80, 1.00)' 
+#root -l -b -q 'calculate_num.C(0.275, 4.00, 1000, 5.327e19, 1.00, 1.50)'
+
+# multiple bin NCpi0 CosThetapi0
+root -l -b -q 'calculate_num.C(0.275, 4.00, 1000, 5.327e19, -1.00, -0.62)' 
+root -l -b -q 'calculate_num.C(0.275, 4.00, 1000, 5.327e19, -0.62, -0.34)'
+root -l -b -q 'calculate_num.C(0.275, 4.00, 1000, 5.327e19, -0.34, -0.13)' 
+root -l -b -q 'calculate_num.C(0.275, 4.00, 1000, 5.327e19, -0.13, 0.06)' 
+root -l -b -q 'calculate_num.C(0.275, 4.00, 1000, 5.327e19, 0.06, 0.20)' 
+root -l -b -q 'calculate_num.C(0.275, 4.00, 1000, 5.327e19, 0.20, 0.32)' 
+root -l -b -q 'calculate_num.C(0.275, 4.00, 1000, 5.327e19, 0.32, 0.42)' 
+root -l -b -q 'calculate_num.C(0.275, 4.00, 1000, 5.327e19, 0.42, 0.52)' 
+root -l -b -q 'calculate_num.C(0.275, 4.00, 1000, 5.327e19, 0.52, 0.60)' 
+root -l -b -q 'calculate_num.C(0.275, 4.00, 1000, 5.327e19, 0.60, 0.67)' 
+root -l -b -q 'calculate_num.C(0.275, 4.00, 1000, 5.327e19, 0.67, 0.73)'
+root -l -b -q 'calculate_num.C(0.275, 4.00, 1000, 5.327e19, 0.73, 0.78)' 
+root -l -b -q 'calculate_num.C(0.275, 4.00, 1000, 5.327e19, 0.78, 0.83)'
+root -l -b -q 'calculate_num.C(0.275, 4.00, 1000, 5.327e19, 0.83, 0.87)' 
+root -l -b -q 'calculate_num.C(0.275, 4.00, 1000, 5.327e19, 0.87, 0.91)' 
+root -l -b -q 'calculate_num.C(0.275, 4.00, 1000, 5.327e19, 0.91, 0.95)' 
+root -l -b -q 'calculate_num.C(0.275, 4.00, 1000, 5.327e19, 0.95, 0.975)' 
+root -l -b -q 'calculate_num.C(0.275, 4.00, 1000, 5.327e19, 0.975, 1.00)' 
+
+
 
 # NOTE: if bins are in term of Enu do not use init_difval and final_difval
 # NOTE: if bins are not in term of Enu (other variables) need to calculate all flux (like from 0 to 5 GeV) and later weigh it for the width of the bin in the other variable, hence use init_difval and final_difval

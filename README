@@ -27,6 +27,9 @@ cd ../LEEana/
 
 ./run_det_sys.pl  &&  ./run_xf_sys.pl 
 
+	Open data set 9ch: 11:30 min
+	Full data set 9ch: 19:00 min
+
 ./bin/read_TLee_v20
 
 ./bin/plot_hist -r0 -l0 -e3 -sfile_collapsed_covariance_matrix.root

@@ -1,0 +1,48 @@
+1 		9 			NCpi0BDT.inside.Enu.le.4000.gt.275 		513972			0.022 		0.011
+
+
+
+
+-1		-1			End										-1				-1			-1
+#bin	#cut_file  	#cut									#const			#pot_err	#target_err
+
+1 		8 			NCpi0BDT.inside.Enu.le.8000.gt.275 		42988.4			0.022 		0.011
+
+
+1 		9 			NCpi0BDT.inside.Enu.le.4000.gt.275 		42988.4			0.022 		0.011
+
+
+1 		10 			NCpi0BDT.inside.Ppi0.le.100.gt.0 		4298.84			0.022 		0.011
+2 		10 			NCpi0BDT.inside.Ppi0.le.150.gt.100 		2149.42			0.022 		0.011
+3 		10 			NCpi0BDT.inside.Ppi0.le.200.gt.150 		2149.42			0.022 		0.011
+4 		10 			NCpi0BDT.inside.Ppi0.le.250.gt.200 		2149.42			0.022 		0.011
+5 		10 			NCpi0BDT.inside.Ppi0.le.300.gt.250 		2149.42			0.022 		0.011
+6 		10 			NCpi0BDT.inside.Ppi0.le.400.gt.300 		4298.84			0.022 		0.011
+7 		10 			NCpi0BDT.inside.Ppi0.le.500.gt.400 		4298.84			0.022 		0.011
+8 		10 			NCpi0BDT.inside.Ppi0.le.600.gt.500 		4298.84			0.022 		0.011
+9 		10 			NCpi0BDT.inside.Ppi0.le.800.gt.600 		8597.68			0.022 		0.011
+10 		10 			NCpi0BDT.inside.Ppi0.le.1000.gt.800 	8597.68			0.022 		0.011
+11 		10 			NCpi0BDT.inside.Ppi0.le.1500.gt.1000 	21494.2			0.022 		0.011
+
+
+
+
+
+
+
+
+
+1 		9 			NCpi0BDT.inside.Enu.le.4000.gt.275 		42988.4			0.022 		0.011
+
+1 		9 			NCpi0BDT.inside.Enu.le.4000.gt.275 		513972			0.022 		0.011
+
+
+
+
+
+
+
+
+
+
+

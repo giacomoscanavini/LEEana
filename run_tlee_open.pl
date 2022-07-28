@@ -1,7 +1,6 @@
 #!/usr/bin/perl
 
 
-
 system("rm ./configurations/file_ch.txt");
 system("rm ./configurations/cov_input.txt");
 system("rm ./configurations/cv_input.txt");

@@ -82,7 +82,7 @@ void calculate_num(double init_E = 0., double final_E = 5, int nstep = 1000, dou
   std::cout << std::endl;
   double final_constant = flux_sum * POT * target_N * pb;
 
-  if (final_difval!=init_difval and final_difval>0) std::cout << "Final constant        : " << final_constant * (final_difval - init_difval) << std::endl;
+  if (final_difval!=init_difval) std::cout << "Final constant        : " << final_constant * (abs(final_difval - init_difval)) << std::endl;
   else std::cout << "Final constant        : " << final_constant << std::endl;
 
 /*

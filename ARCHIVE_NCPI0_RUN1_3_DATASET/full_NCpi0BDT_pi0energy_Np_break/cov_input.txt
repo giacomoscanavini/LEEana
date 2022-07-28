@@ -1,0 +1,900 @@
+NCpi0BDT_0p_bnb							pi0_energy				20		0		1200	1		0			0		0			0			0			5		unity		0
+NCpi0BDT_0p_overlay						pi0_energy				20		0		1200	1		1			1		0			0			1			2		cv_spline	0
+NCpi0BDT_0p_ncpi0						pi0_energy				20		0		1200	1		1			1		0			0			1			6		cv_spline	0
+NCpi0BDT_0p_ext							pi0_energy				20		0		1200	1		1			0		0.5			0			1			4		cv_spline	0
+NCpi0BDT_0p_dirt						pi0_energy				20		0		1200	1		0			0		0			0			3			3		unity		0
+
+NCpi0BDT_Np_bnb							pi0_energy				20		0		1200	2		0			0		0			0			0			5		unity		0
+NCpi0BDT_Np_overlay						pi0_energy				20		0		1200	2		1			1		0			0			2			2		cv_spline	0
+NCpi0BDT_Np_ncpi0						pi0_energy				20		0		1200	2		1			1		0			0			2			6		cv_spline	0
+NCpi0BDT_Np_ext							pi0_energy				20		0		1200	2		1			0		0.5			0			2			4		cv_spline	0
+NCpi0BDT_Np_dirt						pi0_energy				20		0		1200	2		0			0		0			0			4			3		unity		0
+
+
+
+End										End						-1		-1		-1		-1		-1			-1		-1			-1			-1			-1		end			-1
+Name:									#Var:					#bin	#start	#end	#obs	#xs_flux	#det	#add_sys	#same_mc	#cov_sec	#file	#weight		#lee_strength
+
+
+
+NCpi0BDT_FC_0p_bnb						pi0_energy				20		0		1200	1		0			0		0			0			0			5		unity		0
+NCpi0BDT_FC_0p_overlay					pi0_energy				20		0		1200	1		1			1		0			0			1			2		cv_spline	0
+NCpi0BDT_FC_0p_ncpi0					pi0_energy				20		0		1200	1		1			1		0			0			1			6		cv_spline	0
+NCpi0BDT_FC_0p_ext						pi0_energy				20		0		1200	1		1			0		0.5			0			1			4		cv_spline	0
+NCpi0BDT_FC_0p_dirt						pi0_energy				20		0		1200	1		0			0		0			0			3			3		unity		0
+
+NCpi0BDT_FC_Np_bnb						pi0_energy				20		0		1200	2		0			0		0			0			0			5		unity		0
+NCpi0BDT_FC_Np_overlay					pi0_energy				20		0		1200	2		1			1		0			0			2			2		cv_spline	0
+NCpi0BDT_FC_Np_ncpi0					pi0_energy				20		0		1200	2		1			1		0			0			2			6		cv_spline	0
+NCpi0BDT_FC_Np_ext						pi0_energy				20		0		1200	2		1			0		0.5			0			2			4		cv_spline	0
+NCpi0BDT_FC_Np_dirt						pi0_energy				20		0		1200	2		0			0		0			0			4			3		unity		0
+
+
+NCpi0BDT_FC_0p_bnb						pi0_costheta			25		-1		1		1		0			0		0			0			0			5		unity		0
+NCpi0BDT_FC_0p_overlay					pi0_costheta			25		-1		1		1		1			1		0			0			1			2		cv_spline	0
+NCpi0BDT_FC_0p_ncpi0					pi0_costheta			25		-1		1		1		1			1		0			0			1			6		cv_spline	0
+NCpi0BDT_FC_0p_ext						pi0_costheta			25		-1		1		1		1			0		0.5			0			1			4		cv_spline	0
+NCpi0BDT_FC_0p_dirt						pi0_costheta			25		-1		1		1		0			0		0			0			3			3		unity		0
+
+NCpi0BDT_FC_Np_bnb						pi0_costheta			25		-1		1		2		0			0		0			0			0			5		unity		0
+NCpi0BDT_FC_Np_overlay					pi0_costheta			25		-1		1		2		1			1		0			0			2			2		cv_spline	0
+NCpi0BDT_FC_Np_ncpi0					pi0_costheta			25		-1		1		2		1			1		0			0			2			6		cv_spline	0
+NCpi0BDT_FC_Np_ext						pi0_costheta			25		-1		1		2		1			0		0.5			0			2			4		cv_spline	0
+NCpi0BDT_FC_Np_dirt						pi0_costheta			25		-1		1		2		0			0		0			0			4			3		unity		0
+
+
+NCpi0BDT_0p_bnb							pi0_costheta			25		-1		1		1		0			0		0			0			0			5		unity		0
+NCpi0BDT_0p_overlay						pi0_costheta			25		-1		1		1		1			1		0			0			1			2		cv_spline	0
+NCpi0BDT_0p_ncpi0						pi0_costheta			25		-1		1		1		1			1		0			0			1			6		cv_spline	0
+NCpi0BDT_0p_ext							pi0_costheta			25		-1		1		1		1			0		0.5			0			1			4		cv_spline	0
+NCpi0BDT_0p_dirt						pi0_costheta			25		-1		1		1		0			0		0			0			3			3		unity		0
+
+NCpi0BDT_Np_bnb							pi0_costheta			25		-1		1		2		0			0		0			0			0			5		unity		0
+NCpi0BDT_Np_overlay						pi0_costheta			25		-1		1		2		1			1		0			0			2			2		cv_spline	0
+NCpi0BDT_Np_ncpi0						pi0_costheta			25		-1		1		2		1			1		0			0			2			6		cv_spline	0
+NCpi0BDT_Np_ext							pi0_costheta			25		-1		1		2		1			0		0.5			0			2			4		cv_spline	0
+NCpi0BDT_Np_dirt						pi0_costheta			25		-1		1		2		0			0		0			0			4			3		unity		0
+
+
+
+NCpi0BDT_FC_0p_bnb						corrected_visible_energy	20		0		1500	1		0			0		0			0			0			5		unity		0
+NCpi0BDT_FC_0p_overlay					corrected_visible_energy	20		0		1500	1		1			1		0			0			1			2		cv_spline	0
+NCpi0BDT_FC_0p_ncpi0					corrected_visible_energy	20		0		1500	1		1			1		0			0			1			6		cv_spline	0
+NCpi0BDT_FC_0p_ext						corrected_visible_energy	20		0		1500	1		1			0		0.5			0			1			4		cv_spline	0
+NCpi0BDT_FC_0p_dirt						corrected_visible_energy	20		0		1500	1		0			0		0			0			3			3		unity		0
+
+NCpi0BDT_FC_Np_bnb						corrected_visible_energy	20		0		1500	2		0			0		0			0			0			5		unity		0
+NCpi0BDT_FC_Np_overlay					corrected_visible_energy	20		0		1500	2		1			1		0			0			2			2		cv_spline	0
+NCpi0BDT_FC_Np_ncpi0					corrected_visible_energy	20		0		1500	2		1			1		0			0			2			6		cv_spline	0
+NCpi0BDT_FC_Np_ext						corrected_visible_energy	20		0		1500	2		1			0		0.5			0			2			4		cv_spline	0
+NCpi0BDT_FC_Np_dirt						corrected_visible_energy	20		0		1500	2		0			0		0			0			4			3		unity		0
+
+
+
+NCpi0BDT_0p_bnb							corrected_visible_energy	20		0		1500	1		0			0		0			0			0			5		unity		0
+NCpi0BDT_0p_overlay						corrected_visible_energy	20		0		1500	1		1			1		0			0			1			2		cv_spline	0
+NCpi0BDT_0p_ncpi0						corrected_visible_energy	20		0		1500	1		1			1		0			0			1			6		cv_spline	0
+NCpi0BDT_0p_ext							corrected_visible_energy	20		0		1500	1		1			0		0.5			0			1			4		cv_spline	0
+NCpi0BDT_0p_dirt						corrected_visible_energy	20		0		1500	1		0			0		0			0			3			3		unity		0
+
+NCpi0BDT_Np_bnb							corrected_visible_energy	20		0		1500	2		0			0		0			0			0			5		unity		0
+NCpi0BDT_Np_overlay						corrected_visible_energy	20		0		1500	2		1			1		0			0			2			2		cv_spline	0
+NCpi0BDT_Np_ncpi0						corrected_visible_energy	20		0		1500	2		1			1		0			0			2			6		cv_spline	0
+NCpi0BDT_Np_ext							corrected_visible_energy	20		0		1500	2		1			0		0.5			0			2			4		cv_spline	0
+NCpi0BDT_Np_dirt						corrected_visible_energy	20		0		1500	2		0			0		0			0			4			3		unity		0
+
+
+
+
+
+
+
+
+
+
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+generic_0p_bnb							reco_nuvtxZ				32		0		1100	1		0			0		0			0			0			5		unity		0
+generic_0p_overlay						reco_nuvtxZ				32		0		1100	1		1			1		0			0			1			2		cv_spline	0
+generic_0p_ncpi0						reco_nuvtxZ				32		0		1100	1		1			1		0			0			1			6		cv_spline	0
+generic_0p_dirt							reco_nuvtxZ				32		0		1100	1		1			0		0.5			0			1			4		cv_spline	0
+generic_0p_ext							reco_nuvtxZ				32		0		1100	1		0			0		0			0			3			3		unity		0
+
+generic_Np_bnb							reco_nuvtxZ				32		0		1100	2		0			0		0			0			0			5		unity		0
+generic_Np_overlay						reco_nuvtxZ				32		0		1100	2		1			1		0			0			2			2		cv_spline	0
+generic_Np_ncpi0						reco_nuvtxZ				32		0		1100	2		1			1		0			0			2			6		cv_spline	0
+generic_Np_dirt							reco_nuvtxZ				32		0		1100	2		1			0		0.5			0			2			4		cv_spline	0
+generic_Np_ext							reco_nuvtxZ				32		0		1100	2		0			0		0			0			4			3		unity		0
+--------------------------------------------------------------------------------------
+generic_FC_bnb							reco_nuvtxZ				32		0		1100	1		0			0		0			0			0			5		unity		0
+generic_FC_overlay						reco_nuvtxZ				32		0		1100	1		1			1		0			0			1			2		cv_spline	0
+generic_FC_ncpi0						reco_nuvtxZ				32		0		1100	1		1			1		0			0			1			6		cv_spline	0
+generic_FC_dirt							reco_nuvtxZ				32		0		1100	1		1			0		0.5			0			1			4		cv_spline	0
+generic_FC_ext							reco_nuvtxZ				32		0		1100	1		0			0		0			0			4			3		unity		0
+
+generic_PC_bnb							reco_nuvtxZ				32		0		1100	2		0			0		0			0			0			5		unity		0
+generic_PC_overlay						reco_nuvtxZ				32		0		1100	2		1			1		0			0			2			2		cv_spline	0
+generic_PC_ncpi0						reco_nuvtxZ				32		0		1100	2		1			1		0			0			2			6		cv_spline	0
+generic_PC_dirt							reco_nuvtxZ				32		0		1100	2		1			0		0.5			0			2			4		cv_spline	0
+generic_PC_ext							reco_nuvtxZ				32		0		1100	2		0			0		0			0			5			3		unity		0
+
+generic_bnb								reco_nuvtxZ				32		0		1100	3		0			0		0			0			0			5		unity		0
+generic_overlay							reco_nuvtxZ				32		0		1100	3		1			1		0			0			3			2		cv_spline	0
+generic_ncpi0							reco_nuvtxZ				32		0		1100	3		1			1		0			0			3			6		cv_spline	0
+generic_dirt							reco_nuvtxZ				32		0		1100	3		1			0		0.5			0			3			4		cv_spline	0
+generic_ext								reco_nuvtxZ				32		0		1100	3		0			0		0			0			6			3		unity		0
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+generic_0p_bnb							reco_nuvtxY				26		-130	130		1		0			0		0			0			0			5		unity		0
+generic_0p_overlay						reco_nuvtxY				26		-130	130		1		1			1		0			0			1			2		cv_spline	0
+generic_0p_ncpi0						reco_nuvtxY				26		-130	130		1		1			1		0			0			1			6		cv_spline	0
+generic_0p_dirt							reco_nuvtxY				26		-130	130		1		1			0		0.5			0			1			4		cv_spline	0
+generic_0p_ext							reco_nuvtxY				26		-130	130		1		0			0		0			0			3			3		unity		0
+
+generic_Np_bnb							reco_nuvtxY				26		-130	130		2		0			0		0			0			0			5		unity		0
+generic_Np_overlay						reco_nuvtxY				26		-130	130		2		1			1		0			0			2			2		cv_spline	0
+generic_Np_ncpi0						reco_nuvtxY				26		-130	130		2		1			1		0			0			2			6		cv_spline	0
+generic_Np_dirt							reco_nuvtxY				26		-130	130		2		1			0		0.5			0			2			4		cv_spline	0
+generic_Np_ext							reco_nuvtxY				26		-130	130		2		0			0		0			0			4			3		unity		0
+--------------------------------------------------------------------------------------
+generic_FC_bnb							reco_nuvtxY				26		-130	130		1		0			0		0			0			0			5		unity		0
+generic_FC_overlay						reco_nuvtxY				26		-130	130		1		1			1		0			0			1			2		cv_spline	0
+generic_FC_ncpi0						reco_nuvtxY				26		-130	130		1		1			1		0			0			1			6		cv_spline	0
+generic_FC_dirt							reco_nuvtxY				26		-130	130		1		1			0		0.5			0			1			4		cv_spline	0
+generic_FC_ext							reco_nuvtxY				26		-130	130		1		0			0		0			0			4			3		unity		0
+
+generic_PC_bnb							reco_nuvtxY				26		-130	130		2		0			0		0			0			0			5		unity		0
+generic_PC_overlay						reco_nuvtxY				26		-130	130		2		1			1		0			0			2			2		cv_spline	0
+generic_PC_ncpi0						reco_nuvtxY				26		-130	130		2		1			1		0			0			2			6		cv_spline	0
+generic_PC_dirt							reco_nuvtxY				26		-130	130		2		1			0		0.5			0			2			4		cv_spline	0
+generic_PC_ext							reco_nuvtxY				26		-130	130		2		0			0		0			0			5			3		unity		0
+
+generic_bnb								reco_nuvtxY				26		-130	130		3		0			0		0			0			0			5		unity		0
+generic_overlay							reco_nuvtxY				26		-130	130		3		1			1		0			0			3			2		cv_spline	0
+generic_ncpi0							reco_nuvtxY				26		-130	130		3		1			1		0			0			3			6		cv_spline	0
+generic_dirt							reco_nuvtxY				26		-130	130		3		1			0		0.5			0			3			4		cv_spline	0
+generic_ext								reco_nuvtxY				26		-130	130		3		0			0		0			0			6			3		unity		0
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+generic_0p_bnb							reco_nuvtxX				26		0		260		1		0			0		0			0			0			5		unity		0
+generic_0p_overlay						reco_nuvtxX				26		0		260		1		1			1		0			0			1			2		cv_spline	0
+generic_0p_ncpi0						reco_nuvtxX				26		0		260		1		1			1		0			0			1			6		cv_spline	0
+generic_0p_dirt							reco_nuvtxX				26		0		260		1		1			0		0.5			0			1			4		cv_spline	0
+generic_0p_ext							reco_nuvtxX				26		0		260		1		0			0		0			0			3			3		unity		0
+
+generic_Np_bnb							reco_nuvtxX				26		0		260		2		0			0		0			0			0			5		unity		0
+generic_Np_overlay						reco_nuvtxX				26		0		260		2		1			1		0			0			2			2		cv_spline	0
+generic_Np_ncpi0						reco_nuvtxX				26		0		260		2		1			1		0			0			2			6		cv_spline	0
+generic_Np_dirt							reco_nuvtxX				26		0		260		2		1			0		0.5			0			2			4		cv_spline	0
+generic_Np_ext							reco_nuvtxX				26		0		260		2		0			0		0			0			4			3		unity		0
+--------------------------------------------------------------------------------------
+generic_FC_bnb							reco_nuvtxX				26		0		260		1		0			0		0			0			0			5		unity		0
+generic_FC_overlay						reco_nuvtxX				26		0		260		1		1			1		0			0			1			2		cv_spline	0
+generic_FC_ncpi0						reco_nuvtxX				26		0		260		1		1			1		0			0			1			6		cv_spline	0
+generic_FC_dirt							reco_nuvtxX				26		0		260		1		1			0		0.5			0			1			4		cv_spline	0
+generic_FC_ext							reco_nuvtxX				26		0		260		1		0			0		0			0			4			3		unity		0
+
+generic_PC_bnb							reco_nuvtxX				26		0		260		2		0			0		0			0			0			5		unity		0
+generic_PC_overlay						reco_nuvtxX				26		0		260		2		1			1		0			0			2			2		cv_spline	0
+generic_PC_ncpi0						reco_nuvtxX				26		0		260		2		1			1		0			0			2			6		cv_spline	0
+generic_PC_dirt							reco_nuvtxX				26		0		260		2		1			0		0.5			0			2			4		cv_spline	0
+generic_PC_ext							reco_nuvtxX				26		0		260		2		0			0		0			0			5			3		unity		0
+
+generic_bnb								reco_nuvtxX				26		0		260		3		0			0		0			0			0			5		unity		0
+generic_overlay							reco_nuvtxX				26		0		260		3		1			1		0			0			3			2		cv_spline	0
+generic_ncpi0							reco_nuvtxX				26		0		260		3		1			1		0			0			3			6		cv_spline	0
+generic_dirt							reco_nuvtxX				26		0		260		3		1			0		0.5			0			3			4		cv_spline	0
+generic_ext								reco_nuvtxX				26		0		260		3		0			0		0			0			6			3		unity		0
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+generic_0p_bnb							nc_pio_score			60		-10		6		1		0			0		0			0			0			5		unity		0
+generic_0p_overlay						nc_pio_score			60		-10		6		1		1			1		0			0			1			2		cv_spline	0
+generic_0p_ncpi0						nc_pio_score			60		-10		6		1		1			1		0			0			1			6		cv_spline	0
+generic_0p_dirt							nc_pio_score			60		-10		6		1		1			0		0.5			0			1			4		cv_spline	0
+generic_0p_ext							nc_pio_score			60		-10		6		1		0			0		0			0			3			3		unity		0
+
+generic_Np_bnb							nc_pio_score			60		-10		6		2		0			0		0			0			0			5		unity		0
+generic_Np_overlay						nc_pio_score			60		-10		6		2		1			1		0			0			2			2		cv_spline	0
+generic_Np_ncpi0						nc_pio_score			60		-10		6		2		1			1		0			0			2			6		cv_spline	0
+generic_Np_dirt							nc_pio_score			60		-10		6		2		1			0		0.5			0			2			4		cv_spline	0
+generic_Np_ext							nc_pio_score			60		-10		6		2		0			0		0			0			4			3		unity		
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+generic_0p_bnb							visible_energy			20 	 	0		1500	1		0			0		0			0			0			5		unity		0
+generic_0p_overlay						visible_energy			20 	 	0		1500	1		1			1		0			0			1			2		cv_spline	0
+generic_0p_ncpi0						visible_energy			20 	 	0		1500	1		1			1		0			0			1			6		cv_spline	0
+generic_0p_dirt							visible_energy			20 	 	0		1500	1		1			0		0.5			0			1			4		cv_spline	0
+generic_0p_ext							visible_energy			20 	 	0		1500	1		0			0		0			0			3			3		unity		0
+
+generic_Np_bnb							visible_energy			20 	 	0		1500	2		0			0		0			0			0			5		unity		0
+generic_Np_overlay						visible_energy			20 	 	0		1500	2		1			1		0			0			2			2		cv_spline	0
+generic_Np_ncpi0						visible_energy			20 	 	0		1500	2		1			1		0			0			2			6		cv_spline	0
+generic_Np_dirt							visible_energy			20 	 	0		1500	2		1			0		0.5			0			2			4		cv_spline	0
+generic_Np_ext							visible_energy			20 	 	0		1500	2		0			0		0			0			4			3		unity		0
+--------------------------------------------------------------------------------------
+generic_FC_bnb							visible_energy			20 	 	0		1500	1		0			0		0			0			0			5		unity		0
+generic_FC_overlay						visible_energy			20 	 	0		1500	1		1			1		0			0			1			2		cv_spline	0
+generic_FC_ncpi0						visible_energy			20 	 	0		1500	1		1			1		0			0			1			6		cv_spline	0
+generic_FC_dirt							visible_energy			20 	 	0		1500	1		1			0		0.5			0			1			4		cv_spline	0
+generic_FC_ext							visible_energy			20 	 	0		1500	1		0			0		0			0			4			3		unity		0
+
+generic_PC_bnb							visible_energy			20 	 	0		1500	2		0			0		0			0			0			5		unity		0
+generic_PC_overlay						visible_energy			20 	 	0		1500	2		1			1		0			0			2			2		cv_spline	0
+generic_PC_ncpi0						visible_energy			20 	 	0		1500	2		1			1		0			0			2			6		cv_spline	0
+generic_PC_dirt							visible_energy			20 	 	0		1500	2		1			0		0.5			0			2			4		cv_spline	0
+generic_PC_ext							visible_energy			20 	 	0		1500	2		0			0		0			0			5			3		unity		0
+
+generic_bnb								visible_energy			20 	 	0		1500	3		0			0		0			0			0			5		unity		0
+generic_overlay							visible_energy			20 	 	0		1500	3		1			1		0			0			3			2		cv_spline	0
+generic_ncpi0							visible_energy			20 	 	0		1500	3		1			1		0			0			3			6		cv_spline	0
+generic_dirt							visible_energy			20 	 	0		1500	3		1			0		0.5			0			3			4		cv_spline	0
+generic_ext								visible_energy			20 	 	0		1500	3		0			0		0			0			6			3		unity		0
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+NCpi0BDT_0p_bnb							pi0_costheta_CM			35	  	0		1		1		0			0		0			0			0			5		unity		0
+NCpi0BDT_0p_overlay						pi0_costheta_CM			35	  	0		1		1		1			1		0			0			1			2		cv_spline	0
+NCpi0BDT_0p_ncpi0						pi0_costheta_CM			35	  	0		1		1		1			1		0			0			1			6		cv_spline	0
+NCpi0BDT_0p_dirt						pi0_costheta_CM			35	  	0		1		1		1			0		0.5			0			1			4		cv_spline	0
+NCpi0BDT_0p_ext							pi0_costheta_CM			35	  	0		1		1		0			0		0			0			3			3		unity		0
+
+NCpi0BDT_Np_bnb							pi0_costheta_CM			35	  	0		1		2		0			0		0			0			0			5		unity		0
+NCpi0BDT_Np_overlay						pi0_costheta_CM			35	  	0		1		2		1			1		0			0			2			2		cv_spline	0
+NCpi0BDT_Np_ncpi0						pi0_costheta_CM			35	  	0		1		2		1			1		0			0			2			6		cv_spline	0
+NCpi0BDT_Np_dirt						pi0_costheta_CM			35	  	0		1		2		1			0		0.5			0			2			4		cv_spline	0
+NCpi0BDT_Np_ext							pi0_costheta_CM			35	  	0		1		2		0			0		0			0			4			3		unity		0
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+NCpi0BDT_0p_bnb							pi0_momentum			25		0		1500	1		0			0		0			0			0			5		unity		0
+NCpi0BDT_0p_overlay						pi0_momentum			25		0		1500	1		1			1		0			0			1			2		cv_spline	0
+NCpi0BDT_0p_ncpi0						pi0_momentum			25		0		1500	1		1			1		0			0			1			6		cv_spline	0
+NCpi0BDT_0p_dirt						pi0_momentum			25		0		1500	1		1			0		0.5			0			1			4		cv_spline	0
+NCpi0BDT_0p_ext							pi0_momentum			25 		0 		1500	1		0			0		0			0			3			3		unity		0
+
+NCpi0BDT_Np_bnb							pi0_momentum			25		0		1500	2		0			0		0			0			0			5		unity		0
+NCpi0BDT_Np_overlay						pi0_momentum			25		0		1500	2		1			1		0			0			2			2		cv_spline	0
+NCpi0BDT_Np_ncpi0						pi0_momentum			25		0		1500	2		1			1		0			0			2			6		cv_spline	0
+NCpi0BDT_Np_dirt						pi0_momentum			25		0		1500	2		1			0		0.5			0			2			4		cv_spline	0
+NCpi0BDT_Np_ext							pi0_momentum			25 		0 		1500	2		0			0		0			0			4			3		unity		0
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+NCpi0BDT_0p_bnb							corrected_visible_energy	20		0		1500	1		0			0		0			0			0			5		unity		0
+NCpi0BDT_0p_overlay						corrected_visible_energy	20		0		1500	1		1			1		0			0			1			2		cv_spline	0
+NCpi0BDT_0p_ncpi0						corrected_visible_energy	20		0		1500	1		1			1		0			0			1			6		cv_spline	0
+NCpi0BDT_0p_dirt						corrected_visible_energy	20		0		1500	1		1			0		0.5			0			1			4		cv_spline	0
+NCpi0BDT_0p_ext							corrected_visible_energy	20		0		1500	1		0			0		0			0			3			3		unity		0
+
+NCpi0BDT_Np_bnb							corrected_visible_energy	20		0		1500	2		0			0		0			0			0			5		unity		0
+NCpi0BDT_Np_overlay						corrected_visible_energy	20		0		1500	2		1			1		0			0			2			2		cv_spline	0
+NCpi0BDT_Np_ncpi0						corrected_visible_energy	20		0		1500	2		1			1		0			0			2			6		cv_spline	0
+NCpi0BDT_Np_dirt						corrected_visible_energy	20		0		1500	2		1			0		0.5			0			2			4		cv_spline	0
+NCpi0BDT_Np_ext							corrected_visible_energy	20		0		1500	2		0			0		0			0			4			3		unity		0
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+NCpi0BDT_0p_bnb							pi0_costheta			25		-1		1		1		0			0		0			0			0			5		unity		0
+NCpi0BDT_0p_overlay						pi0_costheta			25		-1		1		1		1			1		0			0			1			2		cv_spline	0
+NCpi0BDT_0p_ncpi0						pi0_costheta			25		-1		1		1		1			1		0			0			1			6		cv_spline	0
+NCpi0BDT_0p_dirt						pi0_costheta			25		-1		1		1		1			0		0.5			0			1			4		cv_spline	0
+NCpi0BDT_0p_ext							pi0_costheta			25		-1		1		1		0			0		0			0			3			3		unity		0
+
+NCpi0BDT_Np_bnb							pi0_costheta			25		-1		1		2		0			0		0			0			0			5		unity		0
+NCpi0BDT_Np_overlay						pi0_costheta			25		-1		1		2		1			1		0			0			2			2		cv_spline	0
+NCpi0BDT_Np_ncpi0						pi0_costheta			25		-1		1		2		1			1		0			0			2			6		cv_spline	0
+NCpi0BDT_Np_dirt						pi0_costheta			25		-1		1		2		1			0		0.5			0			2			4		cv_spline	0
+NCpi0BDT_Np_ext							pi0_costheta			25		-1		1		2		0			0		0			0			4			3		unity		0
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+NCpi0BDT_0p_bnb							pi0_mass				29		0		300		1		0			0		0			0			0			5		unity		0
+NCpi0BDT_0p_overlay						pi0_mass				29		0		300		1		1			1		0			0			1			2		cv_spline	0
+NCpi0BDT_0p_ncpi0						pi0_mass				29		0		300		1		1			1		0			0			1			6		cv_spline	0
+NCpi0BDT_0p_dirt						pi0_mass				29		0		300		1		1			0		0.5			0			1			4		cv_spline	0
+NCpi0BDT_0p_ext							pi0_mass				29		0		300		1		0			0		0			0			3			3		unity		0
+
+NCpi0BDT_Np_bnb							pi0_mass				29		0		300		2		0			0		0			0			0			5		unity		0
+NCpi0BDT_Np_overlay						pi0_mass				29		0		300		2		1			1		0			0			2			2		cv_spline	0
+NCpi0BDT_Np_ncpi0						pi0_mass				29		0		300		2		1			1		0			0			2			6		cv_spline	0
+NCpi0BDT_Np_dirt						pi0_mass				29		0		300		2		1			0		0.5			0			2			4		cv_spline	0
+NCpi0BDT_Np_ext							pi0_mass				29		0		300		2		0			0		0			0			4			3		unity		0
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+NCpi0BDT_0p_bnb							pi0_phi					24	  	-3.15	3.15	1		0			0		0			0			0			5		unity		0
+NCpi0BDT_0p_overlay						pi0_phi					24	  	-3.15	3.15	1		1			1		0			0			1			2		cv_spline	0
+NCpi0BDT_0p_ncpi0						pi0_phi					24	  	-3.15	3.15	1		1			1		0			0			1			6		cv_spline	0
+NCpi0BDT_0p_dirt						pi0_phi					24	  	-3.15	3.15	1		1			0		0.5			0			1			4		cv_spline	0
+NCpi0BDT_0p_ext							pi0_phi					24	  	-3.15	3.15	1		0			0		0			0			3			3		unity		0
+
+NCpi0BDT_Np_bnb							pi0_phi					24	  	-3.15	3.15	2		0			0		0			0			0			5		unity		0
+NCpi0BDT_Np_overlay						pi0_phi					24	  	-3.15	3.15	2		1			1		0			0			2			2		cv_spline	0
+NCpi0BDT_Np_ncpi0						pi0_phi					24	  	-3.15	3.15	2		1			1		0			0			2			6		cv_spline	0
+NCpi0BDT_Np_dirt						pi0_phi					24	  	-3.15	3.15	2		1			0		0.5			0			2			4		cv_spline	0
+NCpi0BDT_Np_ext							pi0_phi					24	  	-3.15	3.15	2		0			0		0			0			4			3		unity		0
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+NCpi0BDT_0p_bnb							nc_pio_score			20		1		6		1		0			0		0			0			0			5		unity		0
+NCpi0BDT_0p_overlay						nc_pio_score			20		1		6		1		1			1		0			0			1			2		cv_spline	0
+NCpi0BDT_0p_ncpi0						nc_pio_score			20		1		6		1		1			1		0			0			1			6		cv_spline	0
+NCpi0BDT_0p_dirt						nc_pio_score			20		1		6		1		1			0		0.5			0			1			4		cv_spline	0
+NCpi0BDT_0p_ext							nc_pio_score			20		1		6		1		0			0		0			0			3			3		unity		0
+
+NCpi0BDT_Np_bnb							nc_pio_score			20		1		6		2		0			0		0			0			0			5		unity		0
+NCpi0BDT_Np_overlay						nc_pio_score			20		1		6		2		1			1		0			0			2			2		cv_spline	0
+NCpi0BDT_Np_ncpi0						nc_pio_score			20		1		6		2		1			1		0			0			2			6		cv_spline	0
+NCpi0BDT_Np_dirt						nc_pio_score			20		1		6		2		1			0		0.5			0			2			4		cv_spline	0
+NCpi0BDT_Np_ext							nc_pio_score			20		1		6		2		0			0		0			0			4			3		unity		0
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+NCpi0BDT_0p_bnb							reco_nuvtxX				26		0		260		1		0			0		0			0			0			5		unity		0
+NCpi0BDT_0p_overlay						reco_nuvtxX				26		0		260		1		1			1		0			0			1			2		cv_spline	0
+NCpi0BDT_0p_ncpi0						reco_nuvtxX				26		0		260		1		1			1		0			0			1			6		cv_spline	0
+NCpi0BDT_0p_dirt						reco_nuvtxX				26		0		260		1		1			0		0.5			0			1			4		cv_spline	0
+NCpi0BDT_0p_ext							reco_nuvtxX				26		0		260		1		0			0		0			0			3			3		unity		0
+
+NCpi0BDT_Np_bnb							reco_nuvtxX				26		0		260		2		0			0		0			0			0			5		unity		0
+NCpi0BDT_Np_overlay						reco_nuvtxX				26		0		260		2		1			1		0			0			2			2		cv_spline	0
+NCpi0BDT_Np_ncpi0						reco_nuvtxX				26		0		260		2		1			1		0			0			2			6		cv_spline	0
+NCpi0BDT_Np_dirt						reco_nuvtxX				26		0		260		2		1			0		0.5			0			2			4		cv_spline	0
+NCpi0BDT_Np_ext							reco_nuvtxX				26		0		260		2		0			0		0			0			4			3		unity		0
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+NCpi0BDT_0p_bnb							reco_nuvtxY				26		-130	130		1		0			0		0			0			0			5		unity		0
+NCpi0BDT_0p_overlay						reco_nuvtxY				26		-130	130		1		1			1		0			0			1			2		cv_spline	0
+NCpi0BDT_0p_ncpi0						reco_nuvtxY				26		-130	130		1		1			1		0			0			1			6		cv_spline	0
+NCpi0BDT_0p_dirt						reco_nuvtxY				26		-130	130		1		1			0		0.5			0			1			4		cv_spline	0
+NCpi0BDT_0p_ext							reco_nuvtxY				26		-130	130		1		0			0		0			0			3			3		unity		0
+
+NCpi0BDT_Np_bnb							reco_nuvtxY				26		-130	130		2		0			0		0			0			0			5		unity		0
+NCpi0BDT_Np_overlay						reco_nuvtxY				26		-130	130		2		1			1		0			0			2			2		cv_spline	0
+NCpi0BDT_Np_ncpi0						reco_nuvtxY				26		-130	130		2		1			1		0			0			2			6		cv_spline	0
+NCpi0BDT_Np_dirt						reco_nuvtxY				26		-130	130		2		1			0		0.5			0			2			4		cv_spline	0
+NCpi0BDT_Np_ext							reco_nuvtxY				26		-130	130		2		0			0		0			0			4			3		unity		0
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+NCpi0BDT_0p_bnb							reco_nuvtxZ				32		0		1100		1		0			0		0			0			0			5		unity		0
+NCpi0BDT_0p_overlay						reco_nuvtxZ				32		0		1100		1		1			1		0			0			1			2		cv_spline	0
+NCpi0BDT_0p_ncpi0						reco_nuvtxZ				32		0		1100		1		1			1		0			0			1			6		cv_spline	0
+NCpi0BDT_0p_dirt						reco_nuvtxZ				32		0		1100		1		1			0		0.5			0			1			4		cv_spline	0
+NCpi0BDT_0p_ext							reco_nuvtxZ				32		0		1100		1		0			0		0			0			3			3		unity		0
+
+NCpi0BDT_Np_bnb							reco_nuvtxZ				32		0		1100		2		0			0		0			0			0			5		unity		0
+NCpi0BDT_Np_overlay						reco_nuvtxZ				32		0		1100		2		1			1		0			0			2			2		cv_spline	0
+NCpi0BDT_Np_ncpi0						reco_nuvtxZ				32		0		1100		2		1			1		0			0			2			6		cv_spline	0
+NCpi0BDT_Np_dirt						reco_nuvtxZ				32		0		1100		2		1			0		0.5			0			2			4		cv_spline	0
+NCpi0BDT_Np_ext							reco_nuvtxZ				32		0		1100		2		0			0		0			0			4			3		unity		0
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+NCpi0BDT_0p_bnb							visible_energy			20 	 	0		1500		1		0			0		0			0			0			5		unity		0
+NCpi0BDT_0p_overlay						visible_energy			20 	 	0		1500		1		1			1		0			0			1			2		cv_spline	0
+NCpi0BDT_0p_ncpi0						visible_energy			20 	 	0		1500		1		1			1		0			0			1			6		cv_spline	0
+NCpi0BDT_0p_dirt						visible_energy			20 	 	0		1500		1		1			0		0.5			0			1			4		cv_spline	0
+NCpi0BDT_0p_ext							visible_energy			20 	 	0		1500		1		0			0		0			0			3			3		unity		0
+
+NCpi0BDT_Np_bnb							visible_energy			20 	 	0		1500		2		0			0		0			0			0			5		unity		0
+NCpi0BDT_Np_overlay						visible_energy			20 	 	0		1500		2		1			1		0			0			2			2		cv_spline	0
+NCpi0BDT_Np_ncpi0						visible_energy			20 	 	0		1500		2		1			1		0			0			2			6		cv_spline	0
+NCpi0BDT_Np_dirt						visible_energy			20 	 	0		1500		2		1			0		0.5			0			2			4		cv_spline	0
+NCpi0BDT_Np_ext							visible_energy			20 	 	0		1500		2		0			0		0			0			4			3		unity		0
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+NCpi0BDT_0p_bnb							kine_pio_energy_high	24		0		600		1		0			0		0			0			0			5		unity		0
+NCpi0BDT_0p_overlay						kine_pio_energy_high	24		0		600		1		1			1		0			0			1			2		cv_spline	0
+NCpi0BDT_0p_ncpi0						kine_pio_energy_high	24		0		600		1		1			1		0			0			1			6		cv_spline	0
+NCpi0BDT_0p_dirt						kine_pio_energy_high	24		0		600		1		1			0		0.5			0			1			4		cv_spline	0
+NCpi0BDT_0p_ext							kine_pio_energy_high	24		0		600		1		0			0		0			0			3			3		unity		0
+
+NCpi0BDT_Np_bnb							kine_pio_energy_high	24		0		600		2		0			0		0			0			0			5		unity		0
+NCpi0BDT_Np_overlay						kine_pio_energy_high	24		0		600		2		1			1		0			0			2			2		cv_spline	0
+NCpi0BDT_Np_ncpi0						kine_pio_energy_high	24		0		600		2		1			1		0			0			2			6		cv_spline	0
+NCpi0BDT_Np_dirt						kine_pio_energy_high	24		0		600		2		1			0		0.5			0			2			4		cv_spline	0
+NCpi0BDT_Np_ext							kine_pio_energy_high	24		0		600		2		0			0		0			0			4			3		unity		0
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+NCpi0BDT_0p_bnb							kine_pio_gap_high		25		0		90		1		0			0		0			0			0			5		unity		0
+NCpi0BDT_0p_overlay						kine_pio_gap_high		25		0		90		1		1			1		0			0			1			2		cv_spline	0
+NCpi0BDT_0p_ncpi0						kine_pio_gap_high		25		0		90		1		1			1		0			0			1			6		cv_spline	0
+NCpi0BDT_0p_dirt						kine_pio_gap_high		25		0		90		1		1			0		0.5			0			1			4		cv_spline	0
+NCpi0BDT_0p_ext							kine_pio_gap_high		25		0		90		1		0			0		0			0			3			3		unity		0
+
+NCpi0BDT_Np_bnb							kine_pio_gap_high		25		0		90		2		0			0		0			0			0			5		unity		0
+NCpi0BDT_Np_overlay						kine_pio_gap_high		25		0		90		2		1			1		0			0			2			2		cv_spline	0
+NCpi0BDT_Np_ncpi0						kine_pio_gap_high		25		0		90		2		1			1		0			0			2			6		cv_spline	0
+NCpi0BDT_Np_dirt						kine_pio_gap_high		25		0		90		2		1			0		0.5			0			2			4		cv_spline	0
+NCpi0BDT_Np_ext							kine_pio_gap_high		25		0		90		2		0			0		0			0			4			3		unity		0
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+NCpi0BDT_0p_bnb							kine_pio_theta_high		24		0		180		1		0			0		0			0			0			5		unity		0
+NCpi0BDT_0p_overlay						kine_pio_theta_high		24		0		180		1		1			1		0			0			1			2		cv_spline	0
+NCpi0BDT_0p_ncpi0						kine_pio_theta_high		24		0		180		1		1			1		0			0			1			6		cv_spline	0
+NCpi0BDT_0p_dirt						kine_pio_theta_high		24		0		180		1		1			0		0.5			0			1			4		cv_spline	0
+NCpi0BDT_0p_ext							kine_pio_theta_high		24		0		180		1		0			0		0			0			3			3		unity		0
+
+NCpi0BDT_Np_bnb							kine_pio_theta_high		24		0		180		2		0			0		0			0			0			5		unity		0
+NCpi0BDT_Np_overlay						kine_pio_theta_high		24		0		180		2		1			1		0			0			2			2		cv_spline	0
+NCpi0BDT_Np_ncpi0						kine_pio_theta_high		24		0		180		2		1			1		0			0			2			6		cv_spline	0
+NCpi0BDT_Np_dirt						kine_pio_theta_high		24		0		180		2		1			0		0.5			0			2			4		cv_spline	0
+NCpi0BDT_Np_ext							kine_pio_theta_high		24		0		180		2		0			0		0			0			4			3		unity		0
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+NCpi0BDT_0p_bnb							kine_pio_phi_high		24		-3.15		3.15		1		0			0		0			0			0			5		unity		0
+NCpi0BDT_0p_overlay						kine_pio_phi_high		24		-3.15		3.15		1		1			1		0			0			1			2		cv_spline	0
+NCpi0BDT_0p_ncpi0						kine_pio_phi_high		24		-3.15		3.15		1		1			1		0			0			1			6		cv_spline	0
+NCpi0BDT_0p_dirt						kine_pio_phi_high		24		-3.15		3.15		1		1			0		0.5			0			1			4		cv_spline	0
+NCpi0BDT_0p_ext							kine_pio_phi_high		24		-3.15		3.15		1		0			0		0			0			3			3		unity		0
+
+NCpi0BDT_Np_bnb							kine_pio_phi_high		24		-3.15		3.15		2		0			0		0			0			0			5		unity		0
+NCpi0BDT_Np_overlay						kine_pio_phi_high		24		-3.15		3.15		2		1			1		0			0			2			2		cv_spline	0
+NCpi0BDT_Np_ncpi0						kine_pio_phi_high		24		-3.15		3.15		2		1			1		0			0			2			6		cv_spline	0
+NCpi0BDT_Np_dirt						kine_pio_phi_high		24		-3.15		3.15		2		1			0		0.5			0			2			4		cv_spline	0
+NCpi0BDT_Np_ext							kine_pio_phi_high		24		-3.15		3.15		2		0			0		0			0			4			3		unity		0
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+NCpi0BDT_0p_bnb							kine_pio_energy_low		16		0		400		1		0			0		0			0			0			5		unity		0
+NCpi0BDT_0p_overlay						kine_pio_energy_low		16		0		400		1		1			1		0			0			1			2		cv_spline	0
+NCpi0BDT_0p_ncpi0						kine_pio_energy_low		16		0		400		1		1			1		0			0			1			6		cv_spline	0
+NCpi0BDT_0p_dirt						kine_pio_energy_low		16		0		400		1		1			0		0.5			0			1			4		cv_spline	0
+NCpi0BDT_0p_ext							kine_pio_energy_low		16		0		400		1		0			0		0			0			3			3		unity		0
+
+NCpi0BDT_Np_bnb							kine_pio_energy_low		16		0		400		2		0			0		0			0			0			5		unity		0
+NCpi0BDT_Np_overlay						kine_pio_energy_low		16		0		400		2		1			1		0			0			2			2		cv_spline	0
+NCpi0BDT_Np_ncpi0						kine_pio_energy_low		16		0		400		2		1			1		0			0			2			6		cv_spline	0
+NCpi0BDT_Np_dirt						kine_pio_energy_low		16		0		400		2		1			0		0.5			0			2			4		cv_spline	0
+NCpi0BDT_Np_ext							kine_pio_energy_low		16		0		400		2		0			0		0			0			4			3		unity		0
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+NCpi0BDT_0p_bnb							kine_pio_gap_low		25		0		90		1		0			0		0			0			0			5		unity		0
+NCpi0BDT_0p_overlay						kine_pio_gap_low		25		0		90		1		1			1		0			0			1			2		cv_spline	0
+NCpi0BDT_0p_ncpi0						kine_pio_gap_low		25		0		90		1		1			1		0			0			1			6		cv_spline	0
+NCpi0BDT_0p_dirt						kine_pio_gap_low		25		0		90		1		1			0		0.5			0			1			4		cv_spline	0
+NCpi0BDT_0p_ext							kine_pio_gap_low		25		0		90		1		0			0		0			0			3			3		unity		0
+
+NCpi0BDT_Np_bnb							kine_pio_gap_low		25		0		90		2		0			0		0			0			0			5		unity		0
+NCpi0BDT_Np_overlay						kine_pio_gap_low		25		0		90		2		1			1		0			0			2			2		cv_spline	0
+NCpi0BDT_Np_ncpi0						kine_pio_gap_low		25		0		90		2		1			1		0			0			2			6		cv_spline	0
+NCpi0BDT_Np_dirt						kine_pio_gap_low		25		0		90		2		1			0		0.5			0			2			4		cv_spline	0
+NCpi0BDT_Np_ext							kine_pio_gap_low		25		0		90		2		0			0		0			0			4			3		unity		0
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+NCpi0BDT_0p_bnb							kine_pio_theta_low		24		0		180		1		0			0		0			0			0			5		unity		0
+NCpi0BDT_0p_overlay						kine_pio_theta_low		24		0		180		1		1			1		0			0			1			2		cv_spline	0
+NCpi0BDT_0p_ncpi0						kine_pio_theta_low		24		0		180		1		1			1		0			0			1			6		cv_spline	0
+NCpi0BDT_0p_dirt						kine_pio_theta_low		24		0		180		1		1			0		0.5			0			1			4		cv_spline	0
+NCpi0BDT_0p_ext							kine_pio_theta_low		24		0		180		1		0			0		0			0			3			3		unity		0
+
+NCpi0BDT_Np_bnb							kine_pio_theta_low		24		0		180		2		0			0		0			0			0			5		unity		0
+NCpi0BDT_Np_overlay						kine_pio_theta_low		24		0		180		2		1			1		0			0			2			2		cv_spline	0
+NCpi0BDT_Np_ncpi0						kine_pio_theta_low		24		0		180		2		1			1		0			0			2			6		cv_spline	0
+NCpi0BDT_Np_dirt						kine_pio_theta_low		24		0		180		2		1			0		0.5			0			2			4		cv_spline	0
+NCpi0BDT_Np_ext							kine_pio_theta_low		24		0		180		2		0			0		0			0			4			3		unity		0
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+NCpi0BDT_0p_bnb							kine_pio_phi_low		24		-3.15		3.15		1		0			0		0			0			0			5		unity		0
+NCpi0BDT_0p_overlay						kine_pio_phi_low		24		-3.15		3.15		1		1			1		0			0			1			2		cv_spline	0
+NCpi0BDT_0p_ncpi0						kine_pio_phi_low		24		-3.15		3.15		1		1			1		0			0			1			6		cv_spline	0
+NCpi0BDT_0p_dirt						kine_pio_phi_low		24		-3.15		3.15		1		1			0		0.5			0			1			4		cv_spline	0
+NCpi0BDT_0p_ext							kine_pio_phi_low		24		-3.15		3.15		1		0			0		0			0			3			3		unity		0
+
+NCpi0BDT_Np_bnb							kine_pio_phi_low		24		-3.15		3.15		2		0			0		0			0			0			5		unity		0
+NCpi0BDT_Np_overlay						kine_pio_phi_low		24		-3.15		3.15		2		1			1		0			0			2			2		cv_spline	0
+NCpi0BDT_Np_ncpi0						kine_pio_phi_low		24		-3.15		3.15		2		1			1		0			0			2			6		cv_spline	0
+NCpi0BDT_Np_dirt						kine_pio_phi_low		24		-3.15		3.15		2		1			0		0.5			0			2			4		cv_spline	0
+NCpi0BDT_Np_ext							kine_pio_phi_low		24		-3.15		3.15		2		0			0		0			0			4			3		unity		0
+
+
+
+
+
+
+
+
+
+// Generic selection Plots: 
+
+------------------------------------------------------------
+
+generic_bnb								nc_pio_score			60 	 	-10		6 		1 		0 			0 		0 			0 			0 			5 		unity 		0					
+generic_overlay							nc_pio_score			60 	 	-10		6 		1 		1			1 		0.05 		0 			1 			2 		cv_spline 	0					
+generic_dirt							nc_pio_score			60 	 	-10		6 		1 		1			0 		0 			0 			1 			4 		cv_spline 	0					
+generic_ext								nc_pio_score			60 	 	-10		6 		1 		0 			0 		0 			0 			3 			3 		unity 		0					
+
+generic1_bnb							visible_energy			20 	 	0		1500 	2 		0 			0 		0 			0 			0 			5 		unity 		0					
+generic1_overlay						visible_energy			20 	 	0		1500 	2 		1			1 		0.05 		0 			2 			2 		cv_spline 	0					
+generic1_dirt							visible_energy			20 	 	0		1500 	2 		1			0 		0 			0 			2 			4 		cv_spline 	0					
+generic1_ext							visible_energy			20 	 	0		1500 	2		0 			0 		0 			0 			4 			3 		unity 		0	
+
+------------------------------------------------------------
+
+generic_FC_bnb							nc_pio_score			60 	 	-10		6 		1 		0 			0 		0 			0 			0 			5 		unity 		0					
+generic_FC_overlay						nc_pio_score			60 	 	-10		6 		1 		1			1 		0.1 		0 			1 			2 		cv_spline 	0					
+generic_FC_dirt							nc_pio_score			60 	 	-10		6 		1 		1			0 		0 			0 			1 			4 		cv_spline 	0					
+generic_FC_ext							nc_pio_score			60 	 	-10		6 		1 		0 			0 		0 			0 			2 			3 		unity 		0					
+
+------------------------------------------------------------
+
+generic_PC_bnb							nc_pio_score			60 	 	-10		6 		1 		0 			0 		0 			0 			0 			5 		unity 		0					
+generic_PC_overlay						nc_pio_score			60 	 	-10		6 		1 		1			1 		0.1 		0 			1 			2 		cv_spline 	0					
+generic_PC_dirt							nc_pio_score			60 	 	-10		6 		1 		1			0 		0 			0 			1 			4 		cv_spline 	0					
+generic_PC_ext							nc_pio_score			60 	 	-10		6 		1 		0 			0 		0 			0 			2 			3 		unity 		0					
+
+------------------------------------------------------------
+
+generic_bnb								kine_pio_energy_high	18 		0		600		1		0			0		0			0			0			5		unity		0
+generic_overlay							kine_pio_energy_high	18 		0		600		1		1			1		0			0			1			2		cv_spline	0
+generic_dirt							kine_pio_energy_high	18 		0		600		1		1			0		0.5			0			1			4		cv_spline	0
+generic_ext								kine_pio_energy_high	18 		0		600		1		0			0		0			0			2			3		unity		0
+
+------------------------------------------------------------
+
+generic_bnb								kine_pio_energy_low		18 		0		600		1		0			0		0			0			0			5		unity		0
+generic_overlay							kine_pio_energy_low		18 		0		600		1		1			1		0			0			1			2		cv_spline	0
+generic_dirt							kine_pio_energy_low		18 		0		600		1		1			0		0.5			0			1			4		cv_spline	0
+generic_ext								kine_pio_energy_low		18 		0		600		1		0			0		0			0			2			3		unity		0
+
+------------------------------------------------------------
+
+generic_bnb								kine_pio_gap_high		18 		0		180		1		0			0		0			0			0			5		unity		0
+generic_overlay							kine_pio_gap_high		18 		0		180		1		1			1		0			0			1			2		cv_spline	0
+generic_dirt							kine_pio_gap_high		18 		0		180		1		1			0		0.5			0			1			4		cv_spline	0
+generic_ext								kine_pio_gap_high		18 		0		180		1		0			0		0			0			2			3		unity		0
+
+------------------------------------------------------------
+
+generic_bnb								kine_pio_gap_low		18 		0		180		1		0			0		0			0			0			5		unity		0
+generic_overlay							kine_pio_gap_low		18 		0		180		1		1			1		0			0			1			2		cv_spline	0
+generic_dirt							kine_pio_gap_low		18 		0		180		1		1			0		0.5			0			1			4		cv_spline	0
+generic_ext								kine_pio_gap_low		18 		0		180		1		0			0		0			0			2			3		unity		0
+
+
+// NCpi0BDT selection Plots: 
+
+------------------------------------------------------------
+
+NCpi0BDT_bnb							nc_pio_score			20		1		6		1		0			0		0			0			0			5		unity		0
+NCpi0BDT_overlay						nc_pio_score			20		1		6		1		1			1		0			0			1			2		cv_spline	0
+NCpi0BDT_dirt							nc_pio_score			20		1		6		1		1			0		0.5			0			1			4		cv_spline	0
+NCpi0BDT_ext							nc_pio_score			20		1		6		1		0			0		0			0			2			3		unity		0
+
+------------------------------------------------------------
+
+NCpi0BDT_FC_bnb							nc_pio_score			20		1		6		1		0			0		0			0			0			5		unity		0
+NCpi0BDT_FC_overlay						nc_pio_score			20		1		6		1		1			1		0			0			1			2		cv_spline	0
+NCpi0BDT_FC_dirt						nc_pio_score			20		1		6		1		1			0		0.5			0			1			4		cv_spline	0
+NCpi0BDT_FC_ext							nc_pio_score			20		1		6		1		0			0		0			0			3			3		unity		0
+
+NCpi0BDT_PC_bnb							nc_pio_score			20		1		6		2		0			0		0			0			0			5		unity		0
+NCpi0BDT_PC_overlay						nc_pio_score			20		1		6		2		1			1		0			0			2			2		cv_spline	0
+NCpi0BDT_PC_dirt						nc_pio_score			20		1		6		2		1			0		0.5			0			2			4		cv_spline	0
+NCpi0BDT_PC_ext							nc_pio_score			20		1		6		2		0			0		0			0			4			3		unity		0
+
+------------------------------------------------------------
+
+NCpi0BDT_bnb							corrected_visible_energy	20		0		1500	1		0			0		0			0			0			5		unity		0
+NCpi0BDT_overlay						corrected_visible_energy	20		0		1500	1		1			1		0			0			1			2		cv_spline	0
+NCpi0BDT_dirt							corrected_visible_energy	20		0		1500	1		1			0		0.5			0			1			4		cv_spline	0
+NCpi0BDT_ext							corrected_visible_energy	20		0		1500	1		0			0		0			0			2			3		unity		0
+
+------------------------------------------------------------
+
+NCpi0BDT_bnb							pi0_momentum			25		0		1500	1		0			0		0			0			0			5		unity		0
+NCpi0BDT_overlay						pi0_momentum			25		0		1500	1		1			1		0			0			1			2		cv_spline	0
+NCpi0BDT_dirt							pi0_momentum			25		0		1500	1		1			0		0.5			0			1			4		cv_spline	0
+NCpi0BDT_ext							pi0_momentum			25		0		1500	1		0			0		0			0			2			3		unity		0
+
+------------------------------------------------------------
+
+NCpi0BDT_bnb							pi0_costheta			25		-1		1		1 		0			0		0			0			0			5		unity		0
+NCpi0BDT_overlay						pi0_costheta			25		-1		1		1 		1			1		0			0			1			2		cv_spline	0
+NCpi0BDT_dirt							pi0_costheta			25		-1		1		1 		1			0		0.5			0			1			4		cv_spline	0
+NCpi0BDT_ext							pi0_costheta			25		-1		1		1 		0			0		0			0			2			3		unity		0
+
+------------------------------------------------------------
+
+NCpi0BDT_bnb							pi0_mass				29		0		300	 	1 		0			0		0			0			0			5		unity		0
+NCpi0BDT_overlay						pi0_mass				29		0		300	 	1 		1			1		0			0			1			2		cv_spline	0
+NCpi0BDT_dirt							pi0_mass				29		0		300	 	1 		1			0		0.5			0			1			4		cv_spline	0
+NCpi0BDT_ext							pi0_mass				29		0		300	 	1 		0			0		0			0			2			3		unity		0
+
+------------------------------------------------------------
+
+NCpi0BDT_bnb							kine_pio_costheta_high	24		0		180		1		0			0		0			0			0			5		unity		0
+NCpi0BDT_overlay						kine_pio_costheta_high	24		0		180		1		1			1		0			0			1			2		cv_spline	0
+NCpi0BDT_dirt							kine_pio_costheta_high	24		0		180		1		1			0		0.5			0			1			4		cv_spline	0
+NCpi0BDT_ext							kine_pio_costheta_high	24		0		180		1		0			0		0			0			3			3		unity		0
+
+NCpi0BDT1_bnb							kine_pio_costheta_low	24		0		180		2		0			0		0			0			0			5		unity		0
+NCpi0BDT1_overlay						kine_pio_costheta_low	24		0		180		2		1			1		0			0			2			2		cv_spline	0
+NCpi0BDT1_dirt							kine_pio_costheta_low	24		0		180		2		1			0		0.5			0			2			4		cv_spline	0
+NCpi0BDT1_ext							kine_pio_costheta_low	24		0		180		2		0			0		0			0			4			3		unity		0
+
+------------------------------------------------------------
+
+NCpi0BDT_bnb							kine_pio_energy_high	24		0		600		1		0			0		0			0			0			5		unity		0
+NCpi0BDT_overlay						kine_pio_energy_high	24		0		600		1		1			1		0			0			1			2		cv_spline	0
+NCpi0BDT_dirt							kine_pio_energy_high	24		0		600		1		1			0		0.5			0			1			4		cv_spline	0
+NCpi0BDT_ext							kine_pio_energy_high	24		0		600		1		0			0		0			0			3			3		unity		0
+
+NCpi0BDT1_bnb							kine_pio_energy_low		16		0		400		2		0			0		0			0			0			5		unity		0
+NCpi0BDT1_overlay						kine_pio_energy_low		16		0		400		2		1			1		0			0			2			2		cv_spline	0
+NCpi0BDT1_dirt							kine_pio_energy_low		16		0		400		2		1			0		0.5			0			2			4		cv_spline	0
+NCpi0BDT1_ext							kine_pio_energy_low		16		0		400		2		0			0		0			0			4			3		unity		0
+
+------------------------------------------------------------
+
+NCpi0BDT_bnb							kine_pio_gap_high		18		0		90		1		0			0		0			0			0			5		unity		0
+NCpi0BDT_overlay						kine_pio_gap_high		18		0		90		1		1			1		0			0			1			2		cv_spline	0
+NCpi0BDT_dirt							kine_pio_gap_high		18		0		90		1		1			0		0.5			0			1			4		cv_spline	0
+NCpi0BDT_ext							kine_pio_gap_high		18		0		90		1		0			0		0			0			3			3		unity		0
+
+NCpi0BDT1_bnb							kine_pio_gap_low		18		0		90		2		0			0		0			0			0			5		unity		0
+NCpi0BDT1_overlay						kine_pio_gap_low		18		0		90		2		1			1		0			0			2			2		cv_spline	0
+NCpi0BDT1_dirt							kine_pio_gap_low		18		0		90		2		1			0		0.5			0			2			4		cv_spline	0
+NCpi0BDT1_ext							kine_pio_gap_low		18		0		90		2		0			0		0			0			4			3		unity		0
+
+------------------------------------------------------------
+------------------------------------------------------------
+
+NCpi0BDT_0p_bnb							pi0_costheta			1		-1		1		1 		0			0		0			0			0			5		unity		0
+NCpi0BDT_0p_overlay						pi0_costheta			1		-1		1		1 		1			1		0			0			1			2		cv_spline	0
+NCpi0BDT_0p_dirt						pi0_costheta			1		-1		1		1 		1			0		0.5			0			1			4		cv_spline	0
+NCpi0BDT_0p_ext							pi0_costheta			1		-1		1		1 		0			0		0			0			3			3		unity		0
+
+NCpi0BDT_Np_bnb							pi0_costheta			1		-1		1		2 		0			0		0			0			0			5		unity		0
+NCpi0BDT_Np_overlay						pi0_costheta			1		-1		1		2 		1			1		0			0			2			2		cv_spline	0
+NCpi0BDT_Np_dirt						pi0_costheta			1		-1		1		2 		1			0		0.5			0			2			4		cv_spline	0
+NCpi0BDT_Np_ext							pi0_costheta			1		-1		1		2 		0			0		0			0			4			3		unity		0
+
+------------------------------------------------------------
+
+NCpi0BDT_0p_bnb							corrected_visible_energy	20		0		1500	1		0			0		0			0			0			5		unity		0
+NCpi0BDT_0p_overlay						corrected_visible_energy	20		0		1500	1		1			1		0			0			1			2		cv_spline	0
+NCpi0BDT_0p_dirt						corrected_visible_energy	20		0		1500	1		1			0		0.5			0			1			4		cv_spline	0
+NCpi0BDT_0p_ext							corrected_visible_energy	20		0		1500	1		0			0		0			0			3			3		unity		0
+
+NCpi0BDT_Np_bnb							corrected_visible_energy	20		0		1500	2 		0			0		0			0			0			5		unity		0
+NCpi0BDT_Np_overlay						corrected_visible_energy	20		0		1500	2 		1			1		0			0			2			2		cv_spline	0
+NCpi0BDT_Np_dirt						corrected_visible_energy	20		0		1500	2 		1			0		0.5			0			2			4		cv_spline	0
+NCpi0BDT_Np_ext							corrected_visible_energy	20		0		1500	2 		0			0		0			0			4			3		unity		0
+
+------------------------------------------------------------
+
+NCpi0BDT_0p_bnb							pi0_momentum			25		0		1500	1		0			0		0			0			0			5		unity		0
+NCpi0BDT_0p_overlay						pi0_momentum			25		0		1500	1		1			1		0			0			1			2		cv_spline	0
+NCpi0BDT_0p_dirt						pi0_momentum			25		0		1500	1		1			0		0.5			0			1			4		cv_spline	0
+NCpi0BDT_0p_ext							pi0_momentum			25		0		1500	1		0			0		0			0			3			3		unity		0
+
+NCpi0BDT_Np_bnb							pi0_momentum			25		0		1500	2 		0			0		0			0			0			5		unity		0
+NCpi0BDT_Np_overlay						pi0_momentum			25		0		1500	2 		1			1		0			0			2			2		cv_spline	0
+NCpi0BDT_Np_dirt						pi0_momentum			25		0		1500	2 		1			0		0.5			0			2			4		cv_spline	0
+NCpi0BDT_Np_ext							pi0_momentum			25		0		1500	2 		0			0		0			0			4			3		unity		0
+
+------------------------------------------------------------
+
+NCpi0BDT_0p_bnb							pi0_costheta			25		-1		1		1		0			0		0			0			0			5		unity		0
+NCpi0BDT_0p_overlay						pi0_costheta			25		-1		1		1		1			1		0			0			1			2		cv_spline	0
+NCpi0BDT_0p_dirt						pi0_costheta			25		-1		1		1		1			0		0.5			0			1			4		cv_spline	0
+NCpi0BDT_0p_ext							pi0_costheta			25		-1		1		1		0			0		0			0			3			3		unity		0
+
+NCpi0BDT_Np_bnb							pi0_costheta			25		-1		1		2 		0			0		0			0			0			5		unity		0
+NCpi0BDT_Np_overlay						pi0_costheta			25		-1		1		2 		1			1		0			0			2			2		cv_spline	0
+NCpi0BDT_Np_dirt						pi0_costheta			25		-1		1		2 		1			0		0.5			0			2			4		cv_spline	0
+NCpi0BDT_Np_ext							pi0_costheta			25		-1		1		2 		0			0		0			0			4			3		unity		0
+
+------------------------------------------------------------
+
+NCpi0BDT_0p_bnb							pi0_mass				29		0		300		1		0			0		0			0			0			5		unity		0
+NCpi0BDT_0p_overlay						pi0_mass				29		0		300		1		1			1		0			0			1			2		cv_spline	0
+NCpi0BDT_0p_dirt						pi0_mass				29		0		300		1		1			0		0.5			0			1			4		cv_spline	0
+NCpi0BDT_0p_ext							pi0_mass				29		0		300		1		0			0		0			0			3			3		unity		0
+
+NCpi0BDT_Np_bnb							pi0_mass				29		0		300		2 		0			0		0			0			0			5		unity		0
+NCpi0BDT_Np_overlay						pi0_mass				29		0		300		2 		1			1		0			0			2			2		cv_spline	0
+NCpi0BDT_Np_dirt						pi0_mass				29		0		300		2 		1			0		0.5			0			2			4		cv_spline	0
+NCpi0BDT_Np_ext							pi0_mass				29		0		300		2 		0			0		0			0			4			3		unity		0
+
+------------------------------------------------------------
+
+NCpi0BDT_0p_bnb							kine_pio_costheta_high	24		0		180		1		0			0		0			0			0			5		unity		0
+NCpi0BDT_0p_overlay						kine_pio_costheta_high	24		0		180		1		1			1		0			0			1			2		cv_spline	0
+NCpi0BDT_0p_dirt						kine_pio_costheta_high	24		0		180		1		1			0		0.5			0			1			4		cv_spline	0
+NCpi0BDT_0p_ext							kine_pio_costheta_high	24		0		180		1		0			0		0			0			3			3		unity		0
+
+NCpi0BDT_Np_bnb							kine_pio_costheta_high	24		0		180		2		0			0		0			0			0			5		unity		0
+NCpi0BDT_Np_overlay						kine_pio_costheta_high	24		0		180		2		1			1		0			0			2			2		cv_spline	0
+NCpi0BDT_Np_dirt						kine_pio_costheta_high	24		0		180		2		1			0		0.5			0			2			4		cv_spline	0
+NCpi0BDT_Np_ext							kine_pio_costheta_high	24		0		180		2		0			0		0			0			4			3		unity		0
+
+------------------------------------------------------------
+
+NCpi0BDT_0p_bnb							kine_pio_costheta_low	24		0		180		1		0			0		0			0			0			5		unity		0
+NCpi0BDT_0p_overlay						kine_pio_costheta_low	24		0		180		1		1			1		0			0			1			2		cv_spline	0
+NCpi0BDT_0p_dirt						kine_pio_costheta_low	24		0		180		1		1			0		0.5			0			1			4		cv_spline	0
+NCpi0BDT_0p_ext							kine_pio_costheta_low	24		0		180		1		0			0		0			0			3			3		unity		0
+
+NCpi0BDT_Np_bnb							kine_pio_costheta_low	24		0		180		2		0			0		0			0			0			5		unity		0
+NCpi0BDT_Np_overlay						kine_pio_costheta_low	24		0		180		2		1			1		0			0			2			2		cv_spline	0
+NCpi0BDT_Np_dirt						kine_pio_costheta_low	24		0		180		2		1			0		0.5			0			2			4		cv_spline	0
+NCpi0BDT_Np_ext							kine_pio_costheta_low	24		0		180		2		0			0		0			0			4			3		unity		0
+
+------------------------------------------------------------
+
+NCpi0BDT_0p_bnb							kine_pio_energy_high	24		0		600		1		0			0		0			0			0			5		unity		0
+NCpi0BDT_0p_overlay						kine_pio_energy_high	24		0		600		1		1			1		0			0			1			2		cv_spline	0
+NCpi0BDT_0p_dirt						kine_pio_energy_high	24		0		600		1		1			0		0.5			0			1			4		cv_spline	0
+NCpi0BDT_0p_ext							kine_pio_energy_high	24		0		600		1		0			0		0			0			3			3		unity		0
+
+NCpi0BDT_Np_bnb							kine_pio_energy_high	24		0		600		2		0			0		0			0			0			5		unity		0
+NCpi0BDT_Np_overlay						kine_pio_energy_high	24		0		600		2		1			1		0			0			2			2		cv_spline	0
+NCpi0BDT_Np_dirt						kine_pio_energy_high	24		0		600		2		1			0		0.5			0			2			4		cv_spline	0
+NCpi0BDT_Np_ext							kine_pio_energy_high	24		0		600		2		0			0		0			0			4			3		unity		0
+
+------------------------------------------------------------
+
+NCpi0BDT_0p_bnb							kine_pio_energy_low		16		0		400		1		0			0		0			0			0			5		unity		0
+NCpi0BDT_0p_overlay						kine_pio_energy_low		16		0		400		1		1			1		0			0			1			2		cv_spline	0
+NCpi0BDT_0p_dirt						kine_pio_energy_low		16		0		400		1		1			0		0.5			0			1			4		cv_spline	0
+NCpi0BDT_0p_ext							kine_pio_energy_low		16		0		400		1		0			0		0			0			3			3		unity		0
+
+NCpi0BDT_Np_bnb							kine_pio_energy_low		16		0		400		2		0			0		0			0			0			5		unity		0
+NCpi0BDT_Np_overlay						kine_pio_energy_low		16		0		400		2		1			1		0			0			2			2		cv_spline	0
+NCpi0BDT_Np_dirt						kine_pio_energy_low		16		0		400		2		1			0		0.5			0			2			4		cv_spline	0
+NCpi0BDT_Np_ext							kine_pio_energy_low		16		0		400		2		0			0		0			0			4			3		unity		0
+
+------------------------------------------------------------
+
+NCpi0BDT_0p_bnb							kine_pio_gap_high		18		0		90		1		0			0		0			0			0			5		unity		0
+NCpi0BDT_0p_overlay						kine_pio_gap_high		18		0		90		1		1			1		0			0			1			2		cv_spline	0
+NCpi0BDT_0p_dirt						kine_pio_gap_high		18		0		90		1		1			0		0.5			0			1			4		cv_spline	0
+NCpi0BDT_0p_ext							kine_pio_gap_high		18		0		90		1		0			0		0			0			3			3		unity		0
+
+NCpi0BDT_Np_bnb							kine_pio_gap_high		18		0		90		2		0			0		0			0			0			5		unity		0
+NCpi0BDT_Np_overlay						kine_pio_gap_high		18		0		90		2		1			1		0			0			2			2		cv_spline	0
+NCpi0BDT_Np_dirt						kine_pio_gap_high		18		0		90		2		1			0		0.5			0			2			4		cv_spline	0
+NCpi0BDT_Np_ext							kine_pio_gap_high		18		0		90		2		0			0		0			0			4			3		unity		0
+
+------------------------------------------------------------
+
+NCpi0BDT_0p_bnb							kine_pio_gap_low		18		0		90		1		0			0		0			0			0			5		unity		0
+NCpi0BDT_0p_overlay						kine_pio_gap_low		18		0		90		1		1			1		0			0			1			2		cv_spline	0
+NCpi0BDT_0p_dirt						kine_pio_gap_low		18		0		90		1		1			0		0.5			0			1			4		cv_spline	0
+NCpi0BDT_0p_ext							kine_pio_gap_low		18		0		90		1		0			0		0			0			3			3		unity		0
+
+NCpi0BDT_Np_bnb							kine_pio_gap_low		18		0		90		2		0			0		0			0			0			5		unity		0
+NCpi0BDT_Np_overlay						kine_pio_gap_low		18		0		90		2		1			1		0			0			2			2		cv_spline	0
+NCpi0BDT_Np_dirt						kine_pio_gap_low		18		0		90		2		1			0		0.5			0			2			4		cv_spline	0
+NCpi0BDT_Np_ext							kine_pio_gap_low		18		0		90		2		0			0		0			0			4			3		unity		0
+
+
+
+
+
+
+
+
+------------------------------------------------------------
+
+------------------------------------------------------------
+
+------------------------------------------------------------
+
+------------------------------------------------------------
+
+------------------------------------------------------------
+
+------------------------------------------------------------
+
+------------------------------------------------------------
+
+------------------------------------------------------------
+
+------------------------------------------------------------
+
+------------------------------------------------------------
+
+------------------------------------------------------------
+
+------------------------------------------------------------
+
+------------------------------------------------------------
+
+------------------------------------------------------------
+
+------------------------------------------------------------
+
+------------------------------------------------------------
+
+------------------------------------------------------------
+
+------------------------------------------------------------
+
+------------------------------------------------------------
+
+------------------------------------------------------------
+
+------------------------------------------------------------
+
+------------------------------------------------------------
+
+------------------------------------------------------------
+
+------------------------------------------------------------
+
+------------------------------------------------------------
+
+------------------------------------------------------------
+
+------------------------------------------------------------
+
+------------------------------------------------------------
+
+------------------------------------------------------------
+
+------------------------------------------------------------
+
+------------------------------------------------------------
+
+------------------------------------------------------------
+
+------------------------------------------------------------
+
+------------------------------------------------------------
+
+------------------------------------------------------------
+
+
+
+
+
+
+
+
+// Constraint Non-pi0 Energy
+
+NCpi0BDT_FC_bnb							pi0_momentum			25		0		1500	1		0			0		0			0			0			5		unity		0
+NCpi0BDT_FC_overlay						pi0_momentum			25		0		1500	1		1			1		0			0			1			2		cv_spline	0
+NCpi0BDT_FC_dirt						pi0_momentum			25		0		1500	1		1			0		0.5			0			1			4		cv_spline	0
+NCpi0BDT_FC_ext							pi0_momentum			25		0		1500	1		0			0		0			0			4			3		unity		0
+
+NCpi0BDT1_FC_bnb						pi0_costheta			20		-1		1		2		0			0		0			0			0			5		unity		0
+NCpi0BDT1_FC_overlay					pi0_costheta			20		-1		1		2		1			1		0			0			2			2		cv_spline	0
+NCpi0BDT1_FC_dirt						pi0_costheta			20		-1		1		2		1			0		0.5			0			2			4		cv_spline	0
+NCpi0BDT1_FC_ext						pi0_costheta			20		-1		1		2		0			0		0			0			5			3		unity		0
+
+NCpi0BDT2_FC_bnb						pi0_total_energy		20		0		1000	3		0			0		0			0			0			5		unity		0
+NCpi0BDT2_FC_overlay					pi0_total_energy		20		0		1000	3		1			1		0			0			3			2		cv_spline	0
+NCpi0BDT2_FC_dirt						pi0_total_energy		20		0		1000	3		1			0		0.5			0			3			4		cv_spline	0
+NCpi0BDT2_FC_ext						pi0_total_energy		20		0		1000	3		0			0		0			0			6			3		unity		0
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -6,6 +6,8 @@ system("mkdir ./mcstat");
 
 system("rm ./DetVar/*.root");
 system("rm ./XsFlux/*.root");
+system("rm values.txt");
+system("rm values_unfolded.txt");
 
 system("rm ./hist_rootfiles_xs/*.root");
 

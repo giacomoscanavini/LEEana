@@ -14,6 +14,7 @@ void plot_diff_xs_Ppi0_Nbin(){
 
   double xbins[] = {0., 0.1, 0.15, 0.2, 0.25, 0.3, 0.4, 0.5, 0.6, 0.8, 1.0, 1.5};  // Bin separators - GeV
   double NUCLEONS = 40.;
+  //double NUCLEONS = 1.;
   double XS_FACTOR = 1000.;  // Cross section is in terms of 10e-36 cm^2/Ar if XS_FACTOR == 1., otherwise change axis
                                       // 1e-38 cm^2/Ar if XS_FACTOR == 100.
                                       // 1e-39 cm^2/Ar if XS_FACTOR == 1000.
@@ -89,6 +90,13 @@ void plot_diff_xs_Ppi0_Nbin(){
   double vec_CV[m];
   double vec_CV_untouched[m];
 
+  double vec_err_stat[m];
+  double vec_err_mcstat[m];
+  double vec_err_dirt[m];
+  double vec_err_flux[m];
+  double vec_err_det[m];
+  double vec_err_xs[m];
+
   std::cout << "\nFractional Uncertainties -------------------------------------------- " << std::endl;
   for (int i=0;i<m;i++) {
     std::cout << "--- BIN " << i+1 << "(/" << m <<") --------- " << std::endl;
@@ -135,6 +143,13 @@ void plot_diff_xs_Ppi0_Nbin(){
     std::cout << "Err_syst = " << abs_syst << "(" << 100.*frac_syst << "%)" << std::endl;
     std::cout << "Err_stat_syst = " << abs_stat_syst << "(" << 100.*frac_stat_syst << "%)" << std::endl;
 
+    vec_err_stat[i] = 100.*frac_stat;
+    vec_err_mcstat[i] = 100.*frac_mcstat;
+    vec_err_dirt[i] = 100.*frac_add;
+    vec_err_flux[i] = 100.*frac_flux;
+    vec_err_det[i] = 100.*frac_det;
+    vec_err_xs[i] = 100.*frac_xs;
+
     herr_frac_stat->SetBinContent(i+1,  frac_stat);
     herr_frac_mcstat->SetBinContent(i+1,frac_mcstat);
     herr_frac_add->SetBinContent(i+1,   frac_add);
@@ -150,6 +165,48 @@ void plot_diff_xs_Ppi0_Nbin(){
     vec_CV_untouched[i] = unf->GetBinContent(i+1);
   }
   std::cout << "--------------------- THE END ----------------------- \n" << std::endl;
+
+  std::cout << "err_stat = ["; 
+  for (int i=0; i<m; i++){
+    if (i==0) std::cout << vec_err_stat[i];
+    else std::cout << ", " << vec_err_stat[i];
+  }
+  std::cout << "]" << std::endl;
+
+  std::cout << "err_mcstat = ["; 
+  for (int i=0; i<m; i++){
+    if (i==0) std::cout << vec_err_mcstat[i];
+    else std::cout << ", " << vec_err_mcstat[i];
+  }
+  std::cout << "]" << std::endl;
+
+  std::cout << "err_dirt = ["; 
+  for (int i=0; i<m; i++){
+    if (i==0) std::cout << vec_err_dirt[i];
+    else std::cout << ", " << vec_err_dirt[i];
+  }
+  std::cout << "]" << std::endl;
+
+  std::cout << "err_flux = ["; 
+  for (int i=0; i<m; i++){
+    if (i==0) std::cout << vec_err_flux[i];
+    else std::cout << ", " << vec_err_flux[i];
+  }
+  std::cout << "]" << std::endl;
+
+  std::cout << "err_det = ["; 
+  for (int i=0; i<m; i++){
+    if (i==0) std::cout << vec_err_det[i];
+    else std::cout << ", " << vec_err_det[i];
+  }
+  std::cout << "]" << std::endl;
+
+  std::cout << "err_xs = ["; 
+  for (int i=0; i<m; i++){
+    if (i==0) std::cout << vec_err_xs[i];
+    else std::cout << ", " << vec_err_xs[i];
+  }
+  std::cout << "]" << std::endl;
 
   // Print info for plots happens at the end
 
@@ -210,9 +267,6 @@ void plot_diff_xs_Ppi0_Nbin(){
   //////////////////////////////////////////////////////////////////////////////////////////////////////
   // Extract unfolded results
   //////////////////////////////////////////////////////////////////////////////////////////////////////
-  auto c2 = new TCanvas("c2","c2",800,600);
-  c2->cd();
-
   std::cout << "\nCross Section -------------------------------------------- " << std::endl;
   auto uBxsec = TFile::Open("output.root");
   auto unfold   = (TH1D*)uBxsec->Get("unf");
@@ -254,6 +308,7 @@ void plot_diff_xs_Ppi0_Nbin(){
     eyh_tot_v.push_back(ey_tot);
   }
 
+  /*
   auto gr_tot = new TGraphAsymmErrors(x_v.size(), x_v.data(), y_v.data(), exl_v.data(), exh_v.data(), eyl_tot_v.data(), eyh_tot_v.data());
   gr_tot->SetMarkerColor(6);
   //gr_tot->SetMarkerStyle(1);
@@ -292,7 +347,7 @@ void plot_diff_xs_Ppi0_Nbin(){
   gr_stat->SetLineWidth(2);
   gr_stat->SetLineColor(1);
   gr_stat->Draw("PSame");
-
+  */
   ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
   // CROSS SECTION WITH MC TRUTH CV (no smearing)
   ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -323,13 +378,13 @@ void plot_diff_xs_Ppi0_Nbin(){
   }
   
   // plot CV GENIE
-  TH1D *h_genie = new TH1D("h_genie", "", nbins, xbins);
-  for (int i=0; i<nbins; i++){
-    h_genie->SetBinContent(i+1, y3[i]);
-  }
-  h_genie->SetLineColor(14);
-  h_genie->SetLineWidth(2);
-  h_genie->Draw("Same");
+  //TH1D *h_genie = new TH1D("h_genie", "", nbins, xbins);
+  //for (int i=0; i<nbins; i++){
+  //  h_genie->SetBinContent(i+1, y3[i]);
+  //}
+  //h_genie->SetLineColor(14);
+  //h_genie->SetLineWidth(2);
+  //h_genie->Draw("Same");
 
   
   // GOF (model+real bin+Ac vs. data)
@@ -363,131 +418,47 @@ void plot_diff_xs_Ppi0_Nbin(){
   //double chi2_m3 = calc_GoF(matrix_pred3, matrix_data, unfcov);
   double chi2_m3 = calc_GoF(matrix_pred3_untouched, matrix_data_untouched, unfcov_untouched);
 
-
-  //////////////////////////////////////////////////////////////////////////////////////////////////////
-  // Additional Plots
-  //////////////////////////////////////////////////////////////////////////////////////////////////////
-/*
-  //---- Ppi0 opendata (0-1.5) GeV/c with (0.275-8) GeV
-  double x_stat_open[] = {0.05, 0.125, 0.175, 0.225, 0.275, 0.35, 0.45, 0.55, 0.7, 0.9, 1.25};
-  double y_stat_open[] = {0.433179, 0.888031, 0.923733, 0.792518, 0.665168, 0.553307, 0.392932, 0.2277, 0.120219, 0.0574528, 0.0273173};
-  double ex_stat_open[] = {0.05, 0.025, 0.025, 0.025, 0.025, 0.05, 0.05, 0.05, 0.1, 0.1, 0.25};
-  double ey_stat_open[] = {0.109549, 0.203124, 0.177369, 0.126622, 0.0974385, 0.084009, 0.0680652, 0.0520494, 0.0418076, 0.0300832, 0.0184502};
-  double ey_tot_open[] = {0.137486, 0.258227, 0.231241, 0.169725, 0.132332, 0.113357, 0.0907848, 0.0687316, 0.054523, 0.0387996, 0.0236915};
-  //auto g_tot_open = new TGraphAsymmErrors(1, x_stat_open, y_stat_open, ex_stat_open, ex_stat_open, ey_tot_open, ey_tot_open);
-  //g_tot_open->Draw("same");
-  //auto g_stat_open = new TGraphAsymmErrors(1, x_stat_open, y_stat_open, ex_stat_open, ex_stat_open, ey_stat_open, ey_stat_open);
-  //g_stat_open->Draw("same");
-  TH1D *h_open = new TH1D("h_genie", "", nbins, xbins);
-  for (int i=0; i<nbins; i++){
-    h_genie->SetBinContent(i+1, y3[i]);
-  }
-  h_genie->SetLineColor(14);
-  h_genie->SetLineWidth(2);
-  h_genie->Draw("Same");
-*/
-  //---- Ppi0 fake V (0-1.5) GeV/c with (0.275-8) GeV
-  double x_stat_fakeV[] = {0.05, 0.125, 0.175, 0.225, 0.275, 0.35, 0.45, 0.55, 0.7, 0.9, 1.25};
-  double y_stat_fakeV[] = {0.583298, 1.24588, 1.40396, 1.32696, 1.18668, 1.00483, 0.686543, 0.347731, 0.138038, 0.0392671, 0.00774993};
-  double ex_stat_fakeV[] = {0.05, 0.025, 0.025, 0.025, 0.025, 0.05, 0.05, 0.05, 0.1, 0.1, 0.25};
-  double ey_stat_fakeV[] = {0.0414473, 0.0735296, 0.0605913, 0.0440943, 0.0387845, 0.0355533, 0.0266609, 0.0176658, 0.0140145, 0.0107612, 0.00681312};
-  double ey_tot_fakeV[] = {0.105016, 0.189891, 0.162275, 0.117866, 0.0993511, 0.0890362, 0.067083, 0.0462926, 0.037575, 0.0285599, 0.0179827};
-  //auto g_tot_fakeV = new TGraphAsymmErrors(1, x_stat_fakeV, y_stat_fakeV, ex_stat_fakeV, ex_stat_fakeV, ey_tot_fakeV, ey_tot_fakeV);
-  //g_tot_fakeV->Draw("same");
-  //auto g_stat_fakeV = new TGraphAsymmErrors(1, x_stat_fakeV, y_stat_fakeV, ex_stat_fakeV, ex_stat_fakeV, ey_stat_fakeV, ey_stat_fakeV);
-  //g_stat_fakeV->Draw("same");
-  TH1D *h_fakeV = new TH1D("h_fakeV", "", nbins, xbins);
-  for (int i=0; i<nbins; i++){
-    h_fakeV->SetBinContent(i+1, y_stat_fakeV[i]);
-  }
-  h_fakeV->SetLineColor(kBlue-9);
-  h_fakeV->SetLineWidth(2);
-  //h_fakeV->Draw("Same");
-
-  //---- Ppi0 fake VII (0-1.5) GeV/c with (0.275-8) GeV
-  double x_stat_fakeVII[] = {0.05, 0.125, 0.175, 0.225, 0.275, 0.35, 0.45, 0.55, 0.7, 0.9, 1.25};
-  double y_stat_fakeVII[] = {0.780686, 1.61693, 1.72077, 1.50435, 1.28274, 1.05857, 0.716264, 0.388346, 0.182722, 0.0726269, 0.0295034};
-  double ex_stat_fakeVII[] = {0.05, 0.025, 0.025, 0.025, 0.025, 0.05, 0.05, 0.05, 0.1, 0.1, 0.25};
-  double ey_stat_fakeVII[] = {0.0563649, 0.101977, 0.0850782, 0.0604874, 0.0516091, 0.0472278, 0.0353034, 0.0245436, 0.0203319, 0.0152704, 0.0096371};
-  double ey_tot_fakeVII[] = {0.103908, 0.190621, 0.163562, 0.117695, 0.0976592, 0.0870048, 0.065087, 0.0467687, 0.0392436, 0.029221, 0.0183445};
-  //auto g_tot_fakeVII = new TGraphAsymmErrors(1, x_stat_fakeVII, y_stat_fakeVII, ex_stat_fakeVII, ex_stat_fakeVII, ey_tot_fakeVII, ey_tot_fakeVII);
-  //g_tot_fakeVII->Draw("same");
-  //auto g_stat_fakeVII = new TGraphAsymmErrors(1, x_stat_fakeVII, y_stat_fakeVII, ex_stat_fakeVII, ex_stat_fakeVII, ey_stat_fakeVII, ey_stat_fakeVII);
-  //g_stat_fakeVII->Draw("same");
-  TH1D *h_fakeVII = new TH1D("h_fakeVII", "", nbins, xbins);
-  for (int i=0; i<nbins; i++){
-    h_fakeVII->SetBinContent(i+1, y_stat_fakeVII[i]);
-  }
-  h_fakeVII->SetLineColor(kMagenta-9);
-  h_fakeVII->SetLineWidth(2);
-  //h_fakeVII->Draw("Same");
-
-
-
-
-
-  //////////////////////////////////////////////////////////////////////////////////////////////////////
-  // Legend and Save
-  //////////////////////////////////////////////////////////////////////////////////////////////////////
-  //auto lg = new TLegend(0.11,0.7,0.5,0.89);
-  auto lg = new TLegend(0.5, 0.69, 0.89, 0.89);
-  lg->AddEntry(gr_stat, "NC#pi^{0} (Stat. only)","lpe");
-  lg->AddEntry(gr_tot, "NC#pi^{0} (Total)","f");
-  lg->AddEntry(h_genie, Form("GENIE v3 [#chi^{2}/ndf: %.1f/%d]",chi2_m3,nbins), "l");
-  //lg->AddEntry(h_fakeV, Form("Fake data V"), "l");
-  //lg->AddEntry(h_fakeVII, Form("Fake data VII"), "l");
-  lg->Draw();
-
-  c1->Update();
-  gPad->RedrawAxis();
-
-  //c1->SaveAs("numuCC_xs_1bin_Enu.pdf");
-  //c1->SaveAs("ncpio_xs_diff_p.png");
-  //c1->SaveAs("numuCC_xs_1bin_Enu.C");
-
-  //c1->SaveAs("ncpio_xs_diff_P_err.png");
-  c2->SaveAs("ncpio_xs_diff_P_Ar.png");
-
   std::cout << "\n--------------------- Template for importing into plot ----------------------- " << std::endl;
   
-  std::cout << "double GENIE_CV[] = {";
-  for (int i=0; i<nbins; i++){
-    if (i==0) std::cout << y3[i];
-    else std::cout << ", " << y3[i];
-  }
-  std::cout << "};" << std::endl;
-  std::cout << "double x_STAT_NAME[] = {";
+  std::cout << "x = ["; 
   for (int i=0; i<nbins; i++){
     if (i==0) std::cout << x_v[i];
     else std::cout << ", " << x_v[i];
   }
-  std::cout << "};" << std::endl;
-  std::cout << "double y_STAT_NAME[] = {";
+  std::cout << "]" << std::endl;
+
+  std::cout << "GENIE_y = [";
   for (int i=0; i<nbins; i++){
-    if (i==0) std::cout << y_v[i];
-    else std::cout << ", " << y_v[i];
+    if (i==0) std::cout << y3[i];
+    else std::cout << ", " << y3[i];
   }
-  std::cout << "};" << std::endl;
-  std::cout << "double ex_STAT_NAME[] = {";
+  std::cout << "]" << std::endl;
+
+  std::cout << "y = ["; 
   for (int i=0; i<nbins; i++){
-    if (i==0) std::cout << exl_v[i];
-    else std::cout << ", " << exl_v[i];
+    if (i==0) std::cout << vec_CV[i];
+    else std::cout << ", " << vec_CV[i];
   }
-  std::cout << "};" << std::endl;
-  std::cout << "double ey_STAT_NAME[] = {";
+  std::cout << "]" << std::endl;
+
+  std::cout << "yerr_stat = [";
   for (int i=0; i<nbins; i++){
-    if (i==0) std::cout << eyl_stat_v[i];
-    else std::cout << ", " << eyl_stat_v[i];
+    if (i==0) std::cout << vec_abs_stat[i];
+    else std::cout << ", " << vec_abs_stat[i];
   }
-  std::cout << "};" << std::endl;
-  std::cout << "double ey_TOT_NAME[] = {";
+  std::cout << "]" << std::endl;
+
+  std::cout << "yerr_sys = [";
   for (int i=0; i<nbins; i++){
-    if (i==0) std::cout << eyl_tot_v[i];
-    else std::cout << ", " << eyl_tot_v[i];
+    if (i==0) std::cout << vec_abs_syst[i];
+    else std::cout << ", " << vec_abs_syst[i];
   }
-  std::cout << "};" << std::endl;
-  std::cout << "auto g_TOT_NAME = new TGraphAsymmErrors(1, x_STAT_NAME, y_STAT_NAME, ex_STAT_NAME, ex_STAT_NAME, ey_TOT_NAME, ey_TOT_NAME);" << std::endl;
-  std::cout << "g_TOT_NAME->Draw(\"Psame\");" << std::endl;  
-  std::cout << "auto g_STAT_NAME = new TGraphAsymmErrors(1, x_STAT_NAME, y_STAT_NAME, ex_STAT_NAME, ex_STAT_NAME, ey_STAT_NAME, ey_STAT_NAME);" << std::endl;
-  std::cout << "g_STAT_NAME->Draw(\"Psame\");" << std::endl;
+  std::cout << "]" << std::endl;
+
+  std::cout << "yerr_tot = [";
+  for (int i=0; i<nbins; i++){
+    if (i==0) std::cout << vec_abs_tot[i];
+    else std::cout << ", " << vec_abs_tot[i];
+  }
+  std::cout << "]" << std::endl;
 }
