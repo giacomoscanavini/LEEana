@@ -15,8 +15,8 @@
 ./processed_checkout_rootfiles/CV_open/checkout_fakedata_set7_run1.root								all
 ./processed_checkout_rootfiles/CV_open/checkout_fakedata_set7_run3.root								all
 
-end																							         end
-#file																						         #cut
+end																							        end
+#file																						        #cut
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 file_ch_xs_open.txt

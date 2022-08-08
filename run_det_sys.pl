@@ -6,8 +6,8 @@ for (my $i=1;$i<11;$i++){
         #$i++;
     }
     else{
-        #system("./bin/det_cov_matrix -r$i&");
-        system("./bin/det_cov_matrix -r$i -g0 &");
+        system("./bin/det_cov_matrix -r$i&");
+        #system("./bin/det_cov_matrix -r$i -g0 &");
         #system("./bin/det_cov_matrix -r$i -g1 &");
     }
     #system("./bin/det_cov_matrix -r$i -g1 &");

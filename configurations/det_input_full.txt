@@ -49,8 +49,8 @@
 6   nc_pi0 		    9	./processed_checkout_rootfiles/DetVar_full/WCPcheckout_prodgenie_bnb_nc_pi0_overlay_WCP_DetVar_WireModYZ_run3.root              ./hist_rootfiles/DetVar/cov_WMYZ.root          0      	69      6.31e20    	3
 6   nc_pi0 		    10	./processed_checkout_rootfiles/DetVar_full/WCPcheckout_prodgenie_bnb_nc_pi0_overlay_WCP_DetVar_LYAttenuation_run3.root          ./hist_rootfiles/DetVar/cov_LYatt.root         0      	70      6.31e20    	3
 
--1		end			-1			end																													end												-1			-1			-1		-1
-#file	#type		#period		#filename																											#outfile_name									#ext_pot	#file_no  	#norm	#norm_period
+-1		end			-1			end																														end												-1			-1			-1		-1
+#file	#type		#period		#filename																												#outfile_name									#ext_pot	#file_no  	#norm	#norm_period
 
 // Seems like this is redundant
 6   nc_pi0			1	./processed_checkout_rootfiles/DetVar_full/WCPcheckout_prodgenie_bnb_nc_pi0_overlay_WCP_DetVar_LYDown_run3b.root                 ./hist_rootfiles/DetVar/cov_LYDown.root        0      	71      7.00e21    	30

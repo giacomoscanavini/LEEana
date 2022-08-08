@@ -12,7 +12,8 @@ double calc_GoF(TMatrixD matrix_pred, TMatrixD matrix_data, TMatrixD cov){
 // main function
 void plot_diff_xs_Ppi0_Nbin(){
 
-  double xbins[] = {0., 0.1, 0.15, 0.2, 0.25, 0.3, 0.4, 0.5, 0.6, 0.8, 1.0, 1.5};  // Bin separators - GeV
+  //double xbins[] = {0., 0.1, 0.15, 0.2, 0.25, 0.3, 0.4, 0.5, 0.6, 0.8, 1.0, 1.5};  // Bin separators - GeV
+  double xbins[] = {0., 0.1, 0.15, 0.2, 0.25, 0.3, 0.4, 0.5, 0.6, 0.8, 1.0, 1.5, 1.6, 1.65, 1.7, 1.75, 1.8, 1.9, 2.0, 2.1, 2.3, 2.5, 3.};  // Bin separators - GeV
   double NUCLEONS = 40.;
   //double NUCLEONS = 1.;
   double XS_FACTOR = 1000.;  // Cross section is in terms of 10e-36 cm^2/Ar if XS_FACTOR == 1., otherwise change axis
@@ -97,6 +98,16 @@ void plot_diff_xs_Ppi0_Nbin(){
   double vec_err_det[m];
   double vec_err_xs[m];
 
+  ofstream myfile2;
+  myfile2.open ("import_frac_uncertainties.txt");
+
+  double frac_err_stat[m];
+  double frac_err_mcstat[m];
+  double frac_err_dirt[m];
+  double frac_err_flux[m];
+  double frac_err_det[m];
+  double frac_err_xs[m];
+
   std::cout << "\nFractional Uncertainties -------------------------------------------- " << std::endl;
   for (int i=0;i<m;i++) {
     std::cout << "--- BIN " << i+1 << "(/" << m <<") --------- " << std::endl;
@@ -163,7 +174,47 @@ void plot_diff_xs_Ppi0_Nbin(){
     vec_abs_tot[i] = abs_tot;
     vec_CV[i] = content;
     vec_CV_untouched[i] = unf->GetBinContent(i+1);
+  
+    frac_err_stat[i] = frac_stat;
+    frac_err_mcstat[i] = frac_mcstat;
+    frac_err_dirt[i] = frac_add;
+    frac_err_flux[i] = frac_flux;
+    frac_err_det[i] = frac_det;
+    frac_err_xs[i] = frac_xs;
   }
+
+  myfile2 << "frac_err_stat = [";
+  for (int i=0;i<m;i++) {
+    if(i<m-1) myfile2 << frac_err_stat[i] << ", ";
+    else myfile2 << frac_err_stat[i] << "]\n";
+  }
+  myfile2 << "frac_err_mcstat = [";
+  for (int i=0;i<m;i++) {
+    if(i<m-1) myfile2 << frac_err_mcstat[i] << ", ";
+    else myfile2 << frac_err_mcstat[i] << "]\n";
+  }
+  myfile2 << "frac_err_dirt = [";
+  for (int i=0;i<m;i++) {
+    if(i<m-1) myfile2 << frac_err_dirt[i] << ", ";
+    else myfile2 << frac_err_dirt[i] << "]\n";
+  }
+  myfile2 << "frac_err_flux = [";
+  for (int i=0;i<m;i++) {
+    if(i<m-1) myfile2 << frac_err_flux[i] << ", ";
+    else myfile2 << frac_err_flux[i] << "]\n";
+  }
+  myfile2 << "frac_err_det = [";
+  for (int i=0;i<m;i++) {
+    if(i<m-1) myfile2 << frac_err_det[i] << ", ";
+    else myfile2 << frac_err_det[i] << "]\n";
+  }
+  myfile2 << "frac_err_xs = [";
+  for (int i=0;i<m;i++) {
+    if(i<m-1) myfile2 << frac_err_xs[i] << ", ";
+    else myfile2 << frac_err_xs[i] << "]\n";
+  }
+
+  myfile2.close();
   std::cout << "--------------------- THE END ----------------------- \n" << std::endl;
 
   std::cout << "err_stat = ["; 
@@ -308,46 +359,6 @@ void plot_diff_xs_Ppi0_Nbin(){
     eyh_tot_v.push_back(ey_tot);
   }
 
-  /*
-  auto gr_tot = new TGraphAsymmErrors(x_v.size(), x_v.data(), y_v.data(), exl_v.data(), exh_v.data(), eyl_tot_v.data(), eyh_tot_v.data());
-  gr_tot->SetMarkerColor(6);
-  //gr_tot->SetMarkerStyle(1);
-  //gr_tot->SetMarkerSize(1);
-  gr_tot->SetFillColor(kRed-7);
-  gr_tot->SetFillStyle(3354);
-  gStyle->SetHatchesSpacing(.35);
-  gr_tot->SetLineWidth(0);
-  //gr_tot->SetLineColor(6);
-  if (XS_FACTOR == 1.) gr_tot->GetYaxis()->SetTitle("#frac{d #sigma}{d P_{#pi^{0}}} (10^{-36} cm^{2} / GeV/c / Ar)");
-  else if (XS_FACTOR == 100.) gr_tot->GetYaxis()->SetTitle("#frac{d #sigma}{d P_{#pi^{0}}} (10^{-38} cm^{2} / GeV/c / Ar)");
-  else if (XS_FACTOR == 1000.) gr_tot->GetYaxis()->SetTitle("#frac{d #sigma}{d P_{#pi^{0}}} (10^{-39} cm^{2} / GeV/c / Ar)");
-  else if (XS_FACTOR == 10000.) gr_tot->GetYaxis()->SetTitle("#frac{d #sigma}{d P_{#pi^{0}}} (10^{-40} cm^{2} / GeV/c / Ar)"); 
-  
-  else if (XS_FACTOR == 1./NUCLEONS) gr_tot->GetYaxis()->SetTitle("#frac{d #sigma}{d P_{#pi^{0}}} (10^{-36} cm^{2} / GeV/c / nucleon)");
-  else if (XS_FACTOR == 100./NUCLEONS) gr_tot->GetYaxis()->SetTitle("#frac{d #sigma}{d P_{#pi^{0}}} (10^{-38} cm^{2} / GeV/c / nucleon)");
-  else if (XS_FACTOR == 1000./NUCLEONS) gr_tot->GetYaxis()->SetTitle("#frac{d #sigma}{d P_{#pi^{0}}} (10^{-39} cm^{2} / GeV/c / nucleon)");
-  else if (XS_FACTOR == 10000./NUCLEONS) gr_tot->GetYaxis()->SetTitle("#frac{d #sigma}{d P_{#pi^{0}}} (10^{-40} cm^{2} / GeV/c / nucleon)");
-
-  gr_tot->GetXaxis()->SetTitle("P_{#pi^{0}} [GeV/c]");
-  gr_tot->GetXaxis()->SetLabelSize(0.035);
-  gr_tot->GetYaxis()->SetLabelSize(0.025);
-  gr_tot->GetXaxis()->SetTitleSize(0.035);
-  gr_tot->GetYaxis()->SetTitleSize(0.035);
-  gr_tot->GetYaxis()->SetRangeUser(0., 0.075 * XS_FACTOR);
-  gr_tot->GetXaxis()->SetLimits(0., xbins[nbins]);  // along X
-  //gr_tot->GetHistogram()->SetMaximum(20.);        // max along Y          
-  //gr_tot->GetHistogram()->SetMinimum(-20.);       // min along Y     
-  gr_tot->SetTitle("");
-  gr_tot->Draw("a2");
-
-  auto gr_stat = new TGraphAsymmErrors(x_v.size(), x_v.data(), y_v.data(), exl_v.data(), exh_v.data(), eyl_stat_v.data(), eyh_stat_v.data());
-  gr_stat->SetMarkerColor(1);
-  gr_stat->SetMarkerStyle(21);
-  gr_stat->SetMarkerSize(1);
-  gr_stat->SetLineWidth(2);
-  gr_stat->SetLineColor(1);
-  gr_stat->Draw("PSame");
-  */
   ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
   // CROSS SECTION WITH MC TRUTH CV (no smearing)
   ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -377,15 +388,6 @@ void plot_diff_xs_Ppi0_Nbin(){
     y3_untouched.push_back(Ac_v3(i));
   }
   
-  // plot CV GENIE
-  //TH1D *h_genie = new TH1D("h_genie", "", nbins, xbins);
-  //for (int i=0; i<nbins; i++){
-  //  h_genie->SetBinContent(i+1, y3[i]);
-  //}
-  //h_genie->SetLineColor(14);
-  //h_genie->SetLineWidth(2);
-  //h_genie->Draw("Same");
-
   
   // GOF (model+real bin+Ac vs. data)
   TMatrixD matrix_data(1,nbins);
@@ -420,45 +422,45 @@ void plot_diff_xs_Ppi0_Nbin(){
 
   std::cout << "\n--------------------- Template for importing into plot ----------------------- " << std::endl;
   
-  std::cout << "x = ["; 
-  for (int i=0; i<nbins; i++){
-    if (i==0) std::cout << x_v[i];
-    else std::cout << ", " << x_v[i];
-  }
-  std::cout << "]" << std::endl;
+  ofstream myfile3;
+  myfile3.open ("import_xsec.txt");
 
-  std::cout << "GENIE_y = [";
+  std::cout << "GENIE_y = [";                   myfile3 << "GENIE_y = [";
   for (int i=0; i<nbins; i++){
-    if (i==0) std::cout << y3[i];
-    else std::cout << ", " << y3[i];
+    if (i==0) {std::cout << y3[i];              myfile3 << y3[i];}
+    else {std::cout << ", " << y3[i];           myfile3 << ", " << y3[i];}
   }
-  std::cout << "]" << std::endl;
+  std::cout << "]" << std::endl;                myfile3 << "]" << std::endl;
 
-  std::cout << "y = ["; 
+  std::cout << "y = [";                         myfile3 << "y = ["; 
   for (int i=0; i<nbins; i++){
-    if (i==0) std::cout << vec_CV[i];
-    else std::cout << ", " << vec_CV[i];
+    if (i==0) {std::cout << vec_CV[i];          myfile3 << vec_CV[i];}
+    else {std::cout << ", " << vec_CV[i];       myfile3 << ", " << vec_CV[i];}
   }
-  std::cout << "]" << std::endl;
+  std::cout << "]" << std::endl;                myfile3 << "]" << std::endl;
 
-  std::cout << "yerr_stat = [";
+  std::cout << "yerr_stat = [";                 myfile3 << "yerr_stat = [";
   for (int i=0; i<nbins; i++){
-    if (i==0) std::cout << vec_abs_stat[i];
-    else std::cout << ", " << vec_abs_stat[i];
+    if (i==0) {std::cout << vec_abs_stat[i];    myfile3 << vec_abs_stat[i];}
+    else {std::cout << ", " << vec_abs_stat[i]; myfile3 << ", " << vec_abs_stat[i];}
   }
-  std::cout << "]" << std::endl;
+  std::cout << "]" << std::endl;                myfile3 << "]" << std::endl;
 
-  std::cout << "yerr_sys = [";
+  std::cout << "yerr_tot = [";                  myfile3 << "yerr_tot = [";
   for (int i=0; i<nbins; i++){
-    if (i==0) std::cout << vec_abs_syst[i];
-    else std::cout << ", " << vec_abs_syst[i];
+    if (i==0) {std::cout << vec_abs_tot[i];     myfile3 << vec_abs_tot[i];}
+    else {std::cout << ", " << vec_abs_tot[i];  myfile3 << ", " << vec_abs_tot[i];}
   }
-  std::cout << "]" << std::endl;
+  std::cout << "]" << std::endl;                myfile3 << "]" << std::endl;
 
-  std::cout << "yerr_tot = [";
+  std::cout << "yerr_sys = [";                  myfile3 << "yerr_sys = [";
   for (int i=0; i<nbins; i++){
-    if (i==0) std::cout << vec_abs_tot[i];
-    else std::cout << ", " << vec_abs_tot[i];
+    if (i==0) {std::cout << vec_abs_syst[i];    myfile3 << vec_abs_syst[i];}
+    else {std::cout << ", " << vec_abs_syst[i]; myfile3 << ", " << vec_abs_syst[i];}
   }
-  std::cout << "]" << std::endl;
-}
+  std::cout << "]" << std::endl;                myfile3 << "]" << std::endl;
+
+  std::cout << "chi2 = '" << chi2_m3 << "'" << std::endl;                     myfile3 << "chi2 = '" << chi2_m3 << "'" << std::endl;
+
+  myfile3.close();
+} 

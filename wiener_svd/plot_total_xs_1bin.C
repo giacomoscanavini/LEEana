@@ -22,7 +22,7 @@ double calc_GoF(TMatrixD matrix_pred, TMatrixD matrix_data, TMatrixD cov){
   cov.Invert();
   auto mret = md * cov * mdT;
   cout << mret.GetNrows() << " x " << mret.GetNcols() << " chi2/NDF= " << mret(0,0) << "/" << md.GetNcols() << endl;
-  return mret(0,10);
+  return mret(0,0);
 }
 
 // main function
@@ -264,6 +264,8 @@ void plot_total_xs_1bin(){
   }
   myfile << "]\n\n";
 
+  myfile.close();
+
 
   TH1D* herr_frac_stat   = new TH1D("herr_frac_stat",  "herr_frac_stat",  m,0.5,m+0.5);
   TH1D* herr_frac_mcstat = new TH1D("herr_frac_mcstat","herr_frac_mcstat",m,0.5,m+0.5);
@@ -277,6 +279,16 @@ void plot_total_xs_1bin(){
   double vec_abs_syst[m];
   double vec_abs_tot[m];
   double vec_CV[m];
+
+  ofstream myfile2;
+  myfile2.open ("import_frac_uncertainties.txt");
+
+  double frac_err_stat[m];
+  double frac_err_mcstat[m];
+  double frac_err_dirt[m];
+  double frac_err_flux[m];
+  double frac_err_det[m];
+  double frac_err_xs[m];
 
   std::cout << "\nFractional Uncertainties -------------------------------------------- " << std::endl;
   for (int i=0;i<m;i++) {
@@ -333,7 +345,41 @@ void plot_total_xs_1bin(){
     vec_abs_syst[i] = abs_syst;
     vec_abs_tot[i] = abs_tot;
     vec_CV[i] = content;
+
+    frac_err_stat[i] = frac_stat;
+    frac_err_mcstat[i] = frac_mcstat;
+    frac_err_dirt[i] = frac_add;
+    frac_err_flux[i] = frac_flux;
+    frac_err_det[i] = frac_det;
+    frac_err_xs[i] = frac_xs;
   }
+
+  myfile2 << "frac_err_stat = [";
+  for (int i=0;i<m;i++) {
+    myfile2 << frac_err_stat[i] << "]\n";
+  }
+  myfile2 << "frac_err_mcstat = [";
+  for (int i=0;i<m;i++) {
+    myfile2 << frac_err_mcstat[i] << "]\n";
+  }
+  myfile2 << "frac_err_dirt = [";
+  for (int i=0;i<m;i++) {
+    myfile2 << frac_err_dirt[i] << "]\n";
+  }
+  myfile2 << "frac_err_flux = [";
+  for (int i=0;i<m;i++) {
+    myfile2 << frac_err_flux[i] << "]\n";
+  }
+  myfile2 << "frac_err_det = [";
+  for (int i=0;i<m;i++) {
+    myfile2 << frac_err_det[i] << "]\n";
+  }
+  myfile2 << "frac_err_xs = [";
+  for (int i=0;i<m;i++) {
+    myfile2 << frac_err_xs[i] << "]\n";
+  }
+
+  myfile2.close();
   std::cout << "--------------------- THE END ----------------------- \n" << std::endl;
 
   herr_frac_stat->SetTitle("Stat");
@@ -534,15 +580,17 @@ void plot_total_xs_1bin(){
 
   double chi2_m3 = calc_GoF(matrix_pred3, matrix_data, unfcov);
 
-    std::cout << "\n--------------------- Template for importing into plot ----------------------- " << std::endl;
+  std::cout << "\n--------------------- Template for importing into plot ----------------------- " << std::endl;
 
-  //std::cout << "x = [" << x3[0] << "]" << std::endl;
-  std::cout << "GENIE_y = [" << y3[0] << "]" << std::endl;                    myfile << "GENIE_y = [" << y3[0] << "]" << std::endl;
-  std::cout << "y = [" << vec_CV[0] << "]" << std::endl;                      myfile << "y = [" << vec_CV[0] << "]" << std::endl;
-  std::cout << "yerr_stat = [" << vec_abs_stat[0] << "]" << std::endl;        myfile << "yerr_stat = [" << vec_abs_stat[0] << "]" << std::endl;
-  std::cout << "yerr_sys = [" << vec_abs_syst[0] << "]" << std::endl;         myfile << "yerr_sys = [" << vec_abs_syst[0] << "]" << std::endl;
-  std::cout << "yerr_tot = [" << vec_abs_tot[0] << "]" << std::endl;          myfile << "yerr_tot = [" << vec_abs_tot[0] << "]" << std::endl;
+  ofstream myfile3;
+  myfile3.open ("import_xsec.txt");
 
-  myfile.close();
+  std::cout << "GENIE_y = [" << y3[0] << "]" << std::endl;                    myfile3 << "GENIE_y = [" << y3[0] << "]" << std::endl;
+  std::cout << "y = [" << vec_CV[0] << "]" << std::endl;                      myfile3 << "y = [" << vec_CV[0] << "]" << std::endl;
+  std::cout << "yerr_stat = [" << vec_abs_stat[0] << "]" << std::endl;        myfile3 << "yerr_stat = [" << vec_abs_stat[0] << "]" << std::endl;
+  std::cout << "yerr_tot = [" << vec_abs_tot[0] << "]" << std::endl;          myfile3 << "yerr_tot = [" << vec_abs_tot[0] << "]" << std::endl;
+  std::cout << "yerr_sys = [" << vec_abs_syst[0] << "]" << std::endl;         myfile3 << "yerr_sys = [" << vec_abs_syst[0] << "]" << std::endl;
+  std::cout << "chi2 = '" << chi2_m3 << "'" << std::endl;                     myfile3 << "chi2 = '" << chi2_m3 << "'" << std::endl; 
 
+  myfile3.close();
 } 

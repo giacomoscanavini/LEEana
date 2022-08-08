@@ -291,7 +291,7 @@ void plot_total_xs_Nbin(){
   }
   myfile << "]\n";
   myfile << "Collapsed cov_tot = " << collapsed_value << std::endl;
-  myfile << "\n";
+  myfile.close();
 
   TH1D* herr_frac_stat   = new TH1D("herr_frac_stat",  "herr_frac_stat",  m,0.5,m+0.5);
   TH1D* herr_frac_mcstat = new TH1D("herr_frac_mcstat","herr_frac_mcstat",m,0.5,m+0.5);
@@ -305,6 +305,16 @@ void plot_total_xs_Nbin(){
   double vec_abs_syst[m];
   double vec_abs_tot[m];
   double vec_CV[m];
+
+  ofstream myfile2;
+  myfile2.open ("import_frac_uncertainties.txt");
+
+  double frac_err_stat[m];
+  double frac_err_mcstat[m];
+  double frac_err_dirt[m];
+  double frac_err_flux[m];
+  double frac_err_det[m];
+  double frac_err_xs[m];
 
   std::cout << "\nFractional Uncertainties -------------------------------------------- " << std::endl;
   for (int i=0;i<m;i++) {
@@ -361,7 +371,48 @@ void plot_total_xs_Nbin(){
     vec_abs_syst[i] = abs_syst;
     vec_abs_tot[i] = abs_tot;
     vec_CV[i] = content;
+
+    frac_err_stat[i] = frac_stat;
+    frac_err_mcstat[i] = frac_mcstat;
+    frac_err_dirt[i] = frac_add;
+    frac_err_flux[i] = frac_flux;
+    frac_err_det[i] = frac_det;
+    frac_err_xs[i] = frac_xs;
   }
+
+  myfile2 << "frac_err_stat = [";
+  for (int i=0;i<m;i++) {
+    if(i<m-1) myfile2 << frac_err_stat[i] << ", ";
+    else myfile2 << frac_err_stat[i] << "]\n";
+  }
+  myfile2 << "frac_err_mcstat = [";
+  for (int i=0;i<m;i++) {
+    if(i<m-1) myfile2 << frac_err_mcstat[i] << ", ";
+    else myfile2 << frac_err_mcstat[i] << "]\n";
+  }
+  myfile2 << "frac_err_dirt = [";
+  for (int i=0;i<m;i++) {
+    if(i<m-1) myfile2 << frac_err_dirt[i] << ", ";
+    else myfile2 << frac_err_dirt[i] << "]\n";
+  }
+  myfile2 << "frac_err_flux = [";
+  for (int i=0;i<m;i++) {
+    if(i<m-1) myfile2 << frac_err_flux[i] << ", ";
+    else myfile2 << frac_err_flux[i] << "]\n";
+  }
+  myfile2 << "frac_err_det = [";
+  for (int i=0;i<m;i++) {
+    if(i<m-1) myfile2 << frac_err_det[i] << ", ";
+    else myfile2 << frac_err_det[i] << "]\n";
+  }
+  myfile2 << "frac_err_xs = [";
+  for (int i=0;i<m;i++) {
+    if(i<m-1) myfile2 << frac_err_xs[i] << ", ";
+    else myfile2 << frac_err_xs[i] << "]\n";
+  }
+
+  myfile2.close();
+
   std::cout << "--------------------- THE END ----------------------- \n" << std::endl;
 
   herr_frac_stat->SetTitle("Stat");
@@ -510,40 +561,7 @@ void plot_total_xs_Nbin(){
     eyl_tot_v.push_back(ey_tot);
     eyh_tot_v.push_back(ey_tot);
   }
-  //std::cout << "Bin central value: " << x_v[0] << std::endl;
 
-  /*
-  auto gr_tot = new TGraphAsymmErrors(x_v.size(), x_v.data(), y_v.data(), exl_v.data(), exh_v.data(), eyl_tot_v.data(), eyh_tot_v.data());
-  gr_tot->SetMarkerStyle(1);
-  gr_tot->SetMarkerSize(1);
-  gr_tot->SetLineWidth(2);
-  gr_tot->SetMarkerColor(6);
-  gr_tot->SetLineColor(6);
-  if (XS_FACTOR == 1.) gr_tot->GetYaxis()->SetTitle("#sigma (10^{-36} cm^{2} / Ar)");
-  else if (XS_FACTOR == 100.) gr_tot->GetYaxis()->SetTitle("#sigma (10^{-38} cm^{2} / Ar)");
-  else if (XS_FACTOR == 1000.) gr_tot->GetYaxis()->SetTitle("#sigma (10^{-39} cm^{2} / Ar)");
-  else if (XS_FACTOR == 10000.) gr_tot->GetYaxis()->SetTitle("#sigma (10^{-40} cm^{2} / Ar)");
-  gr_tot->GetXaxis()->SetTitle("E_{#nu} [GeV]");
-  //gr_tot->GetXaxis()->SetTitle("P_{#pi^{0}} [GeV/c]");
-  gr_tot->GetXaxis()->SetLabelSize(0.035);
-  gr_tot->GetYaxis()->SetLabelSize(0.025);
-  gr_tot->GetXaxis()->SetTitleSize(0.035);
-  gr_tot->GetYaxis()->SetTitleSize(0.035);
-  gr_tot->GetYaxis()->SetRangeUser(0., 0.02 * XS_FACTOR);
-  gr_tot->GetXaxis()->SetLimits(0.,xbins[1]+0.51);  // along X
-  //gr_tot->GetHistogram()->SetMaximum(20.);   // max along Y          
-  //gr_tot->GetHistogram()->SetMinimum(-20.);  // min along Y     
-  gr_tot->SetTitle("");
-  gr_tot->Draw("AP");
-
-  auto gr_stat = new TGraphAsymmErrors(x_v.size(), x_v.data(), y_v.data(), exl_v.data(), exh_v.data(), eyl_stat_v.data(), eyh_stat_v.data());
-  gr_stat->SetMarkerStyle(21);
-  gr_stat->SetMarkerSize(1);
-  gr_stat->SetLineWidth(2);
-  gr_stat->SetMarkerColor(12);
-  gr_stat->SetLineColor(12);
-  gr_stat->Draw("Psame");
-  */
   ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
   // CROSS SECTION WITH MC TRUTH CV (no smearing)
   ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -573,12 +591,6 @@ void plot_total_xs_Nbin(){
 
     //std::cout << "GENIE CV: " << y3[0] << std::endl;
   }
-  // plot CV GENIE
-  //TLine *line = new TLine(xbins[0], y3[0], xbins[1], y3[0]);
-  //line->SetLineWidth(3);
-  //line->SetLineStyle(9);
-  //line->SetLineColor(3);
-  //line->Draw("Psame");
   
   // GOF (model+real bin+Ac vs. data)
   TMatrixD matrix_data(1,nbins);
@@ -606,47 +618,45 @@ void plot_total_xs_Nbin(){
 
   std::cout << "--------------------- Template for importing into plot ----------------------- " << std::endl;
 
-  std::cout << "x = [";                         myfile << "x = ["; 
-  for (int i=0; i<nbins; i++){
-    if (i==0) {std::cout << x_v[i];             myfile << x_v[i];}
-    else {std::cout << ", " << x_v[i];          myfile << ", " << x_v[i];}
-  }
-  std::cout << "]" << std::endl;                myfile << "]" << std::endl;
+  ofstream myfile3;
+  myfile3.open ("import_xsec.txt");
 
-  std::cout << "GENIE_y = [";                   myfile << "GENIE_y = [";
+  std::cout << "GENIE_y = [";                   myfile3 << "GENIE_y = [";
   for (int i=0; i<nbins; i++){
-    if (i==0) {std::cout << y3[i];              myfile << y3[i];}
-    else {std::cout << ", " << y3[i];           myfile << ", " << y3[i];}
+    if (i==0) {std::cout << y3[i];              myfile3 << y3[i];}
+    else {std::cout << ", " << y3[i];           myfile3 << ", " << y3[i];}
   }
-  std::cout << "]" << std::endl;                myfile << "]" << std::endl;
+  std::cout << "]" << std::endl;                myfile3 << "]" << std::endl;
 
-  std::cout << "y = [";                         myfile << "y = ["; 
+  std::cout << "y = [";                         myfile3 << "y = ["; 
   for (int i=0; i<nbins; i++){
-    if (i==0) {std::cout << vec_CV[i];          myfile << vec_CV[i];}
-    else {std::cout << ", " << vec_CV[i];       myfile << ", " << vec_CV[i];}
+    if (i==0) {std::cout << vec_CV[i];          myfile3 << vec_CV[i];}
+    else {std::cout << ", " << vec_CV[i];       myfile3 << ", " << vec_CV[i];}
   }
-  std::cout << "]" << std::endl;                myfile << "]" << std::endl;
+  std::cout << "]" << std::endl;                myfile3 << "]" << std::endl;
 
-  std::cout << "yerr_stat = [";                 myfile << "yerr_stat = [";
+  std::cout << "yerr_stat = [";                 myfile3 << "yerr_stat = [";
   for (int i=0; i<nbins; i++){
-    if (i==0) {std::cout << vec_abs_stat[i];    myfile << vec_abs_stat[i];}
-    else {std::cout << ", " << vec_abs_stat[i]; myfile << ", " << vec_abs_stat[i];}
+    if (i==0) {std::cout << vec_abs_stat[i];    myfile3 << vec_abs_stat[i];}
+    else {std::cout << ", " << vec_abs_stat[i]; myfile3 << ", " << vec_abs_stat[i];}
   }
-  std::cout << "]" << std::endl;                myfile << "]" << std::endl;
+  std::cout << "]" << std::endl;                myfile3 << "]" << std::endl;
 
-  std::cout << "yerr_sys = [";                  myfile << "yerr_sys = [";
+  std::cout << "yerr_tot = [";                  myfile3 << "yerr_tot = [";
   for (int i=0; i<nbins; i++){
-    if (i==0) {std::cout << vec_abs_syst[i];    myfile << vec_abs_syst[i];}
-    else {std::cout << ", " << vec_abs_syst[i]; myfile << ", " << vec_abs_syst[i];}
+    if (i==0) {std::cout << vec_abs_tot[i];     myfile3 << vec_abs_tot[i];}
+    else {std::cout << ", " << vec_abs_tot[i];  myfile3 << ", " << vec_abs_tot[i];}
   }
-  std::cout << "]" << std::endl;                myfile << "]" << std::endl;
+  std::cout << "]" << std::endl;                myfile3 << "]" << std::endl;
 
-  std::cout << "yerr_tot = [";                  myfile << "yerr_tot = [";
+  std::cout << "yerr_sys = [";                  myfile3 << "yerr_sys = [";
   for (int i=0; i<nbins; i++){
-    if (i==0) {std::cout << vec_abs_tot[i];     myfile << vec_abs_tot[i];}
-    else {std::cout << ", " << vec_abs_tot[i];  myfile << ", " << vec_abs_tot[i];}
+    if (i==0) {std::cout << vec_abs_syst[i];    myfile3 << vec_abs_syst[i];}
+    else {std::cout << ", " << vec_abs_syst[i]; myfile3 << ", " << vec_abs_syst[i];}
   }
-  std::cout << "]" << std::endl;                myfile << "]" << std::endl;
+  std::cout << "]" << std::endl;                myfile3 << "]" << std::endl;
 
-  myfile.close();
+  std::cout << "chi2 = '" << chi2_m3 << "'" << std::endl;                     myfile3 << "chi2 = '" << chi2_m3 << "'" << std::endl;
+
+  myfile3.close();
 } 

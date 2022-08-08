@@ -1,0 +1,219 @@
+NCpi0BDT_FC_0p_bnb										pi0_costheta		20		-1		1		1		0			0		0			0			0			5		unity		0
+NCpi0BDT_FC_Np_bnb										pi0_costheta		20		-1		1		2		0			0		0			0			0			5		unity		0
+NCpi0BDT_signal_Enu_4000_CosThetapi0_FC_0p_overlay		pi0_costheta		20		-1		1		1		1			1		0			0			1			2		cv_spline	0
+NCpi0BDT_signal_Enu_4000_CosThetapi0_FC_Np_overlay		pi0_costheta		20		-1		1		2		1			1		0			0			2			2		cv_spline	0
+NCpi0BDT_background_Enu_4000_CosThetapi0_FC_0p_overlay	pi0_costheta		20		-1		1		1		1			1		0			0			3			2		cv_spline	0
+NCpi0BDT_background_Enu_4000_CosThetapi0_FC_Np_overlay	pi0_costheta		20		-1		1		2		1			1		0			0			4			2		cv_spline	0
+BG_NCpi0BDT_FC_0p_ext									pi0_costheta		20		-1		1		1		0			0		0			0			5			3		unity		0
+BG_NCpi0BDT_FC_Np_ext									pi0_costheta		20		-1		1		2		0			0		0			0			6			3		unity		0
+BG_NCpi0BDT_FC_0p_dirt									pi0_costheta		20		-1		1		1		1			0		0.5			0			3			4		cv_spline	0
+BG_NCpi0BDT_FC_Np_dirt									pi0_costheta		20		-1		1		2		1			0		0.5			0			4			4		cv_spline	0
+
+
+End													End					-1		-1		-1		-1		-1			-1		-1			-1			-1			-1		end			-1
+Name:												#Var:				#bin	#start	#end	#obs	#xs_flux	#det	#add_sys	#same_mc	#cov_sec	#file	#weight		#lee_strength
+
+
+
+
+NCpi0BDT_FC_0p_bnb										transferred_visible	1		0		4000	1		0			0		0			0			0			5		unity		0
+NCpi0BDT_FC_Np_bnb										transferred_visible	1		0		4000	2		0			0		0			0			0			5		unity		0
+NCpi0BDT_PC_0p_bnb										transferred_visible	1		0		4000	3		0			0		0			0			0			5		unity		0
+NCpi0BDT_PC_Np_bnb										transferred_visible	1		0		4000	4		0			0		0			0			0			5		unity		0
+NCpi0BDT_signal_Enu_4000_FC_0p_overlay					transferred_visible	1		0		4000	1		1			1		0			0			1			2		cv_spline	0
+NCpi0BDT_signal_Enu_4000_FC_Np_overlay					transferred_visible	1		0		4000	2		1			1		0			0			2			2		cv_spline	0
+NCpi0BDT_signal_Enu_4000_PC_0p_overlay					transferred_visible	1		0		4000	3		1			1		0			0			3			2		cv_spline	0
+NCpi0BDT_signal_Enu_4000_PC_Np_overlay					transferred_visible	1		0		4000	4		1			1		0			0			4			2		cv_spline	0
+NCpi0BDT_background_Enu_4000_FC_0p_overlay				transferred_visible	1		0		4000	1		1			1		0			0			5			2		cv_spline	0
+NCpi0BDT_background_Enu_4000_FC_Np_overlay				transferred_visible	1		0		4000	2		1			1		0			0			6			2		cv_spline	0
+NCpi0BDT_background_Enu_4000_PC_0p_overlay				transferred_visible	1		0		4000	3		1			1		0			0			7			2		cv_spline	0
+NCpi0BDT_background_Enu_4000_PC_Np_overlay				transferred_visible	1		0		4000	4		1			1		0			0			8			2		cv_spline	0
+BG_NCpi0BDT_FC_0p_ext									transferred_visible	1		0		4000	1		0			0		0			0			9			3		unity		0
+BG_NCpi0BDT_FC_Np_ext									transferred_visible	1		0		4000	2		0			0		0			0			10			3		unity		0
+BG_NCpi0BDT_PC_0p_ext									transferred_visible	1		0		4000	3		0			0		0			0			11			3		unity		0
+BG_NCpi0BDT_PC_Np_ext									transferred_visible	1		0		4000	4		0			0		0			0			12			3		unity		0
+BG_NCpi0BDT_FC_0p_dirt									transferred_visible	1		0		4000	1		1			0		0.5			0			5			4		cv_spline	0
+BG_NCpi0BDT_FC_Np_dirt									transferred_visible	1		0		4000	2		1			0		0.5			0			6			4		cv_spline	0
+BG_NCpi0BDT_PC_0p_dirt									transferred_visible	1		0		4000	3		1			0		0.5			0			7			4		cv_spline	0
+BG_NCpi0BDT_PC_Np_dirt									transferred_visible	1		0		4000	4		1			0		0.5			0			8			4		cv_spline	0
+
+NCpi0BDT_FC_0p_bnb										pi0_costheta		20		-1		1 		1		0			0		0			0			0			5		unity		0
+NCpi0BDT_FC_Np_bnb										pi0_costheta		20		-1		1 		2		0			0		0			0			0			5		unity		0
+NCpi0BDT_PC_0p_bnb										pi0_costheta		20		-1		1 		3		0			0		0			0			0			5		unity		0
+NCpi0BDT_PC_Np_bnb										pi0_costheta		20		-1		1 		4		0			0		0			0			0			5		unity		0
+NCpi0BDT_signal_Enu_4000_CosThetapi0_FC_0p_overlay		pi0_costheta		20		-1		1 		1		1			1		0			0			1			2		cv_spline	0
+NCpi0BDT_signal_Enu_4000_CosThetapi0_FC_Np_overlay		pi0_costheta		20		-1		1 		2		1			1		0			0			2			2		cv_spline	0
+NCpi0BDT_signal_Enu_4000_CosThetapi0_PC_0p_overlay		pi0_costheta		20		-1		1 		3		1			1		0			0			3			2		cv_spline	0
+NCpi0BDT_signal_Enu_4000_CosThetapi0_PC_Np_overlay		pi0_costheta		20		-1		1 		4		1			1		0			0			4			2		cv_spline	0
+NCpi0BDT_background_Enu_4000_CosThetapi0_FC_0p_overlay	pi0_costheta		20		-1		1 		1		1			1		0			0			5			2		cv_spline	0
+NCpi0BDT_background_Enu_4000_CosThetapi0_FC_Np_overlay	pi0_costheta		20		-1		1 		2		1			1		0			0			6			2		cv_spline	0
+NCpi0BDT_background_Enu_4000_CosThetapi0_PC_0p_overlay	pi0_costheta		20		-1		1 		3		1			1		0			0			7			2		cv_spline	0
+NCpi0BDT_background_Enu_4000_CosThetapi0_PC_Np_overlay	pi0_costheta		20		-1		1 		4		1			1		0			0			8			2		cv_spline	0
+BG_NCpi0BDT_FC_0p_ext									pi0_costheta		20		-1		1 		1		0			0		0			0			9			3		unity		0
+BG_NCpi0BDT_FC_Np_ext									pi0_costheta		20		-1		1 		2		0			0		0			0			10			3		unity		0
+BG_NCpi0BDT_PC_0p_ext									pi0_costheta		20		-1		1 		3		0			0		0			0			11			3		unity		0
+BG_NCpi0BDT_PC_Np_ext									pi0_costheta		20		-1		1 		4		0			0		0			0			12			3		unity		0
+BG_NCpi0BDT_FC_0p_dirt									pi0_costheta		20		-1		1 		1		1			0		0.5			0			5			4		cv_spline	0
+BG_NCpi0BDT_FC_Np_dirt									pi0_costheta		20		-1		1 		2		1			0		0.5			0			6			4		cv_spline	0
+BG_NCpi0BDT_PC_0p_dirt									pi0_costheta		20		-1		1 		3		1			0		0.5			0			7			4		cv_spline	0
+BG_NCpi0BDT_PC_Np_dirt									pi0_costheta		20		-1		1 		4		1			0		0.5			0			8			4		cv_spline	0
+
+NCpi0BDT_FC_0p_bnb										pi0_momentum 		15		0		1500	1		0			0		0			0			0			5		unity		0
+NCpi0BDT_FC_Np_bnb										pi0_momentum 		15		0		1500	2		0			0		0			0			0			5		unity		0
+NCpi0BDT_PC_0p_bnb										pi0_momentum 		15		0		1500	3		0			0		0			0			0			5		unity		0
+NCpi0BDT_PC_Np_bnb										pi0_momentum 		15		0		1500	4		0			0		0			0			0			5		unity		0
+NCpi0BDT_signal_Enu_4000_Ppi0_1500_FC_0p_overlay		pi0_momentum 		15		0		1500	1		1			1		0			0			1			2		cv_spline	0
+NCpi0BDT_signal_Enu_4000_Ppi0_1500_FC_Np_overlay		pi0_momentum 		15		0		1500	2		1			1		0			0			2			2		cv_spline	0
+NCpi0BDT_signal_Enu_4000_Ppi0_1500_PC_0p_overlay		pi0_momentum 		15		0		1500	3		1			1		0			0			3			2		cv_spline	0
+NCpi0BDT_signal_Enu_4000_Ppi0_1500_PC_Np_overlay		pi0_momentum 		15		0		1500	4		1			1		0			0			4			2		cv_spline	0
+NCpi0BDT_background_Enu_4000_Ppi0_1500_FC_0p_overlay	pi0_momentum 		15		0		1500	1		1			1		0			0			5			2		cv_spline	0
+NCpi0BDT_background_Enu_4000_Ppi0_1500_FC_Np_overlay	pi0_momentum 		15		0		1500	2		1			1		0			0			6			2		cv_spline	0
+NCpi0BDT_background_Enu_4000_Ppi0_1500_PC_0p_overlay	pi0_momentum 		15		0		1500	3		1			1		0			0			7			2		cv_spline	0
+NCpi0BDT_background_Enu_4000_Ppi0_1500_PC_Np_overlay	pi0_momentum 		15		0		1500	4		1			1		0			0			8			2		cv_spline	0
+BG_NCpi0BDT_FC_0p_ext									pi0_momentum 		15		0		1500	1		0			0		0			0			9			3		unity		0
+BG_NCpi0BDT_FC_Np_ext									pi0_momentum 		15		0		1500	2		0			0		0			0			10			3		unity		0
+BG_NCpi0BDT_PC_0p_ext									pi0_momentum 		15		0		1500	3		0			0		0			0			11			3		unity		0
+BG_NCpi0BDT_PC_Np_ext									pi0_momentum 		15		0		1500	4		0			0		0			0			12			3		unity		0
+BG_NCpi0BDT_FC_0p_dirt									pi0_momentum 		15		0		1500	1		1			0		0.5			0			5			4		cv_spline	0
+BG_NCpi0BDT_FC_Np_dirt									pi0_momentum 		15		0		1500	2		1			0		0.5			0			6			4		cv_spline	0
+BG_NCpi0BDT_PC_0p_dirt									pi0_momentum 		15		0		1500	3		1			0		0.5			0			7			4		cv_spline	0
+BG_NCpi0BDT_PC_Np_dirt									pi0_momentum 		15		0		1500	4		1			0		0.5			0			8			4		cv_spline	0
+
+
+
+
+NCpi0BDT_FC_0p_bnb										transferred_visible	1		0		4000	1		0			0		0			0			0			5		unity		0
+NCpi0BDT_FC_Np_bnb										transferred_visible	1		0		4000	2		0			0		0			0			0			5		unity		0
+NCpi0BDT_signal_Enu_4000_FC_0p_overlay					transferred_visible	1		0		4000	1		1			1		0			0			1			2		cv_spline	0
+NCpi0BDT_signal_Enu_4000_FC_Np_overlay					transferred_visible	1		0		4000	2		1			1		0			0			2			2		cv_spline	0
+NCpi0BDT_background_Enu_4000_FC_0p_overlay				transferred_visible	1		0		4000	1		1			1		0			0			3			2		cv_spline	0
+NCpi0BDT_background_Enu_4000_FC_Np_overlay				transferred_visible	1		0		4000	2		1			1		0			0			4			2		cv_spline	0
+BG_NCpi0BDT_FC_0p_ext									transferred_visible	1		0		4000	1		0			0		0			0			5			3		unity		0
+BG_NCpi0BDT_FC_Np_ext									transferred_visible	1		0		4000	2		0			0		0			0			6			3		unity		0
+BG_NCpi0BDT_FC_0p_dirt									transferred_visible	1		0		4000	1		1			0		0.5			0			3			4		cv_spline	0
+BG_NCpi0BDT_FC_Np_dirt									transferred_visible	1		0		4000	2		1			0		0.5			0			4			4		cv_spline	0
+
+NCpi0BDT_FC_0p_bnb										pi0_costheta		20		-1		1		1		0			0		0			0			0			5		unity		0
+NCpi0BDT_FC_Np_bnb										pi0_costheta		20		-1		1		2		0			0		0			0			0			5		unity		0
+NCpi0BDT_signal_Enu_4000_CosThetapi0_FC_0p_overlay		pi0_costheta		20		-1		1		1		1			1		0			0			1			2		cv_spline	0
+NCpi0BDT_signal_Enu_4000_CosThetapi0_FC_Np_overlay		pi0_costheta		20		-1		1		2		1			1		0			0			2			2		cv_spline	0
+NCpi0BDT_background_Enu_4000_CosThetapi0_FC_0p_overlay	pi0_costheta		20		-1		1		1		1			1		0			0			3			2		cv_spline	0
+NCpi0BDT_background_Enu_4000_CosThetapi0_FC_Np_overlay	pi0_costheta		20		-1		1		2		1			1		0			0			4			2		cv_spline	0
+BG_NCpi0BDT_FC_0p_ext									pi0_costheta		20		-1		1		1		0			0		0			0			5			3		unity		0
+BG_NCpi0BDT_FC_Np_ext									pi0_costheta		20		-1		1		2		0			0		0			0			6			3		unity		0
+BG_NCpi0BDT_FC_0p_dirt									pi0_costheta		20		-1		1		1		1			0		0.5			0			3			4		cv_spline	0
+BG_NCpi0BDT_FC_Np_dirt									pi0_costheta		20		-1		1		2		1			0		0.5			0			4			4		cv_spline	0
+
+NCpi0BDT_FC_0p_bnb										pi0_momentum		15		0		1500	1		0			0		0			0			0			5		unity		0
+NCpi0BDT_FC_Np_bnb										pi0_momentum		15		0		1500	2		0			0		0			0			0			5		unity		0
+NCpi0BDT_signal_Enu_4000_Ppi0_1500_FC_0p_overlay		pi0_momentum		15		0		1500	1		1			1		0			0			1			2		cv_spline	0
+NCpi0BDT_signal_Enu_4000_Ppi0_1500_FC_Np_overlay		pi0_momentum		15		0		1500	2		1			1		0			0			2			2		cv_spline	0
+NCpi0BDT_background_Enu_4000_Ppi0_1500_FC_0p_overlay	pi0_momentum		15		0		1500	1		1			1		0			0			3			2		cv_spline	0
+NCpi0BDT_background_Enu_4000_Ppi0_1500_FC_Np_overlay	pi0_momentum		15		0		1500	2		1			1		0			0			4			2		cv_spline	0
+BG_NCpi0BDT_FC_0p_ext									pi0_momentum		15		0		1500	1		0			0		0			0			5			3		unity		0
+BG_NCpi0BDT_FC_Np_ext									pi0_momentum		15		0		1500	2		0			0		0			0			6			3		unity		0
+BG_NCpi0BDT_FC_0p_dirt									pi0_momentum		15		0		1500	1		1			0		0.5			0			3			4		cv_spline	0
+BG_NCpi0BDT_FC_Np_dirt									pi0_momentum		15		0		1500	2		1			0		0.5			0			4			4		cv_spline	0
+
+
+
+
+
+
+
+
+//////////////////////////// WC definition [0+N] p 
+NCpi0BDT_FC_bnb										transferred_visible	1		0		4000	1		0			0		0			0			0			5		unity		0
+NCpi0BDT_PC_bnb										transferred_visible	1		0		4000	2		0			0		0			0			0			5		unity		0
+NCpi0BDT_signal_Enu_4000_FC_overlay					transferred_visible	1		0		4000	1		1			1		0			0			1			2		cv_spline	0
+NCpi0BDT_signal_Enu_4000_PC_overlay					transferred_visible	1		0		4000	2		1			1		0			0			2			2		cv_spline	0
+NCpi0BDT_background_Enu_4000_FC_overlay				transferred_visible	1		0		4000	1		1			1		0			0			3			2		cv_spline	0
+NCpi0BDT_background_Enu_4000_PC_overlay				transferred_visible	1		0		4000	2		1			1		0			0			4			2		cv_spline	0
+BG_NCpi0BDT_FC_ext									transferred_visible	1		0		4000	1		0			0		0			0			5			3		unity		0
+BG_NCpi0BDT_PC_ext									transferred_visible	1		0		4000	2		0			0		0			0			6			3		unity		0
+BG_NCpi0BDT_FC_dirt									transferred_visible	1		0		4000	1		1			0		0.5			0			3			4		cv_spline	0
+BG_NCpi0BDT_PC_dirt									transferred_visible	1		0		4000	2		1			0		0.5			0			4			4		cv_spline	0
+
+//////////////////////////// WC definition 0p & Np 
+NCpi0BDT_0p_bnb										transferred_visible	1		0		4000	1		0			0		0			0			0			5		unity		0
+NCpi0BDT_Np_bnb										transferred_visible	1		0		4000	2		0			0		0			0			0			5		unity		0
+NCpi0BDT_signal_Enu_4000_0p_overlay					transferred_visible	1		0		4000	1		1			1		0			0			1			2		cv_spline	0
+NCpi0BDT_signal_Enu_4000_Np_overlay					transferred_visible	1		0		4000	2		1			1		0			0			2			2		cv_spline	0
+NCpi0BDT_background_Enu_4000_0p_overlay				transferred_visible	1		0		4000	1		1			1		0			0			3			2		cv_spline	0
+NCpi0BDT_background_Enu_4000_Np_overlay				transferred_visible	1		0		4000	2		1			1		0			0			4			2		cv_spline	0
+BG_NCpi0BDT_0p_ext									transferred_visible	1		0		4000	1		0			0		0			0			5			3		unity		0
+BG_NCpi0BDT_Np_ext									transferred_visible	1		0		4000	2		0			0		0			0			6			3		unity		0
+BG_NCpi0BDT_0p_dirt									transferred_visible	1		0		4000	1		1			0		0.5			0			3			4		cv_spline	0
+BG_NCpi0BDT_Np_dirt									transferred_visible	1		0		4000	2		1			0		0.5			0			4			4		cv_spline	0
+
+//////////////////////////// gLEE definition [0+1] p 
+NCpi0BDT_FC_gLEE_bnb								transferred_visible	1		0		4000	1		0			0		0			0			0			5		unity		0
+NCpi0BDT_PC_gLEE_bnb								transferred_visible	1		0		4000	2		0			0		0			0			0			5		unity		0
+NCpi0BDT_signal_Enu_4000_FC_overlay_gLEE_def		transferred_visible	1		0		4000	1		1			1		0			0			1			2		cv_spline	0
+NCpi0BDT_signal_Enu_4000_PC_overlay_gLEE_def		transferred_visible	1		0		4000	2		1			1		0			0			2			2		cv_spline	0
+NCpi0BDT_background_Enu_4000_FC_overlay_gLEE_def	transferred_visible	1		0		4000	1		1			1		0			0			3			2		cv_spline	0
+NCpi0BDT_background_Enu_4000_PC_overlay_gLEE_def	transferred_visible	1		0		4000	2		1			1		0			0			4			2		cv_spline	0
+BG_NCpi0BDT_FC_gLEE_ext								transferred_visible	1		0		4000	1		0			0		0			0			5			3		unity		0
+BG_NCpi0BDT_PC_gLEE_ext								transferred_visible	1		0		4000	2		0			0		0			0			6			3		unity		0
+BG_NCpi0BDT_FC_gLEE_dirt							transferred_visible	1		0		4000	1		1			0		0.5			0			3			4		cv_spline	0
+BG_NCpi0BDT_PC_gLEE_dirt							transferred_visible	1		0		4000	2		1			0		0.5			0			4			4		cv_spline	0
+
+//////////////////////////// gLEE definition 0p & 1p 
+NCpi0BDT_0p_gLEE_bnb								transferred_visible	1		0		4000	1		0			0		0			0			0			5		unity		0
+NCpi0BDT_1p_gLEE_bnb								transferred_visible	1		0		4000	2		0			0		0			0			0			5		unity		0
+NCpi0BDT_signal_Enu_4000_0p_overlay_gLEE_def		transferred_visible	1		0		4000	1		1			1		0			0			1			2		cv_spline	0
+NCpi0BDT_signal_Enu_4000_1p_overlay_gLEE_def		transferred_visible	1		0		4000	2		1			1		0			0			2			2		cv_spline	0
+NCpi0BDT_background_Enu_4000_0p_overlay_gLEE_def	transferred_visible	1		0		4000	1		1			1		0			0			3			2		cv_spline	0
+NCpi0BDT_background_Enu_4000_1p_overlay_gLEE_def	transferred_visible	1		0		4000	2		1			1		0			0			4			2		cv_spline	0
+BG_NCpi0BDT_0p_gLEE_ext								transferred_visible	1		0		4000	1		0			0		0			0			5			3		unity		0
+BG_NCpi0BDT_1p_gLEE_ext								transferred_visible	1		0		4000	2		0			0		0			0			6			3		unity		0
+BG_NCpi0BDT_0p_gLEE_dirt							transferred_visible	1		0		4000	1		1			0		0.5			0			3			4		cv_spline	0
+BG_NCpi0BDT_1p_gLEE_dirt							transferred_visible	1		0		4000	2		1			0		0.5			0			4			4		cv_spline	0
+
+//////////////////////////// WC definition [0+N] p Differential Ppi0
+NCpi0BDT_FC_bnb										pi0_momentum		15		0		1500	1		0			0		0			0			0			5		unity		0
+NCpi0BDT_PC_bnb										pi0_momentum		15		0		1500	2		0			0		0			0			0			5		unity		0
+NCpi0BDT_signal_Enu_4000_Ppi0_1500_FC_overlay		pi0_momentum		15		0		1500	1		1			1		0			0			1			2		cv_spline	0
+NCpi0BDT_signal_Enu_4000_Ppi0_1500_PC_overlay		pi0_momentum		15		0		1500	2		1			1		0			0			2			2		cv_spline	0
+NCpi0BDT_background_Enu_4000_Ppi0_1500_FC_overlay	pi0_momentum		15		0		1500	1		1			1		0			0			3			2		cv_spline	0
+NCpi0BDT_background_Enu_4000_Ppi0_1500_PC_overlay	pi0_momentum		15		0		1500	2		1			1		0			0			4			2		cv_spline	0
+BG_NCpi0BDT_FC_ext									pi0_momentum		15		0		1500	1		0			0		0			0			5			3		unity		0
+BG_NCpi0BDT_PC_ext									pi0_momentum		15		0		1500	2		0			0		0			0			6			3		unity		0
+BG_NCpi0BDT_FC_dirt									pi0_momentum		15		0		1500	1		1			0		0.5			0			3			4		cv_spline	0
+BG_NCpi0BDT_PC_dirt									pi0_momentum		15		0		1500	2		1			0		0.5			0			4			4		cv_spline	0
+
+//////////////////////////// WC definition 0p & Np Differential Ppi0
+NCpi0BDT_0p_bnb										pi0_momentum		15		0		1500	1		0			0		0			0			0			5		unity		0
+NCpi0BDT_Np_bnb										pi0_momentum		15		0		1500	2		0			0		0			0			0			5		unity		0
+NCpi0BDT_signal_Enu_4000_Ppi0_1500_0p_overlay		pi0_momentum		15		0		1500	1		1			1		0			0			1			2		cv_spline	0
+NCpi0BDT_signal_Enu_4000_Ppi0_1500_Np_overlay		pi0_momentum		15		0		1500	2		1			1		0			0			2			2		cv_spline	0
+NCpi0BDT_background_Enu_4000_Ppi0_1500_0p_overlay	pi0_momentum		15		0		1500	1		1			1		0			0			3			2		cv_spline	0
+NCpi0BDT_background_Enu_4000_Ppi0_1500_Np_overlay	pi0_momentum		15		0		1500	2		1			1		0			0			4			2		cv_spline	0
+BG_NCpi0BDT_0p_ext									pi0_momentum		15		0		1500	1		0			0		0			0			5			3		unity		0
+BG_NCpi0BDT_Np_ext									pi0_momentum		15		0		1500	2		0			0		0			0			6			3		unity		0
+BG_NCpi0BDT_0p_dirt									pi0_momentum		15		0		1500	1		1			0		0.5			0			3			4		cv_spline	0
+BG_NCpi0BDT_Np_dirt									pi0_momentum		15		0		1500	2		1			0		0.5			0			4			4		cv_spline	0
+
+//////////////////////////// WC definition [0+N] p Differential CosThetapi0
+NCpi0BDT_FC_bnb										pi0_costheta		20		-1		1		1		0			0		0			0			0			5		unity		0
+NCpi0BDT_PC_bnb										pi0_costheta		20		-1		1		2		0			0		0			0			0			5		unity		0
+NCpi0BDT_signal_Enu_4000_CosThetapi0_FC_overlay		pi0_costheta		20		-1		1		1		1			1		0			0			1			2		cv_spline	0
+NCpi0BDT_signal_Enu_4000_CosThetapi0_PC_overlay		pi0_costheta		20		-1		1		2		1			1		0			0			2			2		cv_spline	0
+NCpi0BDT_background_Enu_4000_CosThetapi0_FC_overlay	pi0_costheta		20		-1		1		1		1			1		0			0			3			2		cv_spline	0
+NCpi0BDT_background_Enu_4000_CosThetapi0_PC_overlay	pi0_costheta		20		-1		1		2		1			1		0			0			4			2		cv_spline	0
+BG_NCpi0BDT_FC_ext									pi0_costheta		20		-1		1		1		0			0		0			0			5			3		unity		0
+BG_NCpi0BDT_PC_ext									pi0_costheta		20		-1		1		2		0			0		0			0			6			3		unity		0
+BG_NCpi0BDT_FC_dirt									pi0_costheta		20		-1		1		1		1			0		0.5			0			3			4		cv_spline	0
+BG_NCpi0BDT_PC_dirt									pi0_costheta		20		-1		1		2		1			0		0.5			0			4			4		cv_spline	0
+
+//////////////////////////// WC definition 0p & Np Differential CosThetapi0
+NCpi0BDT_0p_bnb										pi0_costheta		20		-1		1		1		0			0		0			0			0			5		unity		0
+NCpi0BDT_Np_bnb										pi0_costheta		20		-1		1		2		0			0		0			0			0			5		unity		0
+NCpi0BDT_signal_Enu_4000_CosThetapi0_0p_overlay		pi0_costheta		20		-1		1		1		1			1		0			0			1			2		cv_spline	0
+NCpi0BDT_signal_Enu_4000_CosThetapi0_Np_overlay		pi0_costheta		20		-1		1		2		1			1		0			0			2			2		cv_spline	0
+NCpi0BDT_background_Enu_4000_CosThetapi0_0p_overlay	pi0_costheta		20		-1		1		1		1			1		0			0			3			2		cv_spline	0
+NCpi0BDT_background_Enu_4000_CosThetapi0_Np_overlay	pi0_costheta		20		-1		1		2		1			1		0			0			4			2		cv_spline	0
+BG_NCpi0BDT_0p_ext									pi0_costheta		20		-1		1		1		0			0		0			0			5			3		unity		0
+BG_NCpi0BDT_Np_ext									pi0_costheta		20		-1		1		2		0			0		0			0			6			3		unity		0
+BG_NCpi0BDT_0p_dirt									pi0_costheta		20		-1		1		1		1			0		0.5			0			3			4		cv_spline	0
+BG_NCpi0BDT_Np_dirt									pi0_costheta		20		-1		1		2		1			0		0.5			0			4			4		cv_spline	0

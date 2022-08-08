@@ -30,8 +30,8 @@
 
 
 
--1		end			-1			end																													end												-1			-1			-1		-1
-#file	#type		#period		#filename																											#outfile_name									#ext_pot	#file_no  	#norm	#norm_period
+-1		end			-1			end																														end												-1			-1			-1		-1
+#file	#type		#period		#filename																												#outfile_name									#ext_pot	#file_no  	#norm	#norm_period
 
 
 2   nu_overlay		1	./processed_checkout_rootfiles/DetVar_open/WCPcheckout_prodgenie_bnb_nu_overlay_WCP_DetVar_LYDown_run1.root						./hist_rootfiles/DetVar/cov_LYDown.root			0		21      5.91e20    	1

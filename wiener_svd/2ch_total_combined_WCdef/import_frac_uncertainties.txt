@@ -1,0 +1,6 @@
+frac_err_stat = [0.123336]
+frac_err_mcstat = [0.0332945]
+frac_err_dirt = [0.0075557]
+frac_err_flux = [0.198974]
+frac_err_det = [0.0779033]
+frac_err_xs = [0.207492]

@@ -28,8 +28,8 @@
 ./processed_checkout_rootfiles/DetVar_full/WCPcheckout_prodgenie_bnb_nu_overlay_WCP_DetVar_WireModX_run3b.root                       	all
 ./processed_checkout_rootfiles/DetVar_full/WCPcheckout_prodgenie_bnb_nu_overlay_WCP_DetVar_WireModYZ_run3b.root                      	all
 
-end																																	end
-#file																																#cut
+end																																		end
+#file																																	#cut
 
 
 ./processed_checkout_rootfiles/DetVar_open/WCPcheckout_prodgenie_bnb_nu_overlay_WCP_DetVar_LYDown_run1.root								all

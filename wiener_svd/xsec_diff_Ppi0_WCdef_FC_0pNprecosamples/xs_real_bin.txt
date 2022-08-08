@@ -1,0 +1,100 @@
+1 		11 			NCpi0BDT.inside.Ppi0.le.100.gt.0 		4288.03			0.022 		0.011 
+2 		11 			NCpi0BDT.inside.Ppi0.le.150.gt.100 		2144.02			0.022 		0.011 
+3 		11 			NCpi0BDT.inside.Ppi0.le.200.gt.150 		2144.02			0.022 		0.011
+4 		11 			NCpi0BDT.inside.Ppi0.le.250.gt.200 		2144.02			0.022 		0.011
+5 		11 			NCpi0BDT.inside.Ppi0.le.300.gt.250 		2144.02			0.022 		0.011
+6 		11 			NCpi0BDT.inside.Ppi0.le.400.gt.300 		4288.03			0.022 		0.011
+7 		11 			NCpi0BDT.inside.Ppi0.le.500.gt.400 		4288.03			0.022 		0.011
+8 		11 			NCpi0BDT.inside.Ppi0.le.600.gt.500 		4288.03			0.022 		0.011
+9 		11 			NCpi0BDT.inside.Ppi0.le.800.gt.600 		8576.07			0.022 		0.011 
+10 		11 			NCpi0BDT.inside.Ppi0.le.1000.gt.800 	8576.07			0.022 		0.011
+11 		11 			NCpi0BDT.inside.Ppi0.le.1500.gt.1000 	21440.2			0.022 		0.011 
+
+
+
+-1		-1			End										-1				-1			-1
+#bin	#cut_file  	#cut									#const			#pot_err	#target_err
+
+
+########################## Open data set (275-4000) MeV
+
+1 		8 			NCpi0BDT.inside.Enu.4000 				42880.3			0.022 		0.011
+
+1 		9			NCpi0BDT.inside.Enu.4000.gLEE.def		42880.3			0.022 		0.011
+
+1 		10 			NCpi0BDT.inside.CosThetapi0.le.0620.gt.1000 	16294.5 	0.022 		0.011
+2 		10 			NCpi0BDT.inside.CosThetapi0.le.0340.gt.0620 	12006.5 	0.022 		0.011
+3 		10 			NCpi0BDT.inside.CosThetapi0.le.0130.gt.0340 	9004.87 	0.022 		0.011
+4 		10 			NCpi0BDT.inside.CosThetapi0.le.0060.gt.0130 	8147.26 	0.022 		0.011
+5 		10 			NCpi0BDT.inside.CosThetapi0.le.0200.gt.0060 	6003.25 	0.022 		0.011
+6 		10 			NCpi0BDT.inside.CosThetapi0.le.0320.gt.0200 	5145.64 	0.022 		0.011
+7 		10 			NCpi0BDT.inside.CosThetapi0.le.0420.gt.0320 	4288.03 	0.022 		0.011
+8 		10 			NCpi0BDT.inside.CosThetapi0.le.0520.gt.0420 	4288.03 	0.022 		0.011
+9 		10 			NCpi0BDT.inside.CosThetapi0.le.0600.gt.0520 	3430.43 	0.022 		0.011
+10 		10 			NCpi0BDT.inside.CosThetapi0.le.0670.gt.0600 	3001.62 	0.022 		0.011
+11 		10 			NCpi0BDT.inside.CosThetapi0.le.0730.gt.0670 	2572.82 	0.022 		0.011
+12		10 			NCpi0BDT.inside.CosThetapi0.le.0780.gt.0730 	2144.02 	0.022 		0.011
+13 		10 			NCpi0BDT.inside.CosThetapi0.le.0830.gt.0780 	2144.02 	0.022 		0.011
+14 		10 			NCpi0BDT.inside.CosThetapi0.le.0870.gt.0830 	1715.21 	0.022 		0.011
+15 		10 			NCpi0BDT.inside.CosThetapi0.le.0910.gt.0870 	1715.21 	0.022 		0.011
+16 		10 			NCpi0BDT.inside.CosThetapi0.le.0950.gt.0910 	1715.21 	0.022 		0.011
+17 		10 			NCpi0BDT.inside.CosThetapi0.le.0975.gt.0950 	1072.01 	0.022 		0.011
+18 		10 			NCpi0BDT.inside.CosThetapi0.le.1000.gt.0975 	1072.01 	0.022 		0.011
+
+1 		11 			NCpi0BDT.inside.Ppi0.le.100.gt.0 		4288.03			0.022 		0.011 
+2 		11 			NCpi0BDT.inside.Ppi0.le.150.gt.100 		2144.02			0.022 		0.011 
+3 		11 			NCpi0BDT.inside.Ppi0.le.200.gt.150 		2144.02			0.022 		0.011
+4 		11 			NCpi0BDT.inside.Ppi0.le.250.gt.200 		2144.02			0.022 		0.011
+5 		11 			NCpi0BDT.inside.Ppi0.le.300.gt.250 		2144.02			0.022 		0.011
+6 		11 			NCpi0BDT.inside.Ppi0.le.400.gt.300 		4288.03			0.022 		0.011
+7 		11 			NCpi0BDT.inside.Ppi0.le.500.gt.400 		4288.03			0.022 		0.011
+8 		11 			NCpi0BDT.inside.Ppi0.le.600.gt.500 		4288.03			0.022 		0.011
+9 		11 			NCpi0BDT.inside.Ppi0.le.800.gt.600 		8576.07			0.022 		0.011 
+10 		11 			NCpi0BDT.inside.Ppi0.le.1000.gt.800 	8576.07			0.022 		0.011
+11 		11 			NCpi0BDT.inside.Ppi0.le.1500.gt.1000 	21440.2			0.022 		0.011 
+
+1 		12 			NCpi0BDT.0p.inside.Enu.4000 			42880.3			0.022 		0.011
+2 		12 			NCpi0BDT.Np.inside.Enu.4000 			42880.3			0.022 		0.011
+
+1 		13 			NCpi0BDT.0p.inside.Enu.4000.gLEE.def 	42880.3			0.022 		0.011
+2 		13 			NCpi0BDT.1p.inside.Enu.4000.gLEE.def 	42880.3			0.022 		0.011
+
+1 		14 			NCpi0BDT.0p.inside.Ppi0.le.100.gt.0     	4288.03			0.022 		0.011 
+2 		14 			NCpi0BDT.0p.inside.Ppi0.le.150.gt.100     	2144.02			0.022 		0.011 
+3 		14 			NCpi0BDT.0p.inside.Ppi0.le.200.gt.150     	2144.02			0.022 		0.011
+4 		14 			NCpi0BDT.0p.inside.Ppi0.le.250.gt.200     	2144.02			0.022 		0.011
+5 		14 			NCpi0BDT.0p.inside.Ppi0.le.300.gt.250     	2144.02			0.022 		0.011
+6 		14 			NCpi0BDT.0p.inside.Ppi0.le.400.gt.300     	4288.03			0.022 		0.011
+7 		14 			NCpi0BDT.0p.inside.Ppi0.le.500.gt.400     	4288.03			0.022 		0.011
+8 		14 			NCpi0BDT.0p.inside.Ppi0.le.600.gt.500     	4288.03			0.022 		0.011
+9 		14 			NCpi0BDT.0p.inside.Ppi0.le.800.gt.600     	8576.07			0.022 		0.011 
+10 		14 			NCpi0BDT.0p.inside.Ppi0.le.1000.gt.800     	8576.07			0.022 		0.011
+11 		14 			NCpi0BDT.0p.inside.Ppi0.le.1500.gt.1000     21440.2			0.022 		0.011 
+12 		14 			NCpi0BDT.Np.inside.Ppi0.le.100.gt.0 		4288.03			0.022 		0.011 
+13 		14 			NCpi0BDT.Np.inside.Ppi0.le.150.gt.100 		2144.02			0.022 		0.011 
+14 		14 			NCpi0BDT.Np.inside.Ppi0.le.200.gt.150 		2144.02			0.022 		0.011
+15		14 			NCpi0BDT.Np.inside.Ppi0.le.250.gt.200 		2144.02			0.022 		0.011
+16 		14 			NCpi0BDT.Np.inside.Ppi0.le.300.gt.250 		2144.02			0.022 		0.011
+17 		14 			NCpi0BDT.Np.inside.Ppi0.le.400.gt.300 		4288.03			0.022 		0.011
+18 		14 			NCpi0BDT.Np.inside.Ppi0.le.500.gt.400 		4288.03			0.022 		0.011
+19 		14 			NCpi0BDT.Np.inside.Ppi0.le.600.gt.500 		4288.03			0.022 		0.011
+20 		14 			NCpi0BDT.Np.inside.Ppi0.le.800.gt.600 		8576.07			0.022 		0.011 
+21 		14 			NCpi0BDT.Np.inside.Ppi0.le.1000.gt.800 		8576.07			0.022 		0.011
+22 		14 			NCpi0BDT.Np.inside.Ppi0.le.1500.gt.1000 	21440.2			0.022 		0.011 
+
+
+########################## Full data set (275-4000) MeV
+
+1 		8 			NCpi0BDT.inside.Enu.gt.275 				512680			0.022 		0.011
+
+1 		10 			NCpi0BDT.inside.Ppi0.le.100.gt.0 		51268			0.022 		0.011
+2 		10 			NCpi0BDT.inside.Ppi0.le.150.gt.100 		25634			0.022 		0.011
+3 		10 			NCpi0BDT.inside.Ppi0.le.200.gt.150 		25634			0.022 		0.011
+4 		10 			NCpi0BDT.inside.Ppi0.le.250.gt.200 		25634			0.022 		0.011
+5 		10 			NCpi0BDT.inside.Ppi0.le.300.gt.250 		25634 			0.022 		0.011
+6 		10 			NCpi0BDT.inside.Ppi0.le.400.gt.300 		51268			0.022 		0.011
+7 		10 			NCpi0BDT.inside.Ppi0.le.500.gt.400 		51268 			0.022 		0.011
+8 		10 			NCpi0BDT.inside.Ppi0.le.600.gt.500 		51268			0.022 		0.011
+9 		10 			NCpi0BDT.inside.Ppi0.le.800.gt.600 		102536			0.022 		0.011
+10 		10 			NCpi0BDT.inside.Ppi0.le.1000.gt.800 	102536			0.022 		0.011
+11 		10 			NCpi0BDT.inside.Ppi0.le.1500.gt.1000 	256340			0.022 		0.011

@@ -1,0 +1,6 @@
+GENIE_y = [1.87516]
+y = [1.16056]
+yerr_stat = [0.143103]
+yerr_tot = [0.669163]
+yerr_sys = [0.653682]
+chi2 = 'nan'
