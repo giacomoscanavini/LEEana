@@ -79,7 +79,8 @@ void convert_wiener_2ch(){
   
   // covariance matrix
   TH2D *hcov_tot = new TH2D("hcov_tot","hcov_tot",nbin_meas,0.5,nbin_meas+0.5,nbin_meas,0.5,nbin_meas+0.5);
-  // MC statistical uncertainties ...
+  
+  // MC statistical uncertainties
   TH2D *hcov_mcstat = new TH2D("hcov_mcstat","hcov_mcstat",nbin_meas,0.5,nbin_meas+0.5,nbin_meas,0.5,nbin_meas+0.5);
   ifstream infile("mcstat/xs_tot.log");
   double temp, temp1,err2;
@@ -88,7 +89,7 @@ void convert_wiener_2ch(){
     infile >> temp >> temp >> temp >> err2 >> temp;
     hcov_mcstat->SetBinContent(i+1,i+1,err2);
   }
-  ////hcov_mcstat->Draw("COLZ");
+  //hcov_mcstat->Draw("COLZ");
 
   // statistical uncertainties
   TH2D *hcov_stat = new TH2D("hcov_stat","hcov_stat",nbin_meas,0.5,nbin_meas+0.5,nbin_meas,0.5,nbin_meas+0.5);
@@ -117,7 +118,66 @@ void convert_wiener_2ch(){
     hcov_stat->SetBinContent(hdata_obsch_1->GetNbinsX()+1+i+1,hdata_obsch_1->GetNbinsX()+1+i+1,content);
   }
   //hcov_stat->Draw("COLZ");
-  
+
+
+
+
+
+
+
+/*
+
+
+
+  // Correlated statistical uncertainties (stat, mcstat)
+  TFile *file2 = new TFile("run_pred_stat.root");
+  TMatrixD *matrix_datastat = (TMatrixD*)roofile_data->Get("cov_mat_0");
+  for(int idx=0; idx<matrix_datastat->GetNrows(); idx++ ) {
+    for(int jdx=0; jdx<matrix_datastat->GetNrows(); jdx++ ) {
+      double val_cov = (*matrix_datastat)(idx, jdx);      
+      double ii = sqrt((*matrix_datastat)(idx,idx));
+      double jj = sqrt((*matrix_datastat)(jdx,jdx));
+      if( ii!=0 && jj!=0 ) matrix_data_MCstat_correlation(idx, jdx) = val_cov/ii/jj;
+      if( idx==jdx) matrix_data_MCstat_correlation(idx, jdx) = 1;
+    }
+  }
+  matrix_pred_MCstat_correlation = matrix_data_MCstat_correlation;
+
+
+  for(int idx=0; idx<bins_newworld; idx++) {
+      for(int jdx=0; jdx<bins_newworld; jdx++) {
+        /// Data_stat
+        double data_sigma_i = sqrt( hcov_stat(idx, idx) );
+        double data_sigma_j = sqrt( hcov_stat(jdx, jdx) );
+        double data_correlation = matrix_data_MCstat_correlation(idx, jdx);
+        double data_stat_cov = data_correlation * data_sigma_i * data_sigma_j;
+
+        /// MC_stat
+        double pred_sigma_i = sqrt( gh_mc_stat_bin[idx]->Eval( scaleF_Lee ) );
+        double pred_sigma_j = sqrt( gh_mc_stat_bin[jdx]->Eval( scaleF_Lee ) );    
+        double pred_correlation = matrix_pred_MCstat_correlation(idx, jdx);
+        double pred_stat_cov = pred_correlation * pred_sigma_i * pred_sigma_j;
+
+        ///
+        //matrix_absolute_cov_newworld(idx, jdx) += data_stat_cov;
+        //matrix_absolute_cov_newworld(idx, jdx) += pred_stat_cov;
+        matrix_absolute_data_stat_cov(idx, jdx) = data_stat_cov;
+        matrix_absolute_pred_stat_cov(idx, jdx) = pred_stat_cov;
+      }
+    }
+
+
+
+*/
+
+
+
+
+
+
+
+
+
   // additional uncertainty
   TH2D *hcov_add = new TH2D("hcov_add","hcov_add",nbin_meas,0.5,nbin_meas+0.5,nbin_meas,0.5,nbin_meas+0.5);
   TMatrixD mat_add = mat_collapse_T * (*cov_mat_add) * (*mat_collapse);

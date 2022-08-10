@@ -21,6 +21,9 @@ system("cp ./configurations/xf_input_open.txt ./configurations/xf_input.txt");
 #central histogram preparation ...// Xs mode ...
 system("./convert_histo.pl 1");
 
+#Correlated statistical uncertainties 
+#system("./bin/stat_pred_cov_matrix -r0 &");
+
 #Det sys
 system("./run_det_sys.pl");
 
