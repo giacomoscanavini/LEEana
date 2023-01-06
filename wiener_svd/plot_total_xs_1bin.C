@@ -26,10 +26,13 @@ double calc_GoF(TMatrixD matrix_pred, TMatrixD matrix_data, TMatrixD cov){
 }
 
 // main function
-void plot_total_xs_1bin(){
+void plot_total_xs_1bin(double XS_FACTOR){
 
-  double xbins[] = {0.275, 8}; // Bin separators - GeV
-  double XS_FACTOR = 100.;  // Cross section is in terms of 10e-36 cm^2/Ar if XS_FACTOR == 1., otherwise change axis
+  std::cout << "Instructions: " << std::endl;
+  std::cout << "- 0: Reweighting is NOT included" << std::endl;
+
+  double xbins[] = {0,1};
+  //double XS_FACTOR = 100.;  // Cross section is in terms of 10e-36 cm^2/Ar if XS_FACTOR == 1., otherwise change axis
                             // 1e-38 cm^2/Ar if XS_FACTOR == 100.
                             // 1e-39 cm^2/Ar if XS_FACTOR == 1000.
                             // 1e-40 cm^2/Ar if XS_FACTOR == 10000.
@@ -68,13 +71,13 @@ void plot_total_xs_1bin(){
 
   for (int i=0;i<n;i++) {
     for (int j=0;j<n;j++) {
-      mcov_stat(i,j)   = hcov_stat->GetBinContent(  i+1,j+1);
-      mcov_mcstat(i,j) = hcov_mcstat->GetBinContent(i+1,j+1);
-      mcov_add(i,j)    = hcov_add->GetBinContent(   i+1,j+1);
-      mcov_flux(i,j)   = hcov_flux->GetBinContent(  i+1,j+1);
-      mcov_det(i,j)    = hcov_det->GetBinContent(   i+1,j+1);
-      mcov_xs(i,j)     = hcov_xs->GetBinContent(    i+1,j+1);
-      mcov_tot(i,j)    = hcov_tot->GetBinContent(   i+1,j+1);
+      mcov_stat(i,j)   = hcov_stat->GetBinContent(    i+1,j+1);
+      mcov_mcstat(i,j) = hcov_mcstat->GetBinContent(  i+1,j+1);
+      mcov_add(i,j)    = hcov_add->GetBinContent(     i+1,j+1);
+      mcov_flux(i,j)   = hcov_flux->GetBinContent(    i+1,j+1);
+      mcov_det(i,j)    = hcov_det->GetBinContent(     i+1,j+1);
+      mcov_xs(i,j)     = hcov_xs->GetBinContent(      i+1,j+1);
+      mcov_tot(i,j)    = hcov_tot->GetBinContent(     i+1,j+1);
     }
   }
 
@@ -251,7 +254,7 @@ void plot_total_xs_1bin(){
     else myfile << "]";
   }
   myfile << "]\n\n";
-
+    
   myfile << " Tot. Cov. (unfolded space) \n[";
   for (int i=0;i<m;i++) {
     myfile << "[";
@@ -266,14 +269,13 @@ void plot_total_xs_1bin(){
 
   myfile.close();
 
-
-  TH1D* herr_frac_stat   = new TH1D("herr_frac_stat",  "herr_frac_stat",  m,0.5,m+0.5);
-  TH1D* herr_frac_mcstat = new TH1D("herr_frac_mcstat","herr_frac_mcstat",m,0.5,m+0.5);
-  TH1D* herr_frac_add    = new TH1D("herr_frac_add",   "herr_frac_add",   m,0.5,m+0.5);
-  TH1D* herr_frac_flux   = new TH1D("herr_frac_flux",  "herr_frac_flux",  m,0.5,m+0.5);
-  TH1D* herr_frac_det    = new TH1D("herr_frac_det",   "herr_frac_det",   m,0.5,m+0.5);
-  TH1D* herr_frac_xs     = new TH1D("herr_frac_xs",    "herr_frac_xs",    m,0.5,m+0.5);
-  TH1D* herr_frac_tot    = new TH1D("herr_frac_tot",   "herr_frac_tot",   m,0.5,m+0.5);
+  TH1D* herr_frac_stat   = new TH1D("herr_frac_stat",   "herr_frac_stat",   m,0.5,m+0.5);
+  TH1D* herr_frac_mcstat = new TH1D("herr_frac_mcstat", "herr_frac_mcstat", m,0.5,m+0.5);
+  TH1D* herr_frac_add    = new TH1D("herr_frac_add",    "herr_frac_add",    m,0.5,m+0.5);
+  TH1D* herr_frac_flux   = new TH1D("herr_frac_flux",   "herr_frac_flux",   m,0.5,m+0.5);
+  TH1D* herr_frac_det    = new TH1D("herr_frac_det",    "herr_frac_det",    m,0.5,m+0.5);
+  TH1D* herr_frac_xs     = new TH1D("herr_frac_xs",     "herr_frac_xs",     m,0.5,m+0.5);
+  TH1D* herr_frac_tot    = new TH1D("herr_frac_tot",    "herr_frac_tot",    m,0.5,m+0.5);
 
   double vec_abs_stat[m];
   double vec_abs_syst[m];
@@ -306,8 +308,7 @@ void plot_total_xs_1bin(){
     double abs_det =    TMath::Sqrt(mcov_det_rot(i,i)) * XS_FACTOR;
     double abs_xs =     TMath::Sqrt(mcov_xs_rot(i,i)) * XS_FACTOR;
     double abs_tot =    TMath::Sqrt(mcov_tot_rot(i,i)) * XS_FACTOR;
-
-    double abs_syst = TMath::Sqrt( abs_mcstat*abs_mcstat + abs_add*abs_add + abs_flux*abs_flux + abs_det*abs_det + abs_xs*abs_xs );
+    double abs_syst = TMath::Sqrt( abs_mcstat*abs_mcstat + abs_add*abs_add + abs_flux*abs_flux + abs_det*abs_det + abs_xs*abs_xs);
     double abs_stat_syst = TMath::Sqrt( abs_stat*abs_stat + abs_syst*abs_syst );
 
     double frac_stat = abs_stat     / content;
@@ -435,7 +436,6 @@ void plot_total_xs_1bin(){
   le2->AddEntry(herr_frac_xs,"Xs","l");
   le2->AddEntry(herr_frac_tot,"Total","l");
   le2->Draw();
-
 
   //////////////////////////////////////////////////////////////////////////////////////////////////////
   // Extract unfolded results

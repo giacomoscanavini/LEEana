@@ -10,17 +10,23 @@ double calc_GoF(TMatrixD matrix_pred, TMatrixD matrix_data, TMatrixD cov){
 }
 
 // main function
-void plot_diff_xs_CosThetapi0_Nbin(){
+void plot_diff_xs_CosThetapi0_Nbin(double XS_FACTOR, double NUCLEONS){
+  //double xbins[] = {-1.0, -0.62, -0.13, 0.20, 0.47, 0.67, 0.83, 0.95, 1.0, 1.38, 1.87, 2.2, 2.47, 2.67, 2.83, 2.95, 3.0}; //Bin separators 
+  //double xbins[] = {0., 0.1, 0.15, 0.2, 0.25, 0.3, 0.4, 0.5, 0.6, 0.8, 1.0, 1.5, 1.6, 1.65, 1.7, 1.75, 1.8, 1.9, 2.0, 2.1, 2.3, 2.5, 3.}; //Bin separators - GeV/c
+  //std::cout << " Open data set binning! (0p, Np) " << std::endl;
 
-  double xbins[] = {-1.0, -0.62, -0.34, -0.13, 0.06, 0.20, 0.32, 0.42, 0.52, 0.6, 0.67, 0.73, 0.78, 0.83, 0.87, 0.91, 0.95, 0.975, 1.0};  // Bin separators - GeV
-  double NUCLEONS = 40.;
+  double xbins[] = {-1.0, -0.62, -0.13, 0.20, 0.47, 0.67, 0.83, 0.95, 1.0}; // Bin separators 
+  //double xbins[] = {-1.0, -0.62, -0.34, -0.13, 0.06, 0.20, 0.32, 0.42, 0.52, 0.6, 0.67, 0.73, 0.78, 0.83, 0.87, 0.91, 0.95, 0.975, 1.0}; // Bin separators
+  std::cout << " Open data set binning! (Combined) " << std::endl;
+
+  //double NUCLEONS = 40.;
   //double NUCLEONS = 1.;
-  double XS_FACTOR = 1000.;  // Cross section is in terms of 10e-36 cm^2/Ar if XS_FACTOR == 1., otherwise change axis
+  //double XS_FACTOR = 1000.;  // Cross section is in terms of 10e-36 cm^2/Ar if XS_FACTOR == 1., otherwise change axis
                                       // 1e-38 cm^2/Ar if XS_FACTOR == 100.
                                       // 1e-39 cm^2/Ar if XS_FACTOR == 1000.
                                       // 1e-40 cm^2/Ar if XS_FACTOR == 10000.
-
-  XS_FACTOR = 1000./NUCLEONS;  // Only if you want XS normalized per nucleon
+    
+  XS_FACTOR = XS_FACTOR/NUCLEONS;  // Only if you want XS normalized per nucleon
   
   //////////////////////////////////////////////////////////////////////////////////////////////////////
   // Extract fractional uncertainties

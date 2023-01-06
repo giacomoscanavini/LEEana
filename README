@@ -1,4 +1,9 @@
+--------- JUPYTER SETTINGS ---------------------------
+jupyter notebook --no-browser &
+jupyter notebook stop
+
 conda activate env_root
+------------------------------------------------------
 
 export DISPLAY="`grep nameserver /etc/resolv.conf | sed 's/nameserver //'`:0"
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/gs627/wcp-uboone-bdt/lib
@@ -11,28 +16,48 @@ Modify:
 - read_TLee_v20.cxx --------> Bins and channels for combined chi-square
 - gp_input.txt -------------> CV bins for smoothing (default = -g0)
 
+
+--------- WCP BUILD SETTINGS ---------------------------
 cd ../wcp-uboone-bdt/
 ./wcb -p build install
 ./wcb clean
 cd ../LEEana/
 
-./run_tlee_open.pl
+------------------------------------------------------
+
+RECONSTRUCTED DISTRIBUTIONS: 
+
 ./run_tlee_full.pl
+./run_tlee_open.pl
 
 ./bin/merge_hist -r0 -l0 -b1 -d1
-
 ./bin/merge_hist -r0 -l0
 
 ./run_mc_stat.pl
 
-./run_det_sys.pl  &&  ./run_xf_sys.pl 
+// Includes reweighting
+./run_det_sys.pl  &&  ./run_xf_sys.pl 1   
 
-	Open data set 9ch: 11:30 min
-	Full data set 9ch: 19:00 min
+// Doesn't include reweighting
+./run_det_sys.pl  &&  ./run_xf_sys.pl 0    
 
 ./bin/read_TLee_v20
 
 ./bin/plot_hist -r0 -l0 -e3 -sfile_collapsed_covariance_matrix.root
 
+CROSS SECTION EXTRACTION: 
+./run_xs_open.pl
+./run_xs_full.pl
 
-git token (May 25th - 90 days): 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
+REWEIGHTING MODIFICATIONS: 
+Configure_Lee.h
+  	int syst_cov_flux_Xs_end   = 19;
+
+  	bool flag_syst_reweight         = 1;  // Must turn to 1 for reweighting to be applied
+  	bool flag_syst_reweight_cor     = 1;  // Must turn to 1 for reweighting to be applied
+
+run_xs_open.pl / run_xs_full.pl
+	system("./run_xf_sys.pl 1"); 		#Reweighting
+	system("./bin/xs_cov_matrix -r18"); #reweighting uncorrelated
+	system("./bin/xs_cov_matrix -r19"); #reweighting correlated
+

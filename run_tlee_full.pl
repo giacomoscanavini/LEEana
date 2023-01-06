@@ -1,5 +1,6 @@
 #!/usr/bin/perl
 
+system("./clean_before_tlee.pl");
 
 system("rm ./configurations/file_ch.txt");
 system("rm ./configurations/cov_input.txt");

@@ -26,10 +26,13 @@ double calc_GoF(TMatrixD matrix_pred, TMatrixD matrix_data, TMatrixD cov){
 }
 
 // main function
-void plot_total_xs_Nbin(){
+void plot_total_xs_Nbin(double XS_FACTOR){
 
-  double xbins[] = {0,1,2}; // Bin separators - GeV
-  double XS_FACTOR = 100.;  // Cross section is in terms of 10e-36 cm^2/Ar if XS_FACTOR == 1., otherwise change axis
+  std::cout << "Instructions: " << std::endl;
+  std::cout << "- 0: Reweighting is NOT included" << std::endl;
+
+  double xbins[] = {0,1,2};
+  //double XS_FACTOR = 100.;  // Cross section is in terms of 10e-36 cm^2/Ar if XS_FACTOR == 1., otherwise change axis
                             // 1e-38 cm^2/Ar if XS_FACTOR == 100.
                             // 1e-39 cm^2/Ar if XS_FACTOR == 1000.
                             // 1e-40 cm^2/Ar if XS_FACTOR == 10000.
@@ -68,13 +71,13 @@ void plot_total_xs_Nbin(){
 
   for (int i=0;i<n;i++) {
     for (int j=0;j<n;j++) {
-      mcov_stat(i,j)   = hcov_stat->GetBinContent(  i+1,j+1);
-      mcov_mcstat(i,j) = hcov_mcstat->GetBinContent(i+1,j+1);
-      mcov_add(i,j)    = hcov_add->GetBinContent(   i+1,j+1);
-      mcov_flux(i,j)   = hcov_flux->GetBinContent(  i+1,j+1);
-      mcov_det(i,j)    = hcov_det->GetBinContent(   i+1,j+1);
-      mcov_xs(i,j)     = hcov_xs->GetBinContent(    i+1,j+1);
-      mcov_tot(i,j)    = hcov_tot->GetBinContent(   i+1,j+1);
+      mcov_stat(i,j)   = hcov_stat->GetBinContent(    i+1,j+1);
+      mcov_mcstat(i,j) = hcov_mcstat->GetBinContent(  i+1,j+1);
+      mcov_add(i,j)    = hcov_add->GetBinContent(     i+1,j+1);
+      mcov_flux(i,j)   = hcov_flux->GetBinContent(    i+1,j+1);
+      mcov_det(i,j)    = hcov_det->GetBinContent(     i+1,j+1);
+      mcov_xs(i,j)     = hcov_xs->GetBinContent(      i+1,j+1);
+      mcov_tot(i,j)    = hcov_tot->GetBinContent(     i+1,j+1);
     }
   }
 
@@ -179,127 +182,99 @@ void plot_total_xs_Nbin(){
 
   myfile << "-------------------------------------------------------------------------------\n\n";
 
-  double collapsed_value = 0.;
-
-  // Collapsed values for the unfolded covariance matrices can be compared to the unfolded covariance matrices obtained in the combined measurement
-  // In this case we are collapsing a NxN (N=2) cov matrix to be compared to a 1x1 single bin total cross section measurement
-  // The idea of collapsing is to multiply b.T * COV * b  to obtain a 1x1 matrix
-  // COV = NxN covariance matrix
-  // b = N-dimensional vector of 1's 
-  // b.T = transpose of vector b
-
-  myfile << "\nStat. Cov. (unfolded space) \n[";
+  myfile << " Stat. Cov. (unfolded space) \n[";
   for (int i=0;i<m;i++) {
     myfile << "[";
     for (int j=0;j<m;j++) {
-      collapsed_value += mcov_stat_rot(i,j);
       if(j<m-1) myfile << mcov_stat_rot(i,j) << ", ";
       else myfile << mcov_stat_rot(i,j);
     }
     if(i<m-1) myfile << "],\n";
     else myfile << "]";
   }
-  myfile << "]\n";
-  myfile << "Collapsed cov_stat = " << collapsed_value << std::endl;
+  myfile << "]\n\n";
 
-  collapsed_value = 0.;
-  myfile << "\nMC Stat. Cov. (unfolded space) \n[";
+  myfile << " MC Stat. Cov. (unfolded space) \n[";
   for (int i=0;i<m;i++) {
     myfile << "[";
     for (int j=0;j<m;j++) {
-      collapsed_value += mcov_mcstat_rot(i,j);
       if(j<m-1) myfile << mcov_mcstat_rot(i,j) << ", ";
       else myfile << mcov_mcstat_rot(i,j);
     }
     if(i<m-1) myfile << "],\n";
     else myfile << "]";
   }
-  myfile << "]\n";
-  myfile << "Collapsed cov_mcstat = " << collapsed_value << std::endl;
+  myfile << "]\n\n";
 
-  collapsed_value = 0.;
-  myfile << "\nDirt Cov. (unfolded space) \n[";
+  myfile << " Dirt Cov. (unfolded space) \n[";
   for (int i=0;i<m;i++) {
     myfile << "[";
     for (int j=0;j<m;j++) {
-      collapsed_value += mcov_add_rot(i,j);
       if(j<m-1) myfile << mcov_add_rot(i,j) << ", ";
       else myfile << mcov_add_rot(i,j);
     }
     if(i<m-1) myfile << "],\n";
     else myfile << "]";
   }
-  myfile << "]\n";
-  myfile << "Collapsed cov_add = " << collapsed_value << std::endl;
+  myfile << "]\n\n";
 
-  collapsed_value = 0.;
-  myfile << "\nFlux Cov. (unfolded space) \n[";
+  myfile << " Flux Cov. (unfolded space) \n[";
   for (int i=0;i<m;i++) {
     myfile << "[";
     for (int j=0;j<m;j++) {
-      collapsed_value += mcov_flux_rot(i,j);
       if(j<m-1) myfile << mcov_flux_rot(i,j) << ", ";
       else myfile << mcov_flux_rot(i,j);
     }
     if(i<m-1) myfile << "],\n";
     else myfile << "]";
   }
-  myfile << "]\n";
-  myfile << "Collapsed cov_flux = " << collapsed_value << std::endl;
+  myfile << "]\n\n";
 
-  collapsed_value = 0.;
-  myfile << "\nDet. Cov. (unfolded space) \n[";
+  myfile << " Det. Cov. (unfolded space) \n[";
   for (int i=0;i<m;i++) {
     myfile << "[";
     for (int j=0;j<m;j++) {
-      collapsed_value += mcov_det_rot(i,j);
       if(j<m-1) myfile << mcov_det_rot(i,j) << ", ";
       else myfile << mcov_det_rot(i,j);
     }
     if(i<m-1) myfile << "],\n";
     else myfile << "]";
   }
-  myfile << "]\n";
-  myfile << "Collapsed cov_det = " << collapsed_value << std::endl;
+  myfile << "]\n\n";
 
-  collapsed_value = 0.;
-  myfile << "\nXSec. Cov. (unfolded space) \n[";
+  myfile << " XSec. Cov. (unfolded space) \n[";
   for (int i=0;i<m;i++) {
     myfile << "[";
     for (int j=0;j<m;j++) {
-      collapsed_value += mcov_xs_rot(i,j);
       if(j<m-1) myfile << mcov_xs_rot(i,j) << ", ";
       else myfile << mcov_xs_rot(i,j);
     }
     if(i<m-1) myfile << "],\n";
     else myfile << "]";
   }
-  myfile << "]\n";
-  myfile << "Collapsed cov_xs = " << collapsed_value << std::endl;
-
-  collapsed_value = 0.;
-  myfile << "\nTot. Cov. (unfolded space) \n[";
+  myfile << "]\n\n";
+    
+  myfile << " Tot. Cov. (unfolded space) \n[";
   for (int i=0;i<m;i++) {
     myfile << "[";
     for (int j=0;j<m;j++) {
-      collapsed_value += mcov_tot_rot(i,j);
       if(j<m-1) myfile << mcov_tot_rot(i,j) << ", ";
       else myfile << mcov_tot_rot(i,j);
     }
     if(i<m-1) myfile << "],\n";
     else myfile << "]";
   }
-  myfile << "]\n";
-  myfile << "Collapsed cov_tot = " << collapsed_value << std::endl;
+  myfile << "]\n\n";
+
   myfile.close();
 
-  TH1D* herr_frac_stat   = new TH1D("herr_frac_stat",  "herr_frac_stat",  m,0.5,m+0.5);
-  TH1D* herr_frac_mcstat = new TH1D("herr_frac_mcstat","herr_frac_mcstat",m,0.5,m+0.5);
-  TH1D* herr_frac_add    = new TH1D("herr_frac_add",   "herr_frac_add",   m,0.5,m+0.5);
-  TH1D* herr_frac_flux   = new TH1D("herr_frac_flux",  "herr_frac_flux",  m,0.5,m+0.5);
-  TH1D* herr_frac_det    = new TH1D("herr_frac_det",   "herr_frac_det",   m,0.5,m+0.5);
-  TH1D* herr_frac_xs     = new TH1D("herr_frac_xs",    "herr_frac_xs",    m,0.5,m+0.5);
-  TH1D* herr_frac_tot    = new TH1D("herr_frac_tot",   "herr_frac_tot",   m,0.5,m+0.5);
+  TH1D* herr_frac_stat   = new TH1D("herr_frac_stat",   "herr_frac_stat",   m,0.5,m+0.5);
+  TH1D* herr_frac_mcstat = new TH1D("herr_frac_mcstat", "herr_frac_mcstat", m,0.5,m+0.5);
+  TH1D* herr_frac_add    = new TH1D("herr_frac_add",    "herr_frac_add",    m,0.5,m+0.5);
+  TH1D* herr_frac_flux   = new TH1D("herr_frac_flux",   "herr_frac_flux",   m,0.5,m+0.5);
+  TH1D* herr_frac_det    = new TH1D("herr_frac_det",    "herr_frac_det",    m,0.5,m+0.5);
+  TH1D* herr_frac_xs     = new TH1D("herr_frac_xs",     "herr_frac_xs",     m,0.5,m+0.5);
+  TH1D* herr_frac_tot    = new TH1D("herr_frac_tot",    "herr_frac_tot",    m,0.5,m+0.5);
 
   double vec_abs_stat[m];
   double vec_abs_syst[m];
@@ -332,8 +307,7 @@ void plot_total_xs_Nbin(){
     double abs_det =    TMath::Sqrt(mcov_det_rot(i,i)) * XS_FACTOR;
     double abs_xs =     TMath::Sqrt(mcov_xs_rot(i,i)) * XS_FACTOR;
     double abs_tot =    TMath::Sqrt(mcov_tot_rot(i,i)) * XS_FACTOR;
-
-    double abs_syst = TMath::Sqrt( abs_mcstat*abs_mcstat + abs_add*abs_add + abs_flux*abs_flux + abs_det*abs_det + abs_xs*abs_xs );
+    double abs_syst = TMath::Sqrt( abs_mcstat*abs_mcstat + abs_add*abs_add + abs_flux*abs_flux + abs_det*abs_det + abs_xs*abs_xs);
     double abs_stat_syst = TMath::Sqrt( abs_stat*abs_stat + abs_syst*abs_syst );
 
     double frac_stat = abs_stat     / content;
@@ -382,37 +356,47 @@ void plot_total_xs_Nbin(){
 
   myfile2 << "frac_err_stat = [";
   for (int i=0;i<m;i++) {
-    if(i<m-1) myfile2 << frac_err_stat[i] << ", ";
-    else myfile2 << frac_err_stat[i] << "]\n";
+    if(i==0) myfile2 << frac_err_stat[i];
+    else myfile2 << ", " << frac_err_stat[i];
   }
+  myfile2 << "]" << std::endl;
+
   myfile2 << "frac_err_mcstat = [";
   for (int i=0;i<m;i++) {
-    if(i<m-1) myfile2 << frac_err_mcstat[i] << ", ";
-    else myfile2 << frac_err_mcstat[i] << "]\n";
+    if(i==0) myfile2 << frac_err_mcstat[i];
+    else myfile2 << ", " << frac_err_mcstat[i];
   }
+  myfile2 << "]" << std::endl;
+
   myfile2 << "frac_err_dirt = [";
   for (int i=0;i<m;i++) {
-    if(i<m-1) myfile2 << frac_err_dirt[i] << ", ";
-    else myfile2 << frac_err_dirt[i] << "]\n";
+    if(i==0) myfile2 << frac_err_dirt[i];
+    else myfile2 << ", " << frac_err_dirt[i];
   }
+  myfile2 << "]" << std::endl;
+
   myfile2 << "frac_err_flux = [";
   for (int i=0;i<m;i++) {
-    if(i<m-1) myfile2 << frac_err_flux[i] << ", ";
-    else myfile2 << frac_err_flux[i] << "]\n";
+    if(i==0) myfile2 << frac_err_flux[i];
+    else myfile2 << ", " << frac_err_flux[i];
   }
+  myfile2 << "]" << std::endl;
+
   myfile2 << "frac_err_det = [";
   for (int i=0;i<m;i++) {
-    if(i<m-1) myfile2 << frac_err_det[i] << ", ";
-    else myfile2 << frac_err_det[i] << "]\n";
+    if(i==0) myfile2 << frac_err_det[i];
+    else myfile2 << ", " << frac_err_det[i];
   }
+  myfile2 << "]" << std::endl;
+
   myfile2 << "frac_err_xs = [";
   for (int i=0;i<m;i++) {
-    if(i<m-1) myfile2 << frac_err_xs[i] << ", ";
-    else myfile2 << frac_err_xs[i] << "]\n";
+    if(i==0) myfile2 << frac_err_xs[i];
+    else myfile2 << ", " << frac_err_xs[i];
   }
+  myfile2 << "]" << std::endl;
 
   myfile2.close();
-
   std::cout << "--------------------- THE END ----------------------- \n" << std::endl;
 
   herr_frac_stat->SetTitle("Stat");
@@ -448,7 +432,7 @@ void plot_total_xs_Nbin(){
   herr_frac_xs->SetLineWidth(2);
   herr_frac_tot->SetLineWidth(2);
 
-  herr_frac_tot->GetYaxis()->SetRangeUser(0,1.);
+  herr_frac_tot->GetYaxis()->SetRangeUser(0,1);
 
   herr_frac_tot->Draw();
   herr_frac_stat->Draw("same");
@@ -468,7 +452,6 @@ void plot_total_xs_Nbin(){
   le2->AddEntry(herr_frac_xs,"Xs","l");
   le2->AddEntry(herr_frac_tot,"Total","l");
   le2->Draw();
-
 
   //////////////////////////////////////////////////////////////////////////////////////////////////////
   // Extract unfolded results
@@ -561,6 +544,7 @@ void plot_total_xs_Nbin(){
     eyl_tot_v.push_back(ey_tot);
     eyh_tot_v.push_back(ey_tot);
   }
+  //std::cout << "Bin central value: " << x_v[0] << std::endl;
 
   ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
   // CROSS SECTION WITH MC TRUTH CV (no smearing)

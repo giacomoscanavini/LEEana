@@ -10,6 +10,17 @@ system("rm values.txt");
 system("rm values_unfolded.txt");
 
 system("rm ./hist_rootfiles_xs/*.root");
+system("rm ./xs_ch.txt");
+system("rm ./xs_real_bin.txt");
+system("rm ./xf_file_ch.txt");
+system("rm ./xf_input.txt");
+system("rm ./import*.txt");
+system("rm ./gp_input.txt");
+system("rm ./cov_input.txt");
+system("rm ./cv_input.txt");
+system("rm ./det_file_ch.txt");
+system("rm ./det_input.txt");
+system("rm ./file_ch.txt");
 
 system("rm merge_xs.root");
 system("rm wiener.root");
