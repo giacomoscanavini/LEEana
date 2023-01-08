@@ -2,39 +2,64 @@
 1. (in LEEana)               ./run_xs_full.pl
 2. (in LEEana/wiener_svd)    ./copy.pl
 
--------------- BASED ON RECO SPACE --------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------
+Total - Xp
+--------------------------------------------------------------------------------------
 root -l --web=off 'convert_single_wiener.C(1)'
-root -l --web=off 'convert_double_wiener.C(1)'
-root -l --web=off 'convert_wiener_4ch.C(1)'
-root -l --web=off 'convert_2D_wiener_4ch.C(1,12,4)'     // RW==1, nbin_mom==12, nbin_cos==4
-
-
--------------- BASED ON XSEC EXTRACTIONS --------------------------------------------------------------------------------------
 ../bin/wiener_example wiener.root output.root 2 0.5     // C for 2nd derivative (Xp)
+root -l --web=off 'plot_total_xs.C(1,100.,1.,0)'        // RW==1, XS_FACTOR==100., NUCLEONS==1., zeropNp==0 (Xp)
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Total - 0pNp
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+root -l --web=off 'convert_double_wiener.C(1)'
 ../bin/wiener_example wiener.root output.root 20 0.5    // C for 2nd derivative (0p followed by Np)
-../bin/wiener_example wiener.root output.root 333 0.5   // C for 3rd derivative (2D cross section)
+root -l --web=off 'plot_total_xs.C(1,100.,1.,1)'        // RW==1, XS_FACTOR==100., NUCLEONS==1., zeropNp==1 (0p followed by Np)
+
+
+--------------------------------------------------------------------------------------
+diffPpi0 - Xp
+--------------------------------------------------------------------------------------
+root -l --web=off 'convert_wiener_4ch.C(1)'
+../bin/wiener_example wiener.root output.root 2 0.5     // C for 2nd derivative (Xp)
+root -l --web=off 'plot_diff_xs.C(1,1000.,40.,0)'       // RW==1, XS_FACTOR==1000., NUCLEONS==40., zeropNp==0 (Xp)
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+diffPpi0 - 0pNp
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+root -l --web=off 'convert_wiener_4ch.C(1)'
+../bin/wiener_example wiener.root output.root 20 0.5    // C for 2nd derivative (0p followed by Np)
+root -l --web=off 'plot_diff_xs.C(1,1000.,40.,1)'       // RW==1, XS_FACTOR==1000., NUCLEONS==40., zeropNp==1 (0p followed by Np)
+
+
+--------------------------------------------------------------------------------------
+diffCosthetapi0 - Xp
+--------------------------------------------------------------------------------------
+root -l --web=off 'convert_wiener_4ch.C(1)'
+../bin/wiener_example wiener.root output.root 2 0.5     // C for 2nd derivative (Xp)
+root -l --web=off 'plot_diff_xs.C(1,1000.,40.,0)'       // RW==1, XS_FACTOR==1000., NUCLEONS==40., zeropNp==0 (Xp)
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+diffCosthetapi0 - 0pNp
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+root -l --web=off 'convert_wiener_4ch.C(1)'
+../bin/wiener_example wiener.root output.root 20 0.5    // C for 2nd derivative (0p followed by Np)
+root -l --web=off 'plot_diff_xs.C(1,1000.,40.,1)'       // RW==1, XS_FACTOR==1000., NUCLEONS==40., zeropNp==1 (0p followed by Np)
+
+
+--------------------------------------------------------------------------------------
+2D - Xp
+--------------------------------------------------------------------------------------
+root -l --web=off 'convert_2D_wiener_4ch.C(1,12,4)'     // RW==1, nbin_mom==12, nbin_cos==4
+../bin/wiener_example wiener.root output.root 232 0.5   // C for 2nd derivative (2D cross section)
+../bin/wiener_example wiener.root output.root 332 0.5   // C for 3rd derivative (2D cross section)
+root -l --web=off 'plot_diff_xs.C(1,1000.,40.,1)'       // RW==1, XS_FACTOR==1000., NUCLEONS==40., zeropNp==1 (0p followed by Np)
+
 
 
 Other options: 
 ../bin/wiener_example wiener.root output.root 2 0.5 0   // No-wiener filter (Ac matrix should be identity)
 
--------------- BASED ON TRUE BINS --------------------------------------------------------------------------------------
-root -l --web=off 'plot_total_xs.C(1,100.,1.,0)' 			// RW==1, XS_FACTOR==100., NUCLEONS==1., zeropNp==0 (Xp)
-root -l --web=off 'plot_total_xs.C(1,100.,1.,1)' 			// RW==1, XS_FACTOR==100., NUCLEONS==1., zeropNp==1 (0p followed by Np)
-
-root -l --web=off 'plot_diff_xs.C(1,1000.,40.,0)' 			// RW==1, XS_FACTOR==1000., NUCLEONS==40., zeropNp==0 (Xp)
-root -l --web=off 'plot_diff_xs.C(1,1000.,40.,1)' 			// RW==1, XS_FACTOR==1000., NUCLEONS==40., zeropNp==1 (0p followed by Np)
-
-
-
-
-
-5.a  root -l --web=off 'plot_total_xs_1bin_rw.C(100.)'  // (rw=1) Total xs 1 bin
-5.b  root -l --web=off 'plot_total_xs_Nbin_rw.C(100.)'  // (rw=1) Total xs N bins
-5.c  root -l --web=off 'plot_diff_xs_Ppi0_Nbin_rw.C(1000., 40.)'  // (rw=1) Diff. xs 
-5.d  root -l --web=off 'plot_diff_xs_CosThetapi0_Nbin_rw.C(1000., 40.)'  // (rw=1) 
-----------------------------------------------------------------------------------------------------------------------------------
-5.e  root -l --web=off 'plot_total_xs_1bin.C(100.)'	// Reweighting excluded, XS_FACTOR==100.
-5.f  root -l --web=off 'plot_total_xs_Nbin.C(100.)'	// Reweighting excluded, XS_FACTOR==100.
-5.g  root -l --web=off 'plot_diff_xs_Ppi0_Nbin.C(1000., 40.)'	// Reweighting excluded, XS_FACTOR==1000., NUCLEONS==40.
-5.h  root -l --web=off 'plot_diff_xs_CosThetapi0_Nbin.C(1000., 40.)'	// Reweighting excluded, XS_FACTOR==1000., NUCLEONS==40.
