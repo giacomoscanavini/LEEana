@@ -1,0 +1,65 @@
+generic_bnb								reco_nuvtxZ				32		0		1100		1		0			0		0			0			0			5		unity		0
+generic_overlay							reco_nuvtxZ				32		0		1100		1		1			1		0			0			1			2		cv_spline	0
+generic_ncpi0							reco_nuvtxZ				32		0		1100		1		1			1		0			0			1			6		cv_spline	0
+generic_dirt							reco_nuvtxZ				32		0		1100		1		1			0		0.05		0			1			4		cv_spline	0
+generic_ext								reco_nuvtxZ				32		0		1100		1		0			0		0			0			4			3		unity		0
+
+generic_FC_bnb							reco_nuvtxZ				32		0		1100		2		0			0		0			0			0			5		unity		0
+generic_FC_overlay						reco_nuvtxZ				32		0		1100		2		1			1		0			0			2			2		cv_spline	0
+generic_FC_ncpi0						reco_nuvtxZ				32		0		1100		2		1			1		0			0			2			6		cv_spline	0
+generic_FC_dirt							reco_nuvtxZ				32		0		1100		2		1			0		0.05		0			2			4		cv_spline	0
+generic_FC_ext							reco_nuvtxZ				32		0		1100		2		0			0		0			0			5			3		unity		0
+
+generic_PC_bnb							reco_nuvtxZ				32		0		1100		3		0			0		0			0			0			5		unity		0
+generic_PC_overlay						reco_nuvtxZ				32		0		1100		3		1			1		0			0			3			2		cv_spline	0
+generic_PC_ncpi0						reco_nuvtxZ				32		0		1100		3		1			1		0			0			3			6		cv_spline	0
+generic_PC_dirt							reco_nuvtxZ				32		0		1100		3		1			0		0.05		0			3			4		cv_spline	0
+generic_PC_ext							reco_nuvtxZ				32		0		1100		3		0			0		0			0			6			3		unity		0
+
+End										End						-1		-1		-1			-1		-1			-1		-1			-1			-1			-1		end			-1
+Name:									#Var:					#bin	#start	#end		#obs	#xs_flux	#det	#add_sys	#same_mc	#cov_sec	#file	#weight		#lee_strength
+
+
+
+
+
+numuCC
+CCpi0
+NCpi0BDT
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+numuCC / CCpi0
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+cc_transferred_energy	25 		0 		1800
+Emuon					25 		0 		1500
+muon_momentum			25 		0 		1500
+muon_costheta			25 		-1 		1
+cc_nu_energy			25 		0 		1875
+
+pi0_momentum			25 		0 		1500
+pi0_costheta			25 		-1 		1
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+NCpi0
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+nc_transferred_energy	25 		0 		1800
+pi0_momentum			25		0		1500
+pi0_costheta 			25 		-1 		1
+pi0_costheta_CM			25 		-1 		1
+nonpi0_energy 			15 		-100 	1400
+
+p_multi					5 		0 		5
+reco_nuvtxX				26		0		260
+reco_nuvtxY				26		-130	130
+reco_nuvtxZ				32		0		1100
+nc_pio_score			60		-10		6
+visible_energy			20 	 	0		1500
+pi0_mass				29		0		300
+pi0_phi					24	  	-3.15	3.15
+kine_pio_energy_high	24		0		600
+kine_pio_energy_low		16		0		400
+kine_pio_gap_high		25		0		90
+kine_pio_gap_low		25		0		90
+kine_pio_theta_high		24		0 		3.15 
+kine_pio_theta_low		24		0 		3.15
+kine_pio_phi_high		24		-3.15	3.15
+kine_pio_phi_low		24		-3.15	3.15

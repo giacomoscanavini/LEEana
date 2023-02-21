@@ -1,0 +1,8 @@
+1 		311 		NCpi0BDT.0p.inside.Enu.4000 					512680			0.022 		0.011
+2 		311 		NCpi0BDT.Np.inside.Enu.4000 					512680			0.022 		0.011
+
+
+-1		-1			End												-1				-1			-1
+#bin	#cut_file  	#cut											#const			#pot_err	#target_err
+
+

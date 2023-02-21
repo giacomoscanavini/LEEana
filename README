@@ -28,7 +28,7 @@ cd ../LEEana/
 RECONSTRUCTED DISTRIBUTIONS: 
 
 ./run_tlee_full.pl
-./run_tlee_open.pl
+./run_tlee_fake_genie.pl
 
 ./bin/merge_hist -r0 -l0 -b1 -d1
 ./bin/merge_hist -r0 -l0
@@ -36,28 +36,48 @@ RECONSTRUCTED DISTRIBUTIONS:
 ./run_mc_stat.pl
 
 // Includes reweighting
-./run_det_sys.pl  &&  ./run_xf_sys.pl 1   
-
-// Doesn't include reweighting
-./run_det_sys.pl  &&  ./run_xf_sys.pl 0    
+./run_det_sys.pl  &&  ./run_xf_sys.pl 0 			// no RW
+./run_det_sys.pl  &&  ./run_xf_sys.pl 1   			// RW
 
 ./bin/read_TLee_v20
 
 ./bin/plot_hist -r0 -l0 -e3 -sfile_collapsed_covariance_matrix.root
 
-CROSS SECTION EXTRACTION: 
-./run_xs_open.pl
-./run_xs_full.pl
 
-REWEIGHTING MODIFICATIONS: 
+
+
+
+
+THINGS TO CHANGE for FAKE DATA and REWEIGHTS
+cuts.h
+	em_charge_scale = 0.95;		// BNB
+	em_charge_scale = 1.0;		// Fake data
+
+rw_cv_input.txt
+	Change weights at the top of the file with the right category of choice
+
 Configure_Lee.h
-  	int syst_cov_flux_Xs_end   = 19;
+	int syst_cov_flux_Xs_end   = 17;	// no RW
+	int syst_cov_flux_Xs_end   = 19;	// RW
 
-  	bool flag_syst_reweight         = 1;  // Must turn to 1 for reweighting to be applied
-  	bool flag_syst_reweight_cor     = 1;  // Must turn to 1 for reweighting to be applied
+	bool flag_syst_reweight         = 0;  // no RW
+	bool flag_syst_reweight         = 1;  // RW
 
-run_xs_open.pl / run_xs_full.pl
-	system("./run_xf_sys.pl 1"); 		#Reweighting
-	system("./bin/xs_cov_matrix -r18"); #reweighting uncorrelated
-	system("./bin/xs_cov_matrix -r19"); #reweighting correlated
+  	bool flag_syst_reweight_cor     = 0;  // no RW
+  	bool flag_syst_reweight_cor     = 1;  // RW
+
+TLee.cxx
+	Change the sections with to accounts for obs channels and EXT 
+	map_input_spectrum_ch_str
+
+read_TLee_v20.cxx
+	Change number of bins to reflext cov_input.txt
+
+plot_hist.cxx
+	Change labels for TLee plots: 
+		if(flag_err==3) legend2[obschannel-1]->AddEntry(gratio_mc2[obschannel-1],"Stat. + Flux + Genie + GEANT4", "F");					// no RW
+		if(flag_err==3) legend2[obschannel-1]->AddEntry(gratio_mc2[obschannel-1],"Stat. + Flux + Genie + GEANT4 + Reweight", "F");		// RW
+
+	Change labels for TLee plots based on variables in cov_input.txt: 
+		if(obschannel >= 1){  gratio_mc[obschannel-1]->GetXaxis()->SetTitle("#pi^{0} Momentum [MeV/c]"); }
 

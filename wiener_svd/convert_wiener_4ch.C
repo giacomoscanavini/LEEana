@@ -48,7 +48,7 @@ void convert_wiener_4ch(int RW=1){
   // It's important to keep the given structure to make sure the subtractions from BNB measured events are approriate
 
   // Number of bins in reco space
-  Int_t nbin_R = hdata_obsch_1->GetNbinsX() + 1 + hdata_obsch_2->GetNbinsX() + 1;
+  Int_t nbin_R = hdata_obsch_1->GetNbinsX() + 1 + hdata_obsch_2->GetNbinsX() + 1 + hdata_obsch_3->GetNbinsX() + 1 + hdata_obsch_4->GetNbinsX() + 1;
 
   // Number of bins in true space
   Int_t nbin_T = vec_signal->GetNoElements();

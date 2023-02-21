@@ -137,7 +137,7 @@ void plot_diff_xs(int RW=1, double XS_FACTOR=100., double NUCLEONS=1., int zerop
     else if (XS_FACTOR == 1000.) std::cout << "CV = " << content << " [1e-39 cm^2 / GeV/c / Ar]" << std::endl;
     else if (XS_FACTOR == 10000.) std::cout << "CV = " << content << " [1e-40 cm^2 / GeV/c / Ar]" << std::endl;
 
-    else if (XS_FACTOR == 1./NUCLEONS) std::cout << "CV = " << content << " [1e-38 cm^2 / GeV/c / nucleon]" << std::endl;
+    else if (XS_FACTOR == 1./NUCLEONS) std::cout << "CV = " << content << " [1e-36 cm^2 / GeV/c / nucleon]" << std::endl;
     else if (XS_FACTOR == 100./NUCLEONS) std::cout << "CV = " << content << " [1e-38 cm^2 / GeV/c / nucleon]" << std::endl;
     else if (XS_FACTOR == 1000./NUCLEONS) std::cout << "CV = " << content << " [1e-39 cm^2 / GeV/c / nucleon]" << std::endl;
     else if (XS_FACTOR == 10000./NUCLEONS) std::cout << "CV = " << content << " [1e-40 cm^2 / GeV/c / nucleon]" << std::endl;
@@ -559,6 +559,7 @@ void plot_diff_xs(int RW=1, double XS_FACTOR=100., double NUCLEONS=1., int zerop
     
     std::cout << "chi2_ch1 = '" << chi2_ch1 << "'" << std::endl;  myfile3 << "chi2_ch1 = '" << chi2_ch1 << "'" << std::endl;
     std::cout << "chi2_ch2 = '" << chi2_ch2 << "'" << std::endl;  myfile3 << "chi2_ch2 = '" << chi2_ch2 << "'" << std::endl;
+    std::cout << "chi2 = [chi2_ch1,chi2_ch2]" << std::endl;       myfile3 << "chi2 = [chi2_ch1,chi2_ch2]" << std::endl;
   }
 
   myfile3.close();

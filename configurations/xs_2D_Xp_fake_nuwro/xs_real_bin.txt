@@ -1,0 +1,23 @@
+1 		35 			NCpi0BDT.inside.Ppi0.theta0.le.130.gt.0			106277			0.022 		0.011
+2 		35 			NCpi0BDT.inside.Ppi0.theta0.le.215.gt.130		69489			0.022 		0.011
+3 		35 			NCpi0BDT.inside.Ppi0.theta0.le.300.gt.215		69489			0.022 		0.011
+4 		35 			NCpi0BDT.inside.Ppi0.theta0.le.420.gt.300		98102			0.022 		0.011
+5 		35 			NCpi0BDT.inside.Ppi0.theta0.le.1200.gt.420		637665 			0.022 		0.011
+6 		35 			NCpi0BDT.inside.Ppi0.theta1.le.130.gt.0			61641			0.022 		0.011
+7 		35 			NCpi0BDT.inside.Ppi0.theta1.le.215.gt.130		40304			0.022 		0.011
+8 		35 			NCpi0BDT.inside.Ppi0.theta1.le.300.gt.215		40304			0.022 		0.011
+9 		35 			NCpi0BDT.inside.Ppi0.theta1.le.420.gt.300		56899			0.022 		0.011
+10 		35 			NCpi0BDT.inside.Ppi0.theta1.le.1200.gt.420		369846			0.022 		0.011
+11 		35 			NCpi0BDT.inside.Ppi0.theta2.le.130.gt.0			28695			0.022 		0.011
+12 		35 			NCpi0BDT.inside.Ppi0.theta2.le.215.gt.130		18762			0.022 		0.011
+13 		35 			NCpi0BDT.inside.Ppi0.theta2.le.300.gt.215		18762			0.022 		0.011
+14 		35 			NCpi0BDT.inside.Ppi0.theta2.le.420.gt.300		26488			0.022 		0.011
+15 		35 			NCpi0BDT.inside.Ppi0.theta2.le.1200.gt.420		172169			0.022 		0.011
+16 		35 			NCpi0BDT.inside.Ppi0.theta3.le.130.gt.0			15942			0.022 		0.011
+17 		35 			NCpi0BDT.inside.Ppi0.theta3.le.215.gt.130		10423			0.022 		0.011
+18 		35 			NCpi0BDT.inside.Ppi0.theta3.le.300.gt.215		10423			0.022 		0.011
+19 		35 			NCpi0BDT.inside.Ppi0.theta3.le.420.gt.300		14715			0.022 		0.011
+20 		35 			NCpi0BDT.inside.Ppi0.theta3.le.1200.gt.420		95650			0.022 		0.011
+
+-1		-1			End												-1				-1			-1
+#bin	#cut_file  	#cut											#const			#pot_err	#target_err

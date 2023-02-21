@@ -1,0 +1,9 @@
+1 		31 			NCpi0BDT.inside.Enu.4000 						512680			0.022 		0.011
+
+
+-1		-1			End												-1				-1			-1
+#bin	#cut_file  	#cut											#const			#pot_err	#target_err
+
+########################## Open data set NCpi0 cross sections
+
+1 		31 			NCpi0BDT.inside.Enu.4000 						42880.3			0.022 		0.011

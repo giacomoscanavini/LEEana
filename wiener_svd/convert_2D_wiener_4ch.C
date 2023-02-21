@@ -7,7 +7,7 @@
   It works specifically for 4 reconstructed channels [FC0p, FCNp, PC0p, PCNp] (order must be kept in cov_input.txt)
 
   nbin_mom: 12 bins in reco space for momentum (overflow not considered)
-  nbin_cos: 4 bins in reco space for costheta (overflow doesn't exist)
+  nbin_cos: 4 slices for costheta 
   
   To run use: 
     root -l --web=off 'convert_2D_wiener_4ch.C(1,12,4)'   (yes reweighting, nbin_mom, nbin_cos)

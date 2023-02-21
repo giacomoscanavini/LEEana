@@ -69,14 +69,24 @@ void calculate_num(double init_E = 0., double final_E = 5, int nstep = 1000, dou
 
   // CALCULATE TOTAL FLUX (NCpi0 case, need to sum all fluxes)
   double flux_sum = 0;
+  double flux_sum_1 = 0;
+  double flux_sum_2 = 0;
+  double flux_sum_3 = 0;
+  double flux_sum_4 = 0;
+
   for (Int_t i=0;i!=nstep;i++){
     double x = init_E + (final_E-init_E)*(i+0.5)/nstep;
     double flux_1 = g1->Eval(x)*(final_E-init_E)/nstep;
     double flux_2 = g2->Eval(x)*(final_E-init_E)/nstep;
     double flux_3 = g3->Eval(x)*(final_E-init_E)/nstep;
     double flux_4 = g4->Eval(x)*(final_E-init_E)/nstep;
+    flux_sum_1 += flux_1;
+    flux_sum_2 += flux_2;
+    flux_sum_3 += flux_3;
+    flux_sum_4 += flux_4;
     flux_sum += flux_1 + flux_2 + flux_3 + flux_4;
   }
+  std::cout << "numu_norm_flux: " << flux_sum_1 << "   - numu_bar_flux: " << flux_sum_2 << "   - nue_norm_flux: " << flux_sum_3 << "   - nue_bar_flux: " << flux_sum_4 << std::endl;
   std::cout << "Flux                  : " << flux_sum << std::endl;
 
   std::cout << std::endl;

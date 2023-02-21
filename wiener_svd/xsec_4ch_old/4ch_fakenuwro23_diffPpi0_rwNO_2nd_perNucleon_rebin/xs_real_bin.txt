@@ -1,0 +1,117 @@
+1 		3321		NCpi0BDT.inside.Ppi0.le.130.gt.0 				64535 			0.022 		0.011
+2 		3321		NCpi0BDT.inside.Ppi0.le.180.gt.130 				24821			0.022 		0.011
+3 		3321		NCpi0BDT.inside.Ppi0.le.220.gt.180 				19857 			0.022 		0.011
+4 		3321		NCpi0BDT.inside.Ppi0.le.260.gt.220 				19857 			0.022 		0.011
+5 		3321		NCpi0BDT.inside.Ppi0.le.300.gt.260 				19857 			0.022 		0.011
+6 		3321		NCpi0BDT.inside.Ppi0.le.340.gt.300 				19857 			0.022 		0.011
+7 		3321		NCpi0BDT.inside.Ppi0.le.380.gt.340 				19857 			0.022 		0.011
+8 		3321		NCpi0BDT.inside.Ppi0.le.420.gt.380 				19857			0.022 		0.011
+9 		3321		NCpi0BDT.inside.Ppi0.le.500.gt.420 				39714			0.022 		0.011
+10 		3321		NCpi0BDT.inside.Ppi0.le.1200.gt.500 			347494			0.022 		0.011
+
+
+
+-1		-1			End												-1				-1			-1
+#bin	#cut_file  	#cut											#const			#pot_err	#target_err
+
+MiniBooNE bins for anti-numu
+
+1 		332			NCpi0BDT.inside.Ppi0.le.130.gt.0 				66648.5 		0.022 		0.011
+2 		332			NCpi0BDT.inside.Ppi0.le.180.gt.130 				25634 			0.022 		0.011
+3 		332			NCpi0BDT.inside.Ppi0.le.240.gt.180 				30760.8 		0.022 		0.011
+4 		332			NCpi0BDT.inside.Ppi0.le.300.gt.240 				30760.8 		0.022 		0.011
+5 		332			NCpi0BDT.inside.Ppi0.le.360.gt.300 				30760.8 		0.022 		0.011
+6 		332			NCpi0BDT.inside.Ppi0.le.420.gt.360 				30760.8 		0.022 		0.011
+7 		332			NCpi0BDT.inside.Ppi0.le.500.gt.420 				41014.4 		0.022 		0.011
+8 		332			NCpi0BDT.inside.Ppi0.le.1200.gt.500 			358876 			0.022 		0.011
+
+1 		333			NCpi0BDT.0p.inside.Ppi0.le.130.gt.0 			66648.5 		0.022 		0.011
+2 		333			NCpi0BDT.0p.inside.Ppi0.le.180.gt.130 			25634 			0.022 		0.011
+3 		333			NCpi0BDT.0p.inside.Ppi0.le.240.gt.180 			30760.8 		0.022 		0.011
+4 		333			NCpi0BDT.0p.inside.Ppi0.le.300.gt.240 			30760.8 		0.022 		0.011
+5 		333			NCpi0BDT.0p.inside.Ppi0.le.360.gt.300 			30760.8 		0.022 		0.011
+6 		333			NCpi0BDT.0p.inside.Ppi0.le.420.gt.360 			30760.8 		0.022 		0.011
+7 		333			NCpi0BDT.0p.inside.Ppi0.le.500.gt.420 			41014.4 		0.022 		0.011
+8 		333			NCpi0BDT.0p.inside.Ppi0.le.1200.gt.500 			358876 			0.022 		0.011
+9 		333			NCpi0BDT.Np.inside.Ppi0.le.130.gt.0 			66648.5 		0.022 		0.011
+10 		333			NCpi0BDT.Np.inside.Ppi0.le.180.gt.130 			25634 			0.022 		0.011
+11 		333			NCpi0BDT.Np.inside.Ppi0.le.240.gt.180 			30760.8 		0.022 		0.011
+12 		333			NCpi0BDT.Np.inside.Ppi0.le.300.gt.240 			30760.8 		0.022 		0.011
+13 		333			NCpi0BDT.Np.inside.Ppi0.le.360.gt.300 			30760.8 		0.022 		0.011
+14 		333			NCpi0BDT.Np.inside.Ppi0.le.420.gt.360 			30760.8 		0.022 		0.011
+15 		333			NCpi0BDT.Np.inside.Ppi0.le.500.gt.420 			41014.4 		0.022 		0.011
+16 		333			NCpi0BDT.Np.inside.Ppi0.le.1200.gt.500 			358876 			0.022 		0.011
+
+########################## Full data set numuCC & CCpi0 cross sections
+
+1 		33 			NCpi0BDT.inside.Ppi0.le.100.gt.0 				51268			0.022 		0.011 
+2 		33 			NCpi0BDT.inside.Ppi0.le.150.gt.100 				25634			0.022 		0.011 
+3 		33 			NCpi0BDT.inside.Ppi0.le.200.gt.150 				25634			0.022 		0.011
+4 		33 			NCpi0BDT.inside.Ppi0.le.250.gt.200 				25634			0.022 		0.011
+5 		33 			NCpi0BDT.inside.Ppi0.le.300.gt.250 				25634			0.022 		0.011
+6 		33 			NCpi0BDT.inside.Ppi0.le.400.gt.300 				51268			0.022 		0.011
+7 		33 			NCpi0BDT.inside.Ppi0.le.500.gt.400 				51268			0.022 		0.011
+8 		33 			NCpi0BDT.inside.Ppi0.le.600.gt.500 				51268			0.022 		0.011
+9 		33 			NCpi0BDT.inside.Ppi0.le.800.gt.600 				102536			0.022 		0.011 
+10 		33 			NCpi0BDT.inside.Ppi0.le.1000.gt.800 			102536			0.022 		0.011
+11 		33 			NCpi0BDT.inside.Ppi0.le.1500.gt.1000 			256340			0.022 		0.011 
+
+1 		331 		NCpi0BDT.0p.inside.Ppi0.le.100.gt.0     		51268			0.022 		0.011 
+2 		331 		NCpi0BDT.0p.inside.Ppi0.le.150.gt.100     		25634			0.022 		0.011 
+3 		331 		NCpi0BDT.0p.inside.Ppi0.le.200.gt.150     		25634			0.022 		0.011
+4 		331 		NCpi0BDT.0p.inside.Ppi0.le.250.gt.200     		25634			0.022 		0.011
+5 		331 		NCpi0BDT.0p.inside.Ppi0.le.300.gt.250     		25634			0.022 		0.011
+6 		331 		NCpi0BDT.0p.inside.Ppi0.le.400.gt.300     		51268			0.022 		0.011
+7 		331 		NCpi0BDT.0p.inside.Ppi0.le.500.gt.400     		51268			0.022 		0.011
+8 		331 		NCpi0BDT.0p.inside.Ppi0.le.600.gt.500     		51268			0.022 		0.011
+9 		331 		NCpi0BDT.0p.inside.Ppi0.le.800.gt.600     		102536			0.022 		0.011 
+10 		331 		NCpi0BDT.0p.inside.Ppi0.le.1000.gt.800     		102536			0.022 		0.011
+11 		331 		NCpi0BDT.0p.inside.Ppi0.le.1500.gt.1000     	256340			0.022 		0.011 
+12 		331 		NCpi0BDT.Np.inside.Ppi0.le.100.gt.0 			51268			0.022 		0.011 
+13 		331 		NCpi0BDT.Np.inside.Ppi0.le.150.gt.100 			25634			0.022 		0.011 
+14 		331 		NCpi0BDT.Np.inside.Ppi0.le.200.gt.150 			25634			0.022 		0.011
+15		331 		NCpi0BDT.Np.inside.Ppi0.le.250.gt.200 			25634			0.022 		0.011
+16 		331 		NCpi0BDT.Np.inside.Ppi0.le.300.gt.250 			25634			0.022 		0.011
+17 		331 		NCpi0BDT.Np.inside.Ppi0.le.400.gt.300 			51268			0.022 		0.011
+18 		331 		NCpi0BDT.Np.inside.Ppi0.le.500.gt.400 			51268			0.022 		0.011
+19 		331 		NCpi0BDT.Np.inside.Ppi0.le.600.gt.500 			51268			0.022 		0.011
+20 		331 		NCpi0BDT.Np.inside.Ppi0.le.800.gt.600 			102536			0.022 		0.011 
+21 		331 		NCpi0BDT.Np.inside.Ppi0.le.1000.gt.800 			102536			0.022 		0.011
+22 		331 		NCpi0BDT.Np.inside.Ppi0.le.1500.gt.1000 		256340			0.022 		0.011
+
+########################## Open data set NCpi0 cross sections
+
+1 		33 			NCpi0BDT.inside.Ppi0.le.100.gt.0 				4288.03			0.022 		0.011 
+2 		33 			NCpi0BDT.inside.Ppi0.le.150.gt.100 				2144.02			0.022 		0.011 
+3 		33 			NCpi0BDT.inside.Ppi0.le.200.gt.150 				2144.02			0.022 		0.011
+4 		33 			NCpi0BDT.inside.Ppi0.le.250.gt.200 				2144.02			0.022 		0.011
+5 		33 			NCpi0BDT.inside.Ppi0.le.300.gt.250 				2144.02			0.022 		0.011
+6 		33 			NCpi0BDT.inside.Ppi0.le.400.gt.300 				4288.03			0.022 		0.011
+7 		33 			NCpi0BDT.inside.Ppi0.le.500.gt.400 				4288.03			0.022 		0.011
+8 		33 			NCpi0BDT.inside.Ppi0.le.600.gt.500 				4288.03			0.022 		0.011
+9 		33 			NCpi0BDT.inside.Ppi0.le.800.gt.600 				8576.07			0.022 		0.011 
+10 		33 			NCpi0BDT.inside.Ppi0.le.1000.gt.800 			8576.07			0.022 		0.011
+11 		33 			NCpi0BDT.inside.Ppi0.le.1500.gt.1000 			21440.2			0.022 		0.011 
+
+1 		331 		NCpi0BDT.0p.inside.Ppi0.le.100.gt.0     		4288.03			0.022 		0.011 
+2 		331 		NCpi0BDT.0p.inside.Ppi0.le.150.gt.100     		2144.02			0.022 		0.011 
+3 		331 		NCpi0BDT.0p.inside.Ppi0.le.200.gt.150     		2144.02			0.022 		0.011
+4 		331 		NCpi0BDT.0p.inside.Ppi0.le.250.gt.200     		2144.02			0.022 		0.011
+5 		331 		NCpi0BDT.0p.inside.Ppi0.le.300.gt.250     		2144.02			0.022 		0.011
+6 		331 		NCpi0BDT.0p.inside.Ppi0.le.400.gt.300     		4288.03			0.022 		0.011
+7 		331 		NCpi0BDT.0p.inside.Ppi0.le.500.gt.400     		4288.03			0.022 		0.011
+8 		331 		NCpi0BDT.0p.inside.Ppi0.le.600.gt.500     		4288.03			0.022 		0.011
+9 		331 		NCpi0BDT.0p.inside.Ppi0.le.800.gt.600     		8576.07			0.022 		0.011 
+10 		331 		NCpi0BDT.0p.inside.Ppi0.le.1000.gt.800     		8576.07			0.022 		0.011
+11 		331 		NCpi0BDT.0p.inside.Ppi0.le.1500.gt.1000     	21440.2			0.022 		0.011 
+12 		331 		NCpi0BDT.Np.inside.Ppi0.le.100.gt.0 			4288.03			0.022 		0.011 
+13 		331 		NCpi0BDT.Np.inside.Ppi0.le.150.gt.100 			2144.02			0.022 		0.011 
+14 		331 		NCpi0BDT.Np.inside.Ppi0.le.200.gt.150 			2144.02			0.022 		0.011
+15		331 		NCpi0BDT.Np.inside.Ppi0.le.250.gt.200 			2144.02			0.022 		0.011
+16 		331 		NCpi0BDT.Np.inside.Ppi0.le.300.gt.250 			2144.02			0.022 		0.011
+17 		331 		NCpi0BDT.Np.inside.Ppi0.le.400.gt.300 			4288.03			0.022 		0.011
+18 		331 		NCpi0BDT.Np.inside.Ppi0.le.500.gt.400 			4288.03			0.022 		0.011
+19 		331 		NCpi0BDT.Np.inside.Ppi0.le.600.gt.500 			4288.03			0.022 		0.011
+20 		331 		NCpi0BDT.Np.inside.Ppi0.le.800.gt.600 			8576.07			0.022 		0.011 
+21 		331 		NCpi0BDT.Np.inside.Ppi0.le.1000.gt.800 			8576.07			0.022 		0.011
+22 		331 		NCpi0BDT.Np.inside.Ppi0.le.1500.gt.1000 		21440.2			0.022 		0.011

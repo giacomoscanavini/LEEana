@@ -1,0 +1,23 @@
+2		nu_overlay	2		./processed_checkout_rootfiles/CV_full/checkout_prodgenie_bnb_nu_overlay_run2_PF.root			./hist_rootfiles/checkout_prodgenie_bnb_nu_overlay_run2.root	0				2			0		2
+2		nu_overlay	3		./processed_checkout_rootfiles/CV_full/checkout_prodgenie_bnb_nu_overlay_run3_PF.root			./hist_rootfiles/checkout_prodgenie_bnb_nu_overlay_run3.root	0				3			0		3
+
+5		BNB			2		./processed_checkout_rootfiles/CV_fake/checkout_fakedata_nuwro_run2.root						./hist_rootfiles/run2_data_bnb.root								3.0151871e+20	5			0		2	
+5		BNB			3		./processed_checkout_rootfiles/CV_fake/checkout_fakedata_nuwro_run3.root						./hist_rootfiles/run3_data_bnb.root								3.1520957e+20	6			0		3	
+
+6		nc_pi0		2		./processed_checkout_rootfiles/CV_full/checkout_prodgenie_nc_pi0_overlay_run2_PF.root			./hist_rootfiles/checkout_prodgenie_nc_pi0_overlay_run2.root	0				8			0		2
+6		nc_pi0		3		./processed_checkout_rootfiles/CV_full/checkout_prodgenie_nc_pi0_overlay_run3_PF.root			./hist_rootfiles/checkout_prodgenie_nc_pi0_overlay_run3.root	0				9			0		3
+
+-1		end			-1		end																								end																-1				-1		  	-1		-1
+#file	#type		#period	#filename																						#outfile_name													#ext_pot		#file_no  #norm 	#norm_period
+
+
+FAKE NUWRO 1 DOENS'T WORK
+2		nu_overlay	1		./processed_checkout_rootfiles/CV_full/checkout_prodgenie_bnb_nu_overlay_run1_PF.root			./hist_rootfiles/checkout_prodgenie_bnb_nu_overlay_run1.root	0				1			0		1
+5		BNB			1		./processed_checkout_rootfiles/CV_fake/checkout_fakedata_nuwro_run1.root						./hist_rootfiles/run1_data_bnb.root								3.015558e+20	4			0		1
+6		nc_pi0		1		./processed_checkout_rootfiles/CV_full/checkout_prodgenie_nc_pi0_overlay_run1_PF.root			./hist_rootfiles/checkout_prodgenie_nc_pi0_overlay_run1.root	0				7			0		1
+
+
+
+
+
+IT SHOULD NOT CONTAIN EXTBNB AND DIRT

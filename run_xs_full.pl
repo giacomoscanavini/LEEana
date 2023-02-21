@@ -32,13 +32,19 @@ system("cp ./configurations/xf_file_ch_full.txt ./configurations/xf_file_ch.txt"
 system("cp ./configurations/xf_input_full.txt ./configurations/xf_input.txt");
 # They change based on the cross section
 if ($num1 == 0){
-	system("cp ./configurations/xs_total_Xp/cov_input.txt ./configurations/cov_input.txt");
-	system("cp ./configurations/xs_total_Xp/xs_ch.txt ./configurations/xs_ch.txt");
-	system("cp ./configurations/xs_total_Xp/xs_real_bin.txt ./configurations/xs_real_bin.txt");
+	#system("cp ./configurations/xs_total_Xp/cov_input.txt ./configurations/cov_input.txt");
+	#system("cp ./configurations/xs_total_Xp/xs_ch.txt ./configurations/xs_ch.txt");
+	#system("cp ./configurations/xs_total_Xp/xs_real_bin.txt ./configurations/xs_real_bin.txt");
+	system("cp ./configurations/xs_total_Xp_4ch/cov_input.txt ./configurations/cov_input.txt");
+	system("cp ./configurations/xs_total_Xp_4ch/xs_ch.txt ./configurations/xs_ch.txt");
+	system("cp ./configurations/xs_total_Xp_4ch/xs_real_bin.txt ./configurations/xs_real_bin.txt");
 }elsif ($num1 == 1){
-	system("cp ./configurations/xs_total_0pNp/cov_input.txt ./configurations/cov_input.txt");
-	system("cp ./configurations/xs_total_0pNp/xs_ch.txt ./configurations/xs_ch.txt");
-	system("cp ./configurations/xs_total_0pNp/xs_real_bin.txt ./configurations/xs_real_bin.txt");
+	#system("cp ./configurations/xs_total_0pNp/cov_input.txt ./configurations/cov_input.txt");
+	#system("cp ./configurations/xs_total_0pNp/xs_ch.txt ./configurations/xs_ch.txt");
+	#system("cp ./configurations/xs_total_0pNp/xs_real_bin.txt ./configurations/xs_real_bin.txt");
+	system("cp ./configurations/xs_total_0pNp_4ch/cov_input.txt ./configurations/cov_input.txt");
+	system("cp ./configurations/xs_total_0pNp_4ch/xs_ch.txt ./configurations/xs_ch.txt");
+	system("cp ./configurations/xs_total_0pNp_4ch/xs_real_bin.txt ./configurations/xs_real_bin.txt");
 }elsif ($num1 == 2){
 	system("cp ./configurations/xs_diff_cos_Xp/cov_input.txt ./configurations/cov_input.txt");
 	system("cp ./configurations/xs_diff_cos_Xp/xs_ch.txt ./configurations/xs_ch.txt");
@@ -73,9 +79,9 @@ system("./run_xf_sys.pl 1"); #Reweighting
 
 #Xs sys, POT, target nucleon ... cov_xs.root ...
 system("./bin/xs_cov_matrix -r17");
+#system("./bin/xs_cov_matrix -r0");  #this option comibines XS and reweighting systematics together, the previous one keeps them separated
 system("./bin/xs_cov_matrix -r18"); #reweighting uncorrelated
 system("./bin/xs_cov_matrix -r19"); #reweighting correlated
-#system("./bin/xs_cov_matrix -r0");  #this option comibines XS and reweighting systematics together, the previous one keeps them separated
 
 # MC stat ... at M ...
 system("./bin/merge_hist -r0 -l0 -e2 > ./mc_stat/xs_tot.log");
