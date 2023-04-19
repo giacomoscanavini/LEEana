@@ -157,8 +157,6 @@ void convert_wiener_4ch_fake(int RW=0){
     hcov_stat->SetBinContent(hdata_obsch_3->GetNbinsX()+1+hdata_obsch_2->GetNbinsX()+1+hdata_obsch_1->GetNbinsX()+1+i+1,hdata_obsch_3->GetNbinsX()+1+hdata_obsch_2->GetNbinsX()+1+hdata_obsch_1->GetNbinsX()+1+i+1,content);
   }
   
-  // Detector systematics 
-  TH2D *hcov_det = new TH2D("hcov_det","hcov_det",nbin_R,0.5,nbin_R+0.5,nbin_R,0.5,nbin_R+0.5);
   int nold = mat_collapse->GetNrows();
   std::cout << nold << std::endl;
   TVectorD vec_nominal(nold);
@@ -186,60 +184,11 @@ void convert_wiener_4ch_fake(int RW=0){
   noffset += histo_bkg_3->GetNbinsX()+1;
   for (Int_t i=0;i!=histo_bkg_4->GetNbinsX()+1;i++){ vec_nominal(noffset + i) = histo_bkg_4->GetBinContent(i+1);
   }
-  noffset += histo_bkg_4->GetNbinsX()+1;
 
-  std::map<int, TString> map_det_str;
-  map_det_str[1] = "./DetVar/cov_LYDown.root";
-  map_det_str[2] = "./DetVar/cov_LYRayleigh.root";
-  map_det_str[3] = "./DetVar/cov_Recomb2.root";
-  map_det_str[4] = "./DetVar/cov_SCE.root";
-  // map_det_str[5] = "./DetVar/cov_WMdEdx.root";
-  map_det_str[6] = "./DetVar/cov_WMThetaXZ.root";
-  map_det_str[7] = "./DetVar/cov_WMThetaYZ.root";
-  map_det_str[8] = "./DetVar/cov_WMX.root";
-  map_det_str[9] = "./DetVar/cov_WMYZ.root";
-  map_det_str[10] = "./DetVar/cov_LYatt.root";
-  TMatrixD frac_det(nold,nold);
-  for (auto it = map_det_str.begin(); it!=map_det_str.end(); it++){
-    int idx = it->first;
-    TFile tmp_file(it->second);
-    TMatrixD *tmp_matrix = (TMatrixD*)tmp_file.Get(Form("frac_cov_det_mat_%d",idx));
-    frac_det += (*tmp_matrix);
-  }
 
-  for (Int_t i=0;i!=nold;i++){
-    for (Int_t j=0;j!=nold;j++){
-      frac_det(i,j) *= vec_nominal(i) * vec_nominal(j);
-    }
-  }
-  TMatrixD mat_det = mat_collapse_T * frac_det * (*mat_collapse);
-  for (Int_t i=0;i!=nbin_R;i++){
-    for (Int_t j=0;j!=nbin_R;j++){
-      hcov_det->SetBinContent(i+1,j+1,mat_det(i,j));
-    }
-  }
-  
-  // Flux systematics 
-  TH2D *hcov_flux = new TH2D("hcov_flux","hcov_flux",nbin_R,0.5,nbin_R+0.5,nbin_R,0.5,nbin_R+0.5);
-  TMatrixD frac_flux(nold,nold);
-  for(Int_t i=1;i!=14;i++){
-    TFile tmp_file(Form("./XsFlux/cov_%d.root",i));
-    TMatrixD *tmp_matrix = (TMatrixD*)tmp_file.Get(Form("frac_cov_xf_mat_%d",i));
-    frac_flux += *tmp_matrix;
-  }
-  for (Int_t i=0;i!=nold;i++){
-    for (Int_t j=0;j!=nold;j++){
-      frac_flux(i,j) *= vec_nominal(i) * vec_nominal(j);
-    }
-  }
-  TMatrixD mat_flux = mat_collapse_T * frac_flux * (*mat_collapse);
-  for (Int_t i=0;i!=nbin_R;i++){
-    for (Int_t j=0;j!=nbin_R;j++){
-      hcov_flux->SetBinContent(i+1,j+1,mat_flux(i,j));
-    }
-  }
   // GEANT4 systematics 
   TH2D *hcov_geant4 = new TH2D("hcov_geant4","hcov_geant4",nbin_R,0.5,nbin_R+0.5,nbin_R,0.5,nbin_R+0.5);
+/*
   TMatrixD frac_geant4(nold,nold);
   for(Int_t i=14;i!=17;i++){
     TFile tmp_file(Form("./XsFlux/cov_%d.root",i));
@@ -257,6 +206,7 @@ void convert_wiener_4ch_fake(int RW=0){
       hcov_geant4->SetBinContent(i+1,j+1,mat_geant4(i,j));
     }
   }
+*/
   // GENIE systematics
   TH2D *hcov_genie = new TH2D("hcov_genie","hcov_genie",nbin_R,0.5,nbin_R+0.5,nbin_R,0.5,nbin_R+0.5);
   {
@@ -277,69 +227,27 @@ void convert_wiener_4ch_fake(int RW=0){
     }
   }
 
-  // Additional systematic uncertainty (only applied to dirt for now)
-  TH2D *hcov_add = new TH2D("hcov_add","hcov_add",nbin_R,0.5,nbin_R+0.5,nbin_R,0.5,nbin_R+0.5);
-  TMatrixD mat_add = mat_collapse_T * (*cov_mat_add) * (*mat_collapse);
-  for (Int_t i=0;i!=nbin_R;i++){
-    hcov_add->SetBinContent(i+1,i+1,mat_add(i,i));
-  }
-
-  // RW uncor sys 
-  TH2D *hcov_rw = new TH2D("hcov_rw","hcov_rw",nbin_R,0.5,nbin_R+0.5,nbin_R,0.5,nbin_R+0.5);
-  {
-    if(RW==1){
-      TFile tmp_file("./XsFlux/cov_rw.root");   // cross section mode
-      TMatrixD *frac_rw = (TMatrixD*)tmp_file.Get("frac_cov_xf_mat_18");
-
-      for (Int_t i=0;i!=nold;i++){
-        for (Int_t j=0;j!=nold;j++){
-          (*frac_rw)(i,j) *= vec_nominal(i) * vec_nominal(j);
-        }
-      }
-      TMatrixD mat_rw = mat_collapse_T * (*frac_rw) * (*mat_collapse);
-      for (Int_t i=0;i!=nbin_R;i++){
-        for (Int_t j=0;j!=nbin_R;j++){
-          hcov_rw->SetBinContent(i+1,j+1,mat_rw(i,j));
-        }
-      }
-    }
-  } 
-
-  // Fake data setd don't have reweighting but it must be included for future scripts
-  // RW cor sys
-  TH2D *hcov_rw_cor = new TH2D("hcov_rw_cor","hcov_rw_cor",nbin_R,0.5,nbin_R+0.5,nbin_R,0.5,nbin_R+0.5);
-  // RW cor tot
-  TH2D *hcov_rw_tot = new TH2D("hcov_rw_tot","hcov_rw_tot",nbin_R,0.5,nbin_R+0.5,nbin_R,0.5,nbin_R+0.5);
-
   vec_nominal.Draw();
 
   // Create Total covariance matrix
   TH2D *hcov_tot = new TH2D("hcov_tot","hcov_tot",nbin_R,0.5,nbin_R+0.5,nbin_R,0.5,nbin_R+0.5);               // All syst
-  TH2D *hcov_tot_lim = new TH2D("hcov_tot_lim","hcov_tot_lim",nbin_R,0.5,nbin_R+0.5,nbin_R,0.5,nbin_R+0.5);   // Limited syst
+
+  TH2D *hcov_add = new TH2D("hcov_add","hcov_add",nbin_R,0.5,nbin_R+0.5,nbin_R,0.5,nbin_R+0.5);               // NOT USED FOR FAKE DATA
+  TH2D *hcov_det = new TH2D("hcov_det","hcov_det",nbin_R,0.5,nbin_R+0.5,nbin_R,0.5,nbin_R+0.5);               // NOT USED FOR FAKE DATA
+  TH2D *hcov_flux = new TH2D("hcov_flux","hcov_flux",nbin_R,0.5,nbin_R+0.5,nbin_R,0.5,nbin_R+0.5);            // NOT USED FOR FAKE DATA
+  TH2D *hcov_rw = new TH2D("hcov_rw","hcov_rw",nbin_R,0.5,nbin_R+0.5,nbin_R,0.5,nbin_R+0.5);                  // NOT USED FOR FAKE DATA
+  TH2D *hcov_rw_cor = new TH2D("hcov_rw_cor","hcov_rw_cor",nbin_R,0.5,nbin_R+0.5,nbin_R,0.5,nbin_R+0.5);      // NOT USED FOR FAKE DATA
+  TH2D *hcov_rw_tot = new TH2D("hcov_rw_tot","hcov_rw_tot",nbin_R,0.5,nbin_R+0.5,nbin_R,0.5,nbin_R+0.5);      // NOT USED FOR FAKE DATA
   
   // All syst
   hcov_tot->Add(hcov_stat);
   hcov_tot->Add(hcov_mcstat);
-  hcov_tot->Add(hcov_add);
-  hcov_tot->Add(hcov_flux);    
-  //hcov_tot->Add(hcov_xs);
-  hcov_tot->Add(hcov_geant4); 
+  //hcov_tot->Add(hcov_geant4); 
   hcov_tot->Add(hcov_genie);
-  hcov_tot->Add(hcov_det);     
   
-  // Limited syst
-  hcov_tot_lim->Add(hcov_stat);
-  hcov_tot_lim->Add(hcov_mcstat);
-  hcov_tot_lim->Add(hcov_genie);
-
-
   // Creates staked plots to visualize fractional uncertainties
   TH1F *h10 = new TH1F("h10","h10",nbin_R,0.5,nbin_R+0.5); // stat
   TH1F *h20 = new TH1F("h20","h10",nbin_R,0.5,nbin_R+0.5); // mcstat
-  //TH1F *h30 = new TH1F("h30","h10",nbin_R,0.5,nbin_R+0.5); // add
-  //TH1F *h40 = new TH1F("h40","h10",nbin_R,0.5,nbin_R+0.5); // flux
-  //TH1F *h50 = new TH1F("h50","h10",nbin_R,0.5,nbin_R+0.5); // det
-  //TH1F *h60 = new TH1F("h60","h10",nbin_R,0.5,nbin_R+0.5); // xs
   //TH1F *h59 = new TH1F("h59","h10",nbin_R,0.5,nbin_R+0.5); // geant4
   TH1F *h60 = new TH1F("h60","h10",nbin_R,0.5,nbin_R+0.5); // genie
   TH1F *h70 = new TH1F("h70","h10",nbin_R,0.5,nbin_R+0.5); // total
@@ -349,10 +257,6 @@ void convert_wiener_4ch_fake(int RW=0){
 
     h10->SetBinContent(i+1,sqrt(hcov_stat->GetBinContent(i+1,i+1))/hpred->GetBinContent(i+1));
     h20->SetBinContent(i+1,sqrt(hcov_mcstat->GetBinContent(i+1,i+1))/hpred->GetBinContent(i+1));
-    //h30->SetBinContent(i+1,sqrt(hcov_add->GetBinContent(i+1,i+1))/hpred->GetBinContent(i+1));
-    //h40->SetBinContent(i+1,sqrt(hcov_flux->GetBinContent(i+1,i+1))/hpred->GetBinContent(i+1));
-    //h50->SetBinContent(i+1,sqrt(hcov_det->GetBinContent(i+1,i+1))/hpred->GetBinContent(i+1));
-    //h60->SetBinContent(i+1,sqrt(hcov_xs->GetBinContent(i+1,i+1))/hpred->GetBinContent(i+1));
     //h59->SetBinContent(i+1,sqrt(hcov_geant4->GetBinContent(i+1,i+1))/hpred->GetBinContent(i+1));
     h60->SetBinContent(i+1,sqrt(hcov_genie->GetBinContent(i+1,i+1))/hpred->GetBinContent(i+1));
     h70->SetBinContent(i+1,sqrt(hcov_tot->GetBinContent(i+1,i+1))/hpred->GetBinContent(i+1));
@@ -368,14 +272,6 @@ void convert_wiener_4ch_fake(int RW=0){
   h10->SetLineColor(9);
   h20->Draw("same");  // mcstat
   h20->SetLineColor(8);
-  //h30->Draw("same"); //dirt
-  //h30->SetLineColor(3);
-  //h40->Draw("same"); //flux
-  //h40->SetLineColor(2);
-  //h50->Draw("same"); //det
-  //h50->SetLineColor(6);
-  //h60->Draw("same"); // xs
-  //h60->SetLineColor(4);
   //h59->Draw("same"); // geant4
   //h59->SetLineColor(kBlue-7);
   h60->Draw("same"); // genie
@@ -383,9 +279,6 @@ void convert_wiener_4ch_fake(int RW=0){
 
   h10->SetLineWidth(2);
   h20->SetLineWidth(2);
-  //h30->SetLineWidth(2);
-  //h40->SetLineWidth(2);
-  //h50->SetLineWidth(2);
   //h59->SetLineWidth(2);
   h60->SetLineWidth(2);
 
@@ -395,19 +288,11 @@ void convert_wiener_4ch_fake(int RW=0){
   le1->AddEntry(h70,"Total","l");
   le1->AddEntry(h10,"Stat.","l");
   le1->AddEntry(h20,"MC stat.","l");
-  //le1->AddEntry(h30,"Dirt","l");
-  //le1->AddEntry(h40,"Flux","l");
-  //le1->AddEntry(h50,"Det.","l");
-  //le1->AddEntry(h60,"Xs","l");
   //le1->AddEntry(h59,"Geant4","l");
   le1->AddEntry(h60,"Genie","l");
   le1->Draw();  
 
   TFile *file = new TFile("wiener.root","RECREATE");
-  hdata_bnb_N->SetDirectory(file);
-  hsignal_N->SetDirectory(file);
-  hbackground_N->SetDirectory(file);
-
   htrue_signal->SetDirectory(file);
   hmeas->SetDirectory(file);
   hpred->SetDirectory(file);
@@ -425,7 +310,6 @@ void convert_wiener_4ch_fake(int RW=0){
   hcov_rw_cor->SetDirectory(file);
   hcov_rw_tot->SetDirectory(file);
   hcov_tot->SetDirectory(file);
-  hcov_tot_lim->SetDirectory(file);
   file->Write();
   file->Close();
 }

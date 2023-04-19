@@ -49,22 +49,66 @@ if ($num1 == 0){
 	system("cp ./configurations/xs_diff_cos_Xp/cov_input.txt ./configurations/cov_input.txt");
 	system("cp ./configurations/xs_diff_cos_Xp/xs_ch.txt ./configurations/xs_ch.txt");
 	system("cp ./configurations/xs_diff_cos_Xp/xs_real_bin.txt ./configurations/xs_real_bin.txt");
+}elsif ($num1 == 20){
+	system("cp ./configurations/xs_diff_cos_Xp_FCPC/cov_input.txt ./configurations/cov_input.txt");
+	system("cp ./configurations/xs_diff_cos_Xp_FCPC/xs_ch.txt ./configurations/xs_ch.txt");
+	system("cp ./configurations/xs_diff_cos_Xp_FCPC/xs_real_bin.txt ./configurations/xs_real_bin.txt");
+}elsif ($num1 == 21){
+	system("cp ./configurations/xs_diff_cos_Xp_rebin/cov_input.txt ./configurations/cov_input.txt");
+	system("cp ./configurations/xs_diff_cos_Xp_rebin/xs_ch.txt ./configurations/xs_ch.txt");
+	system("cp ./configurations/xs_diff_cos_Xp_rebin/xs_real_bin.txt ./configurations/xs_real_bin.txt");
 }elsif ($num1 == 3){
 	system("cp ./configurations/xs_diff_cos_0pNp/cov_input.txt ./configurations/cov_input.txt");
 	system("cp ./configurations/xs_diff_cos_0pNp/xs_ch.txt ./configurations/xs_ch.txt");
 	system("cp ./configurations/xs_diff_cos_0pNp/xs_real_bin.txt ./configurations/xs_real_bin.txt");
+}elsif ($num1 == 30){
+	system("cp ./configurations/xs_diff_cos_0pNp_FCPC/cov_input.txt ./configurations/cov_input.txt");
+	system("cp ./configurations/xs_diff_cos_0pNp_FCPC/xs_ch.txt ./configurations/xs_ch.txt");
+	system("cp ./configurations/xs_diff_cos_0pNp_FCPC/xs_real_bin.txt ./configurations/xs_real_bin.txt");
+}elsif ($num1 == 31){
+	system("cp ./configurations/xs_diff_cos_0pNp_rebin/cov_input.txt ./configurations/cov_input.txt");
+	system("cp ./configurations/xs_diff_cos_0pNp_rebin/xs_ch.txt ./configurations/xs_ch.txt");
+	system("cp ./configurations/xs_diff_cos_0pNp_rebin/xs_real_bin.txt ./configurations/xs_real_bin.txt");
+}elsif ($num1 == 31){
+	system("cp ./configurations/xs_diff_cos_0p/cov_input.txt ./configurations/cov_input.txt");
+	system("cp ./configurations/xs_diff_cos_0p/xs_ch.txt ./configurations/xs_ch.txt");
+	system("cp ./configurations/xs_diff_cos_0p/xs_real_bin.txt ./configurations/xs_real_bin.txt");
+}elsif ($num1 == 32){
+	system("cp ./configurations/xs_diff_cos_Np/cov_input.txt ./configurations/cov_input.txt");
+	system("cp ./configurations/xs_diff_cos_Np/xs_ch.txt ./configurations/xs_ch.txt");
+	system("cp ./configurations/xs_diff_cos_Np/xs_real_bin.txt ./configurations/xs_real_bin.txt");
 }elsif ($num1 == 4){
 	system("cp ./configurations/xs_diff_mom_Xp/cov_input.txt ./configurations/cov_input.txt");
 	system("cp ./configurations/xs_diff_mom_Xp/xs_ch.txt ./configurations/xs_ch.txt");
 	system("cp ./configurations/xs_diff_mom_Xp/xs_real_bin.txt ./configurations/xs_real_bin.txt");
+}elsif ($num1 == 40){
+	system("cp ./configurations/xs_diff_mom_Xp_FCPC/cov_input.txt ./configurations/cov_input.txt");
+	system("cp ./configurations/xs_diff_mom_Xp_FCPC/xs_ch.txt ./configurations/xs_ch.txt");
+	system("cp ./configurations/xs_diff_mom_Xp_FCPC/xs_real_bin.txt ./configurations/xs_real_bin.txt");
 }elsif ($num1 == 5){
 	system("cp ./configurations/xs_diff_mom_0pNp/cov_input.txt ./configurations/cov_input.txt");
 	system("cp ./configurations/xs_diff_mom_0pNp/xs_ch.txt ./configurations/xs_ch.txt");
 	system("cp ./configurations/xs_diff_mom_0pNp/xs_real_bin.txt ./configurations/xs_real_bin.txt");
+}elsif ($num1 == 50){
+	system("cp ./configurations/xs_diff_mom_0pNp_FCPC/cov_input.txt ./configurations/cov_input.txt");
+	system("cp ./configurations/xs_diff_mom_0pNp_FCPC/xs_ch.txt ./configurations/xs_ch.txt");
+	system("cp ./configurations/xs_diff_mom_0pNp_FCPC/xs_real_bin.txt ./configurations/xs_real_bin.txt");
+}elsif ($num1 == 51){
+	system("cp ./configurations/xs_diff_mom_0p/cov_input.txt ./configurations/cov_input.txt");
+	system("cp ./configurations/xs_diff_mom_0p/xs_ch.txt ./configurations/xs_ch.txt");
+	system("cp ./configurations/xs_diff_mom_0p/xs_real_bin.txt ./configurations/xs_real_bin.txt");
+}elsif ($num1 == 52){
+	system("cp ./configurations/xs_diff_mom_Np/cov_input.txt ./configurations/cov_input.txt");
+	system("cp ./configurations/xs_diff_mom_Np/xs_ch.txt ./configurations/xs_ch.txt");
+	system("cp ./configurations/xs_diff_mom_Np/xs_real_bin.txt ./configurations/xs_real_bin.txt");
 }elsif ($num1 == 6){
 	system("cp ./configurations/xs_2D_Xp/cov_input.txt ./configurations/cov_input.txt");
 	system("cp ./configurations/xs_2D_Xp/xs_ch.txt ./configurations/xs_ch.txt");
 	system("cp ./configurations/xs_2D_Xp/xs_real_bin.txt ./configurations/xs_real_bin.txt");
+}elsif ($num1 == 60){
+	system("cp ./configurations/xs_2D_Xp_FCPC/cov_input.txt ./configurations/cov_input.txt");
+	system("cp ./configurations/xs_2D_Xp_FCPC/xs_ch.txt ./configurations/xs_ch.txt");
+	system("cp ./configurations/xs_2D_Xp_FCPC/xs_real_bin.txt ./configurations/xs_real_bin.txt");
 }
 
 #central histogram preparation ...// Xs mode ...

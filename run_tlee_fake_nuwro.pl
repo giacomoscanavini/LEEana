@@ -43,6 +43,8 @@ if ($num1 == 0){
 	system("cp ./configurations/tlee_mom_fake_nuwro_ccpi0/cov_input.txt ./configurations/cov_input.txt");
 }elsif ($num1 == 2){
 	system("cp ./configurations/tlee_prot_fake_nuwro/cov_input.txt ./configurations/cov_input.txt");
+}elsif ($num1 == 3){
+	system("cp ./configurations/tlee_ccpio_mom/cov_input.txt ./configurations/cov_input.txt");
 }
 
 #central histogram preparation 

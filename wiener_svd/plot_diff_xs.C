@@ -22,6 +22,7 @@ void plot_diff_xs(int RW=1, double XS_FACTOR=100., double NUCLEONS=1., int zerop
 
   // zeropNp == 0: Xp
   // zeropNp == 1: 0p followed by Np
+  // zeropNp == 2: 2D 
 
   XS_FACTOR = XS_FACTOR/NUCLEONS;  // Set NUCLEONS to 40 if you want to normalize per nucleon instead of per atom 
   
@@ -560,6 +561,88 @@ void plot_diff_xs(int RW=1, double XS_FACTOR=100., double NUCLEONS=1., int zerop
     std::cout << "chi2_ch1 = '" << chi2_ch1 << "'" << std::endl;  myfile3 << "chi2_ch1 = '" << chi2_ch1 << "'" << std::endl;
     std::cout << "chi2_ch2 = '" << chi2_ch2 << "'" << std::endl;  myfile3 << "chi2_ch2 = '" << chi2_ch2 << "'" << std::endl;
     std::cout << "chi2 = [chi2_ch1,chi2_ch2]" << std::endl;       myfile3 << "chi2 = [chi2_ch1,chi2_ch2]" << std::endl;
+  }
+  if (zeropNp==2){
+    // GOF (model+real bin+Ac vs. data)
+    int quart_bins = nbins/4;
+    TMatrixD matrix_data_ch0(1,quart_bins);
+    TMatrixD matrix_pred3_ch0(1,quart_bins);
+    TMatrixD unfcov_ch0(quart_bins, quart_bins); // fill cov matrix
+    for(int i=0; i<quart_bins; i++){
+      matrix_data_ch0(0,i) = y_v.at(i); // BNB
+      matrix_pred3_ch0(0,i) = y3[i];    // CV GENIE
+    }
+    for (int i=0; i<quart_bins; i++) {
+      for (int j=0; j<quart_bins; j++) {
+        unfcov_ch0(i,j) = cov->GetBinContent(i+1, j+1) *XS_FACTOR*XS_FACTOR;
+        // use Ac-I diagnal term as additional uncer.
+        if (i==j) {
+          // unfcov(i,i) += ( Ac_add(i) * Ac_add(i) );
+          // cout << "cov diagonal # " << i << " " <<  sqrt(cov->GetBinContent(i+1, i+1)) << " bias: " << Ac_add(i) << endl;
+        }
+      }
+    }
+    TMatrixD matrix_data_ch1(1,quart_bins);
+    TMatrixD matrix_pred3_ch1(1,quart_bins);
+    TMatrixD unfcov_ch1(quart_bins, quart_bins); // fill cov matrix
+    for(int i=quart_bins; i<2*quart_bins; i++){
+      matrix_data_ch1(0,i-quart_bins) = y_v.at(i); // BNB
+      matrix_pred3_ch1(0,i-quart_bins) = y3[i];    // CV GENIE
+    }
+    for (int i=quart_bins; i<2*quart_bins; i++) {
+      for (int j=quart_bins; j<2*quart_bins; j++) {
+        unfcov_ch1(i-quart_bins,j-quart_bins) = cov->GetBinContent(i+1, j+1) *XS_FACTOR*XS_FACTOR;
+        // use Ac-I diagnal term as additional uncer.
+        if (i==j) {
+          // unfcov(i,i) += ( Ac_add(i) * Ac_add(i) );
+          // cout << "cov diagonal # " << i << " " <<  sqrt(cov->GetBinContent(i+1, i+1)) << " bias: " << Ac_add(i) << endl;
+        }
+      }
+    }
+    TMatrixD matrix_data_ch2(1,quart_bins);
+    TMatrixD matrix_pred3_ch2(1,quart_bins);
+    TMatrixD unfcov_ch2(quart_bins, quart_bins); // fill cov matrix
+    for(int i=2*quart_bins; i<3*quart_bins; i++){
+      matrix_data_ch2(0,i-2*quart_bins) = y_v.at(i); // BNB
+      matrix_pred3_ch2(0,i-2*quart_bins) = y3[i];    // CV GENIE
+    }
+    for (int i=2*quart_bins; i<3*quart_bins; i++) {
+      for (int j=2*quart_bins; j<3*quart_bins; j++) {
+        unfcov_ch2(i-2*quart_bins,j-2*quart_bins) = cov->GetBinContent(i+1, j+1) *XS_FACTOR*XS_FACTOR;
+        // use Ac-I diagnal term as additional uncer.
+        if (i==j) {
+          // unfcov(i,i) += ( Ac_add(i) * Ac_add(i) );
+          // cout << "cov diagonal # " << i << " " <<  sqrt(cov->GetBinContent(i+1, i+1)) << " bias: " << Ac_add(i) << endl;
+        }
+      }
+    }
+    TMatrixD matrix_data_ch3(1,quart_bins);
+    TMatrixD matrix_pred3_ch3(1,quart_bins);
+    TMatrixD unfcov_ch3(quart_bins, quart_bins); // fill cov matrix
+    for(int i=3*quart_bins; i<nbins; i++){
+      matrix_data_ch3(0,i-3*quart_bins) = y_v.at(i); // BNB
+      matrix_pred3_ch3(0,i-3*quart_bins) = y3[i];    // CV GENIE
+    }
+    for (int i=3*quart_bins; i<nbins; i++) {
+      for (int j=3*quart_bins; j<nbins; j++) {
+        unfcov_ch3(i-3*quart_bins,j-3*quart_bins) = cov->GetBinContent(i+1, j+1) *XS_FACTOR*XS_FACTOR;
+        // use Ac-I diagnal term as additional uncer.
+        if (i==j) {
+          // unfcov(i,i) += ( Ac_add(i) * Ac_add(i) );
+          // cout << "cov diagonal # " << i << " " <<  sqrt(cov->GetBinContent(i+1, i+1)) << " bias: " << Ac_add(i) << endl;
+        }
+      }
+    }
+    double chi2_ch0 = calc_GoF(matrix_pred3_ch0, matrix_data_ch0, unfcov_ch0);
+    double chi2_ch1 = calc_GoF(matrix_pred3_ch1, matrix_data_ch1, unfcov_ch1);
+    double chi2_ch2 = calc_GoF(matrix_pred3_ch2, matrix_data_ch2, unfcov_ch2);
+    double chi2_ch3 = calc_GoF(matrix_pred3_ch3, matrix_data_ch3, unfcov_ch3);
+
+    std::cout << "chi2_ch0 = '" << chi2_ch0 << "'" << std::endl;                    myfile3 << "chi2_ch0 = '" << chi2_ch0 << "'" << std::endl;
+    std::cout << "chi2_ch1 = '" << chi2_ch1 << "'" << std::endl;                    myfile3 << "chi2_ch1 = '" << chi2_ch1 << "'" << std::endl;
+    std::cout << "chi2_ch2 = '" << chi2_ch2 << "'" << std::endl;                    myfile3 << "chi2_ch2 = '" << chi2_ch2 << "'" << std::endl;
+    std::cout << "chi2_ch3 = '" << chi2_ch3 << "'" << std::endl;                    myfile3 << "chi2_ch3 = '" << chi2_ch3 << "'" << std::endl;
+    std::cout << "chi2 = [chi2_ch0,chi2_ch1,chi2_ch2,chi2_ch3]" << std::endl;       myfile3 << "chi2 = [chi2_ch0,chi2_ch1,chi2_ch2,chi2_ch3]" << std::endl;
   }
 
   myfile3.close();

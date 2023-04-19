@@ -1,0 +1,87 @@
+NCpi0BDT_bnb							nc_transferred_energy	15 		0 		1500 		1		0			0		0			0			0			5		unity		0
+NCpi0BDT_overlay						nc_transferred_energy	15 		0 		1500 		1		1			1		0			0			1			2		cv_spline	0
+NCpi0BDT_ncpi0							nc_transferred_energy	15 		0 		1500 		1		1			1		0			0			1			6		cv_spline	0
+NCpi0BDT_dirt							nc_transferred_energy	15 		0 		1500 		1		1			0		0.5			0			1			4		cv_spline	0
+NCpi0BDT_ext							nc_transferred_energy	15 		0 		1500 		1		0			0		0			0			7			3		unity		0
+
+NCpi0BDT_0p_bnb							nc_transferred_energy	15 		0 		1500 		2		0			0		0			0			0			5		unity		0
+NCpi0BDT_0p_overlay						nc_transferred_energy	15 		0 		1500 		2		1			1		0			0			2			2		cv_spline	0
+NCpi0BDT_0p_ncpi0						nc_transferred_energy	15 		0 		1500 		2		1			1		0			0			2			6		cv_spline	0
+NCpi0BDT_0p_dirt						nc_transferred_energy	15 		0 		1500 		2		1			0		0.5			0			2			4		cv_spline	0
+NCpi0BDT_0p_ext							nc_transferred_energy	15 		0 		1500 		2		0			0		0			0			8			3		unity		0
+
+NCpi0BDT_Np_bnb							nc_transferred_energy	15 		0 		1500 		3		0			0		0			0			0			5		unity		0
+NCpi0BDT_Np_overlay						nc_transferred_energy	15 		0 		1500 		3		1			1		0			0			3			2		cv_spline	0
+NCpi0BDT_Np_ncpi0						nc_transferred_energy	15 		0 		1500 		3		1			1		0			0			3			6		cv_spline	0
+NCpi0BDT_Np_dirt						nc_transferred_energy	15 		0 		1500 		3		1			0		0.5			0			3			4		cv_spline	0
+NCpi0BDT_Np_ext							nc_transferred_energy	15 		0 		1500 		3		0			0		0			0			9			3		unity		0
+
+numuCC_bnb								nc_transferred_energy	15 		0 		1500 		4		0			0		0			0			0			5		unity		0
+numuCC_overlay							nc_transferred_energy	15 		0 		1500 		4		1			1		0			0			4			2		cv_spline	0
+numuCC_ncpi0							nc_transferred_energy	15 		0 		1500 		4		1			1		0			0			4			6		cv_spline	0
+numuCC_dirt								nc_transferred_energy	15 		0 		1500 		4		1			0		0.5			0			4			4		cv_spline	0
+numuCC_ext								nc_transferred_energy	15 		0 		1500 		4		0			0		0			0			10			3		unity		0
+
+numuCC_0p_bnb							nc_transferred_energy	15 		0 		1500 		5		0			0		0			0			0			5		unity		0
+numuCC_0p_overlay						nc_transferred_energy	15 		0 		1500 		5		1			1		0			0			5			2		cv_spline	0
+numuCC_0p_ncpi0							nc_transferred_energy	15 		0 		1500 		5		1			1		0			0			5			6		cv_spline	0
+numuCC_0p_dirt							nc_transferred_energy	15 		0 		1500 		5		1			0		0.5			0			5			4		cv_spline	0
+numuCC_0p_ext							nc_transferred_energy	15 		0 		1500 		5		0			0		0			0			11			3		unity		0
+
+numuCC_Np_bnb							nc_transferred_energy	15 		0 		1500 		6		0			0		0			0			0			5		unity		0
+numuCC_Np_overlay						nc_transferred_energy	15 		0 		1500 		6		1			1		0			0			6			2		cv_spline	0
+numuCC_Np_ncpi0							nc_transferred_energy	15 		0 		1500 		6		1			1		0			0			6			6		cv_spline	0
+numuCC_Np_dirt							nc_transferred_energy	15 		0 		1500 		6		1			0		0.5			0			6			4		cv_spline	0
+numuCC_Np_ext							nc_transferred_energy	15 		0 		1500 		6		0			0		0			0			12			3		unity		0
+
+End										End						-1		-1		-1			-1		-1			-1		-1			-1			-1			-1		end			-1
+Name:									#Var:					#bin	#start	#end		#obs	#xs_flux	#det	#add_sys	#same_mc	#cov_sec	#file	#weight		#lee_strength
+
+numuCC
+CCpi0
+NCpi0BDT
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+numuCC / CCpi0
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+cc_transferred_energy	25 		0 		1800
+Emuon					25 		0 		1500
+muon_momentum			25 		0 		1500
+muon_costheta			25 		-1 		1
+cc_nu_energy			25 		0 		1875
+
+pi0_momentum			25 		0 		1500
+pi0_costheta			25 		-1 		1
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+NCpi0
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+nc_transferred_energy	25 		0 		1800
+pi0_momentum			25		0		1500
+pi0_costheta 			25 		-1 		1
+pi0_phi					25	  	-3.15	3.15
+reco_nuvtxX				26		0		260
+reco_nuvtxY				26		-130	130
+reco_nuvtxZ				32		0		1100
+visible_energy			12 	 	0		1000
+kine_pio_energy_high	20		0		600 // old bins
+kine_pio_energy_high	40		0		600 // new bins
+kine_pio_energy_low		15		0		450 // old bins
+kine_pio_energy_low		20		0		300 // new bins
+kine_pio_gap_high		20		0		50
+kine_pio_gap_low		20		0		50
+kine_pio_theta_high		25		0 		3.15 
+kine_pio_theta_low		25		0 		3.15
+kine_pio_phi_high		25		-3.15	3.15
+kine_pio_phi_low		25		-3.15	3.15
+p_multi					5 		0 		5
+pi0_mass				34		0		400
+pi0_mass_gamma			34 		0 		400
+
+
+nc_pio_score			60		-10		6    // generic
+nc_pio_score			18		1.5		6    // nc pi0
+pi0_costheta_CM			25 		0 		1
+nonpi0_energy 			15 		-100 	1400
+
+
+

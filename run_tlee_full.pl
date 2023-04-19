@@ -37,6 +37,10 @@ if ($num1 == 0){
 	system("cp ./configurations/tlee_mom/cov_input.txt ./configurations/cov_input.txt");
 }elsif ($num1 == 1){
 	system("cp ./configurations/tlee_cos/cov_input.txt ./configurations/cov_input.txt");
+}elsif ($num1 == 1110){
+	system("cp ./configurations/tlee_mom_4ch_only/cov_input.txt ./configurations/cov_input.txt");
+}elsif ($num1 == 1111){
+	system("cp ./configurations/tlee_cos_4ch_only/cov_input.txt ./configurations/cov_input.txt");
 }elsif ($num1 == 2){
 	system("cp ./configurations/tlee_pi0_mass/cov_input.txt ./configurations/cov_input.txt");
 }elsif ($num1 == 31){
@@ -69,6 +73,8 @@ if ($num1 == 0){
 	system("cp ./configurations/tlee_ncpi0_score/cov_input.txt ./configurations/cov_input.txt");
 }elsif ($num1 == 15){
 	system("cp ./configurations/tlee_transferred/cov_input.txt ./configurations/cov_input.txt");	
+}elsif ($num1 == 151){
+	system("cp ./configurations/tlee_constraint/cov_input.txt ./configurations/cov_input.txt");
 }elsif ($num1 == 16){
 	system("cp ./configurations/tlee_p_multi/cov_input.txt ./configurations/cov_input.txt");
 }elsif ($num1 == 17){

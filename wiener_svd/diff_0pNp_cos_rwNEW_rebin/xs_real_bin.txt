@@ -1,0 +1,169 @@
+1 		3241 		NCpi0BDT.0p.inside.CosThetapi0.le.0500.gt.1000 	256340			0.022 		0.011
+2 		3241 		NCpi0BDT.0p.inside.CosThetapi0.le.0200.gt.0500 	153804			0.022 		0.011
+3 		3241 		NCpi0BDT.0p.inside.CosThetapi0.le.0100.gt.0200 	153804			0.022 		0.011
+4 		3241 		NCpi0BDT.0p.inside.CosThetapi0.le.0400.gt.0100 	153804			0.022 		0.011
+5 		3241 		NCpi0BDT.0p.inside.CosThetapi0.le.0650.gt.0400 	128170			0.022 		0.011
+6 		3241 		NCpi0BDT.0p.inside.CosThetapi0.le.0750.gt.0650 	51268 			0.022 		0.011
+7 		3241 		NCpi0BDT.0p.inside.CosThetapi0.le.0850.gt.0750 	51268 			0.022 		0.011
+8 		3241 		NCpi0BDT.0p.inside.CosThetapi0.le.0950.gt.0850 	51268			0.022 		0.011
+9 		3241 		NCpi0BDT.0p.inside.CosThetapi0.le.1000.gt.0950 	25634			0.022 		0.011
+10 		3241 		NCpi0BDT.Np.inside.CosThetapi0.le.0500.gt.1000 	256340			0.022 		0.011
+11 		3241 		NCpi0BDT.Np.inside.CosThetapi0.le.0200.gt.0500 	153804			0.022 		0.011
+12 		3241 		NCpi0BDT.Np.inside.CosThetapi0.le.0100.gt.0200 	153804			0.022 		0.011
+13 		3241 		NCpi0BDT.Np.inside.CosThetapi0.le.0400.gt.0100 	153804			0.022 		0.011
+14 		3241 		NCpi0BDT.Np.inside.CosThetapi0.le.0650.gt.0400 	128170			0.022 		0.011
+15 		3241 		NCpi0BDT.Np.inside.CosThetapi0.le.0750.gt.0650 	51268 			0.022 		0.011
+16 		3241 		NCpi0BDT.Np.inside.CosThetapi0.le.0850.gt.0750 	51268 			0.022 		0.011
+17 		3241 		NCpi0BDT.Np.inside.CosThetapi0.le.0950.gt.0850 	51268			0.022 		0.011
+18 		3241 		NCpi0BDT.Np.inside.CosThetapi0.le.1000.gt.0950 	25634			0.022 		0.011
+
+
+-1		-1			End												-1				-1			-1
+#bin	#cut_file  	#cut											#const			#pot_err	#target_err
+
+
+MiniBooNE bins for numu
+
+1 		321 		NCpi0BDT.inside.CosThetapi0.le.0620.gt.1000 	194819 			0.022 		0.011
+2 		321 		NCpi0BDT.inside.CosThetapi0.le.0130.gt.0620 	251213 			0.022 		0.011
+3 		321 		NCpi0BDT.inside.CosThetapi0.le.0200.gt.0130 	169185 			0.022 		0.011
+4 		321 		NCpi0BDT.inside.CosThetapi0.le.0470.gt.0200 	138424 			0.022 		0.011
+5 		321 		NCpi0BDT.inside.CosThetapi0.le.0670.gt.0470 	102536 			0.022 		0.011
+6 		321 		NCpi0BDT.inside.CosThetapi0.le.0830.gt.0670 	82028.9 		0.022 		0.011
+7 		321 		NCpi0BDT.inside.CosThetapi0.le.0950.gt.0830 	61521.6 		0.022 		0.011
+8 		321 		NCpi0BDT.inside.CosThetapi0.le.1000.gt.0950 	25634 			0.022 		0.011 
+
+1 		322			NCpi0BDT.0p.inside.CosThetapi0.le.0620.gt.1000 	194819 			0.022 		0.011
+2 		322			NCpi0BDT.0p.inside.CosThetapi0.le.0130.gt.0620 	251213 			0.022 		0.011
+3 		322			NCpi0BDT.0p.inside.CosThetapi0.le.0200.gt.0130 	169185 			0.022 		0.011
+4 		322			NCpi0BDT.0p.inside.CosThetapi0.le.0470.gt.0200 	138424 			0.022 		0.011
+5 		322			NCpi0BDT.0p.inside.CosThetapi0.le.0670.gt.0470 	102536 			0.022 		0.011
+6 		322			NCpi0BDT.0p.inside.CosThetapi0.le.0830.gt.0670 	82028.9 		0.022 		0.011
+7 		322			NCpi0BDT.0p.inside.CosThetapi0.le.0950.gt.0830 	61521.6 		0.022 		0.011
+8 		322			NCpi0BDT.0p.inside.CosThetapi0.le.1000.gt.0950 	25634 			0.022 		0.011 
+9 		322			NCpi0BDT.Np.inside.CosThetapi0.le.0620.gt.1000 	194819 			0.022 		0.011
+10 		322 		NCpi0BDT.Np.inside.CosThetapi0.le.0130.gt.0620 	251213 			0.022 		0.011
+11 		322 		NCpi0BDT.Np.inside.CosThetapi0.le.0200.gt.0130 	169185 			0.022 		0.011
+12 		322 		NCpi0BDT.Np.inside.CosThetapi0.le.0470.gt.0200 	138424 			0.022 		0.011
+13 		322 		NCpi0BDT.Np.inside.CosThetapi0.le.0670.gt.0470 	102536 			0.022 		0.011
+14 		322 		NCpi0BDT.Np.inside.CosThetapi0.le.0830.gt.0670 	82028.9 		0.022 		0.011
+15 		322 		NCpi0BDT.Np.inside.CosThetapi0.le.0950.gt.0830 	61521.6 		0.022 		0.011
+16 		322 		NCpi0BDT.Np.inside.CosThetapi0.le.1000.gt.0950 	25634 			0.022 		0.011 
+
+MiniBooNE bins for anti-numu
+
+1 		323 		NCpi0BDT.inside.CosThetapi0.le.0600.gt.1000 	205072			0.022 		0.011
+2 		323 		NCpi0BDT.inside.CosThetapi0.le.0220.gt.0600 	194819			0.022 		0.011
+3 		323 		NCpi0BDT.inside.CosThetapi0.le.0120.gt.0220 	174311			0.022 		0.011
+4 		323 		NCpi0BDT.inside.CosThetapi0.le.0400.gt.0120 	143551			0.022 		0.011
+5 		323 		NCpi0BDT.inside.CosThetapi0.le.0600.gt.0400 	102536			0.022 		0.011
+6 		323 		NCpi0BDT.inside.CosThetapi0.le.0740.gt.0600 	71775.3 		0.022 		0.011
+7 		323 		NCpi0BDT.inside.CosThetapi0.le.0850.gt.0740 	56394.8 		0.022 		0.011
+8 		323 		NCpi0BDT.inside.CosThetapi0.le.0910.gt.0850 	30760.8			0.022 		0.011 
+9 		323 		NCpi0BDT.inside.CosThetapi0.le.0960.gt.0910 	25634			0.022 		0.011 
+10 		323 		NCpi0BDT.inside.CosThetapi0.le.1000.gt.0960 	20507.2			0.022 		0.011 
+
+1 		324 		NCpi0BDT.0p.inside.CosThetapi0.le.0600.gt.1000 	205072			0.022 		0.011
+2 		324 		NCpi0BDT.0p.inside.CosThetapi0.le.0220.gt.0600 	194819			0.022 		0.011
+3 		324 		NCpi0BDT.0p.inside.CosThetapi0.le.0120.gt.0220 	174311			0.022 		0.011
+4 		324 		NCpi0BDT.0p.inside.CosThetapi0.le.0400.gt.0120 	143551			0.022 		0.011
+5 		324 		NCpi0BDT.0p.inside.CosThetapi0.le.0600.gt.0400 	102536			0.022 		0.011
+6 		324 		NCpi0BDT.0p.inside.CosThetapi0.le.0740.gt.0600 	71775.3 		0.022 		0.011
+7 		324 		NCpi0BDT.0p.inside.CosThetapi0.le.0850.gt.0740 	56394.8 		0.022 		0.011
+8 		324 		NCpi0BDT.0p.inside.CosThetapi0.le.0910.gt.0850 	30760.8			0.022 		0.011 
+9 		324 		NCpi0BDT.0p.inside.CosThetapi0.le.0960.gt.0910 	25634			0.022 		0.011 
+10 		324 		NCpi0BDT.0p.inside.CosThetapi0.le.1000.gt.0960 	20507.2			0.022 		0.011 
+11 		324 		NCpi0BDT.Np.inside.CosThetapi0.le.0600.gt.1000 	205072			0.022 		0.011
+12 		324 		NCpi0BDT.Np.inside.CosThetapi0.le.0220.gt.0600 	194819			0.022 		0.011
+13 		324 		NCpi0BDT.Np.inside.CosThetapi0.le.0120.gt.0220 	174311			0.022 		0.011
+14 		324 		NCpi0BDT.Np.inside.CosThetapi0.le.0400.gt.0120 	143551			0.022 		0.011
+15 		324 		NCpi0BDT.Np.inside.CosThetapi0.le.0600.gt.0400 	102536			0.022 		0.011
+16 		324 		NCpi0BDT.Np.inside.CosThetapi0.le.0740.gt.0600 	71775.3 		0.022 		0.011
+17 		324 		NCpi0BDT.Np.inside.CosThetapi0.le.0850.gt.0740 	56394.8 		0.022 		0.011
+18 		324 		NCpi0BDT.Np.inside.CosThetapi0.le.0910.gt.0850 	30760.8			0.022 		0.011 
+19 		324 		NCpi0BDT.Np.inside.CosThetapi0.le.0960.gt.0910 	25634			0.022 		0.011 
+20 		324 		NCpi0BDT.Np.inside.CosThetapi0.le.1000.gt.0960 	20507.2			0.022 		0.011 
+
+########################## Open data set NCpi0 cross sections
+
+1 		32 			NCpi0BDT.inside.CosThetapi0.le.0620.gt.1000 	16294.5 		0.022 		0.011
+2 		32 			NCpi0BDT.inside.CosThetapi0.le.0340.gt.0620 	12006.5 		0.022 		0.011
+3 		32 			NCpi0BDT.inside.CosThetapi0.le.0130.gt.0340 	9004.87 		0.022 		0.011
+4 		32 			NCpi0BDT.inside.CosThetapi0.le.0060.gt.0130 	8147.26 		0.022 		0.011
+5 		32 			NCpi0BDT.inside.CosThetapi0.le.0200.gt.0060 	6003.25 		0.022 		0.011
+6 		32 			NCpi0BDT.inside.CosThetapi0.le.0320.gt.0200 	5145.64 		0.022 		0.011
+7 		32 			NCpi0BDT.inside.CosThetapi0.le.0420.gt.0320 	4288.03 		0.022 		0.011
+8 		32 			NCpi0BDT.inside.CosThetapi0.le.0520.gt.0420 	4288.03 		0.022 		0.011
+9 		32 			NCpi0BDT.inside.CosThetapi0.le.0600.gt.0520 	3430.43 		0.022 		0.011
+10 		32 			NCpi0BDT.inside.CosThetapi0.le.0670.gt.0600 	3001.62 		0.022 		0.011
+11 		32 			NCpi0BDT.inside.CosThetapi0.le.0730.gt.0670 	2572.82 		0.022 		0.011
+12		32 			NCpi0BDT.inside.CosThetapi0.le.0780.gt.0730 	2144.02 		0.022 		0.011
+13 		32 			NCpi0BDT.inside.CosThetapi0.le.0830.gt.0780 	2144.02 		0.022 		0.011
+14 		32 			NCpi0BDT.inside.CosThetapi0.le.0870.gt.0830 	1715.21 		0.022 		0.011
+15 		32 			NCpi0BDT.inside.CosThetapi0.le.0910.gt.0870 	1715.21 		0.022 		0.011
+16 		32 			NCpi0BDT.inside.CosThetapi0.le.0950.gt.0910 	1715.21 		0.022 		0.011
+17 		32 			NCpi0BDT.inside.CosThetapi0.le.0975.gt.0950 	1072.01 		0.022 		0.011
+18 		32 			NCpi0BDT.inside.CosThetapi0.le.1000.gt.0975 	1072.01 		0.022 		0.011
+
+1 		321 		NCpi0BDT.inside.CosThetapi0.le.0620.gt.1000		16294.5			0.022 		0.011
+2 		321 		NCpi0BDT.inside.CosThetapi0.le.0130.gt.0620		21011.4			0.022 		0.011
+3 		321 		NCpi0BDT.inside.CosThetapi0.le.0200.gt.0130		14150.5			0.022 		0.011
+4 		321 		NCpi0BDT.inside.CosThetapi0.le.0470.gt.0200		11577.7			0.022 		0.011
+5 		321 		NCpi0BDT.inside.CosThetapi0.le.0670.gt.0470		8576.07			0.022 		0.011
+6 		321 		NCpi0BDT.inside.CosThetapi0.le.0830.gt.0670		6860.85			0.022 		0.011
+7 		321 		NCpi0BDT.inside.CosThetapi0.le.0950.gt.0830		5145.64			0.022 		0.011
+8 		321 		NCpi0BDT.inside.CosThetapi0.le.1000.gt.0950		2144.02			0.022 		0.011 
+
+1 		322 		NCpi0BDT.0p.inside.CosThetapi0.le.0620.gt.1000 	16294.5			0.022		0.011
+2 		322 		NCpi0BDT.0p.inside.CosThetapi0.le.0340.gt.0620 	12006.5			0.022		0.011
+3 		322 		NCpi0BDT.0p.inside.CosThetapi0.le.0130.gt.0340 	9004.87			0.022		0.011
+4 		322 		NCpi0BDT.0p.inside.CosThetapi0.le.0060.gt.0130 	8147.26			0.022		0.011
+5 		322 		NCpi0BDT.0p.inside.CosThetapi0.le.0200.gt.0060 	6003.25			0.022		0.011
+6 		322 		NCpi0BDT.0p.inside.CosThetapi0.le.0320.gt.0200 	5145.64			0.022		0.011
+7 		322 		NCpi0BDT.0p.inside.CosThetapi0.le.0420.gt.0320 	4288.03			0.022		0.011
+8 		322 		NCpi0BDT.0p.inside.CosThetapi0.le.0520.gt.0420 	4288.03			0.022		0.011
+9 		322 		NCpi0BDT.0p.inside.CosThetapi0.le.0600.gt.0520 	3430.43			0.022		0.011
+10 		322 		NCpi0BDT.0p.inside.CosThetapi0.le.0670.gt.0600 	3001.62			0.022		0.011
+11 		322 		NCpi0BDT.0p.inside.CosThetapi0.le.0730.gt.0670 	2572.82			0.022		0.011
+12 		322 		NCpi0BDT.0p.inside.CosThetapi0.le.0780.gt.0730 	2144.02			0.022		0.011
+13 		322 		NCpi0BDT.0p.inside.CosThetapi0.le.0830.gt.0780 	2144.02			0.022		0.011
+14 		322 		NCpi0BDT.0p.inside.CosThetapi0.le.0870.gt.0830 	1715.21			0.022		0.011
+15 		322 		NCpi0BDT.0p.inside.CosThetapi0.le.0910.gt.0870 	1715.21			0.022		0.011
+16 		322 		NCpi0BDT.0p.inside.CosThetapi0.le.0950.gt.0910 	1715.21			0.022		0.011
+17 		322 		NCpi0BDT.0p.inside.CosThetapi0.le.0975.gt.0950 	1072.01			0.022		0.011
+18 		322 		NCpi0BDT.0p.inside.CosThetapi0.le.1000.gt.0975 	1072.01			0.022		0.011
+19 		322 		NCpi0BDT.Np.inside.CosThetapi0.le.0620.gt.1000 	16294.5			0.022		0.011
+20 		322 		NCpi0BDT.Np.inside.CosThetapi0.le.0340.gt.0620 	12006.5			0.022		0.011
+21 		322 		NCpi0BDT.Np.inside.CosThetapi0.le.0130.gt.0340 	9004.87			0.022		0.011
+22 		322 		NCpi0BDT.Np.inside.CosThetapi0.le.0060.gt.0130 	8147.26			0.022		0.011
+23 		322 		NCpi0BDT.Np.inside.CosThetapi0.le.0200.gt.0060 	6003.25			0.022		0.011
+24 		322 		NCpi0BDT.Np.inside.CosThetapi0.le.0320.gt.0200 	5145.64			0.022		0.011
+25 		322 		NCpi0BDT.Np.inside.CosThetapi0.le.0420.gt.0320 	4288.03			0.022		0.011
+26 		322 		NCpi0BDT.Np.inside.CosThetapi0.le.0520.gt.0420 	4288.03			0.022		0.011
+27 		322 		NCpi0BDT.Np.inside.CosThetapi0.le.0600.gt.0520 	3430.43			0.022		0.011
+28 		322 		NCpi0BDT.Np.inside.CosThetapi0.le.0670.gt.0600 	3001.62			0.022		0.011
+29 		322 		NCpi0BDT.Np.inside.CosThetapi0.le.0730.gt.0670 	2572.82			0.022		0.011
+30 		322 		NCpi0BDT.Np.inside.CosThetapi0.le.0780.gt.0730 	2144.02			0.022		0.011
+31 		322 		NCpi0BDT.Np.inside.CosThetapi0.le.0830.gt.0780 	2144.02			0.022		0.011
+32 		322 		NCpi0BDT.Np.inside.CosThetapi0.le.0870.gt.0830 	1715.21			0.022		0.011
+33 		322 		NCpi0BDT.Np.inside.CosThetapi0.le.0910.gt.0870 	1715.21			0.022		0.011
+34 		322 		NCpi0BDT.Np.inside.CosThetapi0.le.0950.gt.0910 	1715.21			0.022		0.011
+35 		322 		NCpi0BDT.Np.inside.CosThetapi0.le.0975.gt.0950 	1072.01			0.022		0.011
+36 		322 		NCpi0BDT.Np.inside.CosThetapi0.le.1000.gt.0975 	1072.01			0.022		0.011
+
+1 		323			NCpi0BDT.0p.inside.CosThetapi0.le.0620.gt.1000 	16294.5			0.022 		0.011
+2 		323			NCpi0BDT.0p.inside.CosThetapi0.le.0130.gt.0620 	21011.4			0.022 		0.011
+3 		323			NCpi0BDT.0p.inside.CosThetapi0.le.0200.gt.0130 	14150.5			0.022 		0.011
+4 		323			NCpi0BDT.0p.inside.CosThetapi0.le.0470.gt.0200 	11577.7			0.022 		0.011
+5 		323			NCpi0BDT.0p.inside.CosThetapi0.le.0670.gt.0470 	8576.07			0.022 		0.011
+6 		323			NCpi0BDT.0p.inside.CosThetapi0.le.0830.gt.0670 	6860.85			0.022 		0.011
+7 		323			NCpi0BDT.0p.inside.CosThetapi0.le.0950.gt.0830 	5145.64			0.022 		0.011
+8 		323			NCpi0BDT.0p.inside.CosThetapi0.le.1000.gt.0950 	2144.02			0.022 		0.011 
+9 		323			NCpi0BDT.Np.inside.CosThetapi0.le.0620.gt.1000 	16294.5			0.022 		0.011
+10 		323 		NCpi0BDT.Np.inside.CosThetapi0.le.0130.gt.0620	21011.4			0.022 		0.011
+11 		323 		NCpi0BDT.Np.inside.CosThetapi0.le.0200.gt.0130	14150.5			0.022 		0.011
+12 		323 		NCpi0BDT.Np.inside.CosThetapi0.le.0470.gt.0200 	11577.7			0.022 		0.011
+13 		323 		NCpi0BDT.Np.inside.CosThetapi0.le.0670.gt.0470	8576.07			0.022 		0.011
+14 		323 		NCpi0BDT.Np.inside.CosThetapi0.le.0830.gt.0670	6860.85			0.022 		0.011
+15 		323 		NCpi0BDT.Np.inside.CosThetapi0.le.0950.gt.0830 	5145.64			0.022 		0.011
+16 		323 		NCpi0BDT.Np.inside.CosThetapi0.le.1000.gt.0950 	2144.02			0.022 		0.011 
